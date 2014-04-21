@@ -1,4 +1,5 @@
 from django.conf.urls.defaults import *
+from www import main
 
 
 # Uncomment the next two lines to enable the admin:
