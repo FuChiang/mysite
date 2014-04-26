@@ -1,0 +1,64 @@
+
+html
+	+wh(100%, 100%)
+	position: $ab
+
+	body
+		margin: 0 auto
+		position: $re
+		+wh(100%, 100%)
+		+susy-grid-background
+		
+		.container
+			padding: 0
+			margin: 0 auto
+			overflow: hidden
+			+at-breakpoint($Sphone)
+				+transition(all 0.5s ease-in-out)
+				+container
+			+at-breakpoint($Bphone)
+				+transition(all 0.5s ease-in-out)
+				+container
+			+at-breakpoint($Spad)
+				+transition(all 0.5s ease-in-out)
+				+container
+			+at-breakpoint($Bpad)
+				+transition(all 0.5s ease-in-out)
+				+container
+			+at-breakpoint($pc)
+				+transition(all 0.5s ease-in-out)
+				+container 
+
+			.full-mask
+				background-color: #141414
+				+opacity(0.5)
+				@extend .str-to-img
+				position: $ab
+				z-index: 998
+
+			.main-back-img
+				position: $ab
+				z-index: 1
+				background-size: cover
+				background-position: 50% 50%
+				@extend .str-to-img
+				+animate(fadeIn, 1s, 0s)
+				
+
+			.full-mask, .main-back-img
+				height: 100%
+				+set-container-width
+				+at-breakpoint($Sphone)
+					+span-columns(3) 
+				+at-breakpoint($Bphone)
+					+span-columns(6)
+				+at-breakpoint($Spad)
+					+span-columns(9) 
+				+at-breakpoint($Bpad)
+					+span-columns(12)
+				+at-breakpoint($pc)
+					+span-columns(15) 
+
+				
+
+

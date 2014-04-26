@@ -1,12 +1,20 @@
 
 {% extends "base.html" %}
 
-{% block title %}This is view page{% endblock %}
+{% block title %}Irecord 愛紀錄- 紀錄與分享生活的點點滴滴{% endblock %}
 
 {% block content %} 
-	{% for member in result %}
-		My name is {{ member.1 }}<br>
-	{% endfor %}
-	Login name is {{ request.session.member }}
+	<div class="main-back-img">main background images</div>
 {% endblock %}
+
+{% block loadjs %}
+<script>
+	 $jq(window).load(function(){
+		{{load}}();
+	});
+</script>
+{% endblock %}
+
+
+
 

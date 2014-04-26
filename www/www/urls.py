@@ -1,5 +1,4 @@
-from django.conf.urls.defaults import *
-from www import main
+from django.conf.urls.defaults import patterns, url
 
 
 # Uncomment the next two lines to enable the admin:
@@ -7,6 +6,6 @@ from www import main
 # admin.autodiscover()
 
 urlpatterns = patterns('',
-	#(r'^$', main.views),
-	#(r'^member/(\w+)$', views.member),
+	url(r'^$', 'main.views.index'),
+	#url(r'^polls/', include('polls.urls')),
 )

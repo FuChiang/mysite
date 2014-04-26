@@ -1,0 +1,25 @@
+
+//image load
+@mixin bg($img, $path:" ", $repeat:no-repeat)
+	@if $path != " "
+		$img: #{$path}/#{$img}
+
+	background: image-url($img)
+	background-repeat: $repeat
+
+//image width and height
+@mixin img-size($img)
+	max-width: image-width($img)
+	max-height: image-height($img)
+
+//layout width and height
+@mixin wh($w, $h)
+	width: $w
+	height: $h
+
+//layout max width and height
+@mixin m-wh($w, $h)
+	max-width: $w
+	height: $h
+
+	
