@@ -1,64 +1,129 @@
 
 html
 	+wh(100%, 100%)
-	position: $ab
+	+ft($ab)
 
 	body
 		margin: 0 auto
-		position: $re
+		+ft($re)
 		+wh(100%, 100%)
 		+susy-grid-background
 		
+		.hide-title
+			display: none
+
 		.container
-			padding: 0
-			margin: 0 auto
-			overflow: hidden
-			+at-breakpoint($Sphone)
-				+transition(all 0.5s ease-in-out)
+			height: 100%
+			+at-breakpoint($phone)
 				+container
-			+at-breakpoint($Bphone)
-				+transition(all 0.5s ease-in-out)
+				+span-columns(9)
+			+at-breakpoint($pad)
 				+container
-			+at-breakpoint($Spad)
-				+transition(all 0.5s ease-in-out)
-				+container
-			+at-breakpoint($Bpad)
-				+transition(all 0.5s ease-in-out)
-				+container
+				+span-columns(12)
 			+at-breakpoint($pc)
-				+transition(all 0.5s ease-in-out)
-				+container 
+				+container
+				+span-columns(15)
 
-			.full-mask
+			.fullscreen-mask
 				background-color: #141414
-				+opacity(0.5)
+				+opacity(0.3)
+				@include transition(opacity 1s)
 				@extend .str-to-img
-				position: $ab
-				z-index: 998
+				+ft($ab, 998)
+				+wh(100%, 100%)
 
-			.main-back-img
-				position: $ab
-				z-index: 1
-				background-size: cover
-				background-position: 50% 50%
+			.fullscreen-main
+				+ft($ab, 1)
+				+wh(100%, 100%)
+				+animate(fadeIn)
 				@extend .str-to-img
-				+animate(fadeIn, 1s, 0s)
-				
-
-			.full-mask, .main-back-img
-				height: 100%
-				+set-container-width
-				+at-breakpoint($Sphone)
-					+span-columns(3) 
-				+at-breakpoint($Bphone)
-					+span-columns(6)
-				+at-breakpoint($Spad)
-					+span-columns(9) 
-				+at-breakpoint($Bpad)
-					+span-columns(12)
+				@include transition(all 1s)
+				+bg('mainbg_phone.jpg', 'background')
+				+at-breakpoint($phone)
+								
+				+at-breakpoint($pad)
+					+bg('mainbg_pad.jpg', 'background')
 				+at-breakpoint($pc)
-					+span-columns(15) 
+					+bg('mainbg_pc.jpg', 'background')
+			.search-block
+				+ft($re, 999)
+				top: 4em
+				float: right
+				right: 1.5em
+				input
+					@include transition(opacity 1s)
+					+opacity(0.3)
+					&:focus, &:active
+						@include transition(opacity 1s)
+						+opacity(1)
+				+at-breakpoint($phone)
+					+container
+					@include transition(margin-right 1s)
+					margin-right: 0.3em
+				+at-breakpoint($pad)
+					+container
+				+at-breakpoint($pc)
+					+container
 
-				
+			.main-intro-block
+				+ft($ab, 999)
+				+animate(bounceIn, 3s, 1s)
+				top: 35%
+				/*border: 1px solid red*/
+				.pencil
+					@include skewY(5deg)
+				+at-breakpoint($phone)
+					+container
+					+span-columns(9)
+					+isolate(1)
+					text-align: center
+					h1
+						@include transition(font-size 1s)
+						color: $sw
+						+font(2.5em, bold)		
+				+at-breakpoint($pad)
+					+container
+					+span-columns(12)
+					+isolate(1)
+					text-align: center
+					h1
+						@include transition(font-size 1s)
+						font-size: 3.5em
+				+at-breakpoint($pc)
+					+container
+					+span-columns(15)
+					text-align: center
+					h1
+						@include transition(font-size 1s)
+						font-size: 4em
+				.main-intro-menu
+					margin-top: 3em
+					+at-breakpoint($phone)
+						.button
+							@include transition(all 0.5s)
+							width: 100%
+							margin-top: 0.7em
+						.or
+							display: none
+					+at-breakpoint($pad)
+						.button
+							@include transition(all 0.5s)
+							width: auto
+							margin-top: 0em
+						.or
+							display: inline
+				p
+					margin-top: 2em 
+					color: $sw
+					+font(1.4em, bold, italic)
+					@include skewY(5deg)
 
 
+
+
+					
+
+
+										
+
+						

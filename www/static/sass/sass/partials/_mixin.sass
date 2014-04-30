@@ -7,10 +7,11 @@
 	background: image-url($img)
 	background-repeat: $repeat
 
-//image width and height
-@mixin img-size($img)
-	max-width: image-width($img)
-	max-height: image-height($img)
+//html tag position and level set
+@mixin ft($position, $level:" ")
+	@if $level != " "
+		z-index: $level
+	position: $position
 
 //layout width and height
 @mixin wh($w, $h)
@@ -20,6 +21,16 @@
 //layout max width and height
 @mixin m-wh($w, $h)
 	max-width: $w
-	height: $h
+	max-height: $h
+
+//font set
+@mixin font($size:1em, $weight:normal, $style:" ")
+	font-size: $size
+	font-weight: $weight
+	@if $style != " "
+		font-style: $style
+
+
+
 
 	
