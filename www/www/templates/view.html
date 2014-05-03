@@ -4,30 +4,86 @@
 {% block title %}爪爪窩 分享與紀錄寵物的俏皮模樣{% endblock %}
 
 {% block content %} 
+<div ng-controller="main-index-block">
 	<div class="ui icon input  search-block" >
 	  	<input type="text" placeholder="搜尋有興趣的寵物..." >
-	  	<i class="search icon"></i>
+	  	<i class="search icon" title="搜尋"></i>
 	</div>
-
-	<div class="main-intro-block">
+	<div class="main-intro-block" >
 		<section>
-			<header><h1>爪爪窩 ...<i class="pencil icon"></i></h1></header>
-			<p>分享與紀錄寵物的俏皮模樣</p>
-			<div class="ui huge buttons main-intro-menu">
-			 	<div class="ui orange  button"><i class="add icon"></i>飼主申請</div>
+			<header><h1>爪爪窩<span class="main-paw">paw</span></h1></header>
+			<p>分享&保存寵物的俏皮模樣 <i class="ui edit icon">...</i></p>
+			<div class="ui huge buttons main-intro-menu" >
+			 	<button class="ui red  button add-button" ng-add-shows="addPush" ng-click="pushAddToggle()"><i class="add sign icon"></i>飼主申請</button>
 			 	<span class="or"></span>
-			 	<div class="ui green button"><i class="signup icon"></i>飼主登入</div>
+			 	<button class="ui blue button login-button" ng-login-shows="loginPush" ng-click="pushLoginToggle()"><i class="sign in icon"></i>飼主登入</button>
 			</div>
 		</section>
 	</div>
 
+	<div class="main-sign-in-block" >
+		<section>
+			<header><h3><i class="sign in icon"></i>飼主登入<i class="remove icon" title="關閉"></i></h3></header>
+
+		</section>
+	</div>
+
+	<div class="main-add-in-block" >
+		<section>
+			<header><h3><i class="add sign icon" ></i>飼主申請<i class="remove icon" title="關閉" ng-click="resetAddForm()" ng-model="checked"></i></h3></header>
+			<form name="addFrom" class="ui form segment">
+				  <div class="ui warning message">
+				    <div class="header">Could you check something!</div>
+				    <ul class="list">
+				      <li>You forgot your <b>first name</b></li>
+				      <li>And also your <b>last name</b></li>
+				    </ul>
+				  </div>
+				  <div class="field">
+				    <label>飼主帳號</label>
+				    <input class="add-account" placeholder="username" type="text" ng-keyup="hideAccountError=false;" ng-model="addForm.first_field">
+				    <div class="ui red pointing label" ng-show="hideAccountError">請輸入飼主帳號</div>
+				  </div>
+				  <div class="field">
+				    <label>登入密碼</label>
+				    <input class="add-pwd" placeholder="password" type="password" ng-keyup="hidePwdError=false" ng-model="addForm.second_field">
+				    <div class="ui red pointing label" ng-show="hidePwdError">請輸入登入密碼</div>
+				  </div>
+				  <div class="field">
+				    <label>電子郵件</label>
+				    <input placeholder="account@domain.com" type="text" ng-keyup="hideEmailError=false" ng-model="addForm.three_field">
+				     <div class="ui red pointing label" ng-show="hideEmailError">請輸入電子信箱</div>
+				  </div>
+				  <div class="ui form">
+				 	<div class="inline field">
+					  	<div class="ui toggle checkbox" ng-click="change()">
+					  		<input class="add-eml" type="checkbox">
+					  		<label><%msg%></label>
+	
+					  	</div>
+				 	</div>
+				  	<span class="ui blue submit button" ng-show="showAdd">申請</span>
+				</div>
+				<div class="ui horizontal divider">或使用</div>
+				<div class="social-login">
+					<div class="ui facebook button">
+					  <i class="facebook icon"></i>FACEBOOK臉書
+					</div>
+					<div class="ui google plus button">
+					  <i class="google plus icon"></i>GOOGLE谷歌 
+					</div>
+				</div>
+			</form>
+		</section>
+	</div>
 	<div class="fullscreen-main">main background</div>
+</div>
 {% endblock %}
 
 {% block loadjs %}
 <script>
 	 $jq(window).load(function(){
-		{{load}}();
+	 	{{load}}();
 	});
 </script>
 {% endblock %}

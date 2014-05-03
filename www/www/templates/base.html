@@ -1,20 +1,25 @@
 <!DOCTYPE html>
-<html ng-app="myApp" lang="zh-TW">
+<html lang="zh-TW">
 	<head>
 		<meta charset="UTF-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 	     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 		<meta name="author" content="Chiang" />
-	     <meta name="keywords" content="愛紀錄 分享 部落格 抒發 irecord" />
+	     <meta name="keywords" content="寵物 動物 分享 紀錄 可愛 俏皮 模樣" />
 	     <meta name="description" content="" />
 
-	     <link href="/static/img/icon/icon.ico" rel="shortcut icon" />
+	     <link href="/static/img/icon/pawicon.ico" rel="shortcut icon" />
 		<link rel="stylesheet" href="/static/sass/css/screen.css">
-		<link rel="stylesheet" href="/static/css/semantic.min.css">
-		<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.14/angular.min.js"></script>
+		<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/semantic-ui/0.13.0/css/semantic.min.css">
+
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
-		<script src="/static/js/semantic.min.js"></script>
-		<script src="/static/js/effect.js"></script>
+		<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.14/angular.min.js"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/semantic-ui/0.13.0/javascript/semantic.min.js"></script>
+		<script src="/static/js/jquery/plug.js"></script>
+		<script src="/static/js/jquery/effect.js"></script>
+		<script src="/static/js/angularjs/controller.js"></script>
+		<script src="/static/js/angularjs/directive.js"></script>
+
 		<!--[if lte IE 8]>
 			<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 			<script src="//airve.github.io/js/response/response.min.js"></script>
@@ -22,8 +27,9 @@
 		
 		<title>{% block title %}{% endblock %}</title>
 	</head>
-	<body>
-		<div class = "win-size" style="position:fixed; margin:0 auto; color:red; z-index:999;"></div>
+	<body ng-app="MyApp">
+		<div class = "win-size" style="position:fixed; margin:0 auto; color:red; z-index:999;">			
+		</div>
 		
 		<div class="container">
 			{% block content %}{% endblock %}

@@ -26,10 +26,10 @@ html
 
 			.fullscreen-mask
 				background-color: #141414
-				+opacity(0.3)
+				+opacity(0.1)
 				@include transition(opacity 1s)
 				@extend .str-to-img
-				+ft($ab, 998)
+				+ft($ab, 997)
 				+wh(100%, 100%)
 
 			.fullscreen-main
@@ -38,16 +38,16 @@ html
 				+animate(fadeIn)
 				@extend .str-to-img
 				@include transition(all 1s)
-				+bg('mainbg_phone.jpg', 'background')
+				+bg('mainbg_phone.jpg', 'background/main')
 				+at-breakpoint($phone)
 								
 				+at-breakpoint($pad)
-					+bg('mainbg_pad.jpg', 'background')
+					+bg('mainbg_pad.jpg', 'background/main')
 				+at-breakpoint($pc)
-					+bg('mainbg_pc.jpg', 'background')
+					+bg('mainbg_pc.jpg', 'background/main')
 			.search-block
 				+ft($re, 999)
-				top: 4em
+				top: 3em
 				float: right
 				right: 1.5em
 				input
@@ -66,39 +66,57 @@ html
 					+container
 
 			.main-intro-block
-				+ft($ab, 999)
-				+animate(bounceIn, 3s, 1s)
+				+ft($ab, 998)
+				/*+animate(bounceIn, 3s, 1s)*/
 				top: 35%
-				/*border: 1px solid red*/
-				.pencil
+				p
+					margin-top: 2.5em 
+					color: $sw
+					+font(1.4em, bold, italic)
 					@include skewY(5deg)
+				.main-paw
+					+bg('paw.png', 'sign')
+					@extend .str-to-img
+					+wh(80px, 80px)
+					@include rotate(15deg)
+					z-index: -1
+				.edit
+					@include rotate(5deg)
 				+at-breakpoint($phone)
-					+container
 					+span-columns(9)
 					+isolate(1)
 					text-align: center
+					P
+						font-size: 1.2em
 					h1
 						@include transition(font-size 1s)
 						color: $sw
-						+font(2.5em, bold)		
+						+font(2.5em, bold)
+						.main-paw
+							margin-top: -0.9em
+							margin-left: -0.2em
 				+at-breakpoint($pad)
-					+container
 					+span-columns(12)
 					+isolate(1)
-					text-align: center
+					P
+						font-size: 1.4m
 					h1
 						@include transition(font-size 1s)
 						font-size: 3.5em
+						.main-paw
+							margin-top: -0.6em
+							
 				+at-breakpoint($pc)
-					+container
 					+span-columns(15)
-					text-align: center
 					h1
 						@include transition(font-size 1s)
 						font-size: 4em
 				.main-intro-menu
 					margin-top: 3em
+					.push
+						+opacity(0.5)
 					+at-breakpoint($phone)
+						width: 90%
 						.button
 							@include transition(all 0.5s)
 							width: 100%
@@ -106,17 +124,61 @@ html
 						.or
 							display: none
 					+at-breakpoint($pad)
+						width: auto
 						.button
 							@include transition(all 0.5s)
 							width: auto
 							margin-top: 0em
 						.or
 							display: inline
-				p
-					margin-top: 2em 
+
+			.main-add-in-block, .main-sign-in-block
+				+ft($ab, 999)
+				height: 100%
+				display: none
+				h3
 					color: $sw
-					+font(1.4em, bold, italic)
-					@include skewY(5deg)
+					+font(2em, bold)
+					.remove
+						@extend .po
+				+at-breakpoint($phone)
+					@include transition(width 0.5s)
+					width: 100%
+				+at-breakpoint($pad)
+					@include transition(width 0.5s)
+					width: 20em
+			
+			.main-sign-in-block
+				background: lighten($slb, 10%)
+				h3
+					background: darken($slb, 10%)
+					.remove
+						float: right
+
+			.main-add-in-block
+				
+				background: lighten($slr, 5%)
+				h3	
+					background: darken($slr, 13%)
+					.remove
+						float: right
+				.horizontal
+					+at-breakpoint($phone)
+						@include transition(margin 0.5s)
+						margin-top: 1.8em
+					+at-breakpoint($pad)
+						@include transition(margin 0.5s)
+						margin-top: 5em
+				.social-login .button
+					+wh(100%, auto)
+					margin-top: 1em
+				.segment
+					margin: 10% auto 0 auto
+					+wh(95%, auto)
+				.submit
+					float: right
+
+				
 
 
 
