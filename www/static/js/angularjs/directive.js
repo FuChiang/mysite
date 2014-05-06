@@ -1,6 +1,6 @@
 
-//user add customer
-APP.directive('ngAddShows', function() {
+//main mask block
+APP.directive('myMask', function($timeout) {
 	return{
 		//if set true then replace original items otherwise append into items 
 		replace: true,
@@ -8,22 +8,17 @@ APP.directive('ngAddShows', function() {
 		restrict: 'A',
 		//scope=> $scope, element=>object itsself, attr=>attribute in tag
 		link: function(scope, element, attr){
-			scope.$watch(attr.ngAddShows, function(value){
-				(value)
-					?
-						element.removeClass("push")
-					:
-						element.addClass("push");		
-						
+			scope.$watch(attr.myMask, function(value){
+				(value)?
+					element.addClass("change-mask"):
+					element.removeClass("change-mask");
 			});
 		}
-
 	};
-
 });
 
-//user login customer
-APP.directive('ngLoginShows', function() {
+//add input focus
+APP.directive('myFocus', ['$timeout', function(time) {
 	return{
 		//if set true then replace original items otherwise append into items 
 		replace: true,
@@ -31,17 +26,19 @@ APP.directive('ngLoginShows', function() {
 		restrict: 'A',
 		//scope=> $scope, element=>object itsself, attr=>attribute in tag
 		link: function(scope, element, attr){
-			scope.$watch(attr.ngLoginShows, function(value){
-				(value)
-					?
-						element.removeClass("push")
-					:
-						element.addClass("push");	
-						
+			scope.$watch(attr.myFocus, function(value){
+				if(value){
+					time(function() {
+						element[0].focus();
+					}, 300);
+				} 
 			});
 		}
-
 	};
 
-});
+}]);
+
+
+
+
 

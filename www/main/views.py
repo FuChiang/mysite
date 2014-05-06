@@ -1,6 +1,4 @@
-from django.shortcuts import render_to_response
-import datetime
+from django.shortcuts import render
 
 def index(request):
-	now = datetime.datetime.now()
-	return render_to_response('view.html', {'load': 'mainPage'})
+	return  render(request, 'view.html', {'load': 'mainPage'})

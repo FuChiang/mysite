@@ -13,7 +13,7 @@
 			    			_speed: 200,
 			    			_effect: "linear",
 			    			_disabled: true,
-			    			_focusEffect: true,
+			    			_focusEffect: false,
 			    			_width: "noDefine",
 			    			_height: "noDefine"
 
@@ -77,7 +77,7 @@
 				}
 
 				//set close layout
-				_final_Setting._block.find(".remove").click(function(){_button.click();});
+				//_final_Setting._block.find(".remove").click(function(){_button.click();});
 
     			});	
     		}//end SliderBlock plug

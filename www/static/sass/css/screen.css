@@ -2720,16 +2720,21 @@ html body .container {
 }
 html body .container .fullscreen-mask {
   background-color: #141414;
-  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=10);
-  opacity: 0.1;
   -moz-transition: opacity 1s;
   -o-transition: opacity 1s;
   -webkit-transition: opacity 1s;
   transition: opacity 1s;
-  z-index: 997;
-  position: absolute;
   width: 100%;
   height: 100%;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=10);
+  opacity: 0.1;
+  z-index: 997;
+  position: absolute;
+}
+html body .container .change-mask {
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=50);
+  opacity: 0.5;
+  z-index: 998;
 }
 html body .container .fullscreen-main {
   z-index: 1;
@@ -2745,6 +2750,7 @@ html body .container .fullscreen-main {
   -o-transition: all 1s;
   -webkit-transition: all 1s;
   transition: all 1s;
+  background-color: steelblue;
   background: url('../../img/background/main/mainbg_phone.jpg?1398789789');
   background-repeat: no-repeat;
 }
@@ -2761,11 +2767,10 @@ html body .container .fullscreen-main {
   }
 }
 html body .container .search-block {
-  z-index: 999;
+  z-index: 998;
   position: relative;
   top: 3em;
   float: right;
-  right: 1.5em;
 }
 html body .container .search-block input {
   -moz-transition: opacity 1s;
@@ -2785,52 +2790,22 @@ html body .container .search-block input:focus, html body .container .search-blo
 }
 @media (min-width: 240px) {
   html body .container .search-block {
-    *zoom: 1;
-    max-width: 53em;
-    padding-left: 0em;
-    padding-right: 0em;
-    margin-left: auto;
-    margin-right: auto;
-    -moz-transition: margin-right 1s;
-    -o-transition: margin-right 1s;
-    -webkit-transition: margin-right 1s;
-    transition: margin-right 1s;
-    margin-right: 0.3em;
-  }
-  html body .container .search-block:after {
-    content: "";
-    display: table;
-    clear: both;
+    -moz-transition: all 1s;
+    -o-transition: all 1s;
+    -webkit-transition: all 1s;
+    transition: all 1s;
+    width: 90%;
+    right: 1em;
   }
 }
 @media (min-width: 600px) {
   html body .container .search-block {
-    *zoom: 1;
-    max-width: 71em;
-    padding-left: 0em;
-    padding-right: 0em;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  html body .container .search-block:after {
-    content: "";
-    display: table;
-    clear: both;
-  }
-}
-@media (min-width: 960px) {
-  html body .container .search-block {
-    *zoom: 1;
-    max-width: 89em;
-    padding-left: 0em;
-    padding-right: 0em;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  html body .container .search-block:after {
-    content: "";
-    display: table;
-    clear: both;
+    -moz-transition: all 1s;
+    -o-transition: all 1s;
+    -webkit-transition: all 1s;
+    transition: all 1s;
+    right: 1.5em;
+    width: auto;
   }
 }
 html body .container .main-intro-block {
@@ -2838,6 +2813,9 @@ html body .container .main-intro-block {
   position: absolute;
   /*+animate(bounceIn, 3s, 1s) */
   top: 35%;
+}
+html body .container .main-intro-block h1 {
+  text-shadow: rgba(0, 0, 0, 0.2) 1px 1px 0, rgba(0, 0, 0, 0.2) 2px 2px 0, rgba(0, 0, 0, 0.2) 3px 3px 0;
 }
 html body .container .main-intro-block p {
   margin-top: 2.5em;
@@ -2936,6 +2914,9 @@ html body .container .main-intro-block .main-intro-menu .push {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=50);
   opacity: 0.5;
 }
+html body .container .main-intro-block .main-intro-menu .right {
+  width: 0.3em;
+}
 @media (min-width: 240px) {
   html body .container .main-intro-block .main-intro-menu {
     width: 90%;
@@ -2979,6 +2960,70 @@ html body .container .main-add-in-block h3, html body .container .main-sign-in-b
   font-size: 2em;
   font-weight: bold;
 }
+html body .container .main-add-in-block .closeMsg, html body .container .main-sign-in-block .closeMsg {
+  position: absolute;
+  z-index: 999;
+  float: right;
+  right: 0.4em;
+  top: 1.5em;
+}
+html body .container .main-add-in-block .segment, html body .container .main-sign-in-block .segment {
+  width: 95%;
+  margin: 0 auto;
+}
+html body .container .main-add-in-block .segment .error, html body .container .main-sign-in-block .segment .error {
+  margin: 1em 0 0.2em 0;
+  width: 100%;
+  z-index: 999;
+  position: relative;
+}
+@media (min-width: 240px) {
+  html body .container .main-add-in-block .segment, html body .container .main-sign-in-block .segment {
+    -moz-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+    margin-top: 1%;
+    height: 30em;
+  }
+}
+@media (min-width: 600px) {
+  html body .container .main-add-in-block .segment, html body .container .main-sign-in-block .segment {
+    -moz-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+    margin-top: 10%;
+    height: auto;
+  }
+}
+html body .container .main-add-in-block .submit, html body .container .main-add-in-block .remove, html body .container .main-sign-in-block .submit, html body .container .main-sign-in-block .remove {
+  float: right;
+}
+html body .container .main-add-in-block .social-login .button, html body .container .main-sign-in-block .social-login .button {
+  text-align: center;
+}
+@media (min-width: 240px) {
+  html body .container .main-add-in-block .social-login .button, html body .container .main-sign-in-block .social-login .button {
+    -moz-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+    width: 100%;
+    margin-top: 1em;
+  }
+}
+@media (min-width: 600px) {
+  html body .container .main-add-in-block .social-login .button, html body .container .main-sign-in-block .social-login .button {
+    -moz-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+    width: 45%;
+    margin-top: auto;
+    margin-left: 0.9em;
+  }
+}
 @media (min-width: 240px) {
   html body .container .main-add-in-block, html body .container .main-sign-in-block {
     -moz-transition: width 0.5s;
@@ -2988,32 +3033,36 @@ html body .container .main-add-in-block h3, html body .container .main-sign-in-b
     width: 100%;
   }
 }
-@media (min-width: 600px) {
+@media (min-width: 960px) {
   html body .container .main-add-in-block, html body .container .main-sign-in-block {
     -moz-transition: width 0.5s;
     -o-transition: width 0.5s;
     -webkit-transition: width 0.5s;
     transition: width 0.5s;
-    width: 20em;
+    width: 35em;
   }
 }
 html body .container .main-sign-in-block {
-  background: #92b4f2;
+  background: #699bc4;
 }
 html body .container .main-sign-in-block h3 {
-  background: #3676e8;
+  background: #3f75a2;
 }
-html body .container .main-sign-in-block h3 .remove {
-  float: right;
+html body .container .main-sign-in-block .horizontal {
+  margin-top: 7em;
+}
+html body .container .main-sign-in-block .submit {
+  background: #699bc4;
+}
+html body .container .main-sign-in-block .submit:hover {
+  background: #3f75a2;
 }
 html body .container .main-add-in-block {
-  background: #ff9bbc;
+  /*display: inline */
+  background: #d75c5c;
 }
 html body .container .main-add-in-block h3 {
-  background: #ff407e;
-}
-html body .container .main-add-in-block h3 .remove {
-  float: right;
+  background: #b92d2d;
 }
 @media (min-width: 240px) {
   html body .container .main-add-in-block .horizontal {
@@ -3021,7 +3070,7 @@ html body .container .main-add-in-block h3 .remove {
     -o-transition: margin 0.5s;
     -webkit-transition: margin 0.5s;
     transition: margin 0.5s;
-    margin-top: 1.8em;
+    margin-top: 1.5em;
   }
 }
 @media (min-width: 600px) {
@@ -3033,16 +3082,9 @@ html body .container .main-add-in-block h3 .remove {
     margin-top: 5em;
   }
 }
-html body .container .main-add-in-block .social-login .button {
-  width: 100%;
-  height: auto;
-  margin-top: 1em;
-}
-html body .container .main-add-in-block .segment {
-  margin: 10% auto 0 auto;
-  width: 95%;
-  height: auto;
-}
 html body .container .main-add-in-block .submit {
-  float: right;
+  background: #d75c5c;
+}
+html body .container .main-add-in-block .submit:hover {
+  background: #b92d2d;
 }

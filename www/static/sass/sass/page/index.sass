@@ -26,11 +26,15 @@ html
 
 			.fullscreen-mask
 				background-color: #141414
-				+opacity(0.1)
 				@include transition(opacity 1s)
 				@extend .str-to-img
-				+ft($ab, 997)
 				+wh(100%, 100%)
+				+opacity(0.1)
+				+ft($ab, 997)
+
+			.change-mask
+				+opacity(0.5)
+				z-index: 998
 
 			.fullscreen-main
 				+ft($ab, 1)
@@ -38,18 +42,18 @@ html
 				+animate(fadeIn)
 				@extend .str-to-img
 				@include transition(all 1s)
-				+bg('mainbg_phone.jpg', 'background/main')
-				+at-breakpoint($phone)
-								
+				background-color: $slb
+				
+				+bg('mainbg_phone.jpg', 'background/main')			
 				+at-breakpoint($pad)
 					+bg('mainbg_pad.jpg', 'background/main')
 				+at-breakpoint($pc)
 					+bg('mainbg_pc.jpg', 'background/main')
+				
 			.search-block
-				+ft($re, 999)
+				+ft($re, 998)
 				top: 3em
 				float: right
-				right: 1.5em
 				input
 					@include transition(opacity 1s)
 					+opacity(0.3)
@@ -57,18 +61,21 @@ html
 						@include transition(opacity 1s)
 						+opacity(1)
 				+at-breakpoint($phone)
-					+container
-					@include transition(margin-right 1s)
-					margin-right: 0.3em
+					@include transition(all 1s)
+					width: 90%
+					right: 1em
+
 				+at-breakpoint($pad)
-					+container
-				+at-breakpoint($pc)
-					+container
+					@include transition(all 1s)
+					right: 1.5em
+					width: auto		
 
 			.main-intro-block
 				+ft($ab, 998)
 				/*+animate(bounceIn, 3s, 1s)*/
 				top: 35%
+				h1
+					+ts($sb)
 				p
 					margin-top: 2.5em 
 					color: $sw
@@ -115,6 +122,8 @@ html
 					margin-top: 3em
 					.push
 						+opacity(0.5)
+					.right
+						width: 0.3em
 					+at-breakpoint($phone)
 						width: 90%
 						.button
@@ -141,42 +150,86 @@ html
 					+font(2em, bold)
 					.remove
 						@extend .po
+						
+				.closeMsg
+					position: $ab
+					z-index: 999
+					float: right
+					right: 0.4em
+					top: 1.5em
+
+				.segment
+					width: 95%
+					margin: 0 auto
+					.error
+						margin: 1em 0 0.2em 0
+						width: 100%
+						+ft($re, 999)
+					+at-breakpoint($phone)
+						@include transition(all 0.5s)
+						margin-top: 1% 
+						height: 30em
+					+at-breakpoint($pad)
+						@include transition(all 0.5s)
+						margin-top: 10%
+						height: auto
+					
+				.submit, .remove
+					float: right
+
+				.social-login .button
+					text-align: center
+					+at-breakpoint($phone)
+						@include transition(all 0.5s)
+						width: 100%
+						margin-top: 1em
+					+at-breakpoint($pad)
+						@include transition(all 0.5s)
+						width: 45%
+						margin-top: auto
+						margin-left: 0.9em
+
 				+at-breakpoint($phone)
 					@include transition(width 0.5s)
 					width: 100%
-				+at-breakpoint($pad)
+				+at-breakpoint($pc)
 					@include transition(width 0.5s)
-					width: 20em
+					width: 35em
 			
 			.main-sign-in-block
 				background: lighten($slb, 10%)
 				h3
-					background: darken($slb, 10%)
-					.remove
-						float: right
+					background: darken($slb, 5%)
+
+				.horizontal
+					margin-top: 7em
+
+				.submit
+					background: lighten($slb, 10%)
+					&:hover
+						background: darken($slb, 5%)
 
 			.main-add-in-block
-				
-				background: lighten($slr, 5%)
+				/*display: inline*/
+				background: lighten($slr, 10%)
 				h3	
-					background: darken($slr, 13%)
-					.remove
-						float: right
+					background: darken($slr, 5%)
+
 				.horizontal
 					+at-breakpoint($phone)
 						@include transition(margin 0.5s)
-						margin-top: 1.8em
+						margin-top: 1.5em
 					+at-breakpoint($pad)
 						@include transition(margin 0.5s)
 						margin-top: 5em
-				.social-login .button
-					+wh(100%, auto)
-					margin-top: 1em
-				.segment
-					margin: 10% auto 0 auto
-					+wh(95%, auto)
+
 				.submit
-					float: right
+					background: lighten($slr, 10%)
+					&:hover
+						background: darken($slr, 5%)
+
+
+
 
 				
 
