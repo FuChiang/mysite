@@ -1,6 +1,8 @@
 
 {% extends "base.html" %}
 
+{% block fb_title  %}爪爪窩 分享與紀錄寵物的俏皮模樣{% endblock %}
+
 {% block title %}爪爪窩 分享與紀錄寵物的俏皮模樣{% endblock %}
 
 {% block content %} 
@@ -12,7 +14,7 @@
 	<div class="main-intro-block">
 		<section>
 			<header><h1>爪爪窩<span class="main-paw">paw</span></h1></header>
-			<p>分享&保存寵物的俏皮模樣 <i class="ui edit icon">...</i></p>
+			<p>分享&紀錄寵物的俏皮模樣 <i class="ui edit icon">...</i></p>
 			<div class="ui huge buttons main-intro-menu" >
 			 	<button ng-click="joinMember.pushAddToggle()" class="ui red  button add-button <%joinMember.addChange%>" ><i class="hand left icon"></i> 飼主申請</button>
 			 	<span class="or"></span>
@@ -24,8 +26,11 @@
 	<div class="main-sign-in-block" >
 		<section>
 			<header><h3><i class="sign in icon"></i>飼主登入<i class="remove icon" title="關閉"></i></h3></header>
-			<form name="loginForm" action="." method="post" class="ui form segment">
-			  {% csrf_token %}  
+			<form name="loginForm" class="ui form segment" ng-submit="loginMember.loginSend()">
+				<div class="ui active inverted dimmer" ng-show="load">
+    					<div class="ui text loader">登入中,請稍候...</div>
+ 				</div>
+			  {% csrf_token %}
 				<div class="field">
 					<label>登入帳號</label>
 				 	<div class="ui left labeled icon input">
@@ -36,7 +41,7 @@
 					      	data-my-focus = "inputFocus" 
 					      	ng-model = "loginMember.loginAccount"
 					      	ng-pattern = "<% onlyStrAndNum %>"
-					      	ng-keyup = "accountShow=true"
+					      	ng-keyup = "accountShow=true;loginForm.username.$setValidity('notExist', true);"
 		        				required
 					      />
 					      <i class="user icon"></i>
@@ -48,12 +53,15 @@
 		  		<div class="error" 
 			        ng-show="accountShow && loginForm.username.$dirty && !loginForm.username.$valid">
 				    <div class="ui red small message">
-				        	<li ng-show="accountShow && loginForm.username.$error.required">
-				        		帳號不能是空值
-				    		</li>
-				    		<li ng-show="accountShow && loginForm.username.$error.pattern">
-				         		帳號只能是字母或數字
-				     		</li>
+				        	<span ng-show="accountShow && loginForm.username.$error.required">
+				        		<i class="icon info"></i>帳號不能是空值
+				    		</span>
+				    		<span ng-show="accountShow && loginForm.username.$error.pattern">
+				         		<i class="icon info"></i>帳號只能是字母或數字
+				     		</span>
+				     		<span ng-show="accountShow && loginForm.username.$error.notExist">
+				         		<i class="icon info"></i>查無此帳號,請重新輸入
+				     		</span>
 				     	</div>
 			  	</div>
 			  	<div class="field">
@@ -65,7 +73,7 @@
 				      		name = "pwd"
 				      		ng-model= "loginMember.loginPassword"
 				      		ng-pattern = "<% onlyStrAndNum %>"
-				      		ng-keyup = "pwdShow=true"
+				      		ng-keyup = "pwdShow=true;loginForm.username.$setValidity('notExist', true);"
 							required
 				     		/>
 				      	<i class="lock icon"></i>
@@ -77,12 +85,12 @@
 				<div class="error" 
 				      ng-show="pwdShow && loginForm.pwd.$dirty && !loginForm.pwd.$valid">
 					<div class="ui red small message">
-					  	<li ng-show="pwdShow && loginForm.pwd.$error.required">
-							密碼不能是空值
-						</li>
-						<li ng-show="pwdShow && loginForm.pwd.$error.pattern">
-							密碼只能是字母或數字
-						</li>
+					  	<span ng-show="pwdShow && loginForm.pwd.$error.required">
+							<i class="icon info"></i>密碼不能是空值
+						</span>
+						<span ng-show="pwdShow && loginForm.pwd.$error.pattern">
+							<i class="icon info"></i>密碼只能是字母或數字
+						</span>
 					</div>
 				</div>
 			  <div class="ui error message">
@@ -91,22 +99,33 @@
 			  <button type="submit" class="ui blue submit button" ng-disabled="!loginForm.$valid">登入</button>
 				<div class="ui horizontal divider">或使用</div>
 				<div class="social-login">
-					<div class="ui facebook button">
-					  <i class="facebook icon"></i>FACEBOOK 臉書
+					<div class="ui facebook button" ng-click="facebookLogin()"  title="使用臉書登入">
+					  <i class="facebook icon"></i>FACEBOOK
 					</div>
-					<div class="ui google plus button">
-					  <i class="google plus icon"></i>GOOGLE 谷歌 
+					<div class="ui google plus button" ng-click="googleLogin()" title="使用谷歌登入">
+					  <i class="google plus icon"></i>GOOGLE 
 					</div>
 				</div>
 			</form>
 		</section>
+		<div class="formBgImg">
+			<ul>
+				<li><div class="loginBgImg_1">&nbsp;</div></li>
+				<li><div class="loginBgImg_2">&nbsp;</div></li>
+				<li><div class="loginBgImg_3">&nbsp;</div></li>
+			</ul>
+		</div>
+
 	</div>
 
 	<div class="main-add-in-block" >
 		<section>
 			<header><h3><i class="add sign icon" ></i>飼主申請<i class="remove  icon" title="關閉" ng-model="checked"></i></h3></header>
-			<form name="addForm" class="ui form segment" method="POST" action="." ng-submit="joinMember.addSend()"   >
-				  {% csrf_token %}  
+			<form name="addForm" class="ui form segment" ng-submit="joinMember.addSend()">
+				<div class="ui active inverted dimmer" ng-show="load">
+    					<div class="ui text loader">註冊中,請稍候...</div>
+ 				 </div>
+				  {% csrf_token %}
 				  <div class="ui warning message">
 				    <div class="header">Could you check something!</div>
 				    <ul class="list">
@@ -125,28 +144,29 @@
 				    		ng-pattern = "<% onlyStrAndNum %>"
 				    		ng-minlength = 3 
         					ng-maxlength = 30 
-        					ng-keyup = "accountShow=true"
+        					ng-keyup = "accountShow=true;addForm.username.$setValidity('unique', true);"
         					required
 				    	/>
 				    <div class="error" 
 				        ng-show="accountShow && addForm.username.$dirty && !addForm.username.$valid">
 					    <div class="ui red small message">
-					        	<li ng-show="accountShow && addForm.username.$error.required">
-					        		帳號不能是空值
-					    		</li>
-					    		<li ng-show="accountShow && addForm.username.$error.minlength">
-					           	帳號長度至少要超過3個字
-					    		</li>
-					   		<li ng-show="accountShow && addForm.username.$error.maxlength">
-					           	帳號長度不能超過20個字
-					    		</li>
-					    		<li ng-show="accountShow && addForm.username.$error.pattern">
-					         		帳號只能是字母或數字
-					     		</li>
-					     		<li ng-show="accountShow && addForm.username.$error.unique">
-					         		此帳號已存在,請另取一個
-					     		</li>
+					        	<span ng-show="accountShow && addForm.username.$error.required">
+					        		<i class="icon info"></i>帳號不能是空值
+					    		</span>
+					    		<span ng-show="accountShow && addForm.username.$error.minlength">
+					           	<i class="icon info"></i>帳號長度至少要超過3個字
+					    		</span>
+					   		<span ng-show="accountShow && addForm.username.$error.maxlength">
+					           	<i class="icon info"></i>帳號長度不能超過20個字
+					    		</span>
+					    		<span ng-show="accountShow && addForm.username.$error.pattern">
+					         		<i class="icon info"></i>帳號只能是字母或數字
+					     		</span>
+					     		<span ng-show="accountShow && addForm.username.$error.unique">
+					         		<i class="icon info"></i>此帳號已存在,請另取一個
+					     		</span>
 					     	</div>
+					</div>
 				  </div>
 				  <div class="field">
 				    <label><i class="lock icon"></i>  登入密碼</label>
@@ -165,18 +185,18 @@
 				  <div class="error" 
 				        ng-show="pwdShow && addForm.pwd.$dirty && !addForm.pwd.$valid">
 					    <div class="ui red small message">
-					        	<li ng-show="pwdShow && addForm.pwd.$error.required">
-					        		密碼不能是空值
-					   		</li>
-					    		<li ng-show="pwdShow && addForm.pwd.$error.minlength">
-					           	密碼長度至少要超過8個字
-					   		</li>
-					   		<li ng-show="pwdShow && addForm.pwd.$error.maxlength">
-					           	密碼長度不能超過20個字
-					    		</li>
-					    		<li ng-show="pwdShow && addForm.pwd.$error.pattern">
-					         		密碼只能是字母或數字
-					     		</li>
+					        	<span ng-show="pwdShow && addForm.pwd.$error.required">
+					        		<i class="icon info"></i>密碼不能是空值
+					   		</span>
+					    		<span ng-show="pwdShow && addForm.pwd.$error.minlength">
+					           	<i class="icon info"></i>密碼長度至少要超過8個字
+					   		</span>
+					   		<span ng-show="pwdShow && addForm.pwd.$error.maxlength">
+					           	<i class="icon info"></i>密碼長度不能超過20個字
+					    		</span>
+					    		<span ng-show="pwdShow && addForm.pwd.$error.pattern">
+					         		<i class="icon info"></i>密碼只能是字母或數字
+					     		</span>
 					  	</div>
 				  </div>
 				  <div class="field">
@@ -193,12 +213,12 @@
 				  <div class="error" 
 				        ng-show="emlShow && addForm.eml.$dirty && !addForm.eml.$valid">
 					    <div class="ui red small message">
-				    			<li ng-show="emlShow && addForm.eml.$error.required">
-				        			電子信箱不能是空值
-				        		</li>
-				    			<li ng-show="emlShow && addForm.eml.$invalid">
-				    				電子信箱格式錯誤
-				    			</li>
+				    			<span ng-show="emlShow && addForm.eml.$error.required">
+				        			<i class="icon info"></i>電子信箱不能是空值
+				        		</span>
+				    			<span ng-show="emlShow && addForm.eml.$invalid">
+				    				<i class="icon info"></i>電子信箱格式錯誤
+				    			</span>
 					    	</div>
 				  </div>
 
@@ -211,15 +231,23 @@
 				</div>
 				<div class="ui horizontal divider">或使用</div>
 				<div class="social-login">
-					<div class="ui facebook button">
-					  <i class="facebook icon"></i>FACEBOOK 臉書
+					<div class="ui facebook button" ng-click="facebookLogin()" title="使用臉書註冊">
+					  <i class="facebook icon" ></i>FACEBOOK
 					</div>
-					<div class="ui google plus button">
-					  <i class="google plus icon"></i>GOOGLE 谷歌 
+					<div class="ui google plus button" ng-click="googleLogin()" title="使用谷歌註冊">
+					  <i class="google plus icon"></i>GOOGLE 
 					</div>
 				</div>
 			</form>
 		</section>
+		<div class="formBgImg">
+			<ul>
+				<li><div class="addBgImg_1">&nbsp;</div></li>
+				<li><div class="addBgImg_2">&nbsp;</div></li>
+				<li><div class="addBgImg_3">&nbsp;</div></li>
+			</ul>
+		</div>
+		
 	</div>
 	<div class="fullscreen-main">main background</div>
 	<div class="fullscreen-mask" data-my-mask="level">full mask</div>

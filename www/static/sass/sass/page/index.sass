@@ -43,11 +43,14 @@ html
 				@extend .str-to-img
 				@include transition(all 1s)
 				background-color: $slb
-				
-				+bg('mainbg_phone.jpg', 'background/main')			
+				+at-breakpoint($phone)
+					@include transition(background-image 1s)
+					+bg('mainbg_phone.jpg', 'background/main')
 				+at-breakpoint($pad)
+					@include transition(background-image 1s)
 					+bg('mainbg_pad.jpg', 'background/main')
 				+at-breakpoint($pc)
+					@include transition(background-image 1s)
 					+bg('mainbg_pc.jpg', 'background/main')
 				
 			.search-block
@@ -55,6 +58,7 @@ html
 				top: 3em
 				float: right
 				input
+					+radius(2em)
 					@include transition(opacity 1s)
 					+opacity(0.3)
 					&:focus, &:active
@@ -73,7 +77,7 @@ html
 			.main-intro-block
 				+ft($ab, 998)
 				/*+animate(bounceIn, 3s, 1s)*/
-				top: 35%
+				top: 41%
 				h1
 					+ts($sb)
 				p
@@ -119,7 +123,7 @@ html
 						@include transition(font-size 1s)
 						font-size: 4em
 				.main-intro-menu
-					margin-top: 3em
+					margin-top: 1.5em
 					.push
 						+opacity(0.5)
 					.right
@@ -145,11 +149,26 @@ html
 				+ft($ab, 999)
 				height: 100%
 				display: none
+				overflow: hidden
 				h3
 					color: $sw
 					+font(2em, bold)
 					.remove
 						@extend .po
+
+				.formBgImg
+					+wh(95%, 25%)
+					margin: 1em auto 0 auto
+					ul li
+						width: 33%
+						float: left
+						div
+							text-align: center
+							margin: 0 auto
+					+at-breakpoint($phone)
+						display: none
+					+at-breakpoint($pad)
+						display: block
 						
 				.closeMsg
 					position: $ab
@@ -171,7 +190,7 @@ html
 						height: 30em
 					+at-breakpoint($pad)
 						@include transition(all 0.5s)
-						margin-top: 10%
+						margin-top: 5%
 						height: auto
 					
 				.submit, .remove
@@ -194,12 +213,27 @@ html
 					width: 100%
 				+at-breakpoint($pc)
 					@include transition(width 0.5s)
-					width: 35em
+					width: 30em
 			
 			.main-sign-in-block
 				background: lighten($slb, 10%)
 				h3
 					background: darken($slb, 5%)
+
+				.loginBgImg_1, .loginBgImg_2, .loginBgImg_3
+					+bg('result.png', 'background/form')
+					+wh(150px, 150px)
+					border: 0.3em solid $sw
+					+radius(2em)
+				.loginBgImg_1
+					+animate(fadeInLeftBig, 1s, 0s)
+					background-position: 0px -480px
+				.loginBgImg_2
+					+animate(fadeInDown, 1s, 0s)
+					background-position: 0px -640px
+				.loginBgImg_3
+					+animate(fadeInRightBig, 1s, 0s)
+					background-position: 0px -800px
 
 				.horizontal
 					margin-top: 7em
@@ -210,18 +244,33 @@ html
 						background: darken($slb, 5%)
 
 			.main-add-in-block
-				/*display: inline*/
 				background: lighten($slr, 10%)
 				h3	
 					background: darken($slr, 5%)
 
+				.addBgImg_1, .addBgImg_2, .addBgImg_3
+					+bg('result.png', 'background/form')
+					+wh(150px, 150px)
+					border: 0.3em solid $sw
+					+radius(5em)
+
+				.addBgImg_1
+					+animate(fadeInLeftBig, 1s, 0s)
+					background-position: 0px -0px
+				.addBgImg_2
+					+animate(fadeInDown, 1s, 0s)
+					background-position: 0px -160px
+				.addBgImg_3
+					+animate(fadeInRightBig, 1s, 0s)
+					background-position: 0px -320px
+							
 				.horizontal
 					+at-breakpoint($phone)
 						@include transition(margin 0.5s)
 						margin-top: 1.5em
 					+at-breakpoint($pad)
 						@include transition(margin 0.5s)
-						margin-top: 5em
+						margin-top: 2em
 
 				.submit
 					background: lighten($slr, 10%)

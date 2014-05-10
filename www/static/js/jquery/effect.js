@@ -43,7 +43,7 @@ var mainPage = function(){
 	$jq('.ui.checkbox').checkbox();
 
 	//get csrf value
-	//$jq("input[name='csrfmiddlewaretoken']").val();
+	//alert($jq("input[name='csrfmiddlewaretoken']").val());
 
 
 }  

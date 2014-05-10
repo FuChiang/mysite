@@ -2682,7 +2682,7 @@ html body .container {
     clear: both;
   }
 }
-@media (min-width: 600px) {
+@media (min-width: 533px) {
   html body .container {
     *zoom: 1;
     max-width: 71em;
@@ -2751,18 +2751,34 @@ html body .container .fullscreen-main {
   -webkit-transition: all 1s;
   transition: all 1s;
   background-color: steelblue;
-  background: url('../../img/background/main/mainbg_phone.jpg?1398789789');
-  background-repeat: no-repeat;
 }
-@media (min-width: 600px) {
+@media (min-width: 240px) {
   html body .container .fullscreen-main {
-    background: url('../../img/background/main/mainbg_pad.jpg?1398788325');
+    -moz-transition: background-image 1s;
+    -o-transition: background-image 1s;
+    -webkit-transition: background-image 1s;
+    transition: background-image 1s;
+    background: url('../../img/background/main/mainbg_phone.jpg?1399438906');
+    background-repeat: no-repeat;
+  }
+}
+@media (min-width: 533px) {
+  html body .container .fullscreen-main {
+    -moz-transition: background-image 1s;
+    -o-transition: background-image 1s;
+    -webkit-transition: background-image 1s;
+    transition: background-image 1s;
+    background: url('../../img/background/main/mainbg_pad.jpg?1399438578');
     background-repeat: no-repeat;
   }
 }
 @media (min-width: 960px) {
   html body .container .fullscreen-main {
-    background: url('../../img/background/main/mainbg_pc.jpg?1398787731');
+    -moz-transition: background-image 1s;
+    -o-transition: background-image 1s;
+    -webkit-transition: background-image 1s;
+    transition: background-image 1s;
+    background: url('../../img/background/main/mainbg_pc.jpg?1399438492');
     background-repeat: no-repeat;
   }
 }
@@ -2773,6 +2789,9 @@ html body .container .search-block {
   float: right;
 }
 html body .container .search-block input {
+  -moz-border-radius: 2em;
+  -webkit-border-radius: 2em;
+  border-radius: 2em;
   -moz-transition: opacity 1s;
   -o-transition: opacity 1s;
   -webkit-transition: opacity 1s;
@@ -2798,7 +2817,7 @@ html body .container .search-block input:focus, html body .container .search-blo
     right: 1em;
   }
 }
-@media (min-width: 600px) {
+@media (min-width: 533px) {
   html body .container .search-block {
     -moz-transition: all 1s;
     -o-transition: all 1s;
@@ -2812,7 +2831,7 @@ html body .container .main-intro-block {
   z-index: 998;
   position: absolute;
   /*+animate(bounceIn, 3s, 1s) */
-  top: 35%;
+  top: 41%;
 }
 html body .container .main-intro-block h1 {
   text-shadow: rgba(0, 0, 0, 0.2) 1px 1px 0, rgba(0, 0, 0, 0.2) 2px 2px 0, rgba(0, 0, 0, 0.2) 3px 3px 0;
@@ -2871,7 +2890,7 @@ html body .container .main-intro-block .edit {
     margin-left: -0.2em;
   }
 }
-@media (min-width: 600px) {
+@media (min-width: 533px) {
   html body .container .main-intro-block {
     width: 100%;
     float: left;
@@ -2908,7 +2927,7 @@ html body .container .main-intro-block .edit {
   }
 }
 html body .container .main-intro-block .main-intro-menu {
-  margin-top: 3em;
+  margin-top: 1.5em;
 }
 html body .container .main-intro-block .main-intro-menu .push {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=50);
@@ -2933,7 +2952,7 @@ html body .container .main-intro-block .main-intro-menu .right {
     display: none;
   }
 }
-@media (min-width: 600px) {
+@media (min-width: 533px) {
   html body .container .main-intro-block .main-intro-menu {
     width: auto;
   }
@@ -2954,11 +2973,35 @@ html body .container .main-add-in-block, html body .container .main-sign-in-bloc
   position: absolute;
   height: 100%;
   display: none;
+  overflow: hidden;
 }
 html body .container .main-add-in-block h3, html body .container .main-sign-in-block h3 {
   color: white;
   font-size: 2em;
   font-weight: bold;
+}
+html body .container .main-add-in-block .formBgImg, html body .container .main-sign-in-block .formBgImg {
+  width: 95%;
+  height: 25%;
+  margin: 1em auto 0 auto;
+}
+html body .container .main-add-in-block .formBgImg ul li, html body .container .main-sign-in-block .formBgImg ul li {
+  width: 33%;
+  float: left;
+}
+html body .container .main-add-in-block .formBgImg ul li div, html body .container .main-sign-in-block .formBgImg ul li div {
+  text-align: center;
+  margin: 0 auto;
+}
+@media (min-width: 240px) {
+  html body .container .main-add-in-block .formBgImg, html body .container .main-sign-in-block .formBgImg {
+    display: none;
+  }
+}
+@media (min-width: 533px) {
+  html body .container .main-add-in-block .formBgImg, html body .container .main-sign-in-block .formBgImg {
+    display: block;
+  }
 }
 html body .container .main-add-in-block .closeMsg, html body .container .main-sign-in-block .closeMsg {
   position: absolute;
@@ -2987,13 +3030,13 @@ html body .container .main-add-in-block .segment .error, html body .container .m
     height: 30em;
   }
 }
-@media (min-width: 600px) {
+@media (min-width: 533px) {
   html body .container .main-add-in-block .segment, html body .container .main-sign-in-block .segment {
     -moz-transition: all 0.5s;
     -o-transition: all 0.5s;
     -webkit-transition: all 0.5s;
     transition: all 0.5s;
-    margin-top: 10%;
+    margin-top: 5%;
     height: auto;
   }
 }
@@ -3013,7 +3056,7 @@ html body .container .main-add-in-block .social-login .button, html body .contai
     margin-top: 1em;
   }
 }
-@media (min-width: 600px) {
+@media (min-width: 533px) {
   html body .container .main-add-in-block .social-login .button, html body .container .main-sign-in-block .social-login .button {
     -moz-transition: all 0.5s;
     -o-transition: all 0.5s;
@@ -3039,7 +3082,7 @@ html body .container .main-add-in-block .social-login .button, html body .contai
     -o-transition: width 0.5s;
     -webkit-transition: width 0.5s;
     transition: width 0.5s;
-    width: 35em;
+    width: 30em;
   }
 }
 html body .container .main-sign-in-block {
@@ -3047,6 +3090,40 @@ html body .container .main-sign-in-block {
 }
 html body .container .main-sign-in-block h3 {
   background: #3f75a2;
+}
+html body .container .main-sign-in-block .loginBgImg_1, html body .container .main-sign-in-block .loginBgImg_2, html body .container .main-sign-in-block .loginBgImg_3 {
+  background: url('../../img/background/form/result.png?1399447332');
+  background-repeat: no-repeat;
+  width: 150px;
+  height: 150px;
+  border: 0.3em solid white;
+  -moz-border-radius: 2em;
+  -webkit-border-radius: 2em;
+  border-radius: 2em;
+}
+html body .container .main-sign-in-block .loginBgImg_1 {
+  -webkit-animation: fadeInLeftBig 1s 0s ease both;
+  -moz-animation: fadeInLeftBig 1s 0s ease both;
+  -ms-animation: fadeInLeftBig 1s 0s ease both;
+  -o-animation: fadeInLeftBig 1s 0s ease both;
+  animation: fadeInLeftBig 1s 0s ease both;
+  background-position: 0px -480px;
+}
+html body .container .main-sign-in-block .loginBgImg_2 {
+  -webkit-animation: fadeInDown 1s 0s ease both;
+  -moz-animation: fadeInDown 1s 0s ease both;
+  -ms-animation: fadeInDown 1s 0s ease both;
+  -o-animation: fadeInDown 1s 0s ease both;
+  animation: fadeInDown 1s 0s ease both;
+  background-position: 0px -640px;
+}
+html body .container .main-sign-in-block .loginBgImg_3 {
+  -webkit-animation: fadeInRightBig 1s 0s ease both;
+  -moz-animation: fadeInRightBig 1s 0s ease both;
+  -ms-animation: fadeInRightBig 1s 0s ease both;
+  -o-animation: fadeInRightBig 1s 0s ease both;
+  animation: fadeInRightBig 1s 0s ease both;
+  background-position: 0px -800px;
 }
 html body .container .main-sign-in-block .horizontal {
   margin-top: 7em;
@@ -3058,11 +3135,44 @@ html body .container .main-sign-in-block .submit:hover {
   background: #3f75a2;
 }
 html body .container .main-add-in-block {
-  /*display: inline */
   background: #d75c5c;
 }
 html body .container .main-add-in-block h3 {
   background: #b92d2d;
+}
+html body .container .main-add-in-block .addBgImg_1, html body .container .main-add-in-block .addBgImg_2, html body .container .main-add-in-block .addBgImg_3 {
+  background: url('../../img/background/form/result.png?1399447332');
+  background-repeat: no-repeat;
+  width: 150px;
+  height: 150px;
+  border: 0.3em solid white;
+  -moz-border-radius: 5em;
+  -webkit-border-radius: 5em;
+  border-radius: 5em;
+}
+html body .container .main-add-in-block .addBgImg_1 {
+  -webkit-animation: fadeInLeftBig 1s 0s ease both;
+  -moz-animation: fadeInLeftBig 1s 0s ease both;
+  -ms-animation: fadeInLeftBig 1s 0s ease both;
+  -o-animation: fadeInLeftBig 1s 0s ease both;
+  animation: fadeInLeftBig 1s 0s ease both;
+  background-position: 0px 0px;
+}
+html body .container .main-add-in-block .addBgImg_2 {
+  -webkit-animation: fadeInDown 1s 0s ease both;
+  -moz-animation: fadeInDown 1s 0s ease both;
+  -ms-animation: fadeInDown 1s 0s ease both;
+  -o-animation: fadeInDown 1s 0s ease both;
+  animation: fadeInDown 1s 0s ease both;
+  background-position: 0px -160px;
+}
+html body .container .main-add-in-block .addBgImg_3 {
+  -webkit-animation: fadeInRightBig 1s 0s ease both;
+  -moz-animation: fadeInRightBig 1s 0s ease both;
+  -ms-animation: fadeInRightBig 1s 0s ease both;
+  -o-animation: fadeInRightBig 1s 0s ease both;
+  animation: fadeInRightBig 1s 0s ease both;
+  background-position: 0px -320px;
 }
 @media (min-width: 240px) {
   html body .container .main-add-in-block .horizontal {
@@ -3073,13 +3183,13 @@ html body .container .main-add-in-block h3 {
     margin-top: 1.5em;
   }
 }
-@media (min-width: 600px) {
+@media (min-width: 533px) {
   html body .container .main-add-in-block .horizontal {
     -moz-transition: margin 0.5s;
     -o-transition: margin 0.5s;
     -webkit-transition: margin 0.5s;
     transition: margin 0.5s;
-    margin-top: 5em;
+    margin-top: 2em;
   }
 }
 html body .container .main-add-in-block .submit {
