@@ -2,7 +2,6 @@ from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from member.models import *
 import json
-import urlparse
 
 def joinMember(request):
 

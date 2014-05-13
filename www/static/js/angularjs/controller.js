@@ -210,6 +210,25 @@ APP.controller("main-index-block", ['$scope', '$http', function($scope, $http){
 		}
 	}
 
+	//set search block
+	$scope.searchSubject = {
+		searchClick: false,
+		pushSearch: function(){
+			if($scope.searchSubject.searchClick){
+				$scope.inputFocus = false;
+				$scope.level = false;
+				$scope.searchSubject.searchClick = false;
+			}
+			else{
+				$scope.level = true;
+				$scope.inputFocus = true;
+				$scope.searchSubject.searchClick = true;
+				$scope.searchSubject.petName = '';
+			}
+			
+		}
+	}
+
 }]);
 
 

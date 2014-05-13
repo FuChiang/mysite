@@ -74,7 +74,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   position: absolute;
 }
 
-.po, html body .container .main-add-in-block h3 .remove, html body .container .main-sign-in-block h3 .remove {
+.po, html body .container .search-block .remove, html body .container .main-header-nav-block .main-menu, html body .container .main-add-in-block h5 .remove, html body .container .main-sign-in-block h5 .remove {
   cursor: pointer;
 }
 
@@ -2658,6 +2658,15 @@ html body {
   -webkit-background-clip: content;
   background-clip: content-box;
 }
+html body a {
+  outline: none;
+  text-decoration: none;
+  color: black;
+  behavior: expression(this.onFocus=this.blur());
+}
+html body a:hover {
+  text-decoration: none;
+}
 html body .hide-title {
   display: none;
 }
@@ -2728,7 +2737,7 @@ html body .container .fullscreen-mask {
   height: 100%;
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=10);
   opacity: 0.1;
-  z-index: 997;
+  z-index: 996;
   position: absolute;
 }
 html body .container .change-mask {
@@ -2768,7 +2777,7 @@ html body .container .fullscreen-main {
     -o-transition: background-image 1s;
     -webkit-transition: background-image 1s;
     transition: background-image 1s;
-    background: url('../../img/background/main/mainbg_pad.jpg?1399438578');
+    background: url('../../img/background/main/mainbg_pad.jpg?1399786550');
     background-repeat: no-repeat;
   }
 }
@@ -2783,12 +2792,35 @@ html body .container .fullscreen-main {
   }
 }
 html body .container .search-block {
-  z-index: 998;
-  position: relative;
-  top: 3em;
-  float: right;
+  z-index: 999;
+  position: absolute;
+  width: 100%;
+  height: 10em;
+  background: lavender;
+  top: -10em;
+  display: none;
 }
-html body .container .search-block input {
+html body .container .search-block:after {
+  z-index: 999;
+  position: absolute;
+  top: 10em;
+  display: block;
+  content: "";
+  width: 100%;
+  height: 0.3em;
+  background-color: #6767e0;
+}
+html body .container .search-block .remove {
+  z-index: 999;
+  position: absolute;
+  right: 0;
+}
+html body .container .search-block .search-inner-block {
+  height: 10em;
+}
+html body .container .search-block .search-inner-block input {
+  z-index: 999;
+  position: relative;
   -moz-border-radius: 2em;
   -webkit-border-radius: 2em;
   border-radius: 2em;
@@ -2799,7 +2831,7 @@ html body .container .search-block input {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=30);
   opacity: 0.3;
 }
-html body .container .search-block input:focus, html body .container .search-block input:active {
+html body .container .search-block .search-inner-block input:focus, html body .container .search-block .search-inner-block input:active {
   -moz-transition: opacity 1s;
   -o-transition: opacity 1s;
   -webkit-transition: opacity 1s;
@@ -2808,35 +2840,125 @@ html body .container .search-block input:focus, html body .container .search-blo
   opacity: 1;
 }
 @media (min-width: 240px) {
-  html body .container .search-block {
-    -moz-transition: all 1s;
-    -o-transition: all 1s;
-    -webkit-transition: all 1s;
-    transition: all 1s;
-    width: 90%;
-    right: 1em;
+  html body .container .search-block .search-inner-block input {
+    top: 4em;
   }
 }
 @media (min-width: 533px) {
-  html body .container .search-block {
+  html body .container .search-block .search-inner-block input {
+    top: 3.5em;
+  }
+}
+@media (min-width: 240px) {
+  html body .container .search-block .search-inner-block {
     -moz-transition: all 1s;
     -o-transition: all 1s;
     -webkit-transition: all 1s;
     transition: all 1s;
-    right: 1.5em;
-    width: auto;
+    width: 100%;
+    background: none;
   }
 }
-html body .container .main-intro-block {
+@media (min-width: 533px) {
+  html body .container .search-block .search-inner-block {
+    -moz-transition: all 1s;
+    -o-transition: all 1s;
+    -webkit-transition: all 1s;
+    transition: all 1s;
+    width: 20em;
+    float: left;
+    background: #bcbcf1;
+  }
+}
+html body .container .search-block .searchResult {
+  color: #990000;
+  /*border: 1px solid red */
+  width: 65em;
+  height: 100%;
+  z-index: 999;
+  position: relative;
+  margin-left: 20em;
+}
+html body .container .main-header-nav-block {
   z-index: 998;
   position: absolute;
+  left: -11em;
+  width: 15em;
+  height: auto;
+  top: 4em;
+}
+html body .container .main-header-nav-block header {
+  display: none;
+}
+html body .container .main-header-nav-block .main-menu-msg {
+  -moz-transform: rotate(-10deg);
+  -ms-transform: rotate(-10deg);
+  -webkit-transform: rotate(-10deg);
+  transform: rotate(-10deg);
+  z-index: 998;
+  position: absolute;
+  color: white;
+  top: 2.5em;
+  left: 12.5em;
+  background-color: none;
+}
+html body .container .main-header-nav-block .main-menu-msg .icon {
+  font-size: 2em;
+  background: none;
+}
+html body .container .main-header-nav-block ul {
+  width: 11em;
+  height: 12.2em;
+  background: #333333;
+}
+html body .container .main-header-nav-block ul li {
+  margin: 0em 0 0 0.1em;
+  border-top: #5b5b5b 1px solid;
+}
+html body .container .main-header-nav-block ul li a {
+  color: white;
+}
+html body .container .main-header-nav-block ul li a .icon {
+  -moz-border-radius: 0.2em;
+  -webkit-border-radius: 0.2em;
+  border-radius: 0.2em;
+  color: white;
+  margin: 0.1em 0.2em 0.1em 0.2em;
+  width: 1.3em;
+}
+html body .container .main-header-nav-block ul li:hover {
+  -moz-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  background: #262626;
+}
+html body .container .main-header-nav-block .main-menu {
+  -moz-border-radius-topright: 0.5em;
+  -webkit-border-top-right-radius: 0.5em;
+  border-top-right-radius: 0.5em;
+  -moz-border-radius-bottomright: 0.5em;
+  -webkit-border-bottom-right-radius: 0.5em;
+  border-bottom-right-radius: 0.5em;
+  width: 4em;
+  height: 2.51em;
+  float: right;
+  margin: 0.01em -0.005em 0 0;
+  background: #333333;
+}
+html body .container .main-header-nav-block .main-menu .icon {
+  margin: 0.19em 0 0 0.3em;
+  color: white;
+}
+html body .container .main-intro-block {
+  z-index: 997;
+  position: absolute;
   /*+animate(bounceIn, 3s, 1s) */
-  top: 41%;
 }
 html body .container .main-intro-block h1 {
   text-shadow: rgba(0, 0, 0, 0.2) 1px 1px 0, rgba(0, 0, 0, 0.2) 2px 2px 0, rgba(0, 0, 0, 0.2) 3px 3px 0;
 }
-html body .container .main-intro-block p {
+html body .container .main-intro-block h2 {
   margin-top: 2.5em;
   color: white;
   font-size: 1.4em;
@@ -2871,6 +2993,7 @@ html body .container .main-intro-block .edit {
     margin-right: 1.88679%;
     margin-right: -100%;
     margin-left: 0%;
+    top: 35%;
     text-align: center;
   }
   html body .container .main-intro-block P {
@@ -2897,6 +3020,7 @@ html body .container .main-intro-block .edit {
     margin-right: 1.40845%;
     margin-right: -100%;
     margin-left: 0%;
+    top: 41%;
   }
   html body .container .main-intro-block P {
     font-size: 1.4m;
@@ -2924,6 +3048,15 @@ html body .container .main-intro-block .edit {
     -webkit-transition: font-size 1s;
     transition: font-size 1s;
     font-size: 4em;
+  }
+}
+@media (max-height: 350px) {
+  html body .container .main-intro-block {
+    -moz-transition: top 1s;
+    -o-transition: top 1s;
+    -webkit-transition: top 1s;
+    transition: top 1s;
+    top: 22%;
   }
 }
 html body .container .main-intro-block .main-intro-menu {
@@ -2975,7 +3108,7 @@ html body .container .main-add-in-block, html body .container .main-sign-in-bloc
   display: none;
   overflow: hidden;
 }
-html body .container .main-add-in-block h3, html body .container .main-sign-in-block h3 {
+html body .container .main-add-in-block h5, html body .container .main-sign-in-block h5 {
   color: white;
   font-size: 2em;
   font-weight: bold;
@@ -3088,7 +3221,7 @@ html body .container .main-add-in-block .social-login .button, html body .contai
 html body .container .main-sign-in-block {
   background: #699bc4;
 }
-html body .container .main-sign-in-block h3 {
+html body .container .main-sign-in-block h5 {
   background: #3f75a2;
 }
 html body .container .main-sign-in-block .loginBgImg_1, html body .container .main-sign-in-block .loginBgImg_2, html body .container .main-sign-in-block .loginBgImg_3 {
@@ -3137,7 +3270,7 @@ html body .container .main-sign-in-block .submit:hover {
 html body .container .main-add-in-block {
   background: #d75c5c;
 }
-html body .container .main-add-in-block h3 {
+html body .container .main-add-in-block h5 {
   background: #b92d2d;
 }
 html body .container .main-add-in-block .addBgImg_1, html body .container .main-add-in-block .addBgImg_2, html body .container .main-add-in-block .addBgImg_3 {

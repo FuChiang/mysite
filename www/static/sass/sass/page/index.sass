@@ -2,12 +2,19 @@
 html
 	+wh(100%, 100%)
 	+ft($ab)
-
 	body
 		margin: 0 auto
 		+ft($re)
 		+wh(100%, 100%)
 		+susy-grid-background
+
+		a 
+			outline: none
+			text-decoration: none
+			color: $sb
+			behavior: expression(this.onFocus=this.blur())
+			&:hover
+				text-decoration: none
 		
 		.hide-title
 			display: none
@@ -30,7 +37,7 @@ html
 				@extend .str-to-img
 				+wh(100%, 100%)
 				+opacity(0.1)
-				+ft($ab, 997)
+				+ft($ab, 996)
 
 			.change-mask
 				+opacity(0.5)
@@ -54,33 +61,104 @@ html
 					+bg('mainbg_pc.jpg', 'background/main')
 				
 			.search-block
-				+ft($re, 998)
-				top: 3em
-				float: right
-				input
-					+radius(2em)
-					@include transition(opacity 1s)
-					+opacity(0.3)
-					&:focus, &:active
+				+ft($ab, 999)
+				+wh(100%, 10em)
+				background: $slp
+				top: -10em
+				display: none
+				&:after
+					+ft($ab, 999)
+					top: 10em
+					display: block
+					content: ''
+					+wh(100%, 0.3em)
+					background-color: darken($slp, 30%)
+				.remove
+					+ft($ab, 999)
+					right: 0
+					@extend .po
+				.search-inner-block
+					height: 10em
+					input
+						+ft($re, 999)
+						+radius(2em)
 						@include transition(opacity 1s)
-						+opacity(1)
-				+at-breakpoint($phone)
-					@include transition(all 1s)
-					width: 90%
-					right: 1em
+						+opacity(0.3)
+						&:focus, &:active
+							@include transition(opacity 1s)
+							+opacity(1)
+						+at-breakpoint($phone)
+							top: 4em
+						+at-breakpoint($pad)
+							top: 3.5em
+					+at-breakpoint($phone)
+						@include transition(all 1s)
+						width: 100%
+						background: none
 
-				+at-breakpoint($pad)
-					@include transition(all 1s)
-					right: 1.5em
-					width: auto		
+					+at-breakpoint($pad)
+						@include transition(all 1s)
+						width: 20em
+						float: left
+						background: darken($slp, 10%)
+
+				.searchResult
+					color: darken($sr, 20%)
+					/*border: 1px solid red*/
+					+wh(65em, 100%)
+					+ft($re, 999)
+					margin-left: 20em
+
+			.main-header-nav-block
+				+ft($ab, 998)
+				left: -11em
+				+wh(15em, auto)
+				top: 4em
+				header
+					display: none
+				.main-menu-msg
+					@include rotate(-10deg)
+					+ft($ab, 998)
+					color: $sw
+					top: 2.5em
+					left: 12.5em
+					background-color: none
+					.icon
+						font-size: 2em
+						background: none
+				ul 
+					+wh(11em, 12.2em)
+					background: lighten($sb, 20%)
+					li
+						margin: 0em 0 0 0.1em
+						border-top: #5B5B5B 1px solid
+						a 
+							color: $sw
+							.icon
+								+radius(0.2em)
+								color: $sw
+								margin: 0.1em  0.2em 0.1em 0.2em
+								width: 1.3em
+						&:hover
+							@include transition(all 0.5s)
+							background: lighten($sb, 15%)
+				.main-menu
+					+radius(0.5em, 'right')
+					+wh(4em, 2.51em)
+					float: right
+					margin: 0.01em -0.005em 0 0
+					background: lighten($sb, 20%)
+					@extend .po
+					.icon
+						margin: 0.19em 0 0 0.3em
+						color: $sw
 
 			.main-intro-block
-				+ft($ab, 998)
+				+ft($ab, 997)
 				/*+animate(bounceIn, 3s, 1s)*/
-				top: 41%
 				h1
 					+ts($sb)
-				p
+				h2
 					margin-top: 2.5em 
 					color: $sw
 					+font(1.4em, bold, italic)
@@ -96,6 +174,7 @@ html
 				+at-breakpoint($phone)
 					+span-columns(9)
 					+isolate(1)
+					top: 35%
 					text-align: center
 					P
 						font-size: 1.2em
@@ -109,6 +188,7 @@ html
 				+at-breakpoint($pad)
 					+span-columns(12)
 					+isolate(1)
+					top: 41%
 					P
 						font-size: 1.4m
 					h1
@@ -122,6 +202,10 @@ html
 					h1
 						@include transition(font-size 1s)
 						font-size: 4em
+
+				@media (max-height: 350px)
+					@include transition(top 1s)
+					top: 22%
 				.main-intro-menu
 					margin-top: 1.5em
 					.push
@@ -150,7 +234,7 @@ html
 				height: 100%
 				display: none
 				overflow: hidden
-				h3
+				h5
 					color: $sw
 					+font(2em, bold)
 					.remove
@@ -217,7 +301,7 @@ html
 			
 			.main-sign-in-block
 				background: lighten($slb, 10%)
-				h3
+				h5
 					background: darken($slb, 5%)
 
 				.loginBgImg_1, .loginBgImg_2, .loginBgImg_3
@@ -245,7 +329,7 @@ html
 
 			.main-add-in-block
 				background: lighten($slr, 10%)
-				h3	
+				h5	
 					background: darken($slr, 5%)
 
 				.addBgImg_1, .addBgImg_2, .addBgImg_3

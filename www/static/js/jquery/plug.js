@@ -70,7 +70,6 @@
 					});
 				}
 				else{
-
 					_final_Setting._block.css(_final_Setting._direct, _move).css("display", "block").animate(_smargin, _final_Setting._speed, _final_Setting._effect, function(){
 						_button.attr("disabled", false);
 					});

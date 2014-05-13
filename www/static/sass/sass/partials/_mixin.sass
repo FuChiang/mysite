@@ -34,8 +34,18 @@
 	+text-shadow(rgba($color, .2) 1px 1px 0, rgba($color, .2) 2px 2px 0, rgba($color, .2) 3px 3px 0)
 
 //border radius
-@mixin radius($value)
-	+border-radius($value)
+@mixin radius($value, $direct:" ")
+	@if $direct != " "
+		@if $direct == 'right'
+			+border-right-radius($value)
+		@if $direct == 'left'
+			+border-left-radius($value)
+		@if $direct == 'top'
+			+border-top-radius($value)
+		@if $direct == 'bottom'
+			+border-bottom-radius($value)
+	@else
+		+border-radius($value)
 
 
 	
