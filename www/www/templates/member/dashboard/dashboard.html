@@ -1,0 +1,36 @@
+{% extends "base/base.html" %}
+
+{% block fb_title  %}爪爪窩 - {{request.session.user}} {{topTitle}}{% endblock %}
+
+{% block title %}爪爪窩 - {{request.session.user}} {{topTitle}}{% endblock %}
+
+{% block content %} 
+	
+	<div class="dashboard-out-block">
+		<div class="dashboard-inner-block">
+			<nav>
+				<header><h1><a href="/dashboard/{{request.session.user}}"><span class="dashboard-paw">cutepaw</span>爪爪窩</a></h1></header>
+				<ul>
+					<li>
+						<div class="ui icon input">
+						  <input type="text" placeholder="輸入搜尋名稱..">
+						  <i class=" search icon"></i>
+						</div>
+					</li>
+					<li><a href="/logout"><i class="off big icon" title="登出爪爪窩"></i></a></li>
+					<li><a href=""><i class="mail outline big icon" title="訊息通知"></i></a></li>
+					<li><a href="/dashboard/{{request.session.user}}"><i class="setting big icon" title="後台首頁"></i></a></li>
+					<li><a href="/home"><i class="home big icon" title="前台首頁"></i></a></li>
+				</ul>
+			</nav>
+			<div class="dashboard-inner-content">
+				<section>
+					<header><h4></h4></header>
+
+				</section>
+			</div>
+		</div>
+
+	</div>
+
+{% endblock %}

@@ -10,7 +10,7 @@ $jq(window ).resize(function() {
 
 
 /************************************/
-/*main index set*/
+/*main page set*/
 /************************************/
 var mainPage = function(){
 
@@ -19,8 +19,6 @@ var mainPage = function(){
 		$jq_add_block = $jq(".main-add-in-block"),
 		$jq_search = $jq(".search-button"),
 		$jq_menu = $jq(".main-header-nav-block");
-
-	$jq("body").css("overflow", "hidden");
 
 	//login set
 	$jq_login.SliderBlock({
@@ -64,12 +62,66 @@ var mainPage = function(){
 				$jq_menu.animate({left: '-11em'}, 200);
 	});
 
-	//get csrf value
-	//alert($jq("input[name='csrfmiddlewaretoken']").val());
-
-
 }  
 
+//aside silde bar
+var sildeBar = {
+	slideEffect: function(){
+		var $jq_slidebar = $jq('.ui.sidebar');
+
+		//aside manu set
+		$jq_slidebar.sidebar('toggle');
+
+		$jq(".site-Menu").on("click", function(){
+			$jq_slidebar.sidebar('toggle');
+		});
+	}
+}
+
+/************************************/
+/*home page set*/
+/************************************/
+var homePage = function(){
+	//set slide
+	sildeBar.slideEffect();
+	
+}
+
+/************************************/
+/*new page set*/
+/************************************/
+var newPage = function(){
+
+	//set slide
+	sildeBar.slideEffect();
+}
+
+/************************************/
+/*categories page set*/
+/************************************/
+var categoriesPage = function(){
+
+	//set slide
+	sildeBar.slideEffect();
+}
+
+/************************************/
+/*popular page set*/
+/************************************/
+var popularPage = function(){
+
+	//set slide
+	sildeBar.slideEffect();
+}
+
+/************************************/
+/*dashboard page set*/
+/************************************/
+var dashboardPage = function(){
+	//set slide
+	sildeBar.slideEffect();
+	
+}
 
 
 

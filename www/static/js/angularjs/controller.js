@@ -18,7 +18,7 @@ APP.config(function($interpolateProvider, $httpProvider){
 
 
 //main index block
-APP.controller("main-index-block", ['$scope', '$http', function($scope, $http){
+APP.controller("main-index-block", ['$scope', '$http', '$window', function($scope, $http, $window){
 	var checkMsg = {
 		before: "請點擊左方滾輪證實為人類",
 		after: "已證實,謝謝!!"
@@ -38,10 +38,10 @@ APP.controller("main-index-block", ['$scope', '$http', function($scope, $http){
 				FB.api('/me', function (response) {
 					$http({
 				            method: 'POST',
-				            data: {name: response.first_name, email: response.email},
+				            data: {name: response.name, email: response.email, id: response.id},
 				            url: 'member/facebookLogin'
 				      }).success(function(data, status, headers, config){
-			          		alert(data);
+			          		$window.location.href = '/home';
 				      }).error(function(data, status, headers, config){
 				        	alert('status='+status);
 				      });  
@@ -128,18 +128,16 @@ APP.controller("main-index-block", ['$scope', '$http', function($scope, $http){
 		      }).success(function(data, status, headers, config){
 	          		if(data == 'add error'){
 	          			alert('申請的資料格式有錯！！');
-	          			//open load mask
+	          			//close load mask
 					$scope.load = false;
 	          		}
 	          		else if(data == 'add existed'){
 	          			$scope.addForm.username.$setValidity('unique', false);
-	          			//open load mask
+	          			//close load mask
 					$scope.load = false;
 	          		}
 	          		else if(data == 'add right'){
-	          			alert('申請通過');
-	          			//open load mask
-					$scope.load = false;
+					$window.location.href = '/home';
 	          		}
 		      }).error(function(data, status, headers, config){
 		        	alert('status='+status);
@@ -190,19 +188,16 @@ APP.controller("main-index-block", ['$scope', '$http', function($scope, $http){
 		      }).success(function(data, status, headers, config){
 	          		if(data == 'login error'){
 	          			alert('登入的資料格式有錯！！');
-	          			//open load mask
+	          			//close load mask
 					$scope.load = false;
 	          		}
 	          		else if(data == 'login notExist'){
 	          			$scope.loginForm.username.$setValidity('notExist', false);
-	          			//open load mask
+	          			//close load mask
 					$scope.load = false;
 	          		}
 	          		else if(data == 'login right'){
-	          			alert('登入通過');
-	          			//location.reload(); 
-	          			//open load mask
-					$scope.load = false;
+					$window.location.href = '/home';
 	          		}
 		      }).error(function(data, status, headers, config){
 		        	alert('status='+status);
@@ -228,6 +223,18 @@ APP.controller("main-index-block", ['$scope', '$http', function($scope, $http){
 			
 		}
 	}
+
+	$scope.mail = function(){
+		$scope.mailShow = ($scope.mailShow)? false:true;
+	}
+
+}]);
+
+
+APP.controller("aside-bar-block", ['$scope', '$http', '$window', function($scope, $http, $window){
+
+	
+
 
 }]);
 

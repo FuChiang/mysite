@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from member.models import *
@@ -16,7 +18,7 @@ def joinMember(request):
 		if joinExistVaild(user):
 			return HttpResponse('add existed')
 		elif joinDataVaild(user, pwd, em):
-			Profile.objects.create(account = user, password = pwd, email = em, api_account = 'none')
+			Profile.objects.create(account = user, password = pwd, email = em, api_id = 'none')
 			request.session["user"] = user
 			return HttpResponse('add right')
 		else:
@@ -46,15 +48,16 @@ def facebookLogin(request):
 	if request.method == 'POST' and request.is_ajax():
 
 		data = json.loads(request.body.decode("utf-8"))
-		user = data['name']
+		user = data['name'].replace(' ','')
 		em = data['email']
+		id = data['id']
 
-		if not joinExistVaild(user):
-			Profile.objects.create(account = user, password = 0, email = em, api_account = user)
-		
+		#apiJoin
+		user = apiJoin(user, em, id)
+
 		request.session["user"] = user
 		
-	return HttpResponse('Success login by facebook')
+		return HttpResponse('login right')
 
 def googleLogin(request):
 
@@ -66,19 +69,28 @@ def googleLogin(request):
 		explode_str = google_url.split('=')
 
 		#splite and get first name and last name
-		user = ((explode_str[16].replace('%40', '')).split('&'))[0]+' '+((explode_str[18].replace('%40', '')).split('&'))[0]
+		user = (((explode_str[16].replace('%40', '')).split('&'))[0]+' '+((explode_str[18].replace('%40', '')).split('&'))[0]).replace(' ','')
 		
 		#split email
 		em = ((explode_str[14].replace('%40', '')).split('&'))[0]
 
-		if not joinExistVaild(user):
-			Profile.objects.create(account = user, password = 0, email = em, api_account = user)
-			request.session["user"] = user
-		
-	return HttpResponseRedirect('/')
+		#split identify
+		id = (((explode_str[9].split('&'))[0]).split('%3'))[3]
+
+		#apiJoin
+		user = apiJoin(user, em, id)
+
+		request.session["user"] = user
+
+		return HttpResponseRedirect('/home')
 
 def loginOut(request):
 	del request.session["user"]
 	return HttpResponseRedirect('/')
+
+
+def dashboard(request):
+	
+	return render(request, 'member/dashboard/dashboard.html', {'load': 'dashboardPage', 'topTitle': '的後台設定'})
 		
 		

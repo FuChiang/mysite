@@ -1,0 +1,20 @@
+{% extends "base/base.html" %}
+
+{% block fb_title  %}爪爪窩 - {{topTitle}}{% endblock %}
+
+{% block title %}爪爪窩 - {{topTitle}}{% endblock %}
+
+{% block content %} 
+	
+	<!-- include aside bar content -->
+	{% include "asideBar/asideBar.html" with nowPage='homePage' %}
+
+	<div class="home-content-block" ng-controller="new-content-block">
+		<section>
+			<header><h1>{{topTitle}}<span class="home-paw">cutepaw</span></h1></header>
+			
+		</section>		
+	</div>
+
+{% endblock %}
+

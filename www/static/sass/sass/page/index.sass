@@ -6,6 +6,7 @@ html
 		margin: 0 auto
 		+ft($re)
 		+wh(100%, 100%)
+		overflow-x: hidden
 		+susy-grid-background
 
 		a 
@@ -79,8 +80,16 @@ html
 					@extend .po
 				.search-inner-block
 					height: 10em
+					.search
+						+ft($ab, 999)
+						+at-breakpoint($phone)
+							@include transition(margin 1s)
+							margin-top: 3.5em
+						+at-breakpoint($pad)
+							@include transition(margin 1s)
+							margin-top: 3em
 					input
-						+ft($re, 999)
+						+ft($re, 998)
 						+radius(2em)
 						@include transition(opacity 1s)
 						+opacity(0.3)
@@ -103,7 +112,6 @@ html
 						background: darken($slp, 10%)
 
 				.searchResult
-					color: darken($sr, 20%)
 					/*border: 1px solid red*/
 					+wh(65em, 100%)
 					+ft($re, 999)
@@ -129,19 +137,35 @@ html
 				ul 
 					+wh(11em, 12.2em)
 					background: lighten($sb, 20%)
+					.mainMail
+						padding-top: 0.5em
+						font-style: italic
+						margin: 0
+						height: 2em
+						background: lighten($sb, 20%)
+						color: $sw
+						font-size: 1.25em
+						a
+							margin-left: 0.3em
 					li
+
 						margin: 0em 0 0 0.1em
 						border-top: #5B5B5B 1px solid
 						a 
-							color: $sw
+							color: darken($sw, 30%)
 							.icon
 								+radius(0.2em)
 								color: $sw
 								margin: 0.1em  0.2em 0.1em 0.2em
 								width: 1.3em
 						&:hover
-							@include transition(all 0.5s)
+							@include transition(all 1s)
 							background: lighten($sb, 15%)
+							a 
+								color: $sw
+				@media (max-height: 350px)
+					@include transition(top 1s)
+					top: 0em
 				.main-menu
 					+radius(0.5em, 'right')
 					+wh(4em, 2.51em)
@@ -152,10 +176,15 @@ html
 					.icon
 						margin: 0.19em 0 0 0.3em
 						color: $sw
+					&:hover
+						@include transition(all 1s)
+						background: lighten($sb, 15%)
+					@media (max-height: 350px)
+						@include transition(top 1s)
+						margin-top: 0em
 
 			.main-intro-block
 				+ft($ab, 997)
-				/*+animate(bounceIn, 3s, 1s)*/
 				h1
 					+ts($sb)
 				h2
@@ -186,6 +215,7 @@ html
 							margin-top: -0.9em
 							margin-left: -0.2em
 				+at-breakpoint($pad)
+					+animate(fadeInUp, 1s, 1s)
 					+span-columns(12)
 					+isolate(1)
 					top: 41%
@@ -233,7 +263,7 @@ html
 				+ft($ab, 999)
 				height: 100%
 				display: none
-				overflow: hidden
+				overflow-x: hidden
 				h5
 					color: $sw
 					+font(2em, bold)
@@ -361,17 +391,167 @@ html
 					&:hover
 						background: darken($slr, 5%)
 
+			.site-Menu-Block
+				+ft($fi, 999)
+				height: 3.8em
+				color: lighten($sb, 20%)
+				overflow-x: hidden
+				+at-breakpoint($pad)
+					@include transition(width 0.5s)
+					width: 3em
+				+at-breakpoint($pc)
+					@include transition(width 0.5s)
+					width: 3em
+					&:hover
+						width: 8em
+				@media (max-height: 750px)
+					@include transition(width 0.5s)
+					width: 3em
+
+				.site-Menu
+					color: #FDFBF5
+					padding: 0.5em 0 0.5em 0
+					@extend .po
+				p
+					color: #FDFBF5
+					+font(1em, bold)
+					width: 4em
+					margin: -0.7em 0 0 3em
+
+			.site-Menu-Content
+				overflow-x: hidden
+				background: lighten($sb, 20%)
+				border-top: #5B5B5B 1px solid
+				h5
+					@include box-shadow(lighten($sgy, 10%) 1px 1px 1px)
+					+wh(100%, 1.5em)
+					background: #e6a12b
+					color: $sw
+					+font(1.5em, bold)
+					padding: 0.8em 0 0 1em
+					i
+						margin-top: -0.15em
+						color: $sw
+						background: none
+				ul 
+					li
+						border-top: #5B5B5B 1px solid
+						a 
+							color: darken($sw, 30%)
+						.search
+							margin: 0 0.35em 0 0.2em
+						&:hover
+							@include transition(all 1s)
+							background: lighten($sb, 15%)
+							a
+								color: $sw
+					.menuShow
+						background: lighten($sb, 15%)
+						a
+							color: #FF8247
+
+				+at-breakpoint($phone)
+					ul li
+						padding: 1em 
+
+				+at-breakpoint($pad)
+					ul li
+						font-size: 1.5em
+
+				@media (max-height: 750px)
+					ul li
+						font-size: 1em
+						padding: 0.8em
+
+				@media (max-height: 500px)
+					ul li
+						font-size: 0.8em
+						padding: 0.6em 
 
 
+			.home-content-block
+				+ft($fi)
+				+wh(105%, 100%)
+				text-align: center
+				+ts(lighten($sb, 20%))
+				color: lighten($sb, 40%)
+				background: #FDFBF5
+				h1
+					color: #FDFBF5
+					background: #a64818
+					/*+opacity(0.5)*/
+					@include box-shadow(lighten($sb, 10%) 1px 0px 1px)
+					i
+						+font(1em, bold)
+					+at-breakpoint($phone)
+						+font(0.9em, bold)
+						padding: 1.5em 0.5em 1.5em 0em
+						height: 1em
+					+at-breakpoint($pad)
+						+font(1.5em, bold)
+						padding: 0.8em 1em 0.96em 1em
+						height: 0.6em
+					.home-paw
+						+bg('s_paw.png', 'sign')
+						@extend .str-to-img
+						+wh(70px, 70px)
+						@include rotate(15deg)
+						margin-top: -0.5em
 
-				
+			.dashboard-out-block
+				+wh(100%, 100%)
+				background: #FDFBF5
+				+ft($ab)
+				.dashboard-inner-block
+					overflow: hidden
+					border: red solid 1px
+					+wh(70%, 100%)
+					margin: 0 auto
+					h1
+						width: 3em
+						+font(2em, bold)
+						margin: 1.5em 1em 1em 4em
+						a
+							color: darken($sgy, 5%)
+						.dashboard-paw
+							+bg('paw.png', 'sign')
+							@extend .str-to-img
+							+wh(70px, 70px)
+							margin: -1.2em 0 0 -2.3em
+							@include rotate(10deg)
+						&:hover
+							a
+								@include transition(color 1s)
+								color: darken($sgy, 20%)
+							.dashboard-paw
+								@include rotate(0deg)
+					ul
+						margin: -3.5em 4.5em 0 0 
+						li
+							float: right
+							i
+								color: $sgy
+								&:hover
+									@include transition(color 0.5s)
+									color: $sb
+							.input
+								margin-top: -0.5em
+								+opacity(0.5)
+								input
+									+radius(3em)
+								&:active
+									@include transition(opacity 1s)
+									+opacity(1)
 
+					.dashboard-inner-content
+						margin: 5em auto 0 auto
+						+wh(90%, 100%)
+						+radius(2em)
+						+opacity(0.5)
+						background: darken(#FDFBF5, 10%)
+						+gt(darken(#FDFBF5, 15%), darken(#FDFBF5, 10%), #FDFBF5)
 
+						
 
-
-					
-
-
-										
 
 						
