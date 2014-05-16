@@ -60,6 +60,8 @@ html
 				+at-breakpoint($pc)
 					@include transition(background-image 1s)
 					+bg('mainbg_pc.jpg', 'background/main')
+				+at-breakpoint($bpc)
+					background-size: 100%, 
 				
 			.search-block
 				+ft($ab, 999)
@@ -438,6 +440,11 @@ html
 						border-top: #5B5B5B 1px solid
 						a 
 							color: darken($sw, 30%)
+						.member
+							+radius(5em)
+							@extend .str-to-img
+						p
+							margin-left: 3.05em
 						.search
 							margin: 0 0.35em 0 0.2em
 						&:hover
@@ -452,16 +459,34 @@ html
 
 				+at-breakpoint($phone)
 					ul li
-						padding: 1em 
+						padding: 1em
+						.member
+							+bg('default_phone.jpg', 'member/asidebar')
+							+wh(30px, 30px)
+							margin: -0.2em 0 0 0.2em
 
 				+at-breakpoint($pad)
 					ul li
 						font-size: 1.5em
+						.member
+							+bg('default_pad.jpg', 'member/asidebar')
+							+wh(40px, 40px)
+							margin-top: -0.4em
+				+at-breakpoint($pc)
+					ul li
+						.member
+							+bg('default_pc.jpg', 'member/asidebar')
+							+wh(50px, 50px)
+							margin: -0.5em 0 0 0
 
 				@media (max-height: 750px)
 					ul li
 						font-size: 1em
 						padding: 0.8em
+						.member
+							+bg('default_phone.jpg', 'member/asidebar')
+							+wh(30px, 30px)
+							margin: -0.2em 0 0 0.2em
 
 				@media (max-height: 500px)
 					ul li
@@ -504,11 +529,11 @@ html
 				+ft($ab)
 				.dashboard-inner-block
 					overflow: hidden
-					border: red solid 1px
+					/*border: red solid 1px*/
 					+wh(70%, 100%)
 					margin: 0 auto
 					h1
-						width: 3em
+						width: 3.5em
 						+font(2em, bold)
 						margin: 1.5em 1em 1em 4em
 						a
@@ -529,11 +554,14 @@ html
 						margin: -3.5em 4.5em 0 0 
 						li
 							float: right
+							margin-right: 0.3em
 							i
-								color: $sgy
+								+radius(0.3em)
+								color: lighten($sgy, 20%)
 								&:hover
 									@include transition(color 0.5s)
-									color: $sb
+									color: $sgy
+
 							.input
 								margin-top: -0.5em
 								+opacity(0.5)
@@ -542,14 +570,21 @@ html
 								&:active
 									@include transition(opacity 1s)
 									+opacity(1)
+						.nowShow
+							i
+								color: $sw
+								background: lighten($sb, 30%)
+								&:hover
+									color: $sw
 
 					.dashboard-inner-content
 						margin: 5em auto 0 auto
 						+wh(90%, 100%)
 						+radius(2em)
-						+opacity(0.5)
 						background: darken(#FDFBF5, 10%)
-						+gt(darken(#FDFBF5, 15%), darken(#FDFBF5, 10%), #FDFBF5)
+						+gt(darken(#FDFBF5, 10%), darken(#FDFBF5, 5%), #FDFBF5)
+						h4
+							display: none
 
 						
 

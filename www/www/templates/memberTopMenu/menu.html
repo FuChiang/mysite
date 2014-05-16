@@ -1,0 +1,18 @@
+			<nav>
+				<header><h1><a href="/dashboard/{{request.session.user}}"><span class="dashboard-paw">cutepaw</span>爪爪窩</a></h1></header>
+				<ul>
+					<li>
+						<div class="ui icon input">
+						  <input type="text" placeholder="輸入搜尋名稱..">
+						  <i class=" search icon"></i>
+						</div>
+					</li>
+					<li><a href="/logout"><i class="off big icon" title="登出爪爪窩"></i></a></li>
+					<li><a href="/home"><i class="reply mail big icon" title="返回爪爪窩"></i></a></li>
+					<li ng-class="msgPage"><a href="/message/{{request.session.user}}"><i class="inbox outline big icon" title="訊息通知"></i></a></li>
+					<li ng-class="accountPage"><a href="/account/{{request.session.user}}"><i class="user big icon" title="飼主帳號設定"></i></a></li>
+					<li ng-class="setPage"><a href="/setProfile/{{request.session.user}}"><i class="setting big icon" title="設定飼主首頁"></i></a></li>
+					<li><a href=""><i class="unhide big icon" title="瀏覽飼主首頁"></i></a></li>
+					<li ng-class="backendPage"><a href="/dashboard/{{request.session.user}}"><i class="home big icon" title="後台首頁"></i></a></li>
+				</ul>
+			</nav>

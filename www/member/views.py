@@ -90,7 +90,21 @@ def loginOut(request):
 
 
 def dashboard(request):
-	
-	return render(request, 'member/dashboard/dashboard.html', {'load': 'dashboardPage', 'topTitle': '的後台設定'})
+	if 'user' not in request.session:
+		return HttpResponseRedirect('/login')
+	return render(request, 'member/dashboard/dashboard.html', {'load': 'dashboardPage', 'topTitle': '的後台管理', 'nowPage': 'backendPage'})
 		
-		
+def message(request):
+	if 'user' not in request.session:
+		return HttpResponseRedirect('/login')
+	return render(request, 'member/dashboard/message.html', {'load': 'messagePage', 'topTitle': '的訊息通知', 'nowPage': 'msgPage'})
+
+def setProfile(request):
+	if 'user' not in request.session:
+		return HttpResponseRedirect('/login')
+	return render(request, 'member/dashboard/setProfile.html', {'load': 'setProfilePage', 'topTitle': '的飼主頁面設定', 'nowPage': 'setPage'})
+
+def account(request):
+	if 'user' not in request.session:
+		return HttpResponseRedirect('/login')
+	return render(request, 'member/dashboard/account.html', {'load': 'setProfilePage', 'topTitle': '的飼主帳號設定', 'nowPage': 'accountPage'})
