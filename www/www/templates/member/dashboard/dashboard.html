@@ -5,6 +5,7 @@
 {% block title %}爪爪窩 - {{request.session.user}} {{topTitle}}{% endblock %}
 
 {% block content %} 
+
 	
 	<div class="dashboard-out-block">
 		<div class="dashboard-inner-block" ng-controller="dashboard-content-block" ng-init="{{nowPage}}='nowShow'">
@@ -13,8 +14,170 @@
 			<div class="dashboard-inner-content">
 				<section>
 					<header><h4>後台管理-首頁</h4></header>
-					
-				</section>
+					<div class="dashboard-inner-left-block">
+						<form enctype="multipart/form-data" action="/sharePic" class="ui form dashboard-share-photo-block">
+							<div class="field">
+								<input type="text" placeholder="圖片標題">
+							</div>
+							<input 
+								type = "file"  
+								class = "share-pic-img" 
+								name = "sharePicImg" 
+								data-my-share 
+							/>
+
+							<div class="photo-file-block">
+								<i class=" camera big icon"></i>
+								<p>點選照片檔案</p>
+								<div class="ui blue active progress" ng-hide="hideBar">
+  									<div class="bar">讀取中</div>
+								</div>
+							</div>
+							<div class="photo-preview-block"><img  ng-src="<%sharePic%>" /></div>
+							<div class="field">
+    								<textarea placeholder="輸入想描述的話..." ></textarea>
+							</div>
+							<div class="field animal-type-radio">
+								<p class="ui header">請選擇動物的總類:</p>
+								<div class="ui radio checkbox">
+        								<input id="choice-1" type="radio" name="type" value="狗">
+        								<label for="choice-1">狗</label>
+      							</div>
+      							<div class="ui radio checkbox">
+        								<input id="choice-2" type="radio" name="type"  value="貓">
+        								<label for="choice-2">貓</label>
+      							</div>
+      							<div class="ui radio checkbox">
+        								<input id="choice-3" type="radio" name="type"  value="兔">
+        								<label for="choice-3">兔</label>
+      							</div>
+      							<div class="ui radio checkbox">
+        								<input id="choice-4" type="radio" name="type"  value="鳥">
+        								<label for="choice-4">鳥</label>
+      							</div>
+      							<div class="ui radio checkbox">
+        								<input id="choice-5" type="radio" name="type"  value="蜥蜴">
+        								<label for="choice-5">蜥蜴</label>
+      							</div>
+      							<div class="ui radio checkbox">
+        								<input id="choice-6" type="radio" name="type"  value="鼠">
+        								<label for="choice-6">鼠</label>
+      							</div>
+      							<div class="ui radio checkbox">
+        								<input id="choice-7" type="radio" name="type"  value="烏龜">
+        								<label for="choice-7">烏龜</label>
+      							</div>
+      							<div class="ui radio checkbox">
+        								<input id="choice-8" type="radio" name="type"  value="狸 ">
+        								<label for="choice-8">狸 </label>
+      							</div>
+      							<div class="ui radio checkbox">
+        								<input id="choice-9" type="radio" name="type"  value="豹">
+        								<label for="choice-9">豹</label>
+      							</div>
+      							<div class="ui radio checkbox">
+        								<input id="choice-10" type="radio" name="type"  value="蛇">
+        								<label for="choice-10">蛇</label>
+      							</div>
+      							<div class="ui radio checkbox">
+        								<input id="choice-11" type="radio" name="type"  value="虎">
+        								<label for="choice-11">虎</label>
+      							</div>
+      							<div class="ui radio checkbox">
+        								<input id="choice-13" type="radio" name="type"  value="鴨">
+        								<label for="choice-13">鴨</label>
+      							</div>
+      							<div class="ui radio checkbox">
+        								<input id="choice-14" type="radio" name="type"  value="猴">
+        								<label for="choice-14">猴</label>
+      							</div>
+      							<div class="ui radio checkbox">
+        								<input id="choice-15" type="radio" name="type"  value="豬">
+        								<label for="choice-15">豬</label>
+      							</div>
+      							<div class="ui radio checkbox">
+        								<input id="choice-16" type="radio" name="type"  value="馬">
+        								<label for="choice-16">馬</label>
+      							</div>
+      							<div class="ui radio checkbox">
+        								<input id="choice-17" type="radio" name="type"  value="羊">
+        								<label for="choice-17">羊</label>
+      							</div>
+      							<div class="ui radio checkbox">
+        								<input id="choice-18" type="radio" name="type"  value="鵝">
+        								<label for="choice-18">鵝</label>
+      							</div>
+      							<div class="ui radio checkbox">
+        								<input id="choice-19" type="radio" name="type"  value="雞">
+        								<label for="choice-19">雞</label>
+      							</div>
+      							<div class="ui radio checkbox">
+        								<input id="choice-20" type="radio" name="type"  value="猩猩">
+        								<label for="choice-20">猩猩</label>
+      							</div>
+      							<div class="ui radio checkbox">
+        								<input id="choice-21" type="radio" name="type"  value="熊貓">
+        								<label for="choice-21">熊貓 </label>
+      							</div>
+      							<div class="ui radio checkbox">
+        								<input id="choice-22" type="radio" name="type"  value="鹿">
+        								<label for="choice-22">鹿</label>
+      							</div>
+      							<div class="ui radio checkbox">
+        								<input id="choice-23" type="radio" name="type"  value="蝴蝶">
+        								<label for="choice-23">蝴蝶</label>
+      							</div>
+      							<div class="ui radio checkbox">
+        								<input id="choice-24" type="radio" name="type"  value="獅">
+        								<label for="choice-24">獅</label>
+      							</div>
+      							<div class="ui radio checkbox">
+        								<input id="choice-25" type="radio" name="type"  value="其他">
+        								<label for="choice-25">其他</label>
+      							</div>
+							</div>
+							<div class="ui primary button share-button">
+							  上傳照片
+							</div>
+							<div class="ui secondary button cancel-button">
+							  取消操作
+							</div>
+						</form>
+					</div>
+				</sectiion>
+				<aside>
+					<header><h5>飼主相關連結</h5></header>
+					<div class="dashboard-inner-right-block">
+						<ul>
+							<li>
+								<a href="/profile/{{memberQuery.account}}">
+									<img class="avatar" src="/static/img/member/dashboard/{{memberQuery.pic}}" alt="{{memberQuery.account}}" title="{{memberQuery.account}}">
+									<p>{{memberQuery.account}}</p>
+								</a>
+							</li>
+							<li>
+								<a href="/share"><i class="cloud upload big icon" title="分享寵物照"></i><span>分享寵物照</span></a>
+								<i class="right arrow large icon right-icon"></i>
+							</li>
+							<li>
+								<a href="/upload"><i class="photo big icon" title="瀏覽已上傳"></i><span>瀏覽已上傳</span></a>
+								<i class="right arrow large icon right-icon"></i>
+							</li>
+							<li>
+								<a href="/search"><i class="search big icon" title="搜尋寵物照"></i><span>搜尋寵物照</span></a>
+								<i class="right arrow large icon right-icon"></i>
+							</li>
+							<li>
+								<a href="/comment"><i class="comment big icon" title="最新的留言"></i><span>最新的留言</span></a>
+								<i class="right arrow large icon right-icon"></i>
+							</li>
+							<li>
+								<a href="popular"><i class="thumbs up big icon" title="寵物照推薦"></i><span>寵物照推薦</span></a>
+								<i class="right arrow large icon right-icon"></i>
+							</li>
+						</ul>
+					</div>					
+				</aside>
 			</div>
 		</div>
 

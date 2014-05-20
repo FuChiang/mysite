@@ -1,18 +1,84 @@
 			<nav>
 				<header><h1><a href="/dashboard/{{request.session.user}}"><span class="dashboard-paw">cutepaw</span>爪爪窩</a></h1></header>
-				<ul>
-					<li>
-						<div class="ui icon input">
-						  <input type="text" placeholder="輸入搜尋名稱..">
-						  <i class=" search icon"></i>
-						</div>
-					</li>
-					<li><a href="/logout"><i class="off big icon" title="登出爪爪窩"></i></a></li>
-					<li><a href="/home"><i class="reply mail big icon" title="返回爪爪窩"></i></a></li>
-					<li ng-class="msgPage"><a href="/message/{{request.session.user}}"><i class="inbox outline big icon" title="訊息通知"></i></a></li>
-					<li ng-class="accountPage"><a href="/account/{{request.session.user}}"><i class="user big icon" title="飼主帳號設定"></i></a></li>
-					<li ng-class="setPage"><a href="/setProfile/{{request.session.user}}"><i class="setting big icon" title="設定飼主首頁"></i></a></li>
-					<li><a href=""><i class="unhide big icon" title="瀏覽飼主首頁"></i></a></li>
-					<li ng-class="backendPage"><a href="/dashboard/{{request.session.user}}"><i class="home big icon" title="後台首頁"></i></a></li>
-				</ul>
+				<div class="menu-Set">
+					<a href="javascript:void(0)">
+						<i class="reorder big icon" title="後台選單"></i>
+					</a>
+				</div>
+				<div class="nromal-Menu">
+					<ul>
+						<li>
+							<a href="/logout">
+								<i class="off big icon" title="登出爪爪窩"></i>
+							</a>
+						</li>
+						<li>
+							<a href="/home">
+								<i class="reply mail big icon" title="返回爪爪窩"></i>
+							</a>
+						</li>
+						<li ng-class="msgPage">
+							<a href="/message/{{request.session.user}}">
+								<i class="inbox outline big icon" title="訊息通知"></i>
+							</a>
+							<div class="select-nipple"></div>
+						</li>
+						<li ng-class="accountPage">
+							<a href="/account/{{request.session.user}}">
+								<i class="user big icon" title="飼主帳號設定"></i>
+							</a>
+							<div class="select-nipple"></div>
+						</li>
+						<li ng-class="setPage">
+							<a href="/setProfile/{{request.session.user}}">
+								<i class="setting big icon" title="設定飼主首頁"></i>
+							</a>
+							<div class="select-nipple"></div>
+						</li>
+						<li><a href="/profile/{{request.session.user}}"><i class="unhide big icon" title="瀏覽飼主首頁"></i></a></li>
+						<li ng-class="backendPage">
+							<a href="/dashboard/{{request.session.user}}">
+								<i class="home big icon" title="後台首頁"></i>
+							</a>
+							<div class="select-nipple"></div>
+						</li>
+					</ul>
+				</div>
+
+				<div class="mobile-Menu">
+					<ul>
+						<li ng-class="backendPage">
+							<div class="select-nipple"></div>
+							<a href="/dashboard/{{request.session.user}}">
+								<i class="home big icon" title="回後台首頁"></i>回 後 台 首 頁
+							</a>
+						</li>
+						<li ng-class="msgPage">
+							<a href="/message/{{request.session.user}}">
+								<i class="inbox outline big icon" title="飼主訊息頁"></i>飼 主 訊 息 頁
+							</a>
+						</li>
+						<li ng-class="accountPage">
+							<a href="/account/{{request.session.user}}">
+								<i class="user big icon" title="設定帳號頁"></i>設 定 帳 號 頁
+							</a>
+						</li>
+						<li ng-class="setPage">
+							<a href="/setProfile/{{request.session.user}}">
+								<i class="setting big icon" title="設定飼主頁"></i>設 定 飼 主 頁
+							</a>
+						</li>
+						<li><a href=""><i class="unhide big icon" title="瀏覽飼主頁"></i>瀏 覽 飼 主 頁</a></li>
+						<li>
+							<a href="/home">
+								<i class="reply mail big icon" title="返回爪爪窩"></i>返 回 爪 爪 窩
+							</a>
+						</li>
+						<li>
+							<a href="/logout">
+								<i class="off big icon" title="登出爪爪窩"></i>登 出 爪 爪 窩
+							</a>
+						</li>
+					</ul>
+				</div>
 			</nav>

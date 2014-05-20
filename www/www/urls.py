@@ -1,4 +1,4 @@
-from django.conf.urls.defaults import *
+from django.conf.urls import *
 
 handler404 = 'main.views.index'
 handler500 = 'main.views.index'

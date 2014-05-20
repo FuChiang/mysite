@@ -118,8 +118,29 @@ var popularPage = function(){
 /*dashboard page set*/
 /************************************/
 var dashboardPage = function(){
-	//set slide
-	sildeBar.slideEffect();
+
+	var $jq_menu = $jq(".mobile-Menu");
+
+
+	$jq(".menu-Set").on('click', function(){
+		(!$jq_menu.is(":visible"))
+			?
+				$jq_menu.slideDown(200)
+			:
+				$jq_menu.slideUp(200);
+	});
+	
+	$jq(window ).resize(function() {
+		(window.innerWidth == 960)
+			?
+				$jq_menu.show()
+			:
+				$jq_menu.hide();
+	});
+
+	$jq(".share-pic-img").on("change", function(){
+		$jq(".progress").fadeIn();
+	});
 	
 }
 

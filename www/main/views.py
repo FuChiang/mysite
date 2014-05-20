@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
-
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
+
 
 def index(request, statue = 'no'):
 	if 'user' in request.session:
@@ -18,7 +18,7 @@ def popular(request):
 	return  render(request, 'menuPage/popular.html', {'load': 'popularPage', 'topTitle': '人氣的寵物照'})
 
 def categories(request):
-	return  render(request, 'menuPage/categories.html', {'load': 'categoriesPage', 'topTitle': '寵物的種類'})
+	return  render(request, 'menuPage/categories.html', {'load': 'categoriesPage', 'topTitle': '寵物照種類'})
 
 def sitemap(request):
 	return  render(request, 'sitemap/sitemap.xml')

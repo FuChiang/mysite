@@ -7,13 +7,14 @@ class Profile(models.Model):
 	api_id = models.CharField(max_length = 50)
 	password = models.CharField(max_length = 20)
 	email = models.EmailField()
+	pic = models.CharField(max_length = 30)
 
 
 def joinDataVaild(user, pwd, em):
 
 	vaildStatue = True
 
-	if user == None or not 3 <= len(user) <= 30 or not user.isalnum():
+	if user == None or not 3 <= len(user) <= 20 or not user.isalnum():
 		vaildStatue = False
 	elif pwd == None or not 3 <= len(pwd) <= 20 or not pwd.isalnum():
 		vaildStatue = False

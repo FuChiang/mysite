@@ -1,9 +1,12 @@
 # -*- coding: utf-8 -*-
-
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from member.models import *
+from wand.image import Image
+from wand.display import display
 import json
+
+
 
 def joinMember(request):
 
@@ -92,7 +95,10 @@ def loginOut(request):
 def dashboard(request):
 	if 'user' not in request.session:
 		return HttpResponseRedirect('/login')
-	return render(request, 'member/dashboard/dashboard.html', {'load': 'dashboardPage', 'topTitle': '的後台管理', 'nowPage': 'backendPage'})
+
+	memberQuery = Profile.objects.get(account = request.session["user"])
+
+	return render(request, 'member/dashboard/dashboard.html', {'load': 'dashboardPage', 'topTitle': '的後台管理', 'nowPage': 'backendPage', 'memberQuery': memberQuery})
 		
 def message(request):
 	if 'user' not in request.session:
@@ -108,3 +114,4 @@ def account(request):
 	if 'user' not in request.session:
 		return HttpResponseRedirect('/login')
 	return render(request, 'member/dashboard/account.html', {'load': 'setProfilePage', 'topTitle': '的飼主帳號設定', 'nowPage': 'accountPage'})
+

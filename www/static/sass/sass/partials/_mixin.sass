@@ -30,8 +30,8 @@
 	@if $style != " "
 		font-style: $style
 
-@mixin ts($color: "")
-	+text-shadow(rgba($color, .2) 1px 1px 0, rgba($color, .2) 2px 2px 0, rgba($color, .2) 3px 3px 0)
+@mixin ts($set)
+	@include text-shadow($set)
 
 //border radius
 @mixin radius($value, $direct:" ")
@@ -50,6 +50,21 @@
 //Gradient background color
 @mixin gt($top, $center, $bottom)
 	+background-image(linear-gradient($top, $center, $bottom))
+
+//trangle 
+@mixin tle($direct, $color, $width, $height)
+	+wh(0,0)
+	border-style: solid
+	border-color: transparent transparent $color transparent
+
+	@if $direct == 'top'
+		border-width: 0 $width $height $width
+	@if $direct == 'bottom'
+		border-width: $height $width 0 $width
+	@if $direct == 'left'
+		border-width: $width $height $width 0
+	@if $direct == 'right'
+		border-width: $width 0 $width $height
 
 
 	

@@ -1,6 +1,6 @@
 
 //main mask block
-APP.directive('myMask', function($timeout) {
+APP.directive('myMask', function() {
 	return{
 		//if set true then replace original items otherwise append into items 
 		replace: true,
@@ -36,6 +36,32 @@ APP.directive('myFocus', ['$timeout', function(time) {
 		}
 	};
 
+}]);
+
+APP.directive('myShare', ['$timeout', function(time) {
+	return{
+		replace: true,
+		restrict: 'A',
+		link: function(scope, element, attr){
+			element.bind("change", function(e){
+				var file = (e.srcElement || e.target).files[0],
+					reader = new FileReader(); 
+
+		     		reader.readAsDataURL(file);
+		     		
+		     		reader.onload = function(e){ 
+		     			var path = '';
+		     			
+		     			path = this.result;
+		     			
+		     			time(function(){
+		     				scope.sharePic = path;
+		     				$jq(".progress").fadeOut();
+		     			}, 500);
+		     		}	
+			});
+		}
+	};
 }]);
 
 

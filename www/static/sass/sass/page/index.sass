@@ -8,7 +8,7 @@ html
 		+wh(100%, 100%)
 		overflow-x: hidden
 		+susy-grid-background
-
+		background: darken($sdy, 10%)
 		a 
 			outline: none
 			text-decoration: none
@@ -21,7 +21,7 @@ html
 			display: none
 
 		.container
-			height: 100%
+			height: 105%
 			+at-breakpoint($phone)
 				+container
 				+span-columns(9)
@@ -188,7 +188,7 @@ html
 			.main-intro-block
 				+ft($ab, 997)
 				h1
-					+ts($sb)
+					+ts($sb 1px 1px 1px)
 				h2
 					margin-top: 2.5em 
 					color: $sw
@@ -448,14 +448,18 @@ html
 						.search
 							margin: 0 0.35em 0 0.2em
 						&:hover
-							@include transition(all 1s)
+							@include transition(all 0.5s)
 							background: lighten($sb, 15%)
+							border-left: 5px solid $sw
 							a
 								color: $sw
 					.menuShow
 						background: lighten($sb, 15%)
 						a
-							color: #FF8247
+							color: #e6a12b
+						&:hover
+							a
+								color: #e6a12b
 
 				+at-breakpoint($phone)
 					ul li
@@ -498,7 +502,7 @@ html
 				+ft($fi)
 				+wh(105%, 100%)
 				text-align: center
-				+ts(lighten($sb, 20%))
+				+ts(lighten($sb, 20%) 1px 1px 1px)
 				color: lighten($sb, 40%)
 				background: #FDFBF5
 				h1
@@ -525,24 +529,18 @@ html
 
 			.dashboard-out-block
 				+wh(100%, 100%)
-				background: #FDFBF5
-				+ft($ab)
+				
 				.dashboard-inner-block
-					overflow: hidden
-					/*border: red solid 1px*/
-					+wh(70%, 100%)
+					height: 100%
 					margin: 0 auto
 					h1
-						width: 3.5em
-						+font(2em, bold)
-						margin: 1.5em 1em 1em 4em
+						+ft($re, 999)
 						a
 							color: darken($sgy, 5%)
+							@include text-shadow($sw 1px 1px 1px)
 						.dashboard-paw
-							+bg('paw.png', 'sign')
 							@extend .str-to-img
-							+wh(70px, 70px)
-							margin: -1.2em 0 0 -2.3em
+							margin-left: -2.3em
 							@include rotate(10deg)
 						&:hover
 							a
@@ -550,42 +548,285 @@ html
 								color: darken($sgy, 20%)
 							.dashboard-paw
 								@include rotate(0deg)
-					ul
-						margin: -3.5em 4.5em 0 0 
+					.menu-Set
+						+ft($re)
+						top: 3.2em
+						text-align: right
+						i
+							color: #66CDAA
+					.nromal-Menu ul
+						+ft($re, 997)
+						top: 2em
 						li
 							float: right
-							margin-right: 0.3em
 							i
-								+radius(0.3em)
 								color: lighten($sgy, 20%)
 								&:hover
 									@include transition(color 0.5s)
 									color: $sgy
 
-							.input
-								margin-top: -0.5em
-								+opacity(0.5)
-								input
-									+radius(3em)
-								&:active
-									@include transition(opacity 1s)
-									+opacity(1)
-						.nowShow
-							i
-								color: $sw
-								background: lighten($sb, 30%)
-								&:hover
+							.select-nipple
+								display: none
+								+tle('top', darken($sdy, 20%), 12px, 15px)
+								margin: 0.2em 0 0 0.5em
+					.mobile-Menu
+						+ft($ab, 999)
+						top: 6.5em
+						display: none
+						ul
+							li 
+								padding: 0.5em 0 0.5em 0
+								margin: 0 auto
+								width: 90%
+								background: #66CDAA
+								text-align: center
+								border-top: $sw 1px solid
+								a
+									+font(1em, bold)
 									color: $sw
+								&:hover
+									background: darken(#66CDAA, 10%)
+									.select-nipple
+										+tle('top', darken(#66CDAA, 10%), 12px, 15px)
+							li:nth-child(1)
+								border: 0
+							.select-nipple
+								+ft($ab)
+								width: 100%
+								+tle('top', #66CDAA, 12px, 15px)
+								margin-top: -1em
+
+					+at-breakpoint($phone)
+						@include transition(all 0.5s)
+						width: 100%
+						h1
+							width: 3.5em
+							+font(1.5em, bold)
+							top: 2em
+							left: 4em
+							.dashboard-paw
+								+bg('s_paw.png', 'sign')
+								margin-top: -0.7em
+								+wh(50px, 50px)
+						.menu-Set
+							margin-top: -2em
+							width: 87%
+						.nromal-Menu 
+							display: none
+						.mobile-Menu
+							width: 100%
+							margin-top: -1.3em
+							ul
+								li:nth-child(1)
+									.select-nipple
+										right: 16.5%
+
+					+at-breakpoint($pad)
+						@include transition(all 0.5s)
+						width: 80%
+						h1
+							width: 3.5em
+							font-size: 1.8em
+							.dashboard-paw
+								+bg('paw.png', 'sign')
+								margin-top: -1.2em
+								+wh(70px, 70px)
+						.menu-Set
+							margin-top: -1.4em
+							width: 90%
+						.nromal-Menu ul 
+							width: 75%
+						.mobile-Menu
+							width: 80%
+							margin-top: -0.8em
+							ul
+								li:nth-child(1)
+									.select-nipple
+										right: 13%
+
+					+at-breakpoint($pc)
+						@include transition(all 0.5s)
+						width: 70%
+						h1
+							font-size: 2em
+						.menu-Set
+							display: none
+
+						.nromal-Menu 
+							display: inline
+							ul
+								width: 100%
+								right: 4em
+								.nowShow
+									i
+										color: $sb
+										&:hover
+											color: $sb
+									.select-nipple
+										display: block
+						.mobile-Menu
+							dispaly: none
 
 					.dashboard-inner-content
+						+ft($re)
 						margin: 5em auto 0 auto
 						+wh(90%, 100%)
 						+radius(2em)
-						background: darken(#FDFBF5, 10%)
-						+gt(darken(#FDFBF5, 10%), darken(#FDFBF5, 5%), #FDFBF5)
-						h4
+						background: darken($sdy, 10%)
+						+gt(darken($sdy, 20%), darken($sdy, 15%), darken($sdy, 10%))
+						h4, h5
 							display: none
 
+						.dashboard-inner-left-block, .dashboard-inner-right-block
+							margin-top: 2em
+						
+						.dashboard-inner-left-block
+							+wh(68%, auto)
+							float: left
+							.dashboard-share-photo-block
+								text-align: center
+								textarea
+									font-size: 1.2em
+								textarea, input
+									+radius(1em)
+									+wh(80.1%, auto)
+									resize: none
+									margin-bottom: 0.5em
+								i
+									color: $sgy
+								.photo-file-block
+									+radius(1em)
+									margin: 0 auto
+									+wh(78%, 8em)
+									margin-bottom: 0.5em
+									background: lighten($sgy, 40%)
+									border: 5px dashed lighten($sgy, 20%)
+									i
+										margin-top: 1.2em
+									.progress
+										display: none
+										margin: 0 auto
+										+wh(50%, 1.3em)
+										padding: 0
+										.bar
+											width: 100%
+
+								.share-pic-img
+									@extend .po
+									+ft($ab, 998)
+									+opacity(0)
+									border: 1px solid red
+									+wh(35.8em, 10em)
+									margin-left: -18em
+								.photo-preview-block
+									+wh(70%, auto)
+									margin: 0 auto
+									img
+										+m-wh(100%, 50%)
+										+radius(0.5em)
+										@include box-shadow($sgy 1px 0 5px)
+								.animal-type-radio
+									+radius(1em)
+									margin: 0 auto
+									height: auto
+									color: $sgy
+									p
+										margin-bottom: 1em
+										
+									div
+										width: 5em
+										margin-bottom: 1em
+										&:hover
+											@include transition(all 0.5s)
+											background: darken(#FDFBF5, 20%)
+											label
+												color: $sw
+
+								+at-breakpoint($phone)
+									.animal-type-radio
+										margin-bottom: 0em
+										width: 100%
+										p
+											text-align: center
+											font-size: 0.8em
+										div
+											font-size: 0.9em
+											width: 4em
+									.share-button, .cancel-button
+										font-size: 0.7em
+								+at-breakpoint($pad)
+									.animal-type-radio
+										margin-bottom: 1em
+										width: 80%
+										p
+											text-align: left
+											font-size: 1em
+										div
+											width: 5em
+									.share-button, .cancel-button
+										font-size: 1em
+
+						.dashboard-inner-right-block
+							+ft($re)
+							float: right
+							+wh(30%, auto)
+
+							ul
+								li:nth-child(1)
+									text-align: center
+									border-top: 0
+									&:hover
+										background: none
+								li
+									color: $sgy
+									padding: 1em 0
+									font-weight: bold
+									border-top: 0.2em solid darken(#FDFBF5, 12%)
+									&:hover
+										@include transition(all 0.5s)
+										background: darken(#FDFBF5, 20%)
+										a
+											color: darken($sgy, 15%)
+										.right-icon
+											color: $sw
+									a
+										color: $sgy
+										p
+											font-size: 0.8em
+									.avatar
+										+radius(1em)
+										&:hover
+											+wh(5em, 5em)
+									.search
+										margin: 0 0.4em 0 0.2em
+									.right-icon
+										float: right
+										margin-right: 0.3em
+
+							+at-breakpoint($phone)
+								ul
+									li
+										text-align: center
+										a > span, a > p
+											display: none
+										.right-icon
+											display: none
+
+							+at-breakpoint($pad)
+								ul
+									li	
+										font-size: 0.9em
+										a > span
+											display: inline
+										a > p
+											display: block
+
+							+at-breakpoint($pc)
+								ul
+									li
+										font-size: 1em
+										.right-icon
+											display: inline
 						
 
 

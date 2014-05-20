@@ -69,7 +69,7 @@
 			<header>
 				<h5><i class="sign in icon"></i>飼主登入<i class="main-member remove sign icon" title="關閉"></i></h5>
 			</header>
-			<form name="loginForm" class="ui form segment" ng-submit="loginMember.loginSend()">
+			<form name="loginForm" class="ui form segment"  ng-submit="loginMember.loginSend()">
 			<div class="ui active inverted dimmer" ng-show="load">
 					<p class="ui text loader">登入中,請稍候...</p>
 				</div>
@@ -188,7 +188,7 @@
 			    		ng-model = "joinMember.addAccount"
 			    		ng-pattern = "<% onlyStrAndNum %>"
 			    		ng-minlength = 3 
-    					ng-maxlength = 30 
+    					ng-maxlength = 20 
     					ng-keyup = "accountShow=true;addForm.username.$setValidity('unique', true);"
     					required
 			    	/>
