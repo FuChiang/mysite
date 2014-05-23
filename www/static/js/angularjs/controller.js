@@ -240,7 +240,9 @@ APP.controller("aside-bar-block", ['$scope', '$http', '$window', function($scope
 
 APP.controller("dashboard-content-block", ['$scope', '$http', '$timeout', function($scope, $http, $timeout){
 	
-	
+	$scope.shareInput = false;
+	$scope.shareError = false;
+	$scope.titleInput = '';
 	
 }]);
  

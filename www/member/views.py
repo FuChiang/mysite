@@ -3,7 +3,6 @@ from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from member.models import *
 from wand.image import Image
-from wand.display import display
 import json
 
 
@@ -22,7 +21,9 @@ def joinMember(request):
 			return HttpResponse('add existed')
 		elif joinDataVaild(user, pwd, em):
 			Profile.objects.create(account = user, password = pwd, email = em, api_id = 'none')
-			request.session["user"] = user
+			user = Profile.objects.get(account = user, password = pwd)
+			request.session["user"] = user.user
+			request.session["user_id"] = user.id
 			return HttpResponse('add right')
 		else:
 			return HttpResponse('add error')
@@ -40,6 +41,7 @@ def loginMember(request):
 			try:
 				name = Profile.objects.get(account = user, password = pwd)
 				request.session["user"] = name.account
+				request.session["user_id"] = name.id
 				return HttpResponse('login right')
 			except Profile.DoesNotExist:
 				return HttpResponse('login notExist')
@@ -58,7 +60,9 @@ def facebookLogin(request):
 		#apiJoin
 		user = apiJoin(user, em, id)
 
-		request.session["user"] = user
+		request.session["user"] = user.user
+
+		request.session["user_id"] = user.id
 		
 		return HttpResponse('login right')
 
@@ -83,7 +87,8 @@ def googleLogin(request):
 		#apiJoin
 		user = apiJoin(user, em, id)
 
-		request.session["user"] = user
+		request.session["user"] = user.user
+		request.session["user_id"] = user.id
 
 		return HttpResponseRedirect('/home')
 
@@ -105,13 +110,18 @@ def message(request):
 		return HttpResponseRedirect('/login')
 	return render(request, 'member/dashboard/message.html', {'load': 'messagePage', 'topTitle': '的訊息通知', 'nowPage': 'msgPage'})
 
-def setProfile(request):
+def myPhoto(request):
 	if 'user' not in request.session:
 		return HttpResponseRedirect('/login')
-	return render(request, 'member/dashboard/setProfile.html', {'load': 'setProfilePage', 'topTitle': '的飼主頁面設定', 'nowPage': 'setPage'})
+	return render(request, 'member/dashboard/myPhoto.html', {'load': 'myPhotoPage', 'topTitle': '的瀏覽上傳照', 'nowPage': 'myPhoto'})
 
 def account(request):
 	if 'user' not in request.session:
 		return HttpResponseRedirect('/login')
 	return render(request, 'member/dashboard/account.html', {'load': 'setProfilePage', 'topTitle': '的飼主帳號設定', 'nowPage': 'accountPage'})
 
+
+def setProfile(request):
+	if 'user' not in request.session:
+		return HttpResponseRedirect('/login')
+	return render(request, '', {})

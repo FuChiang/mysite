@@ -64,26 +64,13 @@ var mainPage = function(){
 
 }  
 
-//aside silde bar
-var sildeBar = {
-	slideEffect: function(){
-		var $jq_slidebar = $jq('.ui.sidebar');
-
-		//aside manu set
-		$jq_slidebar.sidebar('toggle');
-
-		$jq(".site-Menu").on("click", function(){
-			$jq_slidebar.sidebar('toggle');
-		});
-	}
-}
 
 /************************************/
 /*home page set*/
 /************************************/
 var homePage = function(){
 	//set slide
-	sildeBar.slideEffect();
+	reuseEvent.slideEffect();
 	
 }
 
@@ -93,7 +80,7 @@ var homePage = function(){
 var newPage = function(){
 
 	//set slide
-	sildeBar.slideEffect();
+	reuseEvent.slideEffect();
 }
 
 /************************************/
@@ -102,7 +89,7 @@ var newPage = function(){
 var categoriesPage = function(){
 
 	//set slide
-	sildeBar.slideEffect();
+	reuseEvent.slideEffect();
 }
 
 /************************************/
@@ -111,7 +98,7 @@ var categoriesPage = function(){
 var popularPage = function(){
 
 	//set slide
-	sildeBar.slideEffect();
+	reuseEvent.slideEffect();
 }
 
 /************************************/
@@ -119,31 +106,84 @@ var popularPage = function(){
 /************************************/
 var dashboardPage = function(){
 
-	var $jq_menu = $jq(".mobile-Menu");
+	//set mobile menu 
+	reuseEvent.mobileMenuEffect();
 
-
-	$jq(".menu-Set").on('click', function(){
-		(!$jq_menu.is(":visible"))
-			?
-				$jq_menu.slideDown(200)
-			:
-				$jq_menu.slideUp(200);
-	});
-	
-	$jq(window ).resize(function() {
-		(window.innerWidth == 960)
-			?
-				$jq_menu.show()
-			:
-				$jq_menu.hide();
-	});
-
-	$jq(".share-pic-img").on("change", function(){
-		$jq(".progress").fadeIn();
-	});
-	
+	$jq('.ui.dropdown').dropdown({duration: 100});
 }
 
+/************************************/
+/*dashboard message page set*/
+/************************************/
+var messagePage = function(){
+
+	//set mobile menu 
+	reuseEvent.mobileMenuEffect();
+
+	$jq('.ui.dropdown').dropdown({duration: 100});
+}
+
+/************************************/
+/*dashboard setProfilePage page set*/
+/************************************/
+var setProfilePage = function(){
+
+	//set mobile menu 
+	reuseEvent.mobileMenuEffect();
+
+	$jq('.ui.dropdown').dropdown({duration: 100});
+}
+
+/************************************/
+/*dashboard myPhotoPage page set*/
+/************************************/
+var myPhotoPage = function(){
+
+	//set mobile menu 
+	reuseEvent.mobileMenuEffect();
+
+	$jq('.ui.dropdown').dropdown({duration: 100});
+}
+
+
+/************************************/
+/*reuse effect event*/
+/************************************/
+var reuseEvent = {
+	//aside silde bar
+	slideEffect: function(){
+		var $jq_slidebar = $jq('.ui.sidebar');
+
+		//aside manu set
+		$jq_slidebar.sidebar('toggle');
+
+		$jq(".site-Menu").on("click", function(){
+			$jq_slidebar.sidebar('toggle');
+		});
+	},
+
+	//dashboard mobile menu
+	mobileMenuEffect: function(){
+		var $jq_menu = $jq(".mobile-Menu");
+
+
+		$jq(".menu-Set").on('click', function(){
+			(!$jq_menu.is(":visible"))
+				?
+					$jq_menu.slideDown(200)
+				:
+					$jq_menu.slideUp(200);
+		});
+		
+		$jq(window ).resize(function() {
+			(window.innerWidth == 960)
+				?
+					$jq_menu.show()
+				:
+					$jq_menu.hide();
+		});
+	}
+}
 
 
 

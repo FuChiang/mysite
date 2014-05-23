@@ -20,14 +20,20 @@ urlpatterns = patterns('',
 	url(r'^popular', 'main.views.popular'),
 	url(r'^categories', 'main.views.categories'),
 	
-	#dashboard page urls
+	#dashboard page top meau urls
 	url(r'^dashboard/[0-9a-zA-Z]+', 'member.views.dashboard'),
 	url(r'^message/[0-9a-zA-Z]+', 'member.views.message'),
-	url(r'^setProfile/[0-9a-zA-Z]+', 'member.views.setProfile'),
+	url(r'^myPhoto/[0-9a-zA-Z]+', 'member.views.myPhoto'),
 	url(r'^account/[0-9a-zA-Z]+', 'member.views.account'),
 	url(r'^logout$', 'member.views.loginOut'),
 
+	#dashboard page home menu
+	url(r'^sharePhoto', 'photo.views.upload'),
+	url(r'^setProfile', 'member.views.setProfile'),
+
 	#sitemap page urls
 	url(r'^sitemap', 'main.views.sitemap'),
+
+
 )
 

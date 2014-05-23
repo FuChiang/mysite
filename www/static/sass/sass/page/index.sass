@@ -21,7 +21,7 @@ html
 			display: none
 
 		.container
-			height: 105%
+			width: 105%
 			+at-breakpoint($phone)
 				+container
 				+span-columns(9)
@@ -529,7 +529,6 @@ html
 
 			.dashboard-out-block
 				+wh(100%, 100%)
-				
 				.dashboard-inner-block
 					height: 100%
 					margin: 0 auto
@@ -549,7 +548,7 @@ html
 							.dashboard-paw
 								@include rotate(0deg)
 					.menu-Set
-						+ft($re)
+						+ft($ab)
 						top: 3.2em
 						text-align: right
 						i
@@ -602,20 +601,20 @@ html
 						h1
 							width: 3.5em
 							+font(1.5em, bold)
-							top: 2em
-							left: 4em
+							top: 1.5em
+							left: 3.7em
 							.dashboard-paw
 								+bg('s_paw.png', 'sign')
 								margin-top: -0.7em
 								+wh(50px, 50px)
 						.menu-Set
-							margin-top: -2em
+							margin-top: -1.4em
 							width: 87%
 						.nromal-Menu 
 							display: none
 						.mobile-Menu
 							width: 100%
-							margin-top: -1.3em
+							margin-top: -2.2em
 							ul
 								li:nth-child(1)
 									.select-nipple
@@ -625,6 +624,7 @@ html
 						@include transition(all 0.5s)
 						width: 80%
 						h1
+							top: 2em
 							width: 3.5em
 							font-size: 1.8em
 							.dashboard-paw
@@ -632,17 +632,17 @@ html
 								margin-top: -1.2em
 								+wh(70px, 70px)
 						.menu-Set
-							margin-top: -1.4em
-							width: 90%
+							margin-top: 0.2em
+							width: 70%
 						.nromal-Menu ul 
 							width: 75%
 						.mobile-Menu
 							width: 80%
-							margin-top: -0.8em
+							margin-top: -0.7em
 							ul
 								li:nth-child(1)
 									.select-nipple
-										right: 13%
+										right: 15%
 
 					+at-breakpoint($pc)
 						@include transition(all 0.5s)
@@ -667,15 +667,20 @@ html
 						.mobile-Menu
 							dispaly: none
 
-					.dashboard-inner-content
+					.dashboard-inner-content					
 						+ft($re)
-						margin: 5em auto 0 auto
-						+wh(90%, 100%)
+						margin: 0 auto
+						+wh(90%, 40em)
 						+radius(2em)
 						background: darken($sdy, 10%)
 						+gt(darken($sdy, 20%), darken($sdy, 15%), darken($sdy, 10%))
 						h4, h5
 							display: none
+
+						+at-breakpoint($phone)
+							margin-top: 2.5em
+						+at-breakpoint($pad)
+							margin-top: 5em
 
 						.dashboard-inner-left-block, .dashboard-inner-right-block
 							margin-top: 2em
@@ -684,87 +689,133 @@ html
 							+wh(68%, auto)
 							float: left
 							.dashboard-share-photo-block
+								+radius(1em)
+								width: 95%
+								margin: 0 auto
 								text-align: center
 								textarea
-									font-size: 1.2em
-								textarea, input
-									+radius(1em)
-									+wh(80.1%, auto)
-									resize: none
-									margin-bottom: 0.5em
-								i
-									color: $sgy
+									font-family:  DFKai-sb
+								.share-info-input
+									padding-top: 0.5em
+									textarea, input
+										+wh(100%, auto)
+									input
+										font-family:  DFKai-sb
+								.error
+									margin: 0.5em auto 0.5em auto
+									text-align: left
 								.photo-file-block
 									+radius(1em)
-									margin: 0 auto
-									+wh(78%, 8em)
+									+wh(100%, 8em)
 									margin-bottom: 0.5em
 									background: lighten($sgy, 40%)
-									border: 5px dashed lighten($sgy, 20%)
+									border: 2.5px dashed lighten($sgy, 20%)
+									+opacity(0.8)
+									&:hover
+										@include transition(all 0.5s)
+										border-color: $sgy
+										+opacity(0.9)
+										.share-file-info
+											+ts(none)
 									i
-										margin-top: 1.2em
+										color: $sgy
+										margin: -5.2em 0 0 0.2em
+									.share-file-info
+										margin-top: -5em
+										+ts($sw 1px 1px 1px)
+										color: $sgy
+										font-weight: bold
 									.progress
 										display: none
-										margin: 0 auto
-										+wh(50%, 1.3em)
+										height: 1.3em
 										padding: 0
+										background: none
+										border: 0
 										.bar
-											width: 100%
+											width: 50%
+									.share-error
+										font-size: 0.8em
+										color: darken($sr, 20%)
+										i
+											color: darken($sr, 20%)
+									.photo-file-mask
+										margin-top: -7.8em
+										+radius(1em)
+										+ft($re, 999)
+										+wh(100%, 8.1em)
+										background: $sb
+										+opacity(0.6)
+										color: $sw
+										p
+											font-size: 1.2em
+											font-weight: bold
+											+ft($re)
+											top: 40%
 
 								.share-pic-img
 									@extend .po
-									+ft($ab, 998)
+									+ft($re, 998)
 									+opacity(0)
-									border: 1px solid red
-									+wh(35.8em, 10em)
-									margin-left: -18em
+									+wh(99.5%, 9.2em)
 								.photo-preview-block
-									+wh(70%, auto)
-									margin: 0 auto
+									+wh(100%, auto)
 									img
-										+m-wh(100%, 50%)
+										max-height: 50%
 										+radius(0.5em)
 										@include box-shadow($sgy 1px 0 5px)
-								.animal-type-radio
-									+radius(1em)
-									margin: 0 auto
-									height: auto
-									color: $sgy
-									p
-										margin-bottom: 1em
-										
-									div
-										width: 5em
-										margin-bottom: 1em
-										&:hover
-											@include transition(all 0.5s)
-											background: darken(#FDFBF5, 20%)
-											label
-												color: $sw
+									.pet-type
+										.text
+											width: 9em
+										.menu
+											width: 13em
+											border: 1em solid lighten(#0AA5DF, 10%)
+											margin: 1.5em 0 0 -2em
+											+radius(0.2em)
+											.item
+												float: left
+												width: 33%
+												text-align: center
+												font-size: 0.9em
+											.select-nipple
+												+ft($ab)
+												margin-top: -2.3em
+												width: 0
+												height: 0
+												border-style: solid
+												border-width: 0 0 20px 20px
+												border-color: transparent transparent lighten(#0AA5DF, 10%) transparent
+											.pet-inner-menu
+												height: 12em
+												overflow-x: hidden
+												overflow-y: auto
 
 								+at-breakpoint($phone)
-									.animal-type-radio
-										margin-bottom: 0em
-										width: 100%
-										p
-											text-align: center
-											font-size: 0.8em
-										div
-											font-size: 0.9em
-											width: 4em
-									.share-button, .cancel-button
+									.photo-preview-block
+										text-align: center
+										img
+											width: 90%
+										.pet-type
+											float: none
+											.menu .select-nipple
+												margin-left: 9.1em
+									.button
 										font-size: 0.7em
 								+at-breakpoint($pad)
-									.animal-type-radio
-										margin-bottom: 1em
-										width: 80%
-										p
-											text-align: left
-											font-size: 1em
-										div
-											width: 5em
-									.share-button, .cancel-button
+									.button
 										font-size: 1em
+										margin-bottom: 0.5em
+									.photo-preview-block
+										.pet-type
+											.menu .select-nipple
+												margin-left: 13.3em
+								+at-breakpoint($pc)
+									.photo-preview-block
+										text-align: left
+										img
+											float: left
+											width: 50%
+										.pet-type
+											float: right
 
 						.dashboard-inner-right-block
 							+ft($re)
@@ -793,10 +844,6 @@ html
 										color: $sgy
 										p
 											font-size: 0.8em
-									.avatar
-										+radius(1em)
-										&:hover
-											+wh(5em, 5em)
 									.search
 										margin: 0 0.4em 0 0.2em
 									.right-icon
@@ -811,6 +858,10 @@ html
 											display: none
 										.right-icon
 											display: none
+										.avatar
+											@include transition(all 0.5s)
+											+radius(0.5em)
+											+wh(3em, 3em)
 
 							+at-breakpoint($pad)
 								ul
@@ -820,6 +871,10 @@ html
 											display: inline
 										a > p
 											display: block
+										.avatar
+											@include transition(all 0.5s)
+											+radius(1em)
+											+wh(5em, 5em)
 
 							+at-breakpoint($pc)
 								ul
@@ -827,6 +882,9 @@ html
 										font-size: 1em
 										.right-icon
 											display: inline
+										.avatar
+											@include transition(all 0.5s)
+											+wh(5em, 5em)
 						
 
 

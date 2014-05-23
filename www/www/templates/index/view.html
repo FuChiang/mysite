@@ -96,15 +96,15 @@
 	  		<div class="error" 
 		        ng-show="accountShow && loginForm.username.$dirty && !loginForm.username.$valid">
 			    <div class="ui red small message">
-			        	<p ng-show="accountShow && loginForm.username.$error.required">
+			        	<span ng-show="accountShow && loginForm.username.$error.required">
 			        		<i class="icon info"></i>帳號不能是空值
-			    		</p>
-			    		<p ng-show="accountShow && loginForm.username.$error.pattern">
+			    		</span>
+			    		<span ng-show="accountShow && loginForm.username.$error.pattern">
 			         		<i class="icon info"></i>帳號只能是字母或數字
-			     		</p>
-			     		<p ng-show="accountShow && loginForm.username.$error.notExist">
+			     		</span>
+			     		<span ng-show="accountShow && loginForm.username.$error.notExist">
 			         		<i class="icon info"></i>查無此帳號,請重新輸入
-			     		</p>
+			     		</span>
 			     	</div>
 		  	</div>
 		  	<div class="field">
@@ -128,12 +128,12 @@
 			<div class="error" 
 			      ng-show="pwdShow && loginForm.pwd.$dirty && !loginForm.pwd.$valid">
 				<div class="ui red small message">
-				  	<p ng-show="pwdShow && loginForm.pwd.$error.required">
+				  	<span ng-show="pwdShow && loginForm.pwd.$error.required">
 						<i class="icon info"></i>密碼不能是空值
-					</p>
-					<p ng-show="pwdShow && loginForm.pwd.$error.pattern">
+					</span>
+					<span ng-show="pwdShow && loginForm.pwd.$error.pattern">
 						<i class="icon info"></i>密碼只能是字母或數字
-					</p>
+					</span>
 				</div>
 			</div>
 			<div class="ui error message">
