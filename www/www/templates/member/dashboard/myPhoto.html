@@ -12,12 +12,32 @@
 				{% include "memberTopMenu/menu.html" %}
 			<div class="dashboard-inner-content">
 				<section>
-					<header><h4></h4></header>
-
+					<header><h4>瀏覽上傳照片</h4></header>
+					<div class="dashboard-myPhoto-block">
+						{% if photosQuery %}
+							{% for value in photosQuery %}
+								<div class="contend">
+									<img src="/static/img/photo/small/{{value.photo_filename}}" >
+									<button class="ui primary button" ng-click="deletePhoto({{value.id}}, '{{value.photo_filename}}')">
+										<i class="trash icon"></i>刪除
+									</button>
+								</div>
+							{% endfor %}
+							{% csrf_token %}
+						{% else %}
+							<i class=" attention icon"></i>尚未上傳任何寵物照, 現在...
+							<p>
+								<a href="/shareMyPhoto">
+									<button class="ui second button">
+										<i class="photo icon"></i>立即分享
+									</button>
+								</a>
+							</p>
+						{% endif %}
+					</div>
 				</section>
 			</div>
 		</div>
-
 	</div>
 
 {% endblock %}

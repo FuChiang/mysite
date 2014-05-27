@@ -1,0 +1,141 @@
+{% extends "base/base.html" %}
+
+{% block fb_title  %}爪爪窩 - {{request.session.user}} {{topTitle}}{% endblock %}
+
+{% block title %}爪爪窩 - {{request.session.user}} {{topTitle}}{% endblock %}
+
+{% block content %} 
+	
+	<div class="dashboard-out-block">
+		<div class="dashboard-inner-block" ng-controller="dashboard-content-block" ng-init="{{nowPage}}='nowShow'">
+				<!-- include aside bar content -->
+				{% include "memberTopMenu/menu.html"  %}
+			<div class="dashboard-inner-content">
+				<section>
+					<header><h4>分享寵物照</h4></header>
+					<div class="dashboard-share-photo-block">
+						<div class="share-steps-block">
+							<ol>
+								<li class="nowStep">1</li>
+								<li>2</li>
+								<li>3</li>
+								<li>4</li>
+							</ol>
+						</div>
+						<div class="share-photo-warp">
+							<form name="shareForm" action="/sharePhoto" class="ui form" enctype="multipart/form-data" method="post">
+								{% csrf_token %}
+								<div class="share-photo-name-block share-list">
+									<h5>如何稱呼寵物呢<i class="question icon"></i></h5>
+									<div class="shareDirectSet">
+										<div class="ui green button right" ng-show="nextStep">下一步</div>
+									</div>
+									<div class="share-photo-name">
+										<input
+											name = "shareName"
+											type = "text" 
+											placeholder = "請輸入暱稱"
+											data-share-name
+											maxlength = 20
+											require
+										/>
+									</div>
+								</div>
+								<div class="share-photo-type-block share-list">
+									<h5>請問寵物的種類是..<i class="tint icon"></i></h5>
+									<div class="shareDirectSet">
+										<div class="ui purple button left" ng-show="typeStep">上一步</div>
+										<div class="ui green button right" ng-show="typeStep">下一步</div>
+									</div>
+									<div class="pet-type">
+										<div class="ui black dropdown button">
+											<div class="text">請選擇寵物種類</div>
+											<div class="menu" ng-click="typeStep=true">
+													<div class="item" data-my-select>狗</div>
+													<div class="item" data-my-select>貓</div>
+													<div class="item" data-my-select>兔</div>
+													<div class="item" data-my-select>豬</div>
+													<div class="item" data-my-select>鳥</div>
+													<div class="item" data-my-select>魚</div>
+													<div class="item" data-my-select>蠍</div>
+													<div class="item" data-my-select>蜘蛛</div>
+													<div class="item" data-my-select>蛙</div>
+													<div class="item" data-my-select>鼠</div>
+													<div class="item" data-my-select>烏龜</div>
+													<div class="item" data-my-select>蛇</div>
+													<div class="item" data-my-select>蜥蜴</div>
+													<div class="item" data-my-select>蝴蝶</div>
+													<div class="item" data-my-select>蝌蚪</div>
+													<div class="item" data-my-select>羊</div>
+													<div class="item" data-my-select>牛</div>
+													<div class="item" data-my-select>變色龍</div>
+													<div class="item" data-my-select>鵝</div>
+													<div class="item" data-my-select>鴨</div>
+													<div class="item" data-my-select>馬</div>
+													<div class="item" data-my-select>雞</div>
+													<div class="item" data-my-select>熊</div>
+													<div class="item" data-my-select>獅</div>
+													<div class="item" data-my-select>虎</div>
+													<div class="item" data-my-select>猴子</div>
+													<div class="item" data-my-select>其他</div>
+											</div>
+										</div>
+										<input 
+											type="hidden" 
+											name="shareType" 
+											value="<%selectType || '其他' %>"
+										/>
+									</div>
+								</div>
+								<div class="share-photo-description-block share-list">
+									<h5>對寵物有啥感覺勒?<i class="comment icon"></i></h5>	
+									<div class="shareDirectSet">
+										<div class="ui purple button left">上一步</div>
+										<div class="ui green button right">下一步</div>
+									</div>
+									<div class="share-photo-description">
+										<textarea  name="shareDescription" placeholder = "輸入想介紹的話..."></textarea>
+									</div>
+								</div>
+								<div class="share-photo-upload-block share-list">
+									<h5>給個寵物的模樣照吧<i class="photo icon"></i></h5>
+									<div class="shareDirectSet">
+										<div class="ui purple button left">上一步</div>
+										<button type="submit" class="ui red button right">上 傳</button>
+									</div>
+									<div class="photo-file-block" ng-hide="readCompleted">
+										<input 
+											type = "file"
+											class = "share-pic-img" 
+											name = "sharePicImg" 
+											data-my-share = "shareInput"
+										/>
+										<div class="photo-file-mask" ng-show="readCompleted">
+											<p>讀取照片完成</p>
+										</div>
+										<i class=" camera big icon" ></i>
+										<p class=" share-file-info" >上傳寵物照(檔案上限2M)</p>
+										<P class="share-error" ng-show="shareSizeError"><i class="info red icon"></i>抱歉,上傳圖檔超過2M</P>
+										<P class="share-error" ng-show="shareTypeError"><i class="info red icon"></i>只接受 jpg | png | gif 的圖檔</P>
+
+									</div>
+									<div class="ui active striped progress">
+		  								<div class="bar"></div>
+									</div>
+									<div class="photo-preview-block" ng-show="readCompleted">
+										<button type="reset"  ng-click="readCompleted=false; shareInput=true" class="ui green button">
+								  			重新上傳
+										</button>
+										<img  ng-src="<%sharePic%>" />
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+				</section>
+			</div>
+		</div>
+
+	</div>
+
+{% endblock %}

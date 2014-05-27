@@ -24,12 +24,15 @@ urlpatterns = patterns('',
 	url(r'^dashboard/[0-9a-zA-Z]+', 'member.views.dashboard'),
 	url(r'^message/[0-9a-zA-Z]+', 'member.views.message'),
 	url(r'^myPhoto/[0-9a-zA-Z]+', 'member.views.myPhoto'),
-	url(r'^account/[0-9a-zA-Z]+', 'member.views.account'),
+	url(r'^shareMyPhoto', 'member.views.shareMyPhoto'),
 	url(r'^logout$', 'member.views.loginOut'),
 
 	#dashboard page home menu
 	url(r'^sharePhoto', 'photo.views.upload'),
 	url(r'^setProfile', 'member.views.setProfile'),
+
+	#dashboard page relation opeator
+	url(r'^deletePhoto', 'photo.views.delete'),
 
 	#sitemap page urls
 	url(r'^sitemap', 'main.views.sitemap'),

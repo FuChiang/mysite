@@ -3,7 +3,7 @@
 var $jq = $.noConflict();
 
 //dynamic observer window size
-$jq(window ).resize(function() {
+$jq(window).resize(function() {
 	$jq(".win-size").html('width:'+window.innerWidth+' height:'+window.innerHeight);
 });
 
@@ -109,7 +109,7 @@ var dashboardPage = function(){
 	//set mobile menu 
 	reuseEvent.mobileMenuEffect();
 
-	$jq('.ui.dropdown').dropdown({duration: 100});
+
 }
 
 /************************************/
@@ -120,18 +120,94 @@ var messagePage = function(){
 	//set mobile menu 
 	reuseEvent.mobileMenuEffect();
 
-	$jq('.ui.dropdown').dropdown({duration: 100});
+	
 }
 
 /************************************/
 /*dashboard setProfilePage page set*/
 /************************************/
-var setProfilePage = function(){
+var sharePage = function(){
+
+	var $jq_shareSet = $jq(".shareDirectSet"),
+		$jq_SetRight = $jq_shareSet.find(".right"),
+		$jq_SetLeft = $jq_shareSet.find(".left"),
+		$jq_step = $jq(".share-steps-block"),
+		$jq_input = $jq("input[name='shareName']"),
+		$jq_textarea = $jq("input[name='shareDirectSet']"),
+		$jq_warp = $jq(".share-photo-warp"),
+		$jq_w_size = [974, 548, 240],
+		$jq_move_height = [41.8, 33.3, 21.3],
+		$jq_moveSpace = 0,
+		$jq_nowIndex = 0,
+		$move_speed = 200,
+		$jq_nowTag;
+
+
+	//$jq_warp.css("top", "-125.4em");
+	//$jq_warp.css("top", "-99.9em");
+	//$jq_warp.css("top", "-63.9em");
 
 	//set mobile menu 
 	reuseEvent.mobileMenuEffect();
 
-	$jq('.ui.dropdown').dropdown({duration: 100});
+	$jq('.ui.dropdown').dropdown();
+
+	//let mouse cursor stay on first input field
+	$jq("input:first").focus();
+
+	//when user resize his browser size then adject item top position to 0 that avoid occur move error 
+	$jq(window).resize(function() {
+
+		$jq_warp.animate({top: 0}, $move_speed);
+
+		//remove all class just save fist li class
+		$jq_step.find("li:first").addClass("nowStep").siblings().removeClass();
+	});
+
+	//push next step
+	$jq_SetRight.on("click", function(){
+
+		getMoveData();
+
+		if($jq_input.val() !== ""){
+			$jq_nowTag.next().addClass("nowStep");
+			$jq_warp.animate({
+				top: "-"+($jq_nowIndex+1)*$jq_moveSpace+"em"
+			}, $move_speed);
+		}	
+	});
+
+	//push prev step
+	$jq_SetLeft.on("click", function(){
+
+		getMoveData();
+
+		$jq_nowTag.removeClass("nowStep");
+		$jq_warp.animate({
+			top: "-"+($jq_nowIndex-1)*$jq_moveSpace+"em"
+		}, $move_speed);
+	});
+
+	//get now item and index number
+	var getMoveData = function(){
+		$jq_nowTag = $jq_step.find(".nowStep").last();
+		$jq_nowIndex = $jq_nowTag.index();
+		getDistance();
+	}
+
+	//get move distance
+	var getDistance = function(){
+		if(window.innerWidth >= $jq_w_size[0]){
+			$jq_moveSpace = $jq_move_height[0];
+		}
+		else if(window.innerWidth >= $jq_w_size[1]){
+			$jq_moveSpace = $jq_move_height[1];
+		}
+		else if(window.innerWidth >= $jq_w_size[2]){
+			$jq_moveSpace = $jq_move_height[2];
+		}
+	}
+	
 }
 
 /************************************/
@@ -142,7 +218,7 @@ var myPhotoPage = function(){
 	//set mobile menu 
 	reuseEvent.mobileMenuEffect();
 
-	$jq('.ui.dropdown').dropdown({duration: 100});
+	
 }
 
 

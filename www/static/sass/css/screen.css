@@ -74,7 +74,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   position: absolute;
 }
 
-.po, html body .container .search-block .remove, html body .container .main-header-nav-block .main-menu, html body .container .main-add-in-block h5 .remove, html body .container .main-sign-in-block h5 .remove, html body .container .site-Menu-Block .site-Menu, html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-inner-left-block .dashboard-share-photo-block .share-pic-img {
+.po, html body .container .search-block .remove, html body .container .main-header-nav-block .main-menu, html body .container .main-add-in-block h5 .remove, html body .container .main-sign-in-block h5 .remove, html body .container .site-Menu-Block .site-Menu, html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-share-photo-block1 .share-pic-img, html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-share-photo-block .photo-file-block .share-pic-img {
   cursor: pointer;
 }
 
@@ -3649,10 +3649,68 @@ html body .container .dashboard-out-block .dashboard-inner-block h1:hover .dashb
 html body .container .dashboard-out-block .dashboard-inner-block .menu-Set {
   position: absolute;
   top: 3.2em;
-  text-align: right;
+  width: 2.5em;
 }
-html body .container .dashboard-out-block .dashboard-inner-block .menu-Set i {
-  color: mediumaquamarine;
+html body .container .dashboard-out-block .dashboard-inner-block .menu-Set .reorder {
+  color: #9a9a9a;
+}
+html body .container .dashboard-out-block .dashboard-inner-block .menu-Set .mobile-Menu {
+  z-index: 999;
+  position: absolute;
+  top: 6.5em;
+  display: none;
+  width: 12em;
+  margin-top: -4em;
+}
+html body .container .dashboard-out-block .dashboard-inner-block .menu-Set .mobile-Menu ul li {
+  padding: 0.5em 0 0.5em 0;
+  margin: 0 auto;
+  width: 90%;
+  background: mediumaquamarine;
+  text-align: center;
+  border-top: white 1px solid;
+}
+html body .container .dashboard-out-block .dashboard-inner-block .menu-Set .mobile-Menu ul li a {
+  font-size: 1em;
+  font-weight: bold;
+  color: white;
+}
+html body .container .dashboard-out-block .dashboard-inner-block .menu-Set .mobile-Menu ul li:hover {
+  background: #40c095;
+}
+html body .container .dashboard-out-block .dashboard-inner-block .menu-Set .mobile-Menu ul li:hover .select-nipple {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-color: transparent transparent #40c095 transparent;
+  border-width: 0 12px 15px 12px;
+}
+html body .container .dashboard-out-block .dashboard-inner-block .menu-Set .mobile-Menu ul li:nth-child(1) {
+  border: 0;
+  -moz-border-radius-topleft: 1em;
+  -webkit-border-top-left-radius: 1em;
+  border-top-left-radius: 1em;
+  -moz-border-radius-topright: 1em;
+  -webkit-border-top-right-radius: 1em;
+  border-top-right-radius: 1em;
+}
+html body .container .dashboard-out-block .dashboard-inner-block .menu-Set .mobile-Menu ul .select-nipple {
+  position: absolute;
+  width: 100%;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-color: transparent transparent mediumaquamarine transparent;
+  border-width: 0 12px 15px 12px;
+  margin-top: -1em;
+}
+html body .container .dashboard-out-block .dashboard-inner-block .menu-Set .mobile-Menu ul li:nth-last-child(1) {
+  -moz-border-radius-bottomleft: 1em;
+  -webkit-border-bottom-left-radius: 1em;
+  border-bottom-left-radius: 1em;
+  -moz-border-radius-bottomright: 1em;
+  -webkit-border-bottom-right-radius: 1em;
+  border-bottom-right-radius: 1em;
 }
 html body .container .dashboard-out-block .dashboard-inner-block .nromal-Menu ul {
   z-index: 997;
@@ -3681,48 +3739,6 @@ html body .container .dashboard-out-block .dashboard-inner-block .nromal-Menu ul
   border-width: 0 12px 15px 12px;
   margin: 0.2em 0 0 0.5em;
 }
-html body .container .dashboard-out-block .dashboard-inner-block .mobile-Menu {
-  z-index: 999;
-  position: absolute;
-  top: 6.5em;
-  display: none;
-}
-html body .container .dashboard-out-block .dashboard-inner-block .mobile-Menu ul li {
-  padding: 0.5em 0 0.5em 0;
-  margin: 0 auto;
-  width: 90%;
-  background: mediumaquamarine;
-  text-align: center;
-  border-top: white 1px solid;
-}
-html body .container .dashboard-out-block .dashboard-inner-block .mobile-Menu ul li a {
-  font-size: 1em;
-  font-weight: bold;
-  color: white;
-}
-html body .container .dashboard-out-block .dashboard-inner-block .mobile-Menu ul li:hover {
-  background: #40c095;
-}
-html body .container .dashboard-out-block .dashboard-inner-block .mobile-Menu ul li:hover .select-nipple {
-  width: 0;
-  height: 0;
-  border-style: solid;
-  border-color: transparent transparent #40c095 transparent;
-  border-width: 0 12px 15px 12px;
-}
-html body .container .dashboard-out-block .dashboard-inner-block .mobile-Menu ul li:nth-child(1) {
-  border: 0;
-}
-html body .container .dashboard-out-block .dashboard-inner-block .mobile-Menu ul .select-nipple {
-  position: absolute;
-  width: 100%;
-  width: 0;
-  height: 0;
-  border-style: solid;
-  border-color: transparent transparent mediumaquamarine transparent;
-  border-width: 0 12px 15px 12px;
-  margin-top: -1em;
-}
 @media (min-width: 240px) {
   html body .container .dashboard-out-block .dashboard-inner-block {
     -moz-transition: all 0.5s;
@@ -3746,18 +3762,16 @@ html body .container .dashboard-out-block .dashboard-inner-block .mobile-Menu ul
     height: 50px;
   }
   html body .container .dashboard-out-block .dashboard-inner-block .menu-Set {
-    margin-top: -1.4em;
-    width: 87%;
+    margin: -1.4em 0 0 75%;
+  }
+  html body .container .dashboard-out-block .dashboard-inner-block .menu-Set .mobile-Menu {
+    margin-left: -8em;
+  }
+  html body .container .dashboard-out-block .dashboard-inner-block .menu-Set .mobile-Menu ul li:nth-child(1) .select-nipple {
+    right: 16.5%;
   }
   html body .container .dashboard-out-block .dashboard-inner-block .nromal-Menu {
     display: none;
-  }
-  html body .container .dashboard-out-block .dashboard-inner-block .mobile-Menu {
-    width: 100%;
-    margin-top: -2.2em;
-  }
-  html body .container .dashboard-out-block .dashboard-inner-block .mobile-Menu ul li:nth-child(1) .select-nipple {
-    right: 16.5%;
   }
 }
 @media (min-width: 533px) {
@@ -3766,7 +3780,7 @@ html body .container .dashboard-out-block .dashboard-inner-block .mobile-Menu ul
     -o-transition: all 0.5s;
     -webkit-transition: all 0.5s;
     transition: all 0.5s;
-    width: 80%;
+    width: 90%;
   }
   html body .container .dashboard-out-block .dashboard-inner-block h1 {
     top: 2em;
@@ -3782,17 +3796,15 @@ html body .container .dashboard-out-block .dashboard-inner-block .mobile-Menu ul
   }
   html body .container .dashboard-out-block .dashboard-inner-block .menu-Set {
     margin-top: 0.2em;
-    width: 70%;
+  }
+  html body .container .dashboard-out-block .dashboard-inner-block .menu-Set .mobile-Menu {
+    margin-left: -8.5em;
+  }
+  html body .container .dashboard-out-block .dashboard-inner-block .menu-Set .mobile-Menu ul li:nth-child(1) .select-nipple {
+    right: 12%;
   }
   html body .container .dashboard-out-block .dashboard-inner-block .nromal-Menu ul {
     width: 75%;
-  }
-  html body .container .dashboard-out-block .dashboard-inner-block .mobile-Menu {
-    width: 80%;
-    margin-top: -0.7em;
-  }
-  html body .container .dashboard-out-block .dashboard-inner-block .mobile-Menu ul li:nth-child(1) .select-nipple {
-    right: 15%;
   }
 }
 @media (min-width: 960px) {
@@ -3801,7 +3813,7 @@ html body .container .dashboard-out-block .dashboard-inner-block .mobile-Menu ul
     -o-transition: all 0.5s;
     -webkit-transition: all 0.5s;
     transition: all 0.5s;
-    width: 70%;
+    width: 80%;
   }
   html body .container .dashboard-out-block .dashboard-inner-block h1 {
     font-size: 2em;
@@ -3847,48 +3859,106 @@ html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inne
 }
 @media (min-width: 240px) {
   html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content {
+    -moz-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
     margin-top: 2.5em;
+  }
+  html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-myPhoto-block .contend {
+    width: 100%;
+  }
+  html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-myPhoto-block .contend button {
+    font-size: 0.5em;
+  }
+  html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-myPhoto-block .contend button i {
+    display: none;
   }
 }
 @media (min-width: 533px) {
   html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content {
+    -moz-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
     margin-top: 5em;
   }
+  html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-myPhoto-block .contend {
+    width: 48%;
+  }
+  html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-myPhoto-block .contend button {
+    font-size: 1em;
+  }
+  html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-myPhoto-block .contend button i {
+    display: inline;
+  }
 }
-html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-inner-left-block, html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-inner-right-block {
-  margin-top: 2em;
+@media (min-width: 960px) {
+  html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content {
+    -moz-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+  }
+  html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-myPhoto-block .contend {
+    width: 32%;
+  }
 }
-html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-inner-left-block {
-  width: 68%;
+html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-myPhoto-block {
+  width: 95%;
   height: auto;
+  position: relative;
+  top: 1.5em;
+  margin: 0 auto;
+  color: gray;
+}
+html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-myPhoto-block .contend {
+  border: 2px solid white;
+  background-color: white;
   float: left;
 }
-html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-inner-left-block .dashboard-share-photo-block {
-  -moz-border-radius: 1em;
-  -webkit-border-radius: 1em;
-  border-radius: 1em;
+html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-myPhoto-block .contend button {
+  display: block;
+  margin-bottom: 1em;
+  float: right;
+}
+html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-myPhoto-block .contend img {
+  width: 100%;
+  height: auto;
+}
+html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-myPhoto-block button {
+  -moz-border-radius: 2em;
+  -webkit-border-radius: 2em;
+  border-radius: 2em;
+}
+html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-myPhoto-block p {
+  margin-top: 1em;
+}
+html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-share-photo-block1 {
+  position: relative;
+  top: 1em;
   width: 95%;
   margin: 0 auto;
   text-align: center;
 }
-html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-inner-left-block .dashboard-share-photo-block textarea {
+html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-share-photo-block1 textarea {
   font-family: DFKai-sb;
 }
-html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-inner-left-block .dashboard-share-photo-block .share-info-input {
+html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-share-photo-block1 .share-info-input {
   padding-top: 0.5em;
 }
-html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-inner-left-block .dashboard-share-photo-block .share-info-input textarea, html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-inner-left-block .dashboard-share-photo-block .share-info-input input {
+html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-share-photo-block1 .share-info-input textarea, html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-share-photo-block1 .share-info-input input {
   width: 100%;
   height: auto;
 }
-html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-inner-left-block .dashboard-share-photo-block .share-info-input input {
+html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-share-photo-block1 .share-info-input input {
   font-family: DFKai-sb;
 }
-html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-inner-left-block .dashboard-share-photo-block .error {
+html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-share-photo-block1 .error {
   margin: 0.5em auto 0.5em auto;
   text-align: left;
 }
-html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-inner-left-block .dashboard-share-photo-block .photo-file-block {
+html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-share-photo-block1 .photo-file-block {
   -moz-border-radius: 1em;
   -webkit-border-radius: 1em;
   border-radius: 1em;
@@ -3900,7 +3970,7 @@ html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inne
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80);
   opacity: 0.8;
 }
-html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-inner-left-block .dashboard-share-photo-block .photo-file-block:hover {
+html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-share-photo-block1 .photo-file-block:hover {
   -moz-transition: all 0.5s;
   -o-transition: all 0.5s;
   -webkit-transition: all 0.5s;
@@ -3909,38 +3979,36 @@ html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inne
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=90);
   opacity: 0.9;
 }
-html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-inner-left-block .dashboard-share-photo-block .photo-file-block:hover .share-file-info {
+html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-share-photo-block1 .photo-file-block:hover .share-file-info {
   text-shadow: none;
 }
-html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-inner-left-block .dashboard-share-photo-block .photo-file-block i {
+html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-share-photo-block1 .photo-file-block i {
   color: gray;
-  margin: -5.2em 0 0 0.2em;
+  margin-left: 0.2em;
 }
-html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-inner-left-block .dashboard-share-photo-block .photo-file-block .share-file-info {
-  margin-top: -5em;
+html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-share-photo-block1 .photo-file-block .share-file-info {
   text-shadow: white 1px 1px 1px;
   color: gray;
   font-weight: bold;
 }
-html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-inner-left-block .dashboard-share-photo-block .photo-file-block .progress {
+html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-share-photo-block1 .photo-file-block .progress {
   display: none;
   height: 1.3em;
   padding: 0;
   background: none;
   border: 0;
 }
-html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-inner-left-block .dashboard-share-photo-block .photo-file-block .progress .bar {
+html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-share-photo-block1 .photo-file-block .progress .bar {
   width: 50%;
 }
-html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-inner-left-block .dashboard-share-photo-block .photo-file-block .share-error {
+html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-share-photo-block1 .photo-file-block .share-error {
   font-size: 0.8em;
   color: #990000;
 }
-html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-inner-left-block .dashboard-share-photo-block .photo-file-block .share-error i {
+html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-share-photo-block1 .photo-file-block .share-error i {
   color: #990000;
 }
-html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-inner-left-block .dashboard-share-photo-block .photo-file-block .photo-file-mask {
-  margin-top: -7.8em;
+html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-share-photo-block1 .photo-file-block .photo-file-mask {
   -moz-border-radius: 1em;
   -webkit-border-radius: 1em;
   border-radius: 1em;
@@ -3953,13 +4021,13 @@ html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inne
   opacity: 0.6;
   color: white;
 }
-html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-inner-left-block .dashboard-share-photo-block .photo-file-block .photo-file-mask p {
+html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-share-photo-block1 .photo-file-block .photo-file-mask p {
   font-size: 1.2em;
   font-weight: bold;
   position: relative;
   top: 40%;
 }
-html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-inner-left-block .dashboard-share-photo-block .share-pic-img {
+html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-share-photo-block1 .share-pic-img {
   z-index: 998;
   position: relative;
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
@@ -3967,11 +4035,11 @@ html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inne
   width: 99.5%;
   height: 9.2em;
 }
-html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-inner-left-block .dashboard-share-photo-block .photo-preview-block {
+html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-share-photo-block1 .photo-preview-block {
   width: 100%;
   height: auto;
 }
-html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-inner-left-block .dashboard-share-photo-block .photo-preview-block img {
+html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-share-photo-block1 .photo-preview-block img {
   max-height: 50%;
   -moz-border-radius: 0.5em;
   -webkit-border-radius: 0.5em;
@@ -3980,10 +4048,10 @@ html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inne
   -webkit-box-shadow: gray 1px 0 5px;
   box-shadow: gray 1px 0 5px;
 }
-html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-inner-left-block .dashboard-share-photo-block .photo-preview-block .pet-type .text {
+html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-share-photo-block1 .photo-preview-block .pet-type .text {
   width: 9em;
 }
-html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-inner-left-block .dashboard-share-photo-block .photo-preview-block .pet-type .menu {
+html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-share-photo-block1 .photo-preview-block .pet-type .menu {
   width: 13em;
   border: 1em solid #27bdf5;
   margin: 1.5em 0 0 -2em;
@@ -3991,13 +4059,13 @@ html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inne
   -webkit-border-radius: 0.2em;
   border-radius: 0.2em;
 }
-html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-inner-left-block .dashboard-share-photo-block .photo-preview-block .pet-type .menu .item {
+html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-share-photo-block1 .photo-preview-block .pet-type .menu .item {
   float: left;
   width: 33%;
   text-align: center;
   font-size: 0.9em;
 }
-html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-inner-left-block .dashboard-share-photo-block .photo-preview-block .pet-type .menu .select-nipple {
+html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-share-photo-block1 .photo-preview-block .pet-type .menu .select-nipple {
   position: absolute;
   margin-top: -2.3em;
   width: 0;
@@ -4006,48 +4074,438 @@ html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inne
   border-width: 0 0 20px 20px;
   border-color: transparent transparent #27bdf5 transparent;
 }
-html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-inner-left-block .dashboard-share-photo-block .photo-preview-block .pet-type .menu .pet-inner-menu {
+html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-share-photo-block1 .photo-preview-block .pet-type .menu .pet-inner-menu {
   height: 12em;
   overflow-x: hidden;
   overflow-y: auto;
 }
 @media (min-width: 240px) {
-  html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-inner-left-block .dashboard-share-photo-block .photo-preview-block {
+  html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-share-photo-block1 i {
+    margin-top: -6.5em;
+  }
+  html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-share-photo-block1 .share-file-info {
+    margin-top: -6.2em;
+  }
+  html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-share-photo-block1 .photo-file-mask {
+    margin-top: -9.3em;
+  }
+  html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-share-photo-block1 .photo-preview-block {
     text-align: center;
   }
-  html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-inner-left-block .dashboard-share-photo-block .photo-preview-block img {
+  html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-share-photo-block1 .photo-preview-block img {
     width: 90%;
   }
-  html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-inner-left-block .dashboard-share-photo-block .photo-preview-block .pet-type {
+  html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-share-photo-block1 .photo-preview-block .pet-type {
     float: none;
   }
-  html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-inner-left-block .dashboard-share-photo-block .photo-preview-block .pet-type .menu .select-nipple {
+  html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-share-photo-block1 .photo-preview-block .pet-type .menu .select-nipple {
     margin-left: 9.1em;
   }
-  html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-inner-left-block .dashboard-share-photo-block .button {
+  html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-share-photo-block1 .button {
     font-size: 0.7em;
   }
 }
 @media (min-width: 533px) {
-  html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-inner-left-block .dashboard-share-photo-block .button {
+  html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-share-photo-block1 i {
+    margin-top: -3.8em;
+  }
+  html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-share-photo-block1 .share-file-info {
+    margin-top: -3.5em;
+  }
+  html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-share-photo-block1 .photo-file-mask {
+    margin-top: -6.5em;
+  }
+  html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-share-photo-block1 .button {
     font-size: 1em;
     margin-bottom: 0.5em;
   }
-  html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-inner-left-block .dashboard-share-photo-block .photo-preview-block .pet-type .menu .select-nipple {
+  html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-share-photo-block1 .photo-preview-block .pet-type .menu .select-nipple {
     margin-left: 13.3em;
   }
 }
 @media (min-width: 960px) {
-  html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-inner-left-block .dashboard-share-photo-block .photo-preview-block {
+  html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-share-photo-block1 i {
+    margin-top: -5.2em;
+  }
+  html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-share-photo-block1 .share-file-info {
+    margin-top: -5em;
+  }
+  html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-share-photo-block1 .photo-file-mask {
+    margin-top: -7.8em;
+  }
+  html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-share-photo-block1 .photo-preview-block {
     text-align: left;
   }
-  html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-inner-left-block .dashboard-share-photo-block .photo-preview-block img {
+  html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-share-photo-block1 .photo-preview-block img {
     float: left;
     width: 50%;
   }
-  html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-inner-left-block .dashboard-share-photo-block .photo-preview-block .pet-type {
+  html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-share-photo-block1 .photo-preview-block .pet-type {
     float: right;
   }
+}
+html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-share-photo-block {
+  position: relative;
+  top: 1.2em;
+  width: 90%;
+  margin: 0 auto;
+  text-align: center;
+  overflow: hidden;
+}
+html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-share-photo-block h5 {
+  text-shadow: white 1px 0px 1px;
+  display: block;
+}
+html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-share-photo-block .share-photo-warp {
+  top: 0;
+  position: relative;
+}
+html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-share-photo-block .share-list {
+  width: 99.7%;
+}
+html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-share-photo-block .share-list input, html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-share-photo-block .share-list textarea {
+  border: 0;
+  text-align: center;
+  background-color: #f0e1b5;
+  color: gray;
+}
+html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-share-photo-block .share-list textarea {
+  text-align: left;
+}
+html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-share-photo-block .shareDirectSet {
+  position: absolute;
+  width: 99.7%;
+  height: auto;
+}
+html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-share-photo-block .shareDirectSet .button {
+  height: 2.3em;
+}
+html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-share-photo-block .shareDirectSet .right {
+  float: right;
+}
+html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-share-photo-block .shareDirectSet .left {
+  float: left;
+}
+html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-share-photo-block .share-steps-block {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-share-photo-block .share-steps-block ol li {
+  -moz-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  margin: 2.5em 4px 1em 4px;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  background-color: steelblue;
+  width: 2em;
+  height: 2em;
+  float: left;
+  display: block;
+  line-height: 2em;
+  -moz-border-radius: 1em;
+  -webkit-border-radius: 1em;
+  border-radius: 1em;
+}
+html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-share-photo-block .share-steps-block .nowStep {
+  -moz-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  font-size: 1.5em;
+  margin-top: 1em;
+}
+html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-share-photo-block .pet-type {
+  margin-top: -2em;
+}
+html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-share-photo-block .pet-type .button {
+  background-color: #4c4c4c;
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+  border-radius: 0;
+}
+html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-share-photo-block .pet-type .button .text {
+  width: 15em;
+}
+html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-share-photo-block .pet-type .button .menu {
+  background-color: #4c4c4c;
+  overflow-y: hidden;
+  -moz-border-radius-bottomleft: 1em;
+  -webkit-border-bottom-left-radius: 1em;
+  border-bottom-left-radius: 1em;
+  -moz-border-radius-bottomright: 1em;
+  -webkit-border-bottom-right-radius: 1em;
+  border-bottom-right-radius: 1em;
+}
+html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-share-photo-block .pet-type .button .menu .item {
+  color: white;
+  float: left;
+  text-align: center;
+  font-size: 0.9em;
+}
+html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-share-photo-block .pet-type .button .menu .item:hover {
+  background-color: white;
+  color: #4c4c4c;
+}
+html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-share-photo-block .photo-file-block {
+  -moz-border-radius: 1em;
+  -webkit-border-radius: 1em;
+  border-radius: 1em;
+  margin: -2em auto 0 auto;
+  background: #e6e6e6;
+  border: 2.5px dashed #b3b3b3;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80);
+  opacity: 0.8;
+}
+html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-share-photo-block .photo-file-block:hover {
+  -moz-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  border-color: gray;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=90);
+  opacity: 0.9;
+}
+html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-share-photo-block .photo-file-block:hover .share-file-info {
+  text-shadow: none;
+}
+html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-share-photo-block .photo-file-block i {
+  color: gray;
+  margin-left: 0.2em;
+}
+html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-share-photo-block .photo-file-block .share-file-info {
+  text-shadow: white 1px 1px 1px;
+  color: gray;
+  font-weight: bold;
+}
+html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-share-photo-block .photo-file-block .share-pic-img {
+  z-index: 998;
+  position: relative;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+  opacity: 0;
+  width: 99.5%;
+  height: 9.2em;
+}
+html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-share-photo-block .photo-file-block .share-error {
+  color: red;
+}
+html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-share-photo-block .progress {
+  display: none;
+  height: 2em;
+  padding: 0;
+  background: none;
+  border: 0;
+}
+html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-share-photo-block .progress .bar {
+  width: 50%;
+}
+html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-share-photo-block .photo-preview-block {
+  margin: -2em auto 0 auto;
+}
+html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-share-photo-block .photo-preview-block img {
+  -moz-border-radius: 0.2em;
+  -webkit-border-radius: 0.2em;
+  border-radius: 0.2em;
+  -moz-box-shadow: gray 1px 0 5px;
+  -webkit-box-shadow: gray 1px 0 5px;
+  box-shadow: gray 1px 0 5px;
+}
+html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-share-photo-block .photo-preview-block .button {
+  position: absolute;
+  float: right;
+}
+@media (min-width: 240px) {
+  html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-share-photo-block {
+    -moz-transition: height 0.5s;
+    -o-transition: height 0.5s;
+    -webkit-transition: height 0.5s;
+    transition: height 0.5s;
+    height: 22em;
+  }
+  html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-share-photo-block h5 {
+    -moz-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+    margin: 1em 0 1em 0;
+    font-size: 1.5em;
+  }
+  html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-share-photo-block .share-list {
+    -moz-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+    height: 19.8em;
+  }
+  html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-share-photo-block .share-list .share-photo-name input {
+    font-size: 2em;
+  }
+  html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-share-photo-block .share-list .share-photo-description textarea {
+    font-size: 0.8em;
+    height: 2em;
+  }
+  html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-share-photo-block .pet-type {
+    margin-top: 0;
+  }
+  html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-share-photo-block .pet-type .button .menu .item {
+    width: 24%;
+  }
+  html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-share-photo-block .shareDirectSet {
+    margin-top: 7.5em;
+  }
+  html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-share-photo-block .shareDirectSet .button {
+    font-size: 0.8em;
+  }
+  html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-share-photo-block i {
+    margin-top: -6.5em;
+  }
+  html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-share-photo-block .photo-file-block {
+    width: 90%;
+    margin-top: 2em;
+  }
+  html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-share-photo-block .photo-file-block .share-file-info {
+    margin-top: -6.5em;
+    font-size: 0.8em;
+  }
+  html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-share-photo-block .photo-preview-block {
+    margin-top: -1em;
+  }
+  html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-share-photo-block .photo-preview-block img {
+    width: 8em;
+    height: 8em;
+  }
+  html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-share-photo-block .photo-preview-block .button {
+    font-size: 0.5em;
+  }
+}
+@media (min-width: 533px) {
+  html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-share-photo-block {
+    -moz-transition: height 0.5s;
+    -o-transition: height 0.5s;
+    -webkit-transition: height 0.5s;
+    transition: height 0.5s;
+    height: 35em;
+  }
+  html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-share-photo-block h5 {
+    -moz-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+    margin: 1em 0 1.5em 0;
+    font-size: 2.3em;
+  }
+  html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-share-photo-block .share-list {
+    -moz-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+    height: 30.8em;
+  }
+  html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-share-photo-block .share-list .share-photo-name input {
+    font-size: 3.5em;
+  }
+  html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-share-photo-block .share-list .share-photo-description textarea {
+    font-size: 1.8em;
+  }
+  html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-share-photo-block .shareDirectSet {
+    margin-top: 13.2em;
+  }
+  html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-share-photo-block .shareDirectSet .button {
+    font-size: 1.5em;
+  }
+  html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-share-photo-block .pet-type {
+    margin-top: -1em;
+  }
+  html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-share-photo-block .pet-type .button .menu .item {
+    width: 33%;
+  }
+  html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-share-photo-block i {
+    margin-top: -4.8em;
+  }
+  html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-share-photo-block .photo-file-block {
+    width: 80%;
+  }
+  html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-share-photo-block .photo-file-block .share-file-info {
+    margin-top: -4.8em;
+  }
+  html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-share-photo-block .photo-preview-block {
+    margin-top: -1em;
+  }
+  html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-share-photo-block .photo-preview-block img {
+    width: 13em;
+    height: 13em;
+  }
+  html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-share-photo-block .photo-preview-block .button {
+    font-size: 1em;
+  }
+}
+@media (min-width: 960px) {
+  html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-share-photo-block {
+    -moz-transition: height 0.5s;
+    -o-transition: height 0.5s;
+    -webkit-transition: height 0.5s;
+    transition: height 0.5s;
+    height: 39em;
+  }
+  html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-share-photo-block h5 {
+    -moz-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+    margin: 1em 0 2em 0;
+    font-size: 3em;
+  }
+  html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-share-photo-block .share-list {
+    -moz-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+    height: 38.8em;
+  }
+  html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-share-photo-block .share-list .share-photo-name input {
+    font-size: 5em;
+  }
+  html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-share-photo-block .share-list .share-photo-description textarea {
+    font-size: 2.2em;
+  }
+  html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-share-photo-block .shareDirectSet {
+    margin-top: 15em;
+  }
+  html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-share-photo-block .shareDirectSet .button {
+    font-size: 2em;
+  }
+  html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-share-photo-block .pet-type {
+    margin-top: -2em;
+  }
+  html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-share-photo-block i {
+    margin-top: -5.2em;
+  }
+  html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-share-photo-block .photo-file-block {
+    width: 50%;
+    height: 8em;
+  }
+  html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-share-photo-block .photo-file-block .share-file-info {
+    margin-top: -5em;
+    font-size: 1em;
+  }
+  html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-share-photo-block .photo-preview-block {
+    margin-top: -3em;
+  }
+  html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-share-photo-block .photo-preview-block img {
+    width: 20em;
+    height: 20em;
+  }
+}
+html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-inner-left-block, html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-inner-right-block {
+  margin-top: 2em;
+}
+html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-inner-left-block {
+  width: 68%;
+  height: auto;
+  float: left;
 }
 html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-inner-right-block {
   position: relative;

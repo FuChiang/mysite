@@ -45,17 +45,26 @@ APP.directive('myShare', ['$timeout', function(time) {
 		link: function(scope, element, attr){
 			element.bind("change", function(e){
 				var file = (e.srcElement || e.target).files[0],
+					fileName = file.name.split('.')[1],
 					max_upload = 2,
 					reader = new FileReader(); 
+
 				if((file.size/1024/1024) > max_upload){
 					time(function(){
-						scope.shareError = true;
+						scope.shareSizeError = true;
+					},100);
+				}
+				else if(fileName.match(/(jpg|gif|png)$/ig) === null){
+					time(function(){
+						scope.shareTypeError = true;
 					},100);
 				}
 				else{
 					$jq(".progress").fadeIn();
 					time(function(){
-						scope.shareError = false;
+						scope.shareSizeError = false;
+						scope.shareTypeError = false;
+						scope.readCompleted = true;
 					},100);
 					reader.readAsDataURL(file);
 		  
@@ -63,10 +72,9 @@ APP.directive('myShare', ['$timeout', function(time) {
 			     			var path = '';     			
 			     			path = this.result;
 			     			time(function(){
+			     				$jq(".progress").hide();
 			     				scope.sharePic = path;
 			     				scope.shareInput = false;
-			     				scope.readCompleted = true;
-			     				$jq(".progress").fadeOut();
 			     			}, 500);
 			     		}
 				}	
@@ -96,6 +104,31 @@ APP.directive('mySelect', function() {
 		}
 	};
 });
+
+//main mask block
+APP.directive('shareName', ['$timeout', function(time) {
+	return{
+		//if set true then replace original items otherwise append into items 
+		replace: true,
+		// A=> attribute, E=> element, C=> class name, M=> comment
+		restrict: 'A',
+		//scope=> $scope, element=>object itsself, attr=>attribute in tag
+		link: function(scope, element, attr){
+			element.on("keyup", function(){
+				if(element.val() != ""){
+					time(function(){
+						scope.nextStep = true;
+					}, 100);
+				}
+				else{
+					time(function(){
+						scope.nextStep = false;
+					}, 100);
+				}
+			});
+		}
+	};
+}]);
 
 
 

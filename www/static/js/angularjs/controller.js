@@ -230,21 +230,31 @@ APP.controller("main-index-block", ['$scope', '$http', '$window', function($scop
 
 }]);
 
-
-APP.controller("aside-bar-block", ['$scope', '$http', '$window', function($scope, $http, $window){
-
-	
-
-
-}]);
-
-APP.controller("dashboard-content-block", ['$scope', '$http', '$timeout', function($scope, $http, $timeout){
+APP.controller("dashboard-content-block", ['$scope', '$window', '$http', '$timeout', function($scope, $window, $http, $timeout){
 	
 	$scope.shareInput = false;
 	$scope.shareError = false;
 	$scope.titleInput = '';
-	
+
+	$scope.deletePhoto = function(photo_id, photo_name){
+		$http({
+		          method: 'POST',
+			     data: {id: photo_id, name: photo_name},
+			     url: '/deletePhoto'
+
+	     }).success(function(data, status, headers, config){
+	        	$window.location.reload();
+	     }).error(function(data, status, headers, config){
+	        	alert('ajax 錯誤代碼='+data);
+	     });
+	}
+
 }]);
  
 
 
+APP.controller("aside-bar-block", ['$scope', '$http', '$window', function($scope, $http, $window){
+
+
+
+}]);

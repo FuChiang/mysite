@@ -2,6 +2,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from member.models import *
+from photo.models import Upload
 from wand.image import Image
 import json
 
@@ -60,7 +61,7 @@ def facebookLogin(request):
 		#apiJoin
 		user = apiJoin(user, em, id)
 
-		request.session["user"] = user.user
+		request.session["user"] = user.account
 
 		request.session["user_id"] = user.id
 		
@@ -87,7 +88,7 @@ def googleLogin(request):
 		#apiJoin
 		user = apiJoin(user, em, id)
 
-		request.session["user"] = user.user
+		request.session["user"] = user.account
 		request.session["user_id"] = user.id
 
 		return HttpResponseRedirect('/home')
@@ -113,15 +114,20 @@ def message(request):
 def myPhoto(request):
 	if 'user' not in request.session:
 		return HttpResponseRedirect('/login')
-	return render(request, 'member/dashboard/myPhoto.html', {'load': 'myPhotoPage', 'topTitle': '的瀏覽上傳照', 'nowPage': 'myPhoto'})
 
-def account(request):
+	#get photos which was be uploaded.  
+	photosQuery = Upload.objects.filter(photo_account_id=request.session['user_id'])
+
+	return render(request, 'member/dashboard/myPhoto.html', {'load': 'myPhotoPage', 'topTitle': '的瀏覽上傳照片', 'nowPage': 'myPhoto', 'photosQuery': photosQuery})
+
+def shareMyPhoto(request):
 	if 'user' not in request.session:
 		return HttpResponseRedirect('/login')
-	return render(request, 'member/dashboard/account.html', {'load': 'setProfilePage', 'topTitle': '的飼主帳號設定', 'nowPage': 'accountPage'})
+	return render(request, 'member/dashboard/share.html', {'load': 'sharePage', 'topTitle': '的分享寵物照片', 'nowPage': 'sharePage'})
 
 
 def setProfile(request):
 	if 'user' not in request.session:
 		return HttpResponseRedirect('/login')
+
 	return render(request, '', {})

@@ -54,7 +54,7 @@ def apiJoin(user, em, id):
 		if joinExistVaild(user):
 			user = user+'Paw'
 		Profile.objects.create(account = user, password = 0, email = em, api_id = id)
-		user = Profile.objects.get(account = user)
+	user = Profile.objects.get(account = user)
 	return user
 
 def loginDataVaild(user, pwd):

@@ -550,9 +550,42 @@ html
 					.menu-Set
 						+ft($ab)
 						top: 3.2em
-						text-align: right
-						i
-							color: #66CDAA
+						width: 2.5em
+						.reorder
+							color: lighten($sgy, 10%)
+						.mobile-Menu
+							+ft($ab, 999)
+							top: 6.5em
+							display: none
+							width: 12em
+							margin-top: -4em
+							ul
+								li 
+									padding: 0.5em 0 0.5em 0
+									margin: 0 auto
+									width: 90%
+									background: #66CDAA
+									text-align: center
+									border-top: $sw 1px solid
+									a
+										+font(1em, bold)
+										color: $sw
+									&:hover
+										background: darken(#66CDAA, 10%)
+										.select-nipple
+											+tle('top', darken(#66CDAA, 10%), 12px, 15px)
+								li:nth-child(1)
+									border: 0
+									+radius(1em, top)
+								.select-nipple
+									+ft($ab)
+									width: 100%
+									+tle('top', #66CDAA, 12px, 15px)
+									margin-top: -1em
+
+								li:nth-last-child(1)
+									+radius(1em, bottom)
+
 					.nromal-Menu ul
 						+ft($re, 997)
 						top: 2em
@@ -568,32 +601,6 @@ html
 								display: none
 								+tle('top', darken($sdy, 20%), 12px, 15px)
 								margin: 0.2em 0 0 0.5em
-					.mobile-Menu
-						+ft($ab, 999)
-						top: 6.5em
-						display: none
-						ul
-							li 
-								padding: 0.5em 0 0.5em 0
-								margin: 0 auto
-								width: 90%
-								background: #66CDAA
-								text-align: center
-								border-top: $sw 1px solid
-								a
-									+font(1em, bold)
-									color: $sw
-								&:hover
-									background: darken(#66CDAA, 10%)
-									.select-nipple
-										+tle('top', darken(#66CDAA, 10%), 12px, 15px)
-							li:nth-child(1)
-								border: 0
-							.select-nipple
-								+ft($ab)
-								width: 100%
-								+tle('top', #66CDAA, 12px, 15px)
-								margin-top: -1em
 
 					+at-breakpoint($phone)
 						@include transition(all 0.5s)
@@ -608,21 +615,19 @@ html
 								margin-top: -0.7em
 								+wh(50px, 50px)
 						.menu-Set
-							margin-top: -1.4em
-							width: 87%
+							margin: -1.4em 0 0 75%
+							.mobile-Menu
+								margin-left: -8em
+								ul
+									li:nth-child(1)
+										.select-nipple
+											right: 16.5%
 						.nromal-Menu 
 							display: none
-						.mobile-Menu
-							width: 100%
-							margin-top: -2.2em
-							ul
-								li:nth-child(1)
-									.select-nipple
-										right: 16.5%
 
 					+at-breakpoint($pad)
 						@include transition(all 0.5s)
-						width: 80%
+						width: 90%
 						h1
 							top: 2em
 							width: 3.5em
@@ -633,20 +638,18 @@ html
 								+wh(70px, 70px)
 						.menu-Set
 							margin-top: 0.2em
-							width: 70%
+							.mobile-Menu
+								margin-left: -8.5em
+								ul
+									li:nth-child(1)
+										.select-nipple
+											right: 12%
 						.nromal-Menu ul 
 							width: 75%
-						.mobile-Menu
-							width: 80%
-							margin-top: -0.7em
-							ul
-								li:nth-child(1)
-									.select-nipple
-										right: 15%
 
 					+at-breakpoint($pc)
 						@include transition(all 0.5s)
-						width: 70%
+						width: 80%
 						h1
 							font-size: 2em
 						.menu-Set
@@ -678,9 +681,424 @@ html
 							display: none
 
 						+at-breakpoint($phone)
+							@include transition(all 0.5s)
 							margin-top: 2.5em
+							.dashboard-myPhoto-block .contend
+								width: 100%
+								button
+									font-size: 0.5em
+									i
+										display: none
 						+at-breakpoint($pad)
+							@include transition(all 0.5s)
 							margin-top: 5em
+							.dashboard-myPhoto-block .contend
+								width: 48%
+								button
+									font-size: 1em
+									i
+										display: inline
+						+at-breakpoint($pc)
+							@include transition(all 0.5s)
+							.dashboard-myPhoto-block .contend
+								width: 32%
+
+
+						.dashboard-myPhoto-block
+							+wh(95%, auto)
+							+ft($re)
+							top: 1.5em
+							margin: 0 auto
+							color: $sgy
+							.contend
+								border: 2px solid $sw
+								background-color: $sw
+								float: left
+								button
+									display: block
+									margin-bottom: 1em
+									float: right
+								img
+									+wh(100%, auto)
+							button
+								+radius(2em)
+							p
+								margin-top: 1em
+
+						.dashboard-share-photo-block1
+							+ft($re)
+							top: 1em
+							width: 95%
+							margin: 0 auto
+							text-align: center
+							textarea
+								font-family:  DFKai-sb
+							.share-info-input
+								padding-top: 0.5em
+								textarea, input
+									+wh(100%, auto)
+								input
+									font-family:  DFKai-sb
+							.error
+								margin: 0.5em auto 0.5em auto
+								text-align: left
+							.photo-file-block
+								+radius(1em)
+								+wh(100%, 8em)
+								margin-bottom: 0.5em
+								background: lighten($sgy, 40%)
+								border: 2.5px dashed lighten($sgy, 20%)
+								+opacity(0.8)
+								&:hover
+									@include transition(all 0.5s)
+									border-color: $sgy
+									+opacity(0.9)
+									.share-file-info
+										+ts(none)
+								i
+									color: $sgy
+									margin-left: 0.2em
+								.share-file-info
+									+ts($sw 1px 1px 1px)
+									color: $sgy
+									font-weight: bold
+								.progress
+									display: none
+									height: 1.3em
+									padding: 0
+									background: none
+									border: 0
+									.bar
+										width: 50%
+								.share-error
+									font-size: 0.8em
+									color: darken($sr, 20%)
+									i
+										color: darken($sr, 20%)
+								.photo-file-mask
+									+radius(1em)
+									+ft($re, 999)
+									+wh(100%, 8.1em)
+									background: $sb
+									+opacity(0.6)
+									color: $sw
+									p
+										font-size: 1.2em
+										font-weight: bold
+										+ft($re)
+										top: 40%
+
+							.share-pic-img
+								@extend .po
+								+ft($re, 998)
+								+opacity(0)
+								+wh(99.5%, 9.2em)
+							.photo-preview-block
+								+wh(100%, auto)
+								img
+									max-height: 50%
+									+radius(0.5em)
+									@include box-shadow($sgy 1px 0 5px)
+								.pet-type
+									.text
+										width: 9em
+									.menu
+										width: 13em
+										border: 1em solid lighten(#0AA5DF, 10%)
+										margin: 1.5em 0 0 -2em
+										+radius(0.2em)
+										.item
+											float: left
+											width: 33%
+											text-align: center
+											font-size: 0.9em
+										.select-nipple
+											+ft($ab)
+											margin-top: -2.3em
+											+wh(0, 0)
+											border-style: solid
+											border-width: 0 0 20px 20px
+											border-color: transparent transparent lighten(#0AA5DF, 10%) transparent
+										.pet-inner-menu
+											height: 12em
+											overflow-x: hidden
+											overflow-y: auto
+
+							+at-breakpoint($phone)
+								i
+									margin-top: -6.5em
+								.share-file-info
+									margin-top: -6.2em
+								.photo-file-mask
+									margin-top: -9.3em
+								.photo-preview-block
+									text-align: center
+									img
+										width: 90%
+									.pet-type
+										float: none
+										.menu .select-nipple
+											margin-left: 9.1em
+								.button
+									font-size: 0.7em
+							+at-breakpoint($pad)
+								i
+									margin-top: -3.8em
+								.share-file-info
+									margin-top: -3.5em
+								.photo-file-mask
+									margin-top: -6.5em
+								.button
+									font-size: 1em
+									margin-bottom: 0.5em
+								.photo-preview-block
+									.pet-type
+										.menu .select-nipple
+											margin-left: 13.3em
+							+at-breakpoint($pc)
+								i
+									margin-top: -5.2em
+								.share-file-info
+									margin-top: -5em
+								.photo-file-mask
+									margin-top: -7.8em
+								.photo-preview-block
+									text-align: left
+									img
+										float: left
+										width: 50%
+									.pet-type
+										float: right
+
+						.dashboard-share-photo-block
+							+ft($re)
+							top: 1.2em
+							width: 90%
+							margin: 0 auto
+							text-align: center
+							overflow: hidden
+							h5
+								+ts($sw 1px 0px 1px)
+								display: block
+							.share-photo-warp
+								top: 0
+								+ft($re)
+							.share-list
+								width: 99.7%
+								input, textarea
+									color
+									border: 0
+									text-align: center
+									background-color: darken(#FDFBF5, 15%)
+									color: $sgy
+								textarea
+									text-align: left
+							.shareDirectSet
+								+ft($ab)
+								+wh(99.7%, auto)
+								.button
+									height: 2.3em
+								.right
+									float: right
+								.left
+									float: left
+						
+							.share-steps-block
+								+ft($ab)
+								bottom: 0
+								right: 0
+								ol 
+									li
+										@include transition(all 0.5s)
+										margin: 2.5em 4px 1em 4px
+										color: $sw
+										font-weight: bold
+										text-align: center
+										background-color: $slb
+										+wh(2em, 2em)
+										float: left
+										display: block
+										line-height: 2em
+										+radius(1em)
+								.nowStep
+									@include transition(all 0.5s)
+									font-size: 1.5em
+									margin-top: 1em
+							.pet-type
+								margin-top: -2em
+								.button
+									background-color: #4C4C4C
+									+radius(0)
+									.text
+										width: 15em
+									.menu
+										background-color: #4C4C4C
+										overflow-y: hidden
+										+radius(1em, bottom)
+										.item
+											color: $sw
+											float: left
+											text-align: center
+											font-size: 0.9em
+											&:hover
+												background-color: $sw
+												color: #4C4C4C
+							.photo-file-block
+								+radius(1em)
+								margin: -2em auto 0 auto
+								background: lighten($sgy, 40%)
+								border: 2.5px dashed lighten($sgy, 20%)
+								+opacity(0.8)
+								&:hover
+									@include transition(all 0.5s)
+									border-color: $sgy
+									+opacity(0.9)
+									.share-file-info
+										+ts(none)
+								i
+									color: $sgy
+									margin-left: 0.2em
+								.share-file-info
+									+ts($sw 1px 1px 1px)
+									color: $sgy
+									font-weight: bold
+								.share-pic-img
+									@extend .po
+									+ft($re, 998)
+									+opacity(0)
+									+wh(99.5%, 9.2em)
+								.share-error
+									color: $sr
+
+							.progress
+								display: none
+								height: 2em
+								padding: 0
+								background: none
+								border: 0
+								.bar
+									width: 50%
+							.photo-preview-block
+								margin: -2em auto 0 auto
+								img
+									+radius(0.2em)
+									@include box-shadow($sgy 1px 0 5px)
+								.button
+									+ft($ab)
+									float: right
+
+							+at-breakpoint($phone)
+								@include transition(height 0.5s)
+								height: 22em
+								h5
+									@include transition(all 0.5s)
+									margin: 1em 0 1em 0
+									font-size: 1.5em
+								.share-list
+									@include transition(all 0.5s)
+									height: 19.8em
+									.share-photo-name
+										input
+											font-size: 2em
+									.share-photo-description
+										textarea
+											font-size: 0.8em
+											height: 2em
+								.pet-type
+									margin-top: 0
+									.button .menu .item
+										width: 24%
+								.shareDirectSet
+									margin-top: 7.5em
+									.button
+										font-size: 0.8em
+								i
+									margin-top: -6.5em
+								.photo-file-block
+									width: 90%
+									margin-top: 2em
+									.share-file-info
+										margin-top: -6.5em
+										font-size: 0.8em
+								.photo-preview-block
+									margin-top: -1em
+									img
+										+wh(8em, 8em)
+									.button
+										font-size: 0.5em
+
+							+at-breakpoint($pad)
+								@include transition(height 0.5s)
+								height: 35em
+								h5
+									@include transition(all 0.5s)
+									margin: 1em 0 1.5em 0
+									font-size: 2.3em
+								.share-list
+									@include transition(all 0.5s)
+									height: 30.8em
+									.share-photo-name
+										input
+											font-size: 3.5em
+									.share-photo-description
+										textarea
+											font-size: 1.8em
+								.shareDirectSet
+									margin-top: 13.2em
+									.button
+										font-size: 1.5em
+
+								.pet-type
+									margin-top: -1em
+									.button .menu .item
+										width: 33%
+								i
+									margin-top: -4.8em
+								.photo-file-block
+									width: 80%
+									.share-file-info
+										margin-top: -4.8em
+								.photo-preview-block
+									margin-top: -1em
+									img
+										+wh(13em, 13em)
+									.button
+										font-size: 1em
+
+							+at-breakpoint($pc)
+								@include transition(height 0.5s)
+								height: 39em
+								h5
+									@include transition(all 0.5s)
+									margin: 1em 0 2em 0
+									font-size: 3em
+								.share-list
+									@include transition(all 0.5s)
+									height: 38.8em
+									.share-photo-name
+										input
+											font-size: 5em
+									.share-photo-description
+										textarea
+											font-size: 2.2em
+								.shareDirectSet
+									margin-top: 15em
+									.button
+										font-size: 2em
+								.pet-type
+									margin-top: -2em
+								i
+									margin-top: -5.2em
+								.photo-file-block
+									width: 50%
+									height: 8em
+									.share-file-info
+										margin-top: -5em
+										font-size: 1em
+								.photo-preview-block
+									margin-top: -3em
+									img
+										+wh(20em, 20em)
 
 						.dashboard-inner-left-block, .dashboard-inner-right-block
 							margin-top: 2em
@@ -688,135 +1106,6 @@ html
 						.dashboard-inner-left-block
 							+wh(68%, auto)
 							float: left
-							.dashboard-share-photo-block
-								+radius(1em)
-								width: 95%
-								margin: 0 auto
-								text-align: center
-								textarea
-									font-family:  DFKai-sb
-								.share-info-input
-									padding-top: 0.5em
-									textarea, input
-										+wh(100%, auto)
-									input
-										font-family:  DFKai-sb
-								.error
-									margin: 0.5em auto 0.5em auto
-									text-align: left
-								.photo-file-block
-									+radius(1em)
-									+wh(100%, 8em)
-									margin-bottom: 0.5em
-									background: lighten($sgy, 40%)
-									border: 2.5px dashed lighten($sgy, 20%)
-									+opacity(0.8)
-									&:hover
-										@include transition(all 0.5s)
-										border-color: $sgy
-										+opacity(0.9)
-										.share-file-info
-											+ts(none)
-									i
-										color: $sgy
-										margin: -5.2em 0 0 0.2em
-									.share-file-info
-										margin-top: -5em
-										+ts($sw 1px 1px 1px)
-										color: $sgy
-										font-weight: bold
-									.progress
-										display: none
-										height: 1.3em
-										padding: 0
-										background: none
-										border: 0
-										.bar
-											width: 50%
-									.share-error
-										font-size: 0.8em
-										color: darken($sr, 20%)
-										i
-											color: darken($sr, 20%)
-									.photo-file-mask
-										margin-top: -7.8em
-										+radius(1em)
-										+ft($re, 999)
-										+wh(100%, 8.1em)
-										background: $sb
-										+opacity(0.6)
-										color: $sw
-										p
-											font-size: 1.2em
-											font-weight: bold
-											+ft($re)
-											top: 40%
-
-								.share-pic-img
-									@extend .po
-									+ft($re, 998)
-									+opacity(0)
-									+wh(99.5%, 9.2em)
-								.photo-preview-block
-									+wh(100%, auto)
-									img
-										max-height: 50%
-										+radius(0.5em)
-										@include box-shadow($sgy 1px 0 5px)
-									.pet-type
-										.text
-											width: 9em
-										.menu
-											width: 13em
-											border: 1em solid lighten(#0AA5DF, 10%)
-											margin: 1.5em 0 0 -2em
-											+radius(0.2em)
-											.item
-												float: left
-												width: 33%
-												text-align: center
-												font-size: 0.9em
-											.select-nipple
-												+ft($ab)
-												margin-top: -2.3em
-												width: 0
-												height: 0
-												border-style: solid
-												border-width: 0 0 20px 20px
-												border-color: transparent transparent lighten(#0AA5DF, 10%) transparent
-											.pet-inner-menu
-												height: 12em
-												overflow-x: hidden
-												overflow-y: auto
-
-								+at-breakpoint($phone)
-									.photo-preview-block
-										text-align: center
-										img
-											width: 90%
-										.pet-type
-											float: none
-											.menu .select-nipple
-												margin-left: 9.1em
-									.button
-										font-size: 0.7em
-								+at-breakpoint($pad)
-									.button
-										font-size: 1em
-										margin-bottom: 0.5em
-									.photo-preview-block
-										.pet-type
-											.menu .select-nipple
-												margin-left: 13.3em
-								+at-breakpoint($pc)
-									.photo-preview-block
-										text-align: left
-										img
-											float: left
-											width: 50%
-										.pet-type
-											float: right
-
 						.dashboard-inner-right-block
 							+ft($re)
 							float: right
