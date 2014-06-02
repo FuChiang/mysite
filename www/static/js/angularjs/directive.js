@@ -60,19 +60,19 @@ APP.directive('myShare', ['$timeout', function(time) {
 					},100);
 				}
 				else{
-					$jq(".progress").fadeIn();
+					$jq(".readLoad").fadeIn();
 					time(function(){
 						scope.shareSizeError = false;
 						scope.shareTypeError = false;
 						scope.readCompleted = true;
+						scope.finialStep = true;
 					},100);
 					reader.readAsDataURL(file);
-		  
 			     		reader.onload = function(e){ 
 			     			var path = '';     			
 			     			path = this.result;
 			     			time(function(){
-			     				$jq(".progress").hide();
+			     				$jq(".readLoad").hide();
 			     				scope.sharePic = path;
 			     				scope.shareInput = false;
 			     			}, 500);
@@ -129,6 +129,76 @@ APP.directive('shareName', ['$timeout', function(time) {
 		}
 	};
 }]);
+
+//photo out display block
+APP.directive('itemDisplay', ['$window', function($window) {
+	return{
+		//if set true then replace original items otherwise append into items 
+		replace: true,
+		// A=> attribute, E=> element, C=> class name, M=> comment
+		restrict: 'A',
+		//scope=> $scope, element=>object itsself, attr=>attribute in tag
+		link: function(scope, element, attr){
+			scope.$watch(attr.itemDisplay, function(value){
+				if(value == 'single'){
+					element.css({
+						"width": "100%", 
+						"height": false
+					}).find(".photo-img").css({
+						"width": false,
+						"height": false
+					}).end().find(".content").css("display", "block");
+				}
+				else if(value == 'multiple'){
+					element.css({
+						"width": false, 
+						"height": false
+					}).find(".photo-img").css({
+						"width": false,
+						"height": false
+					}).end().find(".content").css("display", "block");
+				}
+				else if(value == 'waterfall'){
+					element.css("width", false).find(".photo-img").css({
+						"width": "50%",
+						"height": "50%"
+					}).end().find(".content").css("display", "none");
+				}
+				else if(value == 'new'){
+					$window.location.href = '/viewPhoto/new';
+				}
+				else if(value == 'popular'){
+					$window.location.href = '/viewPhoto/popular';
+				}
+				else if(value == 'chat'){
+					$window.location.href = '/viewPhoto/comment';
+				}
+			});
+		}
+	};
+}]);
+
+
+//photo menu display block
+APP.directive('itemMenu', function() {
+	return{
+		//if set true then replace original items otherwise append into items 
+		replace: true,
+		// A=> attribute, E=> element, C=> class name, M=> comment
+		restrict: 'A',
+		//scope=> $scope, element=>object itsself, attr=>attribute in tag
+		link: function(scope, element, attr){
+			scope.$watch(attr.itemMenu, function(value){
+				if(value == 'small'){
+					scope.single = 'singleMenu';
+				}
+				else if(value == 'original'){
+					scope.single = '';
+				}
+			});
+		}
+	};
+});
 
 
 

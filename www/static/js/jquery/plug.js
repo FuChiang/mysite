@@ -58,7 +58,7 @@
 
 		    		//set hide and show of margin number
 		    		_emargin[_final_Setting._direct] = _move;
-		    		_smargin[_final_Setting._direct] = "0em";
+		    		_smargin[_final_Setting._direct] = 0;
 
 		    		//cancel click mthod of button tag that avoid error situation from double click 
 		    		if(_final_Setting._disabled) _button.attr("disabled", true).css("border",_final_Setting._focusEffect);

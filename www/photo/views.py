@@ -4,6 +4,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from wand.image import Image
 from time import strftime
 from django.conf import settings
+from django.db.models import F
 import json
 
 def upload(request):
@@ -47,3 +48,15 @@ def delete(request):
 			Upload.objects.get(id=photo_id, photo_account_id=request.session["user_id"]).delete()
 
 		return HttpResponse('delete right')
+
+def updateLove(request):
+
+	if request.method == 'POST' and request.is_ajax():
+
+		data = json.loads(request.body.decode("utf-8"))
+
+		photo_id = data['id']
+
+		Upload.objects.filter(id=photo_id).update(photo_love=F('photo_love') +1)
+	
+	return HttpResponse('update right')

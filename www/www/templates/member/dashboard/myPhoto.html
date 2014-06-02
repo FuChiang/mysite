@@ -16,8 +16,8 @@
 					<div class="dashboard-myPhoto-block">
 						{% if photosQuery %}
 							{% for value in photosQuery %}
-								<div class="contend">
-									<img src="/static/img/photo/small/{{value.photo_filename}}" >
+								<div class="myPhoto-content">
+									<a href=""><img src="/static/img/photo/small/{{value.photo_filename}}" ></a>
 									<button class="ui primary button" ng-click="deletePhoto({{value.id}}, '{{value.photo_filename}}')">
 										<i class="trash icon"></i>刪除
 									</button>
@@ -25,14 +25,16 @@
 							{% endfor %}
 							{% csrf_token %}
 						{% else %}
-							<i class=" attention icon"></i>尚未上傳任何寵物照, 現在...
-							<p>
-								<a href="/shareMyPhoto">
-									<button class="ui second button">
-										<i class="photo icon"></i>立即分享
-									</button>
-								</a>
-							</p>
+							<div class="dashboard-noMyPhoto-content">
+								<i class=" attention icon"></i>尚未上傳任何寵物照片, 現在...					
+								<p>
+									<a href="/shareMyPhoto">
+										<button class="ui second button">
+											<i class="photo icon"></i>立即分享
+										</button>
+									</a>
+								</p>
+							</div>
 						{% endif %}
 					</div>
 				</section>

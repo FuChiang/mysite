@@ -16,9 +16,11 @@ urlpatterns = patterns('',
 	
 	#main page urls
 	url(r'^home', 'main.views.home'),
-	url(r'^new', 'main.views.new'),
-	url(r'^popular', 'main.views.popular'),
+	url(r'^viewPhoto/new', 'main.views.view', {'priority':'new'}),
+	url(r'^viewPhoto/popular', 'main.views.view', {'priority':'love'}),
+	url(r'^viewPhoto/comment', 'main.views.view', {'priority':'comment'}),
 	url(r'^categories', 'main.views.categories'),
+	url(r'^updatePhotoLove', 'photo.views.updateLove'),
 	
 	#dashboard page top meau urls
 	url(r'^dashboard/[0-9a-zA-Z]+', 'member.views.dashboard'),

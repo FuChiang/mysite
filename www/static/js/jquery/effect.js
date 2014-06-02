@@ -81,6 +81,7 @@ var newPage = function(){
 
 	//set slide
 	reuseEvent.slideEffect();
+
 }
 
 /************************************/
@@ -135,17 +136,9 @@ var sharePage = function(){
 		$jq_input = $jq("input[name='shareName']"),
 		$jq_textarea = $jq("input[name='shareDirectSet']"),
 		$jq_warp = $jq(".share-photo-warp"),
-		$jq_w_size = [974, 548, 240],
-		$jq_move_height = [41.8, 33.3, 21.3],
-		$jq_moveSpace = 0,
+		$jq_shareList = $jq(".share-list"),
 		$jq_nowIndex = 0,
-		$move_speed = 200,
 		$jq_nowTag;
-
-
-	//$jq_warp.css("top", "-125.4em");
-	//$jq_warp.css("top", "-99.9em");
-	//$jq_warp.css("top", "-63.9em");
 
 	//set mobile menu 
 	reuseEvent.mobileMenuEffect();
@@ -155,26 +148,16 @@ var sharePage = function(){
 	//let mouse cursor stay on first input field
 	$jq("input:first").focus();
 
-	//when user resize his browser size then adject item top position to 0 that avoid occur move error 
-	$jq(window).resize(function() {
-
-		$jq_warp.animate({top: 0}, $move_speed);
-
-		//remove all class just save fist li class
-		$jq_step.find("li:first").addClass("nowStep").siblings().removeClass();
-	});
+	//initail
+	$jq_shareList.hide().eq(0).show();
 
 	//push next step
 	$jq_SetRight.on("click", function(){
 
 		getMoveData();
 
-		if($jq_input.val() !== ""){
-			$jq_nowTag.next().addClass("nowStep");
-			$jq_warp.animate({
-				top: "-"+($jq_nowIndex+1)*$jq_moveSpace+"em"
-			}, $move_speed);
-		}	
+		$jq_nowTag.next().addClass("nowStep");
+		$jq_shareList.hide().eq($jq_nowIndex+1).show();
 	});
 
 	//push prev step
@@ -183,31 +166,15 @@ var sharePage = function(){
 		getMoveData();
 
 		$jq_nowTag.removeClass("nowStep");
-		$jq_warp.animate({
-			top: "-"+($jq_nowIndex-1)*$jq_moveSpace+"em"
-		}, $move_speed);
+		$jq_shareList.hide().eq($jq_nowIndex-1).show();
 	});
 
 	//get now item and index number
 	var getMoveData = function(){
 		$jq_nowTag = $jq_step.find(".nowStep").last();
 		$jq_nowIndex = $jq_nowTag.index();
-		getDistance();
 	}
 
-	//get move distance
-	var getDistance = function(){
-		if(window.innerWidth >= $jq_w_size[0]){
-			$jq_moveSpace = $jq_move_height[0];
-		}
-		else if(window.innerWidth >= $jq_w_size[1]){
-			$jq_moveSpace = $jq_move_height[1];
-		}
-		else if(window.innerWidth >= $jq_w_size[2]){
-			$jq_moveSpace = $jq_move_height[2];
-		}
-	}
-	
 }
 
 /************************************/
@@ -231,7 +198,7 @@ var reuseEvent = {
 		var $jq_slidebar = $jq('.ui.sidebar');
 
 		//aside manu set
-		$jq_slidebar.sidebar('toggle');
+		//$jq_slidebar.sidebar('toggle');
 
 		$jq(".site-Menu").on("click", function(){
 			$jq_slidebar.sidebar('toggle');

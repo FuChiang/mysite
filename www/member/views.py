@@ -21,9 +21,9 @@ def joinMember(request):
 		if joinExistVaild(user):
 			return HttpResponse('add existed')
 		elif joinDataVaild(user, pwd, em):
-			Profile.objects.create(account = user, password = pwd, email = em, api_id = 'none')
+			Profile.objects.create(account = user, password = pwd, email = em, api_id = 'none', pic='default.jpg')
 			user = Profile.objects.get(account = user, password = pwd)
-			request.session["user"] = user.user
+			request.session["user"] = user.account
 			request.session["user_id"] = user.id
 			return HttpResponse('add right')
 		else:

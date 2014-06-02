@@ -228,6 +228,7 @@ APP.controller("main-index-block", ['$scope', '$http', '$window', function($scop
 		$scope.mailShow = ($scope.mailShow)? false:true;
 	}
 
+
 }]);
 
 APP.controller("dashboard-content-block", ['$scope', '$window', '$http', '$timeout', function($scope, $window, $http, $timeout){
@@ -250,11 +251,31 @@ APP.controller("dashboard-content-block", ['$scope', '$window', '$http', '$timeo
 	}
 
 }]);
- 
 
+APP.controller("new-content-block", ['$scope', '$http', '$timeout', function($scope, $http, $timeout){
 
-APP.controller("aside-bar-block", ['$scope', '$http', '$window', function($scope, $http, $window){
+	$scope.addLove = function(photo_id){
 
+		var loveId = 'love'+photo_id,
+			$jq_love =  $jq("."+loveId);
 
+		$jq_love.html(parseInt($jq_love.html(), 10)+1);
+
+		$http({
+		          method: 'POST',
+			     data: {id: photo_id},
+			     url: '/updatePhotoLove'
+
+	     }).error(function(data, status, headers, config){
+	        	alert('ajax 錯誤代碼='+data);
+	     });
+	}
 
 }]);
+
+APP.controller("aside-bar-block", ['$scope', '$http', '$timeout', function($scope, $http, $timeout){
+
+	
+
+}]);
+ 

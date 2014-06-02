@@ -66,5 +66,11 @@
 	@if $direct == 'right'
 		border-width: $width 0 $width $height
 
+//border
+@mixin border($width: 1px, $color: $sw, $style: solid)
+	border-style: $style
+	border-width: $width
+	border-color: $color
+
 
 	

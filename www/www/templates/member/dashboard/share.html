@@ -14,6 +14,9 @@
 				<section>
 					<header><h4>分享寵物照</h4></header>
 					<div class="dashboard-share-photo-block">
+						<div class="ui active striped progress purple uploadLoad" ng-show="onUploadLoad">
+  							<div class="bar"></div><p>上傳中...請稍候</p>
+						</div>
 						<div class="share-steps-block">
 							<ol>
 								<li class="nowStep">1</li>
@@ -23,7 +26,7 @@
 							</ol>
 						</div>
 						<div class="share-photo-warp">
-							<form name="shareForm" action="/sharePhoto" class="ui form" enctype="multipart/form-data" method="post">
+							<form name="shareForm" action="/sharePhoto" class="ui form" enctype="multipart/form-data" method="post" ng-submit="onUploadLoad=true">
 								{% csrf_token %}
 								<div class="share-photo-name-block share-list">
 									<h5>如何稱呼寵物呢<i class="question icon"></i></h5>
@@ -94,12 +97,12 @@
 										<div class="ui green button right">下一步</div>
 									</div>
 									<div class="share-photo-description">
-										<textarea  name="shareDescription" placeholder = "輸入想介紹的話..."></textarea>
+										<textarea  name="shareDescription" placeholder = "輸入想介紹的話...(可不填)"></textarea>
 									</div>
 								</div>
 								<div class="share-photo-upload-block share-list">
 									<h5>給個寵物的模樣照吧<i class="photo icon"></i></h5>
-									<div class="shareDirectSet">
+									<div class="shareDirectSet" ng-show="finialStep">
 										<div class="ui purple button left">上一步</div>
 										<button type="submit" class="ui red button right">上 傳</button>
 									</div>
@@ -119,11 +122,11 @@
 										<P class="share-error" ng-show="shareTypeError"><i class="info red icon"></i>只接受 jpg | png | gif 的圖檔</P>
 
 									</div>
-									<div class="ui active striped progress">
+									<div class="ui active striped progress readLoad">
 		  								<div class="bar"></div>
 									</div>
 									<div class="photo-preview-block" ng-show="readCompleted">
-										<button type="reset"  ng-click="readCompleted=false; shareInput=true" class="ui green button">
+										<button type="reset"  ng-click="readCompleted=false; finialStep=false; shareInput=true" class="ui green button">
 								  			重新上傳
 										</button>
 										<img  ng-src="<%sharePic%>" />
