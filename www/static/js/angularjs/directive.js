@@ -114,6 +114,9 @@ APP.directive('shareName', ['$timeout', function(time) {
 		restrict: 'A',
 		//scope=> $scope, element=>object itsself, attr=>attribute in tag
 		link: function(scope, element, attr){
+			time(function() {
+				element[0].focus();
+			}, 300);
 			element.on("keyup", function(){
 				if(element.val() != ""){
 					time(function(){
@@ -140,7 +143,7 @@ APP.directive('itemDisplay', ['$window', function($window) {
 		//scope=> $scope, element=>object itsself, attr=>attribute in tag
 		link: function(scope, element, attr){
 			scope.$watch(attr.itemDisplay, function(value){
-				if(value == 'single'){
+				/*if(value == 'single'){
 					element.css({
 						"width": "100%", 
 						"height": false
@@ -158,13 +161,14 @@ APP.directive('itemDisplay', ['$window', function($window) {
 						"height": false
 					}).end().find(".content").css("display", "block");
 				}
-				else if(value == 'waterfall'){
+				else if(value == 'little'){
 					element.css("width", false).find(".photo-img").css({
 						"width": "50%",
 						"height": "50%"
 					}).end().find(".content").css("display", "none");
 				}
-				else if(value == 'new'){
+				else*/ 
+				if(value == 'new'){
 					$window.location.href = '/viewPhoto/new';
 				}
 				else if(value == 'popular'){
@@ -199,7 +203,6 @@ APP.directive('itemMenu', function() {
 		}
 	};
 });
-
 
 
 

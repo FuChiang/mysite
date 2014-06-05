@@ -21,7 +21,6 @@ html
 			display: none
 
 		.container
-			width: 105%
 			+at-breakpoint($phone)
 				+container
 				+span-columns(9)
@@ -31,6 +30,14 @@ html
 			+at-breakpoint($pc)
 				+container
 				+span-columns(15)
+			+at-breakpoint($bpc)
+				max-width: 120em
+				padding-left: 0em
+				padding-right: 0em
+				margin-left: auto
+				width: 100%
+				float: left
+			margin-right: 0
 
 			.fullscreen-mask
 				background-color: #141414
@@ -50,18 +57,19 @@ html
 				+wh(100%, 100%)
 				+animate(fadeIn)
 				@extend .str-to-img
-				@include transition(all 1s)
-				background-color: $slb
 				background-size: cover
 				+at-breakpoint($phone)
 					@include transition(background-image 1s)
 					+bg('mainbg_phone.jpg', 'background/main')
+					background-size: cover
 				+at-breakpoint($pad)
 					@include transition(background-image 1s)
 					+bg('mainbg_pad.jpg', 'background/main')
+					background-size: cover
 				+at-breakpoint($pc)
 					@include transition(background-image 1s)
 					+bg('mainbg_pc.jpg', 'background/main')
+					background-size: cover
 				
 			.search-block
 				+ft($ab, 999)
@@ -394,13 +402,10 @@ html
 						background: darken($slr, 5%)
 
 			.site-Menu-Block
-				+ft($fi, 999)
-				height: 3.8em
+				+ft($ab, 999)
+				height: 3.55em
 				color: $sw
 				overflow-x: hidden
-				margin-top: 3.55em
-				background: lighten($sb, 20%)
-
 				+at-breakpoint($pad)
 					@include transition(width 0.5s)
 					width: 3em
@@ -426,11 +431,11 @@ html
 			.site-Menu-Content
 				overflow-x: hidden
 				background: lighten($sb, 20%)
-				border-top: #5B5B5B 1px solid
 				h5
+					border-top: $sly 2.3px solid
 					@include box-shadow(lighten($sgy, 10%) 1px 1px 1px)
 					+wh(100%, 1.5em)
-					background: #e6a12b
+					background: $sly
 					color: $sw
 					+font(1.5em, bold)
 					padding: 0.8em 0 0 1em
@@ -460,10 +465,10 @@ html
 					.menuShow
 						background: lighten($sb, 15%)
 						a
-							color: #e6a12b
+							color: $sly
 						&:hover
 							a
-								color: #e6a12b
+								color: $sly
 
 				+at-breakpoint($phone)
 					ul li
@@ -471,7 +476,7 @@ html
 						.member
 							+bg('default_phone.jpg', 'member/asidebar')
 							+wh(30px, 30px)
-							margin: -0.2em 0 0 0.2em
+							margin: -0.4em 0 0 0.2em
 
 				+at-breakpoint($pad)
 					ul li
@@ -487,6 +492,12 @@ html
 							+wh(50px, 50px)
 							margin: -0.5em 0 0 0
 
+
+				@media (max-height: 500px)
+					ul li
+						font-size: 0.8em
+						padding: 1em 
+
 				@media (max-height: 750px)
 					ul li
 						font-size: 1em
@@ -496,23 +507,16 @@ html
 							+wh(30px, 30px)
 							margin: -0.2em 0 0 0.2em
 
-				@media (max-height: 500px)
-					ul li
-						font-size: 0.8em
-						padding: 0.6em 
-
-
 			.home-content-block
 				+ft($re)
-				width: 100%
-				text-align: center
 				+ts(lighten($sb, 20%) 1px 1px 1px)
 				color: lighten($sb, 40%)
-				background: #FDFBF5
 				h1
+					width: 100%
+					text-align: center
 					color: #FDFBF5
 					background: #a64818
-					@include box-shadow(lighten($sb, 10%) 1px 0px 1px)
+					@include box-shadow(1px 0 1px lighten($sb, 10%))
 					i
 						+font(1em, bold)
 
@@ -535,30 +539,33 @@ html
 						.home-paw
 							margin-top: -0.5em
 
-				.home-new-block
+				.home-view-block
 					width: 95%
-					margin: 10em auto 0 auto
-					.home-new-display-set
+					margin: 7em auto 0 auto
+					.home-view-display-set
 						+ft($ab)
-						margin-top: -4em
 						text-align: right
 						.button
-							+wh(3em , 2.5em)
+							height: 4em
 							i
-								margin: -0.2em 0 0 -0.6em 
-					.home-new-inner-block
+								+ft($ab)
+								margin: -0.5em
+					.home-view-inner-block
 						width: 100%
-						margin: 0 auto
+						overflow-y: auto
 						.item
 							float: left
 							height: auto
-							.image img
-								+m-wh(100%, 100%)
-								@include box-shadow(0 1px 1px $sgy)
+							text-align: center
+							.image
+								img
+									+m-wh(100%, 100%)
+									@include box-shadow(0 1px 1px $sgy)
 						.content
 							padding: 0
 							margin: -0.5em auto 0 auto
 							height: 3em
+							text-align: center
 							.new-pet-name
 								background-color: $sw
 								+wh(auto, 3em)
@@ -584,7 +591,7 @@ html
 								.love, .comments
 									margin-left: 0.1em
 									border: 0
-									+wh(2.8em, 4em)
+									+wh(3em, 4em)
 									@extend .po
 									background-color: $sb
 									color: $sw
@@ -609,10 +616,15 @@ html
 							.singleMenu
 								@include transition(width 0.3s)
 								width: 100%
-						.home-new-display-set
+						.home-view-display-set
 							@include transition(all 0.3s)
 							width: 96%
 							text-align: center
+							margin-top: -5em
+							.button
+								width: 3.3em
+								i
+									margin-left: -0.6em
 					+at-breakpoint($pad)
 						.item
 							@include transition(width 0.3s)
@@ -620,16 +632,22 @@ html
 							.singleMenu
 								@include transition(width 0.3s)
 								width: 31.5em
-						.home-new-display-set
+						.home-view-display-set
 							@include transition(all 0.3s)
 							width: 95%
 							text-align: right
+							.button
+								width: 4em
 					+at-breakpoint($pc)
 						.item
 							@include transition(all 0.3s)
 							width: 33.3%
 							.owner span
 								display: inline
+					+at-breakpoint($bpc)
+						.item
+							@include transition(all 0.3s)
+							width: 25%
 
 
 			.dashboard-out-block

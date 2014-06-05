@@ -12,20 +12,22 @@
 	<!-- include aside bar content -->
 	{% include "asideBar/asideBar.html" with nowPage='newPage' %}
 
-	<div class="home-content-block" ng-controller="new-content-block">
+	<div class="home-content-block" ng-controller="view-content-block">
 		<section>
 			<header><h1>{{topTitle}}<span class="home-paw">cutepaw</span></h1></header>
 			{% if photosQuery %}
-				<div class="home-new-block">
-					<div class="home-new-display-set">
-						<button class="ui teal button" ng-click="itemList='single';itemMenuShow='small'" title="單照片顯示"><i class="reorder big icon"></i></button>
-						<button class="ui black button" ng-click="itemList='multiple';itemMenuShow='original'" title="多照片顯示"><i class="grid layout big icon"></i></button>
-						<button class="ui purple button" ng-click="itemList='waterfall';itemMenuShow='waterfall'" title="小圖照顯示"><i class="resize small big icon"></i></button>
-						<button class="ui green button" ng-click="itemList='new'" title="依時間排序"><i class="time small big icon"></i></button>
-						<button class="ui red button" ng-click="itemList='popular'" title="依喜歡排序"><i class="heart small big icon"></i></button>
-						<button class="ui blue button" ng-click="itemList='chat'" title="依留言排序"><i class="chat small big icon"></i></button>
+				<div class="home-view-block">
+					<div class="home-view-display-set">
+						<div class="small ui buttons">
+							<button class="ui teal button single" ng-click="itemList='single';itemMenuShow='small'" title="單照片顯示"><i class="reorder big icon"></i></button>
+							<button class="ui black button multiple" ng-click="itemList='multiple';itemMenuShow='original'" title="多照片顯示"><i class="grid layout big icon"></i></button>
+							<button class="ui purple button little" ng-click="itemList='small';itemMenuShow='small'" title="小圖照顯示"><i class="resize small big icon"></i></button>
+							<button class="ui green button" ng-click="itemList='new'" title="依時間排序"><i class="time small big icon"></i></button>
+							<button class="ui red button" ng-click="itemList='popular'" title="依喜歡排序"><i class="heart small big icon"></i></button>
+							<button class="ui blue button" ng-click="itemList='chat'" title="依留言排序"><i class="chat small big icon"></i></button>
+						</div>
 					</div>
-					<div class="home-new-inner-block">
+					<div class="home-view-inner-block">
 					{% for value in photosQuery %}
 						<div class="item" data-item-display="itemList">
 							<div class="image">
@@ -37,12 +39,12 @@
 						    			<span>{{value.photo_pet_name|slice:10}}</span>
 						    		</div>
 						    		<div class="menu">
-						    			<button class="love" title="喜歡這張照片" ng-click="addLove({{value.pid}});love{{value.pid}}=true" ng-disabled="love{{value.pid}}">
-						    				<i class="heart red large icon"></i>
+						    			<button class="love" id="{{value.pid}}" title="喜歡這張照片" ng-click="addLove({{value.pid}});love{{value.pid}}=true" ng-disabled="love{{value.pid}}">
+						    				<i class="heart red  icon"></i>
 						    				<p class="love{{value.pid}}">{{value.photo_love}}</p>
 						    			</button>
 						    			<button class="comments" title="瀏覽相關評論" >
-						    				<a href=""><i class="chat blue large icon"></i></a>
+						    				<a href=""><i class="chat blue icon"></i></a>
 						    				<p>{{value.photo_comment}}</p>
 						    			</button>
 						    		</div>

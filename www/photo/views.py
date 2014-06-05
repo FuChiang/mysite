@@ -40,14 +40,14 @@ def delete(request):
 
 		data = json.loads(request.body.decode("utf-8"))
 
-		photo_id = data['id']
-		photo_name = data['name']
+		photo_id = data['id'] if data['id'] and data['id'] !="" else None
+		photo_name = data['name'] if data['name'] and data['name'] !="" else None
 
 		if deleteVailed(photo_id, photo_name):
 			deleteImg(settings.MEDIA_ROOT, photo_name)
 			Upload.objects.get(id=photo_id, photo_account_id=request.session["user_id"]).delete()
 
-		return HttpResponse('delete right')
+	return HttpResponse('delete right')
 
 def updateLove(request):
 
@@ -60,3 +60,4 @@ def updateLove(request):
 		Upload.objects.filter(id=photo_id).update(photo_love=F('photo_love') +1)
 	
 	return HttpResponse('update right')
+

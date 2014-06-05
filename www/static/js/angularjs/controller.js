@@ -252,8 +252,8 @@ APP.controller("dashboard-content-block", ['$scope', '$window', '$http', '$timeo
 
 }]);
 
-APP.controller("new-content-block", ['$scope', '$http', '$timeout', function($scope, $http, $timeout){
-
+APP.controller("view-content-block", ['$scope', '$http', '$timeout', function($scope, $http, $timeout){
+	/*
 	$scope.addLove = function(photo_id){
 
 		var loveId = 'love'+photo_id,
@@ -270,7 +270,7 @@ APP.controller("new-content-block", ['$scope', '$http', '$timeout', function($sc
 	        	alert('ajax 錯誤代碼='+data);
 	     });
 	}
-
+	*/
 }]);
 
 APP.controller("aside-bar-block", ['$scope', '$http', '$timeout', function($scope, $http, $timeout){

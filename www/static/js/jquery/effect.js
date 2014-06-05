@@ -8,7 +8,6 @@ $jq(window).resize(function() {
 });
 
 
-
 /************************************/
 /*main page set*/
 /************************************/
@@ -75,14 +74,64 @@ var homePage = function(){
 }
 
 /************************************/
-/*new page set*/
+/*view photo page set*/
 /************************************/
-var newPage = function(){
+var viewPage = function(){
 
 	//set slide
 	reuseEvent.slideEffect();
 
-}
+	//set scroll 
+	reuseEvent.listenScrollEffect();
+
+	//set add love event
+	reuseEvent.addLoveEvent();
+
+	//bind photo display event
+	$jq(".single").on("click", function(){
+		$jq(".item").css({
+				"width": "100%", 
+				"height": false
+		}).find(".photo-img").css({
+				"width": false,
+				"height": false
+		}).end().find(".content").css("display", "block");
+
+		$jq(".buttons").removeAttr("id").attr("id", "single_show");
+
+		$jq(".content").addClass("singleMenu");
+
+		
+	});
+
+	$jq(".multiple").on("click", function(){
+		$jq(".item").css({
+			"width": false, 
+			"height": false
+		}).find(".photo-img").css({
+			"width": false,
+			"height": false
+		}).end().find(".content").css("display", "block");
+
+		$jq(".buttons").removeAttr("id").attr("id", "multiple_show");
+
+		$jq(".content").removeClass("singleMenu");
+
+
+	});
+
+	$jq(".little").on("click", function(){
+		$jq(".item").css("width", false).find(".photo-img").css({
+			"width": "50%",
+			"height": "50%"
+		}).end().find(".content").css("display", "none");
+
+		$jq(".buttons").removeAttr("id").attr("id", "little_show");
+	});
+
+
+}	
+
 
 /************************************/
 /*categories page set*/
@@ -93,14 +142,6 @@ var categoriesPage = function(){
 	reuseEvent.slideEffect();
 }
 
-/************************************/
-/*popular page set*/
-/************************************/
-var popularPage = function(){
-
-	//set slide
-	reuseEvent.slideEffect();
-}
 
 /************************************/
 /*dashboard page set*/
@@ -113,16 +154,6 @@ var dashboardPage = function(){
 
 }
 
-/************************************/
-/*dashboard message page set*/
-/************************************/
-var messagePage = function(){
-
-	//set mobile menu 
-	reuseEvent.mobileMenuEffect();
-
-	
-}
 
 /************************************/
 /*dashboard setProfilePage page set*/
@@ -198,7 +229,7 @@ var reuseEvent = {
 		var $jq_slidebar = $jq('.ui.sidebar');
 
 		//aside manu set
-		//$jq_slidebar.sidebar('toggle');
+		$jq_slidebar.sidebar('toggle');
 
 		$jq(".site-Menu").on("click", function(){
 			$jq_slidebar.sidebar('toggle');
@@ -225,7 +256,98 @@ var reuseEvent = {
 				:
 					$jq_menu.hide();
 		});
-	}
+	},
+
+	//listen scroll position
+	listenScrollEffect: function(){
+		var $jq_addNum = 200,
+			reGetSize = function(){
+				$jq_winHeight = $jq(window).height(); 		//window  height
+				$jq_pageHeight = $jq(document).height(); 	//page height
+			}; 
+
+		$jq(window).on("scroll", function(){
+
+			//get body page content
+			reGetSize();
+
+	  		if($jq_pageHeight <= ($jq_winHeight+$jq(this).scrollTop()+$jq_addNum)){   
+	    			var priority = ($jq(location).attr('href').split("/"))[4],
+	    				csrftoken = $jq('input[name=csrfmiddlewaretoken]').val(),
+	    				$jq_button = $jq(".buttons");
+
+	    			$jq.ajax({
+					url: "/scrollNext",
+					type: "POST",
+					cache: false,
+					contentType: "application/json",
+					data: JSON.stringify({ "field": priority}),
+					dataType: "json",
+					beforeSend: function(xhr) {
+		        			xhr.setRequestHeader("X-CSRFToken", csrftoken);
+		        			xhr.setRequestHeader("X-Requested-With", 'XMLHttpRequest');
+		    			},
+		    			success: function(response){
+		    				var i = 0, len = response.length, str = '';
+
+		    				for(; i < len ; i++){
+		    					str += '<div class="item" data-item-display="itemList">';
+		    					str += '<div class="image"><a href=""><img class="photo-img" src="/static/img/photo/big/'+response[i].photo_filename+'"></a></div>';
+		    					str += '<div class="content" data-item-menu="itemMenuShow">';
+		    					str += '<div class="owner"><a href=""><img class="image" src="/static/img/member/photo/'+response[i].pic+'" title="'+response[i].account+'"></a><span>'+response[i].photo_pet_name+'</span></div>';
+		    					str += '<div class="menu"><button class="love" id="'+response[i].pid+'" title="喜歡這張照片" ng-click="addLove('+response[i].pid+');love'+response[i].pid+'=true" ng-disabled="love'+response[i].pid+'"><i class="heart red  icon"></i>';
+		    					str += '<p class="love'+response[i].pid+'">'+response[i].photo_love+'</p></button><button class="comments" title="瀏覽相關評論" ><a href=""><i class="chat blue icon"></i></a><p>'+response[i].photo_comment+'</p></button>';
+		    					str += '</div></div></div>';
+		    				}
+		    				$jq(".home-view-inner-block").append(str);
+						
+						if($jq_button.is("#single_show")){
+							$jq(".single").click();	
+						}
+						else if($jq_button.is("#multiple_show")){
+							$jq(".multiple").click();
+						}
+						else if($jq_button.is("#little_show")){
+							$jq(".little").click();
+						}
+					},
+					error: function(xhr){
+						alert('ajax錯誤');
+					}
+				});
+			}  
+		});
+
+		//repeat get page and window height when browser resize 
+		$jq(window).resize(function() {
+			reGetSize();
+		});
+	},
+	//add love bind event
+	addLoveEvent: function(){
+		$jq(".love").on("click", function(){
+			var loveId = $jq(this).attr("id"),
+				$jq_love =  $jq(".love"+loveId),
+				csrftoken = $jq('input[name=csrfmiddlewaretoken]').val();
+
+			$jq_love.html(parseInt($jq_love.html(), 10)+1);
+
+			$jq.ajax({
+		          type: 'POST',
+			     data: JSON.stringify({"id": loveId}),
+			     contentType: "application/json",
+			     cache: false,
+			     url: '/updatePhotoLove',
+			     beforeSend: function(xhr) {
+	        			xhr.setRequestHeader("X-CSRFToken", csrftoken);
+	        			xhr.setRequestHeader("X-Requested-With", 'XMLHttpRequest');
+			    	},
+		     		error: function(xhr){
+					alert('ajax錯誤');
+				}
+		     });
+		});
+	} 
 }
 
 

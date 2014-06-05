@@ -15,11 +15,12 @@ urlpatterns = patterns('',
 	url(r'^member/googleLogin', 'member.views.googleLogin'),
 	
 	#main page urls
-	url(r'^home', 'main.views.home'),
+	url(r'^home$', 'main.views.home'),
 	url(r'^viewPhoto/new', 'main.views.view', {'priority':'new'}),
-	url(r'^viewPhoto/popular', 'main.views.view', {'priority':'love'}),
+	url(r'^viewPhoto/popular', 'main.views.view', {'priority':'popular'}),
 	url(r'^viewPhoto/comment', 'main.views.view', {'priority':'comment'}),
-	url(r'^categories', 'main.views.categories'),
+	url(r'^scrollNext$', 'main.views.ajaxview'),
+	url(r'^categories$', 'main.views.categories'),
 	url(r'^updatePhotoLove', 'photo.views.updateLove'),
 	
 	#dashboard page top meau urls

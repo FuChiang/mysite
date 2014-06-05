@@ -13,9 +13,9 @@ class Upload(models.Model):
 	photo_love = models.IntegerField(max_length = 10, default = 0, blank=True)
 	photo_comment = models.IntegerField(max_length = 10, default = 0, blank=True)
 
-def getAllPhotoData(field):
+def getAllPhotoData(field, startNum):
 	cursor = connection.cursor()
-	cursor.execute("select member_profile.pic, member_profile.account, photo_upload.id as pid,photo_upload.* from photo_upload join member_profile on photo_upload.photo_account_id = member_profile.id order by photo_upload."+field+" DESC")
+	cursor.execute("select member_profile.pic, member_profile.account, photo_upload.id as pid,photo_upload.* from photo_upload join member_profile on photo_upload.photo_account_id = member_profile.id where photo_upload.id >="+startNum+" order by photo_upload."+field+" DESC limit "+startNum+", 9")
 	return dictAllData(cursor)
 
 def dictAllData(data):
@@ -24,6 +24,16 @@ def dictAllData(data):
 		dict(zip([name[0] for name in field], raw))
 		for raw in data.fetchall()
 	]
+
+def transformField(priority):
+	if priority == 'new':
+		field = 'photo_date'
+	elif priority == 'popular':
+		field = 'photo_love'
+	elif priority == 'comment':
+		field = 'photo_comment'
+
+	return field
 
 def sizeVailed(file):
 
@@ -40,11 +50,24 @@ def deleteVailed(id, name):
 
 	state = True
 
-	if not id or id == "":
+	if id == None or name == None:
 		state = False
-	elif not name or name == "":
-		state = False
+	else:
+		name = name.split("_")
+		if not name[0].isalnum() or not name[1].isalnum():
+			state = False
 
+	return state
+
+def loadVaild(field):
+
+	state = True
+
+	if field == None:
+		state = False
+	elif field != 'photo_date' and field != 'photo_comment' and field != 'photo_love':
+		state = False
+	
 	return state
 
 def deleteImg(path, img):
