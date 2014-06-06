@@ -17,7 +17,7 @@
 						{% if photosQuery %}
 							{% for value in photosQuery %}
 								<div class="myPhoto-content">
-									<a href=""><img src="/static/img/photo/small/{{value.photo_filename}}" ></a>
+									<a href=""><img src="/static/img/photo/small/{{value.photo_filename}}" alt="{{value.photo_pet_name}}"></a>
 									<button class="ui primary button" ng-click="deletePhoto({{value.id}}, '{{value.photo_filename}}')">
 										<i class="trash icon"></i>刪除
 									</button>

@@ -87,48 +87,54 @@ var viewPage = function(){
 	//set add love event
 	reuseEvent.addLoveEvent();
 
+
+	//set background image event
+	reuseEvent.backCoverEvent();
+
+
 	//bind photo display event
 	$jq(".single").on("click", function(){
 		$jq(".item").css({
-				"width": "100%", 
-				"height": false
+			width: "100%", 
+			height: false
 		}).find(".photo-img").css({
-				"width": false,
-				"height": false
+			width: false,
+			height: false,
+			marginTop: "4%"
 		}).end().find(".content").css("display", "block");
 
 		$jq(".buttons").removeAttr("id").attr("id", "single_show");
 
 		$jq(".content").addClass("singleMenu");
-
-		
 	});
 
 	$jq(".multiple").on("click", function(){
 		$jq(".item").css({
-			"width": false, 
-			"height": false
+			width: false, 
+			height: false
 		}).find(".photo-img").css({
-			"width": false,
-			"height": false
+			width: false,
+			height: false,
+			marginTop: "10%"
 		}).end().find(".content").css("display", "block");
 
 		$jq(".buttons").removeAttr("id").attr("id", "multiple_show");
 
 		$jq(".content").removeClass("singleMenu");
 
-
 	});
 
 	$jq(".little").on("click", function(){
-		$jq(".item").css("width", false).find(".photo-img").css({
-			"width": "50%",
-			"height": "50%"
+		$jq(".item").css({
+			width: false
+		}).find(".photo-img").css({
+			width: "50%",
+			height: "50%",
+			marginTop: "5%"
 		}).end().find(".content").css("display", "none");
 
 		$jq(".buttons").removeAttr("id").attr("id", "little_show");
 	});
-
 
 }	
 
@@ -229,7 +235,7 @@ var reuseEvent = {
 		var $jq_slidebar = $jq('.ui.sidebar');
 
 		//aside manu set
-		$jq_slidebar.sidebar('toggle');
+		//$jq_slidebar.sidebar('toggle');
 
 		$jq(".site-Menu").on("click", function(){
 			$jq_slidebar.sidebar('toggle');
@@ -290,26 +296,36 @@ var reuseEvent = {
 		    			success: function(response){
 		    				var i = 0, len = response.length, str = '';
 
-		    				for(; i < len ; i++){
-		    					str += '<div class="item" data-item-display="itemList">';
-		    					str += '<div class="image"><a href=""><img class="photo-img" src="/static/img/photo/big/'+response[i].photo_filename+'"></a></div>';
-		    					str += '<div class="content" data-item-menu="itemMenuShow">';
-		    					str += '<div class="owner"><a href=""><img class="image" src="/static/img/member/photo/'+response[i].pic+'" title="'+response[i].account+'"></a><span>'+response[i].photo_pet_name+'</span></div>';
-		    					str += '<div class="menu"><button class="love" id="'+response[i].pid+'" title="喜歡這張照片" ng-click="addLove('+response[i].pid+');love'+response[i].pid+'=true" ng-disabled="love'+response[i].pid+'"><i class="heart red  icon"></i>';
-		    					str += '<p class="love'+response[i].pid+'">'+response[i].photo_love+'</p></button><button class="comments" title="瀏覽相關評論" ><a href=""><i class="chat blue icon"></i></a><p>'+response[i].photo_comment+'</p></button>';
-		    					str += '</div></div></div>';
+		    				//check have any data require to show
+		    				if(len == 0){
+		    					//if no data then cancel inifinite effect
+		    					$jq(window).off("scroll");
 		    				}
-		    				$jq(".home-view-inner-block").append(str);
-						
-						if($jq_button.is("#single_show")){
-							$jq(".single").click();	
-						}
-						else if($jq_button.is("#multiple_show")){
-							$jq(".multiple").click();
-						}
-						else if($jq_button.is("#little_show")){
-							$jq(".little").click();
-						}
+		    				else{
+		    					for(; i < len ; i++){
+			    					str += '<div class="item" data-item-display="itemList">';
+			    					str += '<div class="image"><a href=""><img class="photo-img" src="/static/img/photo/big/'+response[i].photo_filename+'"></a></div>';
+			    					str += '<div class="content" data-item-menu="itemMenuShow"><div class="owner"><a href=""><img class="image" src="/static/img/member/photo/'+response[i].pic+'" title="'+response[i].account+'"></a>';
+			    					str += '<span>'+response[i].photo_pet_name+'</span></div><div class="menu"><button class="love" id="'+response[i].pid+'" title="喜歡這張照片" ng-click="addLove('+response[i].pid+');love'+response[i].pid+'=true" ng-disabled="love'+response[i].pid+'">';
+			    					str += '<i class="heart red icon"></i><p class="love'+response[i].pid+'">'+response[i].photo_love+'</p></button><button class="comments" title="瀏覽相關評論" ><a href=""><i class="chat blue icon"></i></a><p>'+response[i].photo_comment+'</p></button>';
+			    					str += '</div></div></div>';
+			    				}
+			    				$jq(".home-view-inner-block").append(str);
+							
+							if($jq_button.is("#single_show")){
+								$jq(".single").click();	
+							}
+							else if($jq_button.is("#multiple_show")){
+								$jq(".multiple").click();
+							}
+							else if($jq_button.is("#little_show")){
+								$jq(".little").click();
+							}
+
+							reuseEvent.backCoverEvent();
+							reuseEvent.addLoveEvent();
+		    				}
+
 					},
 					error: function(xhr){
 						alert('ajax錯誤');
@@ -347,7 +363,17 @@ var reuseEvent = {
 				}
 		     });
 		});
-	} 
+	},
+
+	backCoverEvent: function(){
+		$jq(".item").each(function(){
+			var $jq_item = $jq(this),
+				imgPath = $jq_item.find(".photo-img").attr('src');
+			$jq_item.css({
+				backgroundImage: "url('/static/img/background/mask/bgmask.png'), url("+imgPath+")"
+			});
+		});
+	}
 }
 
 

@@ -3619,7 +3619,7 @@ html body .container .home-content-block h1 .home-paw {
   }
 }
 html body .container .home-content-block .home-view-block {
-  width: 95%;
+  width: 98%;
   margin: 7em auto 0 auto;
 }
 html body .container .home-content-block .home-view-block .home-view-display-set {
@@ -3635,25 +3635,31 @@ html body .container .home-content-block .home-view-block .home-view-display-set
 }
 html body .container .home-content-block .home-view-block .home-view-inner-block {
   width: 100%;
-  overflow-y: auto;
+  overflow-y: hidden;
 }
 html body .container .home-content-block .home-view-block .home-view-inner-block .item {
   float: left;
-  height: auto;
   text-align: center;
+  height: 100%;
+  overflow: hidden;
+  background-size: auto, cover;
 }
-html body .container .home-content-block .home-view-block .home-view-inner-block .item .image img {
-  max-width: 100%;
+html body .container .home-content-block .home-view-block .home-view-inner-block .item .photo-img {
+  position: relative;
+  margin-top: 10%;
+  max-width: 80%;
   max-height: 100%;
-  -moz-box-shadow: 0 1px 1px gray;
-  -webkit-box-shadow: 0 1px 1px gray;
-  box-shadow: 0 1px 1px gray;
+  -moz-box-shadow: 1px 1px 3px #4d4d4d;
+  -webkit-box-shadow: 1px 1px 3px #4d4d4d;
+  box-shadow: 1px 1px 3px #4d4d4d;
+  -moz-border-radius: 1em;
+  -webkit-border-radius: 1em;
+  border-radius: 1em;
 }
 html body .container .home-content-block .home-view-block .home-view-inner-block .content {
   padding: 0;
   margin: -0.5em auto 0 auto;
   height: 3em;
-  text-align: center;
 }
 html body .container .home-content-block .home-view-block .home-view-inner-block .content .new-pet-name {
   background-color: white;
@@ -3726,6 +3732,10 @@ html body .container .home-content-block .home-view-block .home-view-inner-block
     -webkit-transition: width 0.3s;
     transition: width 0.3s;
     width: 100%;
+  }
+  html body .container .home-content-block .home-view-block .item .bgmask {
+    width: 98%;
+    height: 18.5em;
   }
   html body .container .home-content-block .home-view-block .item .owner span {
     display: none;

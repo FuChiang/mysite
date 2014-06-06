@@ -30,8 +30,9 @@
 					<div class="home-view-inner-block">
 					{% for value in photosQuery %}
 						<div class="item" data-item-display="itemList">
+							
 							<div class="image">
-						     		<a href=""><img class="photo-img" src="/static/img/photo/big/{{value.photo_filename}}"></a>
+						     		<a href=""><img class="photo-img" src="/static/img/photo/big/{{value.photo_filename}}" alt="{{value.photo_pet_name}}"></a>
 						    	</div>
 						    	<div class="content <%single%>" data-item-menu="itemMenuShow">
 						    		<div class="owner">

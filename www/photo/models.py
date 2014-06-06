@@ -15,7 +15,7 @@ class Upload(models.Model):
 
 def getAllPhotoData(field, startNum):
 	cursor = connection.cursor()
-	cursor.execute("select member_profile.pic, member_profile.account, photo_upload.id as pid,photo_upload.* from photo_upload join member_profile on photo_upload.photo_account_id = member_profile.id where photo_upload.id >="+startNum+" order by photo_upload."+field+" DESC limit "+startNum+", 9")
+	cursor.execute("select member_profile.pic, member_profile.account, photo_upload.id as pid,photo_upload.* from photo_upload join member_profile on photo_upload.photo_account_id = member_profile.id where photo_upload.id >="+startNum+" order by photo_upload."+field+" DESC limit 18")
 	return dictAllData(cursor)
 
 def dictAllData(data):
