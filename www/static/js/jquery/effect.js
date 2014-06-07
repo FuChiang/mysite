@@ -218,6 +218,7 @@ var myPhotoPage = function(){
 	//set mobile menu 
 	reuseEvent.mobileMenuEffect();
 
+	5464654654
 }
 
 
