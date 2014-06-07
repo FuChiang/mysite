@@ -222,7 +222,7 @@ var myPhotoPage = function(){
 	//set mobile menu 
 	reuseEvent.mobileMenuEffect();
 
-	
+	123
 }
 
 
