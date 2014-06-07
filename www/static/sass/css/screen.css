@@ -2658,7 +2658,8 @@ html body {
   -o-background-clip: content-box;
   -webkit-background-clip: content;
   background-clip: content-box;
-  background: #f5eacb;
+  background: url('../../img/background/body/sprinkles.png?1379249156');
+  background-repeat: "repeat";
 }
 html body a {
   outline: none;
@@ -3569,9 +3570,10 @@ html body .container .site-Menu-Content ul .menuShow:hover a {
   }
 }
 html body .container .home-content-block {
-  position: relative;
+  position: absolute;
   text-shadow: #333333 1px 1px 1px;
   color: #666666;
+  width: 99.9%;
 }
 html body .container .home-content-block h1 {
   width: 100%;
@@ -3619,7 +3621,7 @@ html body .container .home-content-block h1 .home-paw {
   }
 }
 html body .container .home-content-block .home-view-block {
-  width: 98%;
+  width: 101%;
   margin: 7em auto 0 auto;
 }
 html body .container .home-content-block .home-view-block .home-view-display-set {
@@ -3634,14 +3636,12 @@ html body .container .home-content-block .home-view-block .home-view-display-set
   margin: -0.5em;
 }
 html body .container .home-content-block .home-view-block .home-view-inner-block {
-  width: 100%;
   overflow-y: hidden;
 }
 html body .container .home-content-block .home-view-block .home-view-inner-block .item {
   float: left;
   text-align: center;
   height: 100%;
-  overflow: hidden;
   background-size: auto, cover;
 }
 html body .container .home-content-block .home-view-block .home-view-inner-block .item .photo-img {
@@ -3655,6 +3655,23 @@ html body .container .home-content-block .home-view-block .home-view-inner-block
   -moz-border-radius: 1em;
   -webkit-border-radius: 1em;
   border-radius: 1em;
+}
+html body .container .home-content-block .home-view-block .home-view-inner-block .owner {
+  z-index: 1;
+  position: absolute;
+  text-align: left;
+  margin: 1em auto 0 2.5em;
+  overflow: hidden;
+}
+html body .container .home-content-block .home-view-block .home-view-inner-block .owner .image {
+  border: 5px solid white;
+  -moz-border-radius: 5em;
+  -webkit-border-radius: 5em;
+  border-radius: 5em;
+}
+html body .container .home-content-block .home-view-block .home-view-inner-block .owner span {
+  color: white;
+  font-style: oblique;
 }
 html body .container .home-content-block .home-view-block .home-view-inner-block .content {
   padding: 0;
@@ -3671,25 +3688,10 @@ html body .container .home-content-block .home-view-block .home-view-inner-block
   font-weight: bold;
   text-shadow: none;
 }
-html body .container .home-content-block .home-view-block .home-view-inner-block .content .owner {
-  position: absolute;
-  text-align: left;
-  margin: -2em 0 0 0.5em;
-}
-html body .container .home-content-block .home-view-block .home-view-inner-block .content .owner .image {
-  border: 5px solid white;
-  -moz-border-radius: 5em;
-  -webkit-border-radius: 5em;
-  border-radius: 5em;
-}
-html body .container .home-content-block .home-view-block .home-view-inner-block .content .owner span {
-  color: white;
-  font-style: oblique;
-}
 html body .container .home-content-block .home-view-block .home-view-inner-block .content .menu {
   position: relative;
   float: right;
-  margin: -1.8em 0.5em 0 0;
+  margin: -1.8em 3.5em 0 0;
 }
 html body .container .home-content-block .home-view-block .home-view-inner-block .content .menu .love, html body .container .home-content-block .home-view-block .home-view-inner-block .content .menu .comments {
   margin-left: 0.1em;
@@ -3733,19 +3735,20 @@ html body .container .home-content-block .home-view-block .home-view-inner-block
     transition: width 0.3s;
     width: 100%;
   }
-  html body .container .home-content-block .home-view-block .item .bgmask {
-    width: 98%;
-    height: 18.5em;
-  }
-  html body .container .home-content-block .home-view-block .item .owner span {
-    display: none;
-  }
-  html body .container .home-content-block .home-view-block .item .singleMenu {
+  html body .container .home-content-block .home-view-block .item .singleLove {
     -moz-transition: width 0.3s;
     -o-transition: width 0.3s;
     -webkit-transition: width 0.3s;
     transition: width 0.3s;
-    width: 100%;
+    width: 85%;
+  }
+  html body .container .home-content-block .home-view-block .item .singleLove .menu {
+    margin-right: 1.8em;
+  }
+  html body .container .home-content-block .home-view-block .item .singleOwner {
+    position: relative;
+    margin: 1em auto -5em auto;
+    width: 85%;
   }
   html body .container .home-content-block .home-view-block .home-view-display-set {
     -moz-transition: all 0.3s;
@@ -3771,19 +3774,32 @@ html body .container .home-content-block .home-view-block .home-view-inner-block
     transition: width 0.3s;
     width: 50%;
   }
-  html body .container .home-content-block .home-view-block .item .singleMenu {
+  html body .container .home-content-block .home-view-block .item .singleLove {
     -moz-transition: width 0.3s;
     -o-transition: width 0.3s;
     -webkit-transition: width 0.3s;
     transition: width 0.3s;
-    width: 31.5em;
+    width: 31em;
+  }
+  html body .container .home-content-block .home-view-block .item .singleLove .menu {
+    margin-right: 3em;
+  }
+  html body .container .home-content-block .home-view-block .item .owner {
+    width: 38%;
+  }
+  html body .container .home-content-block .home-view-block .item .singleOwner {
+    -moz-transition: width 0.3s;
+    -o-transition: width 0.3s;
+    -webkit-transition: width 0.3s;
+    transition: width 0.3s;
+    width: 35em;
   }
   html body .container .home-content-block .home-view-block .home-view-display-set {
     -moz-transition: all 0.3s;
     -o-transition: all 0.3s;
     -webkit-transition: all 0.3s;
     transition: all 0.3s;
-    width: 95%;
+    width: 98%;
     text-align: right;
   }
   html body .container .home-content-block .home-view-block .home-view-display-set .button {
@@ -3798,8 +3814,25 @@ html body .container .home-content-block .home-view-block .home-view-inner-block
     transition: all 0.3s;
     width: 33.3%;
   }
-  html body .container .home-content-block .home-view-block .item .owner span {
-    display: inline;
+  html body .container .home-content-block .home-view-block .item .singleLove {
+    -moz-transition: width 0.3s;
+    -o-transition: width 0.3s;
+    -webkit-transition: width 0.3s;
+    transition: width 0.3s;
+    width: 33em;
+  }
+  html body .container .home-content-block .home-view-block .item .singleLove .menu {
+    margin-right: 1.5em;
+  }
+  html body .container .home-content-block .home-view-block .item .owner {
+    width: 24%;
+  }
+  html body .container .home-content-block .home-view-block .item .singleOwner {
+    -moz-transition: width 0.3s;
+    -o-transition: width 0.3s;
+    -webkit-transition: width 0.3s;
+    transition: width 0.3s;
+    width: 35em;
   }
 }
 @media (min-width: 1440px) {

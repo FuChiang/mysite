@@ -145,26 +145,29 @@ APP.directive('itemDisplay', ['$window', function($window) {
 			scope.$watch(attr.itemDisplay, function(value){
 				/*if(value == 'single'){
 					element.css({
-						"width": "100%", 
-						"height": false
+						width: "100%", 
+						height: false
 					}).find(".photo-img").css({
-						"width": false,
-						"height": false
+						width: false,
+						height: false,
+						marginTop: "4%"
 					}).end().find(".content").css("display", "block");
 				}
 				else if(value == 'multiple'){
 					element.css({
-						"width": false, 
-						"height": false
+						width: false, 
+						height: false
 					}).find(".photo-img").css({
-						"width": false,
-						"height": false
+						width: false,
+						height: false,
+						marginTop: "10%"
 					}).end().find(".content").css("display", "block");
 				}
 				else if(value == 'little'){
 					element.css("width", false).find(".photo-img").css({
-						"width": "50%",
-						"height": "50%"
+						width: "50%",
+						height: "50%"
+						marginTop: "5%"
 					}).end().find(".content").css("display", "none");
 				}
 				else*/ 

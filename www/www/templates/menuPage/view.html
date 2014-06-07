@@ -30,15 +30,14 @@
 					<div class="home-view-inner-block">
 					{% for value in photosQuery %}
 						<div class="item" data-item-display="itemList">
-							
+							<div class="owner photoPlugMenu">
+					    			<a href=""><img class="image" src="/static/img/member/photo/{{value.pic}}" title="{{value.account}}"></a>
+					    			<span>{{value.photo_pet_name|slice:10}}</span>
+					    		</div>
 							<div class="image">
 						     		<a href=""><img class="photo-img" src="/static/img/photo/big/{{value.photo_filename}}" alt="{{value.photo_pet_name}}"></a>
 						    	</div>
-						    	<div class="content <%single%>" data-item-menu="itemMenuShow">
-						    		<div class="owner">
-						    			<a href=""><img class="image" src="/static/img/member/photo/{{value.pic}}" title="{{value.account}}"></a>
-						    			<span>{{value.photo_pet_name|slice:10}}</span>
-						    		</div>
+						    	<div class="content <%single%> photoPlugMenu" data-item-menu="itemMenuShow">
 						    		<div class="menu">
 						    			<button class="love" id="{{value.pid}}" title="喜歡這張照片" ng-click="addLove({{value.pid}});love{{value.pid}}=true" ng-disabled="love{{value.pid}}">
 						    				<i class="heart red  icon"></i>

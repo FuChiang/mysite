@@ -101,11 +101,9 @@ var viewPage = function(){
 			width: false,
 			height: false,
 			marginTop: "4%"
-		}).end().find(".content").css("display", "block");
+		}).end().find(".photoPlugMenu").css("display", "block").end().find(".content").addClass("singleLove").end().find(".owner").addClass("singleOwner");
 
 		$jq(".buttons").removeAttr("id").attr("id", "single_show");
-
-		$jq(".content").addClass("singleMenu");
 	});
 
 	$jq(".multiple").on("click", function(){
@@ -116,11 +114,9 @@ var viewPage = function(){
 			width: false,
 			height: false,
 			marginTop: "10%"
-		}).end().find(".content").css("display", "block");
+		}).end().find(".photoPlugMenu").css("display", "block").removeClass("singleLove").end().find(".owner").removeClass("singleOwner");
 
 		$jq(".buttons").removeAttr("id").attr("id", "multiple_show");
-
-		$jq(".content").removeClass("singleMenu");
 
 	});
 
@@ -130,12 +126,12 @@ var viewPage = function(){
 		}).find(".photo-img").css({
 			width: "50%",
 			height: "50%",
-			marginTop: "5%"
-		}).end().find(".content").css("display", "none");
+			marginTop: "2%"
+		}).end().find(".photoPlugMenu").css("display", "none");
 
 		$jq(".buttons").removeAttr("id").attr("id", "little_show");
 	});
-
+;
 }	
 
 
@@ -222,7 +218,6 @@ var myPhotoPage = function(){
 	//set mobile menu 
 	reuseEvent.mobileMenuEffect();
 
-	
 }
 
 
@@ -235,7 +230,7 @@ var reuseEvent = {
 		var $jq_slidebar = $jq('.ui.sidebar');
 
 		//aside manu set
-		//$jq_slidebar.sidebar('toggle');
+		$jq_slidebar.sidebar('toggle');
 
 		$jq(".site-Menu").on("click", function(){
 			$jq_slidebar.sidebar('toggle');
@@ -303,10 +298,9 @@ var reuseEvent = {
 		    				}
 		    				else{
 		    					for(; i < len ; i++){
-			    					str += '<div class="item" data-item-display="itemList">';
-			    					str += '<div class="image"><a href=""><img class="photo-img" src="/static/img/photo/big/'+response[i].photo_filename+'"></a></div>';
-			    					str += '<div class="content" data-item-menu="itemMenuShow"><div class="owner"><a href=""><img class="image" src="/static/img/member/photo/'+response[i].pic+'" title="'+response[i].account+'"></a>';
-			    					str += '<span>'+response[i].photo_pet_name+'</span></div><div class="menu"><button class="love" id="'+response[i].pid+'" title="喜歡這張照片" ng-click="addLove('+response[i].pid+');love'+response[i].pid+'=true" ng-disabled="love'+response[i].pid+'">';
+			    					str += '<div class="item" data-item-display="itemList"><div class="owner photoPlugMenu"><a href=""><img class="image" src="/static/img/member/photo/'+response[i].pic+'" title="'+response[i].account+'"></a><span>'+response[i].photo_pet_name+'</span></div>';
+			    					str += '<div class="image"><a href=""><img class="photo-img" src="/static/img/photo/big/'+response[i].photo_filename+'"></a></div><div class="content photoPlugMenu" data-item-menu="itemMenuShow">';
+			    					str += '<div class="menu"><button class="love" id="'+response[i].pid+'" title="喜歡這張照片" ng-click="addLove('+response[i].pid+');love'+response[i].pid+'=true" ng-disabled="love'+response[i].pid+'">';
 			    					str += '<i class="heart red icon"></i><p class="love'+response[i].pid+'">'+response[i].photo_love+'</p></button><button class="comments" title="瀏覽相關評論" ><a href=""><i class="chat blue icon"></i></a><p>'+response[i].photo_comment+'</p></button>';
 			    					str += '</div></div></div>';
 			    				}
