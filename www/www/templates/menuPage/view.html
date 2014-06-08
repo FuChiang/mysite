@@ -18,16 +18,16 @@
 			{% if photosQuery %}
 				<div class="home-view-block">
 					<div class="home-view-display-set">
-						<div class="small ui buttons">
-							<button class="ui teal button single" ng-click="itemList='single';itemMenuShow='small'" title="單照片顯示"><i class="reorder big icon"></i></button>
-							<button class="ui black button multiple" ng-click="itemList='multiple';itemMenuShow='original'" title="多照片顯示"><i class="grid layout big icon"></i></button>
-							<button class="ui purple button little" ng-click="itemList='small';itemMenuShow='small'" title="小圖照顯示"><i class="resize small big icon"></i></button>
+						<div id="<%photoShow%>" class="small ui buttons" data-item-menu="itemMenuShow">
+							<button class="ui teal button single" ng-click="itemList='single';itemMenuShow='single'" title="單照片顯示"><i class="reorder big icon"></i></button>
+							<button class="ui black button multiple" ng-click="itemList='multiple';itemMenuShow='multiple'" title="多照片顯示"><i class="grid layout big icon"></i></button>
+							<button class="ui purple button little" ng-click="itemList='little';itemMenuShow='little'" title="小圖照顯示"><i class="resize small big icon"></i></button>
 							<button class="ui green button" ng-click="itemList='new'" title="依時間排序"><i class="time small big icon"></i></button>
 							<button class="ui red button" ng-click="itemList='popular'" title="依喜歡排序"><i class="heart small big icon"></i></button>
 							<button class="ui blue button" ng-click="itemList='chat'" title="依留言排序"><i class="chat small big icon"></i></button>
 						</div>
 					</div>
-					<div class="home-view-inner-block">
+					<div class="home-view-inner-block" data-window-scroll>
 					{% for value in photosQuery %}
 						<div class="item" data-item-display="itemList">
 							<div class="owner photoPlugMenu">
@@ -37,7 +37,7 @@
 							<div class="image">
 						     		<a href=""><img class="photo-img" src="/static/img/photo/big/{{value.photo_filename}}" alt="{{value.photo_pet_name}}"></a>
 						    	</div>
-						    	<div class="content <%single%> photoPlugMenu" data-item-menu="itemMenuShow">
+						    	<div class="content photoPlugMenu">
 						    		<div class="menu">
 						    			<button class="love" id="{{value.pid}}" title="喜歡這張照片" ng-click="addLove({{value.pid}});love{{value.pid}}=true" ng-disabled="love{{value.pid}}">
 						    				<i class="heart red  icon"></i>
