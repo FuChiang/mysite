@@ -25,6 +25,7 @@ def joinMember(request):
 			user = Profile.objects.get(account = user, password = pwd)
 			request.session["user"] = user.account
 			request.session["user_id"] = user.id
+			request.session["user_pic"] = 'default.jpg'
 			return HttpResponse('add right')
 		else:
 			return HttpResponse('add error')
@@ -43,6 +44,7 @@ def loginMember(request):
 				name = Profile.objects.get(account = user, password = pwd)
 				request.session["user"] = name.account
 				request.session["user_id"] = name.id
+				request.session["user_pic"] = name.pic
 				return HttpResponse('login right')
 			except Profile.DoesNotExist:
 				return HttpResponse('login notExist')
@@ -62,8 +64,8 @@ def facebookLogin(request):
 		user = apiJoin(user, em, id)
 
 		request.session["user"] = user.account
-
 		request.session["user_id"] = user.id
+		request.session["user_pic"] = user.pic
 		
 		return HttpResponse('login right')
 
@@ -90,11 +92,16 @@ def googleLogin(request):
 
 		request.session["user"] = user.account
 		request.session["user_id"] = user.id
+		request.session["user_pic"] = user.pic
 
 		return HttpResponseRedirect('/home')
 
 def loginOut(request):
+	
 	del request.session["user"]
+	del request.session["user_id"]
+	del request.session["user_pic"]
+
 	return HttpResponseRedirect('/')
 
 

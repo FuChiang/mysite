@@ -60,8 +60,8 @@ APP.directive('myShare', ['$timeout', function(time) {
 					},100);
 				}
 				else{
-					$jq(".readLoad").fadeIn();
 					time(function(){
+						scope.photoLoad = true;
 						scope.shareSizeError = false;
 						scope.shareTypeError = false;
 						scope.readCompleted = true;
@@ -72,9 +72,9 @@ APP.directive('myShare', ['$timeout', function(time) {
 			     			var path = '';     			
 			     			path = this.result;
 			     			time(function(){
-			     				$jq(".readLoad").hide();
-			     				scope.sharePic = path;
+			     				scope.photoLoad = false;
 			     				scope.shareInput = false;
+			     				scope.sharePic = path;
 			     			}, 500);
 			     		}
 				}	
@@ -84,6 +84,35 @@ APP.directive('myShare', ['$timeout', function(time) {
 				if(value){
 					element.val(null);
 				}
+			});
+		}
+	};
+}]);
+
+//main mask block
+APP.directive('myUrlShare', ['$timeout', function(time) {
+	return{
+		//if set true then replace original items otherwise append into items 
+		replace: true,
+		// A=> attribute, E=> element, C=> class name, M=> comment
+		restrict: 'A',
+		//scope=> $scope, element=>object itsself, attr=>attribute in tag
+		link: function(scope, element, attr){
+			scope.$watch(attr.myUrlShare, function(value){
+				if(value){
+					element.val(null);
+					time(function(){
+						element[0].focus();
+					}, 100);
+						
+				}
+			});
+
+			element.bind("change keyup input click", function(e){
+				time(function(){
+					scope.urlLink = element.val();
+					scope.urlLinkError = false;
+				}, 100);
 			});
 		}
 	};
@@ -134,7 +163,7 @@ APP.directive('shareName', ['$timeout', function(time) {
 }]);
 
 //photo out display block
-APP.directive('itemDisplay', ['$window', function($window) {
+APP.directive('itemDisplay', ['$window', '$timeout', function($window, time) {
 	return{
 		//if set true then replace original items otherwise append into items 
 		replace: true,
@@ -146,29 +175,39 @@ APP.directive('itemDisplay', ['$window', function($window) {
 				if(value == 'single'){
 					element.css({
 						width: "100%", 
-						height: false
-					}).find(".photo-img").css({
-						width: false,
+						height: "100%"
+					}).find(".image").css({
+						width: "30em",
 						height: false,
-						marginTop: "4%"
-					}).end().find(".photoPlugMenu").css("display", "block").end().find(".content").addClass("singleLove").end().find(".owner").addClass("singleOwner");
+						marginTop: "3.8%",
+						marginBottom: 0
+					}).end().find(".content").addClass("singleLove").end().find(".owner").addClass("singleOwner");
+				
+					scope.littleHide = false;
 				}
 				else if(value == 'multiple'){
 					element.css({
 						width: false, 
-						height: false
-					}).find(".photo-img").css({
+						height: "27em",
+					}).find(".image").css({
 						width: false,
 						height: false,
-						marginTop: "10%"
-					}).end().find(".photoPlugMenu").css("display", "block").removeClass("singleLove").end().find(".owner").removeClass("singleOwner");
+						marginBottom: 0
+					}).end().find(".content").removeClass("singleLove").end().find(".owner").removeClass("singleOwner");
+					
+					scope.littleHide = false;
 				}
 				else if(value == 'little'){
-					element.css("width", false).find(".photo-img").css({
-						width: "50%",
-						height: "50%",
-						marginTop: "5%"
-					}).end().find(".photoPlugMenu").css("display", "none");
+					element.css({
+						width: false, 
+						height: "15em"
+					}).find(".image").css({
+						width: "70%",
+						height: "70%",
+						marginBottom: "3.5%"
+					});
+
+					scope.littleHide = true;
 				}
 				else if(value == 'new'){
 					$window.location.href = '/viewPhoto/new';
@@ -176,10 +215,6 @@ APP.directive('itemDisplay', ['$window', function($window) {
 				else if(value == 'popular'){
 					$window.location.href = '/viewPhoto/popular';
 				}
-				else if(value == 'chat'){
-					$window.location.href = '/viewPhoto/comment';
-				}
-
 			});
 		}
 	};
@@ -212,7 +247,7 @@ APP.directive('itemMenu', function() {
 
 
 //photo menu display block
-APP.directive('windowScroll', ['$window', '$http', '$compile',function($window, $http, $compile) {
+APP.directive('windowScroll', ['$window', '$http', '$compile', function($window, $http, $compile) {
 	return{
 		//if set true then replace original items otherwise append into items 
 		replace: true,
@@ -250,8 +285,8 @@ APP.directive('windowScroll', ['$window', '$http', '$compile',function($window, 
 		    				}
 		    				else{
 		    					for(; i < len ; i++){
-			    					str += '<div class="item" data-item-display="itemList"><div class="owner photoPlugMenu"><a href=""><img class="image" src="/static/img/member/photo/'+data[i].pic+'" title="'+data[i].account+'"></a><span>'+data[i].photo_pet_name+'</span></div>';
-			    					str += '<div class="image"><a href=""><img class="photo-img" src="/static/img/photo/big/'+data[i].photo_filename+'"></a></div><div class="content photoPlugMenu" data-item-menu="itemMenuShow">';
+			    					str += '<div class="item" data-item-display="itemList"><div class="owner" ng-hide="littleHide"><a href=""><img class="own-img" src="/static/img/member/photo/'+data[i].pic+'" title="'+data[i].account+'"></a><span>'+data[i].photo_pet_name+'</span></div>';
+			    					str += '<div class="image <%shadowClass%>"><a href=""><img class="photo-img" src="/static/img/photo/big/'+data[i].photo_filename+'"></a></div><div class="content" ng-hide="littleHide">';
 			    					str += '<div class="menu"><button class="love" id="'+data[i].pid+'" title="喜歡這張照片" ng-click="addLove('+data[i].pid+');love'+data[i].pid+'=true" ng-disabled="love'+data[i].pid+'">';
 			    					str += '<i class="heart red icon"></i><p class="love'+data[i].pid+'">'+data[i].photo_love+'</p></button><button class="comments" title="瀏覽相關評論" ><a href=""><i class="chat blue icon"></i></a><p>'+data[i].photo_comment+'</p></button>';
 			    					str += '</div></div></div>';

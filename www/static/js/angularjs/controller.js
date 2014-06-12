@@ -231,10 +231,13 @@ APP.controller("main-index-block", ['$scope', '$http', '$window', function($scop
 
 }]);
 
-APP.controller("dashboard-content-block", ['$scope', '$window', '$http', '$timeout', function($scope, $window, $http, $timeout){
+APP.controller("dashboard-content-block", ['$scope', '$window', '$http', '$timeout', 'myUtils', function($scope, $window, $http, time, myUtils){
 	
 	$scope.shareInput = false;
 	$scope.shareError = false;
+	$scope.urlInputShow = false;
+	$scope.urlLinkError = false;
+	$scope.photoLoad = false;
 	$scope.titleInput = '';
 
 	$scope.deletePhoto = function(photo_id, photo_name){
@@ -250,11 +253,63 @@ APP.controller("dashboard-content-block", ['$scope', '$window', '$http', '$timeo
 	     });
 	}
 
+	$scope.photoUrl = function(){
+		if($scope.urlInputShow){
+			$scope.urlInputShow = false;
+			$scope.photoUrlUpload = false;
+		}
+		else{
+			$scope.urlInputShow = true;
+			$scope.photoUrlUpload = true;
+		}
+
+		$scope.urlLinkError = false;
+	}
+
+	$scope.reUpload = function(){
+		$scope.readCompleted = false; 
+		$scope.finialStep = false; 
+		$scope.shareInput = true;
+		$scope.urlInputShow = false;
+	}
+
+	$scope.urlUpload = function(){
+		var link = $scope.urlLink;
+
+		if(link == ""){
+			$scope.urlLinkError = true;
+		}
+		else{
+			myUtils.isImg(link).then(function(){
+	           	
+	           	$scope.photoLoad = true;
+
+	           	time(function(){
+	           		$scope.photoLoad = false;
+	           		$scope.urlLinkError = false;
+	           		$scope.shareSizeError = false;
+					$scope.shareTypeError = false;
+					$scope.readCompleted = true;
+					$scope.finialStep = true;
+	           		$scope.shareInput = false;
+	           		$scope.sharePic = link;
+	           	}, 100);
+
+	           }, function(){
+	           	$scope.urlLinkError = true;
+	           });
+		}
+	}
+
 }]);
 
-APP.controller("view-content-block", ['$scope', '$http', '$timeout', function($scope, $http, $timeout){
+APP.controller("view-content-block", ['$scope', '$http', '$timeout', function($scope, $http, time){
 	
 	$scope.photoShow = 'multiple_show';
+	$scope.shadowSet = 'noShadow';
+	$scope.shadowButton = 'black';
+	$scope.shadowIcon = 'adjust';
+	$scope.shadowTitle = '陰影模式顯示';
 
 	$scope.addLove = function(photo_id){
 
@@ -271,6 +326,28 @@ APP.controller("view-content-block", ['$scope', '$http', '$timeout', function($s
 	     }).error(function(data, status, headers, config){
 	        	alert('ajax 錯誤代碼='+data);
 	     });
+	}
+
+	$scope.shadow = function(e){
+		if($scope.shadowSet == 'noShadow'){
+			$scope.shadowSet = 'shadowing';
+			$scope.shadowClass = 'shadowShow';
+			$scope.shadowButton = '';
+			$scope.shadowIcon = 'hide';
+			$scope.shadowTitle = '關閉陰影顯示';
+		}
+		else{
+			$scope.shadowSet = 'noShadow';
+			$scope.shadowClass = false;
+			$scope.shadowButton = 'black';
+			$scope.shadowIcon = 'adjust';
+			$scope.shadowTitle = '陰影模式顯示';
+		}
+
+		time(function(){
+			reuseEvent.backCoverEvent();
+		}, 200);
+		
 	}
 	
 }]);

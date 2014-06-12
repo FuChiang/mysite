@@ -5,6 +5,8 @@
 {% block title %}爪爪窩 - {{request.session.user}} {{topTitle}}{% endblock %}
 
 {% block content %} 
+
+{% load helper %}
 	
 	<div class="dashboard-out-block">
 		<div class="dashboard-inner-block" ng-controller="dashboard-content-block" ng-init="{{nowPage}}='nowShow'">
@@ -17,7 +19,9 @@
 						{% if photosQuery %}
 							{% for value in photosQuery %}
 								<div class="myPhoto-content">
-									<a href=""><img src="/static/img/photo/small/{{value.photo_filename}}" alt="{{value.photo_pet_name}}"></a>
+									<a href="">
+										<img src="{{value.photo_filename | checkImg:'small'}}" alt="{{value.photo_pet_name}}">
+									</a>
 									<button class="ui primary button" ng-click="deletePhoto({{value.id}}, '{{value.photo_filename}}')">
 										<i class="trash icon"></i>刪除
 									</button>

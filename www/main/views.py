@@ -24,7 +24,7 @@ def view(request, priority):
 
 		if loadVaild(field):
 
-			photosQuery = getAllPhotoData(field, str(1))
+			photosQuery = getAllPhotoData(field, str(0))
 
 			request.session['start_view_num'] = 19
 

@@ -68,8 +68,12 @@ var mainPage = function(){
 /*home page set*/
 /************************************/
 var homePage = function(){
+
 	//set slide
 	reuseEvent.slideEffect();
+
+	//set front end background
+	reuseEvent.frontendColorEvent();
 	
 }
 
@@ -84,6 +88,8 @@ var viewPage = function(){
 	//set background image event
 	reuseEvent.backCoverEvent();
 
+	//set front end background
+	reuseEvent.frontendColorEvent();
 }	
 
 
@@ -94,6 +100,9 @@ var categoriesPage = function(){
 
 	//set slide
 	reuseEvent.slideEffect();
+
+	//set front end background
+	reuseEvent.frontendColorEvent();
 }
 
 
@@ -104,7 +113,6 @@ var dashboardPage = function(){
 
 	//set mobile menu 
 	reuseEvent.mobileMenuEffect();
-
 
 }
 
@@ -139,10 +147,19 @@ var sharePage = function(){
 	//push next step
 	$jq_SetRight.on("click", function(){
 
-		getMoveData();
+		var $jq_name = $jq("input[name='shareName']");
 
-		$jq_nowTag.next().addClass("nowStep");
-		$jq_shareList.hide().eq($jq_nowIndex+1).show();
+		if($jq_name.val() != ""){
+
+			getMoveData();
+
+			$jq_nowTag.next().addClass("nowStep");
+			$jq_shareList.hide().eq($jq_nowIndex+1).show();
+		}
+		else{
+			alert('請輸入寵物暱稱!!');
+			$jq_name.focus();
+		}
 	});
 
 	//push prev step
@@ -212,13 +229,23 @@ var reuseEvent = {
 		});
 	},
 	backCoverEvent: function(){
-		$jq(".item").each(function(){
-			var $jq_item = $jq(this),
-				imgPath = $jq_item.find(".photo-img").attr('src');
-			$jq_item.css({
-				backgroundImage: "url('/static/img/background/mask/bgmask.png'), url("+imgPath+")"
+		var $jq_item = $jq(".item");
+
+		if(!$jq(".home-view-inner-block").is("#shadowing")){
+			$jq_item.each(function(){
+				var $jq_item = $jq(this),
+					imgPath = $jq_item.find(".photo-img").attr('src');
+				$jq_item.css({
+					backgroundImage: "url('/static/img/background/mask/bgmask.png'), url("+imgPath+")"
+				});
 			});
-		});
+		}
+		else{
+			$jq_item.css("background-image", false);
+		}
+	},
+	frontendColorEvent: function(){
+		$jq("body").css("background", "url('/static/img/background/body/sprinkles.png') repeat");
 	}
 }
 

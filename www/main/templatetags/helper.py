@@ -1,11 +1,23 @@
 #coding:utf-8 
 
 from django import template
+import re
+
 register = template.Library()
 
 @register.filter
-def slice(value, limit):
-	if len(value) >=limit:
-		value = value[:limit-1]
-	return value
+def checkImg(pic, size):
+	
+	re_url = re.compile(r"^https?:")
+	
+	if re_url.match(pic):
+		return pic
+	else:
+		return '/static/img/photo/'+size+'/'+pic
+
+
+@register.filter
+def slice(name, num):
+	return name[0:num]
+	
 

@@ -10,27 +10,34 @@ import json
 def upload(request):
 
 	if request.method == 'POST' and request.session["user_id"]:
-		pic = request.FILES['sharePicImg']
+		pic = request.FILES['sharePicImg'] if request.FILES['sharePicImg'] else None
+		urlPic = request.POST.get('shareUrlPicImg', None)
 		name = request.POST.get('shareName', None)
 		tp = request.POST.get('shareType', None)
 		des = request.POST.get('shareDescription' , "")
 		filename = request.session["user"]+'_'+strftime('%Y%m%d%H%M%S')
 		height = 0
+		filename = None
 
 
-		if name != None and tp != None and sizeVailed(pic):  
+		if name != None and tp != None:
 
-			try:
-				with Image(file=pic) as img:
-					if img.format == 'JPG' or img.format == 'JPEG' or img.format == 'GIF' or img.format == 'PNG':
-						height = img.height
-						img.resize(500, 450)
-						img.save(filename=settings.MEDIA_ROOT+'/photo/big/'+filename) 
-						img.resize(200, 150)
-						img.save(filename=settings.MEDIA_ROOT+'/photo/small/'+filename) 
-			except:pass
+			if urlPic != None and urlPicVailed(urlPic):
+				filename = urlPic
 
-			Upload.objects.create(photo_account_id = request.session["user_id"], photo_filename = filename, photo_pet_name = name, photo_description = des, photo_date = strftime('%Y/%m/%d-%H:%M:%S'), photo_love = 0, photo_type = tp)
+			elif pic != None and sizeVailed(pic): 
+				try:
+					with Image(file=pic) as img:
+						if img.format == 'JPG' or img.format == 'JPEG' or img.format == 'GIF' or img.format == 'PNG':
+							height = img.height
+							img.resize(500, 450)
+							img.save(filename=settings.MEDIA_ROOT+'/photo/big/'+filename) 
+							img.resize(200, 150)
+							img.save(filename=settings.MEDIA_ROOT+'/photo/small/'+filename) 
+				except:pass
+
+			if filename != None:
+				Upload.objects.create(photo_account_id = request.session["user_id"], photo_filename = filename, photo_pet_name = name, photo_description = des, photo_date = strftime('%Y/%m/%d-%H:%M:%S'), photo_love = 0, photo_type = tp)
 
 	return HttpResponseRedirect('/myPhoto/'+request.session["user"])
 

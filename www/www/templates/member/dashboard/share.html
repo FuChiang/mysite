@@ -45,7 +45,7 @@
 									</div>
 								</div>
 								<div class="share-photo-type-block share-list">
-									<h5>請問寵物的種類是..<i class="tint icon"></i></h5>
+									<h5>請問寵物的種類是<i class="tint icon"></i></h5>
 									<div class="shareDirectSet">
 										<div class="ui purple button left" ng-show="typeStep">上一步</div>
 										<div class="ui green button right" ng-show="typeStep">下一步</div>
@@ -101,7 +101,7 @@
 									</div>
 								</div>
 								<div class="share-photo-upload-block share-list">
-									<h5>給個寵物的模樣照吧<i class="photo icon"></i></h5>
+									<h5>給個寵物的模樣吧<i class="photo icon"></i></h5>
 									<div class="shareDirectSet" ng-show="finialStep">
 										<div class="ui purple button left">上一步</div>
 										<button type="submit" class="ui red button right">上 傳</button>
@@ -122,11 +122,28 @@
 										<P class="share-error" ng-show="shareTypeError"><i class="info red icon"></i>只接受 jpg | png | gif 的圖檔</P>
 
 									</div>
-									<div class="ui active striped progress readLoad">
+									<div class="photo-url-block" ng-hide="readCompleted">
+										<i class=" url icon"></i>
+										<span ng-click="photoUrl()">
+											使用外部照片
+										</span>
+										<div class="url-nipple" ng-show="urlInputShow"></div>
+										<div class="ui icon input" ng-show="urlInputShow">
+											<input
+												name = "shareUrlPicImg" 
+												type = "text"
+												placeholder = "http://"
+												data-my-url-share = "photoUrlUpload"
+											/>
+										 	<i class="inverted add sign icon photoUrlChoice" ng-click="urlUpload()"></i>
+										</div>
+										<div class="error-link-block" ng-show="urlLinkError"><i class="info red icon"></i>這個外部連結並不正確</div>
+									</div>
+									<div class="ui active blue striped progress readLoad" ng-show="photoLoad">
 		  								<div class="bar"></div>
 									</div>
 									<div class="photo-preview-block" ng-show="readCompleted">
-										<button type="reset"  ng-click="readCompleted=false; finialStep=false; shareInput=true" class="ui green button">
+										<button type="reset"  ng-click="reUpload()" class="ui green button">
 								  			重新上傳
 										</button>
 										<img  ng-src="<%sharePic%>" />

@@ -1,10 +1,11 @@
 from django.db import connection, models
 from datetime import datetime
+import urllib2
 import copy
 import os
 
 class Upload(models.Model):
-	photo_filename = models.CharField(max_length = 40)
+	photo_filename = models.TextField()
 	photo_pet_name = models.CharField(max_length = 30)
 	photo_description = models.TextField()
 	photo_type = models.CharField(max_length = 8)
@@ -43,6 +44,16 @@ def sizeVailed(file):
 
 	if (len(tmp.file.read())/1024/1024) > max_size:
 		state = False 
+
+	return state
+
+def urlPicVailed(url):
+
+	try:
+		reponse = urllib2.urlopen(urllib2.Request(url))
+		state = True
+	except:
+		state = False
 
 	return state
 

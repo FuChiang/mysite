@@ -8,7 +8,7 @@ html
 		+wh(100%, 100%)
 		overflow-x: hidden
 		+susy-grid-background
-		+bg('sprinkles.png', 'background/body', 'repeat')
+		background: darken($sdy, 10%)
 		a 
 			outline: none
 			text-decoration: none
@@ -473,39 +473,10 @@ html
 				+at-breakpoint($phone)
 					ul li
 						padding: 1em
-						.member
-							+bg('default_phone.jpg', 'member/asidebar')
-							+wh(30px, 30px)
-							margin: -0.4em 0 0 0.2em
 
 				+at-breakpoint($pad)
 					ul li
 						font-size: 1.5em
-						.member
-							+bg('default_pad.jpg', 'member/asidebar')
-							+wh(40px, 40px)
-							margin-top: -0.4em
-				+at-breakpoint($pc)
-					ul li
-						.member
-							+bg('default_pc.jpg', 'member/asidebar')
-							+wh(50px, 50px)
-							margin: -0.5em 0 0 0
-
-
-				@media (max-height: 500px)
-					ul li
-						font-size: 0.8em
-						padding: 1em 
-
-				@media (max-height: 750px)
-					ul li
-						font-size: 1em
-						padding: 0.8em
-						.member
-							+bg('default_phone.jpg', 'member/asidebar')
-							+wh(30px, 30px)
-							margin: -0.2em 0 0 0.2em
 
 			.home-content-block
 				+ft($ab)
@@ -520,26 +491,35 @@ html
 					@include box-shadow(1px 0 1px lighten($sb, 10%))
 					i
 						+font(1em, bold)
-
 					.home-paw
 						+bg('s_paw.png', 'sign')
 						@extend .str-to-img
 						+wh(70px, 70px)
 						@include rotate(15deg)
-
+					.headerPhoto
+						+ft($re)
+						float: right
+						img
+							+border(3px)
+							+radius(2em)
 					+at-breakpoint($phone)
 						+font(0.9em, bold)
 						padding: 1.5em 0.5em 1.5em 0em
 						height: 1em
 						.home-paw
 							margin-top: -1em
+						.headerPhoto
+							right: 1em
+							top: -1em
 					+at-breakpoint($pad)
 						+font(1.5em, bold)
 						padding: 0.8em 1em 0.96em 1em
 						height: 0.6em
 						.home-paw
 							margin-top: -0.5em
-
+						.headerPhoto
+							right: 2em
+							top: -0.5em
 				.home-view-block
 					width: 101%
 					margin: 7em auto 0 auto
@@ -556,20 +536,37 @@ html
 						.item
 							float: left
 							text-align: center
-							height: 100%
+							height: 27em
 							background-size: auto, cover
-							.photo-img
+							.image
+								margin: 0 auto
 								+ft($re)
-								margin-top: 10%
 								+m-wh(80%, 100%)
-								@include box-shadow(1px 1px 3px lighten($sb, 30%))
-								+radius(1em)
+								.photo-img
+									margin-top: 10%
+									+m-wh(100%, 100%)
+									height: 21em
+									+radius(1em)
+							.shadowShow
+								&:before, &:after
+									+ft($ab, -1)
+									content: ""
+									bottom: 15px
+									left: 10px
+									width: 48%
+									height: 20%
+									@include rotate(-3deg)
+									@include box-shadow(0 15px 10px lighten($sb, 30%))
+								&:after
+									@include rotate(3deg)
+									right: 10px
+									left: auto
 						.owner
 							+ft($ab, 1)
 							text-align: left
 							margin: 1em auto 0 2.5em
 							overflow: hidden
-							.image
+							.own-img
 								border: 5px solid $sw
 								+radius(5em)
 							span
@@ -621,12 +618,12 @@ html
 								.menu
 									margin-right: 1.8em
 							.singleOwner
-								position: relative
+								+ft($re)
 								margin: 1em auto -5em auto
 								width: 85%
 						.home-view-display-set
 							@include transition(all 0.3s)
-							width: 96%
+							width: 100%
 							text-align: center
 							margin-top: -5em
 							.button
@@ -646,7 +643,8 @@ html
 								width: 38%
 							.singleOwner
 								@include transition(width 0.3s)
-								width: 35em
+								width: 30em
+								margin-bottom: -7em
 						.home-view-display-set
 							@include transition(all 0.3s)
 							width: 98%
@@ -661,12 +659,13 @@ html
 								@include transition(width 0.3s)
 								width: 33em
 								.menu
-									margin-right: 1.5em
+									margin-right: 2em
 							.owner
-								width: 24%
+								width: 28%
 							.singleOwner
 								@include transition(width 0.3s)
-								width: 35em
+								width: 30em
+								margin-bottom: -8em
 					+at-breakpoint($bpc)
 						.item
 							@include transition(all 0.3s)
@@ -694,7 +693,6 @@ html
 								@include rotate(0deg)
 					.menu-Set
 						+ft($ab)
-						top: 3.2em
 						width: 2.5em
 						.reorder
 							color: lighten($sgy, 10%)
@@ -794,8 +792,9 @@ html
 
 					+at-breakpoint($pc)
 						@include transition(all 0.5s)
-						width: 80%
+						width: 90%
 						h1
+							margin-left: 1em
 							font-size: 2em
 						.menu-Set
 							display: none
@@ -819,7 +818,7 @@ html
 						+ft($re)
 						margin: 0 auto
 						+wh(90%, 40em)
-						+radius(2em)
+						+radius(2em, 'top')
 						background: darken($sdy, 10%)
 						+gt(darken($sdy, 20%), darken($sdy, 15%), darken($sdy, 10%))
 						h4, h5
@@ -966,8 +965,6 @@ html
 								.button
 									background-color: #4C4C4C
 									+radius(0)
-									.text
-										width: 15em
 									.menu
 										background-color: #4C4C4C
 										overflow-y: hidden
@@ -980,10 +977,37 @@ html
 											&:hover
 												background-color: $sw
 												color: #4C4C4C
+							.photo-url-block
+								+ft($re, 998)
+								width: 80%
+								margin: 0.5em auto 0 auto
+								text-align: left
+								color: $sgy
+								i
+									color: $sgy
+								span
+									&:hover
+										@extend .line
+										@extend .po
+								.input
+									margin-top: 0.8em
+									.icon
+										height: 102%
+									input
+										background: $sw
+										text-align: left
+
+								.url-nipple
+									+tle('top', $sw, 12px, 15px)
+									+ft($ab)
+									margin-left: 3em
+								.error-link-block
+									+ft($ab)
+									color: lighten($sr, 20%)
 							.photo-file-block
 								+radius(1em)
 								width: 80%
-								margin: -2em auto 0 auto
+								margin: 0 auto
 								background: lighten($sgy, 40%)
 								border: 2.5px dashed lighten($sgy, 20%)
 								+opacity(0.8)
@@ -1009,7 +1033,6 @@ html
 									color: $sr
 
 							.readLoad
-								display: none
 								height: 2em
 								padding: 0
 								background: none
@@ -1044,16 +1067,20 @@ html
 											height: 2em
 								.pet-type
 									margin-top: 0
-									.button .menu .item
-										width: 24%
+									.button 
+										.text
+											width: 100%
+										.menu .item
+											width: 25%
 								.shareDirectSet
 									margin-top: 10em
 									.button
 										font-size: 0.8em
-								i
-									margin-top: -6.5em
+	
 								.photo-file-block
 									margin-top: 2em
+									i
+										margin-top: -6.5em
 									.share-file-info
 										margin-top: -6.5em
 										font-size: 0.8em
@@ -1065,7 +1092,8 @@ html
 										font-size: 0.5em
 								.uploadLoad
 									margin-top: 35%
-
+								.photo-url-block
+									font-size: 0.8em
 							+at-breakpoint($pad)
 								@include transition(height 0.5s)
 								height: 40em
@@ -1089,11 +1117,14 @@ html
 
 								.pet-type
 									margin-top: -1em
-									.button .menu .item
-										width: 33%
-								i
-									margin-top: -4.8em
+									.button 
+										.text
+											width: 15em
+										.menu .item
+											width: 33%
 								.photo-file-block
+									i
+										margin-top: -4.8em
 									.share-file-info
 										margin-top: -4.8em
 								.photo-preview-block
@@ -1101,7 +1132,8 @@ html
 										+wh(18em, 18em)
 									.button
 										font-size: 1em
-
+								.photo-url-block
+									font-size: 1em
 							+at-breakpoint($pc)
 								@include transition(height 0.5s)
 								height: 39em
@@ -1124,10 +1156,11 @@ html
 										font-size: 2em
 								.pet-type
 									margin-top: -2em
-								i
-									margin-top: -5.2em
+
 								.photo-file-block
 									height: 8em
+									i
+										margin-top: -5.2em
 									.share-file-info
 										margin-top: -5em
 										font-size: 1em

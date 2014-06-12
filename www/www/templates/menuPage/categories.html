@@ -12,7 +12,15 @@
 
 	<div class="home-content-block" ng-controller="new-content-block">
 		<section>
-			<header><h1>{{topTitle}}<span class="home-paw">cutepaw</span></h1></header>
+			<header>
+				<h1>{{topTitle}}<span class="home-paw">cutepaw</span>
+				{% if request.session.user%}
+					<div class="headerPhoto">
+						<a href="/dashboard/{{request.session.user}}"><img src="/static/img/member/header/{{request.session.user_pic}}" title="{{request.session.user}}"></a>
+					</div>
+				{% endif %}
+				</h1>
+			</header>
 
 		</section>		
 	</div>

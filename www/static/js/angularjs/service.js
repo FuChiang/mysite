@@ -1,25 +1,23 @@
 
 //AJAX Method
-APP.factory('ajax',['$http', function($http){
-	var val = '';
+APP.factory('myUtils', ['$q', function($q){
 	return {
-		query: function(urls, parameters){
-			$http({
+		isImg: function(url){
 
-		          method: 'POST',
+			var deferred = $q.defer(),
+				image = new Image();
 
-			     data: parameters,
+			image.onerror = function() {
+	                deferred.reject();
+	           };
 
-			     url: urls
+	           image.onload = function() {
+	                deferred.resolve();
+	           };
 
-	        	}).success(function(data, status, headers, config){
-	          		 val = data;
-	        	}).error(function(data, status, headers, config){
-	        		alert('ajax 錯誤代碼='+status);
-	       	});
-		},
-		get: function(){
-			return val;
+	           image.src = url;
+	        
+	           return deferred.promise;
 		}
 	};
 }]);
