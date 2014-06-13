@@ -179,7 +179,8 @@ APP.directive('itemDisplay', ['$window', '$timeout', function($window, time) {
 					}).find(".image").css({
 						width: "30em",
 						height: false,
-						marginTop: "3.8%"
+						marginTop: "3.8%",
+						marginBottom: 0
 					}).end().find(".content").addClass("singleLove").end().find(".owner").addClass("singleOwner");
 				
 					scope.littleHide = false;
@@ -190,7 +191,8 @@ APP.directive('itemDisplay', ['$window', '$timeout', function($window, time) {
 						height: false,
 					}).find(".image").css({
 						width: false,
-						height: false
+						height: false,
+						marginBottom: 0
 					}).end().find(".content").removeClass("singleLove").end().find(".owner").removeClass("singleOwner");
 					
 					scope.littleHide = false;
@@ -198,11 +200,11 @@ APP.directive('itemDisplay', ['$window', '$timeout', function($window, time) {
 				else if(value == 'little'){
 					element.css({
 						width: false, 
-						height: "15em"
+						height: false
 					}).find(".image").css({
 						width: "50%",
 						height: "70%",
-						marginTop: "2%"
+						marginBottom: "3.8%"
 					});
 
 					scope.littleHide = true;

@@ -1,43 +1,52 @@
 # -*- coding: utf-8 -*-
-from photo.models import *
+
 from django.http import HttpResponse, HttpResponseRedirect
-from wand.image import Image
-from time import strftime
 from django.conf import settings
 from django.db.models import F
+from photo.models import *
+from wand.image import Image
+from time import strftime
 import json
+import urllib
+import os
 
 def upload(request):
 
 	if request.method == 'POST' and request.session["user_id"]:
-		pic = request.FILES['sharePicImg'] if request.FILES['sharePicImg'] else None
 		urlPic = request.POST.get('shareUrlPicImg', None)
 		name = request.POST.get('shareName', None)
 		tp = request.POST.get('shareType', None)
 		des = request.POST.get('shareDescription' , "")
+		picDir = settings.MEDIA_ROOT+'/photo/'
 		filename = request.session["user"]+'_'+strftime('%Y%m%d%H%M%S')
-		height = 0
-		filename = None
-
+		pic = None
+		size = {"big": [500, 450], "small": [200, 150]}
 
 		if name != None and tp != None:
 
 			if urlPic != None and urlPicVailed(urlPic):
-				filename = urlPic
 
-			elif pic != None and sizeVailed(pic): 
+				urllib.urlretrieve(urlPic, picDir+filename)
+
+				pic = urllib2.urlopen('http://www.cutepaw.idv.tw/static/img/photo/'+filename)
+			else:
+				try:
+					pic = request.FILES['sharePicImg']
+				except:pass
+
+			if pic != None or sizeVailed(pic):
 				try:
 					with Image(file=pic) as img:
 						if img.format == 'JPG' or img.format == 'JPEG' or img.format == 'GIF' or img.format == 'PNG':
-							height = img.height
-							img.resize(500, 450)
-							img.save(filename=settings.MEDIA_ROOT+'/photo/big/'+filename) 
-							img.resize(200, 150)
-							img.save(filename=settings.MEDIA_ROOT+'/photo/small/'+filename) 
-				except:pass
+							img.resize(size["big"][0], size["big"][1])
+							img.save(filename=picDir+'big/'+filename)
+							img.resize(size["small"][0], size["small"][1])
+							img.save(filename=picDir+'small/'+filename)
 
-			if filename != None:
-				Upload.objects.create(photo_account_id = request.session["user_id"], photo_filename = filename, photo_pet_name = name, photo_description = des, photo_date = strftime('%Y/%m/%d-%H:%M:%S'), photo_love = 0, photo_type = tp)
+							if urlPic != None:
+								os.remove(picDir+filename)
+				except:pass
+				#Upload.objects.create(photo_account_id = request.session["user_id"], photo_filename = filename, photo_pet_name = name, photo_description = des, photo_date = strftime('%Y/%m/%d-%H:%M:%S'), photo_love = 0, photo_type = tp)
 
 	return HttpResponseRedirect('/myPhoto/'+request.session["user"])
 

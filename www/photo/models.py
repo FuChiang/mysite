@@ -1,6 +1,7 @@
 from django.db import connection, models
 from datetime import datetime
 import urllib2
+import urllib
 import copy
 import os
 
