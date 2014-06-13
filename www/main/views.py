@@ -26,7 +26,7 @@ def view(request, priority):
 
 			photosQuery = getAllPhotoData(field, str(0))
 
-			request.session['start_view_num'] = 19
+			request.session['start_view_num'] = 18
 
 	return  render(request, 'menuPage/view.html', {'load': 'viewPage', 'topTitle': '觀賞寵物照', 'photosQuery': photosQuery})
 
@@ -44,7 +44,7 @@ def ajaxview(request):
 
 			photosQuery = getAllPhotoData(field, str(request.session['start_view_num']))
 
-			request.session['start_view_num'] = request.session['start_view_num']+18
+			request.session['start_view_num'] = request.session['start_view_num']+17
 
 			for value in photosQuery:
 				json_str.append({

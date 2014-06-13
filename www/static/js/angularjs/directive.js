@@ -179,8 +179,7 @@ APP.directive('itemDisplay', ['$window', '$timeout', function($window, time) {
 					}).find(".image").css({
 						width: "30em",
 						height: false,
-						marginTop: "3.8%",
-						marginBottom: 0
+						marginTop: "3.8%"
 					}).end().find(".content").addClass("singleLove").end().find(".owner").addClass("singleOwner");
 				
 					scope.littleHide = false;
@@ -188,11 +187,10 @@ APP.directive('itemDisplay', ['$window', '$timeout', function($window, time) {
 				else if(value == 'multiple'){
 					element.css({
 						width: false, 
-						height: "27em",
+						height: false,
 					}).find(".image").css({
 						width: false,
-						height: false,
-						marginBottom: 0
+						height: false
 					}).end().find(".content").removeClass("singleLove").end().find(".owner").removeClass("singleOwner");
 					
 					scope.littleHide = false;
@@ -202,9 +200,9 @@ APP.directive('itemDisplay', ['$window', '$timeout', function($window, time) {
 						width: false, 
 						height: "15em"
 					}).find(".image").css({
-						width: "70%",
+						width: "50%",
 						height: "70%",
-						marginBottom: "3.5%"
+						marginTop: "2%"
 					});
 
 					scope.littleHide = true;

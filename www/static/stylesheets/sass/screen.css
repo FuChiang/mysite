@@ -1,0 +1,82 @@
+/*
+Syntax error: File to import not found or unreadable: susy.
+              Load paths:
+                /home/fay/Desktop/mysite/www/static/sass
+                /usr/local/rvm/gems/ruby-1.9.3-p545/gems/compass-core-1.0.0.alpha.19/stylesheets
+                Compass::SpriteImporter
+        on line 4 of /home/fay/Desktop/mysite/www/static/sass/sass/susy/_base.sass
+        from line 31 of /home/fay/Desktop/mysite/www/static/sass/sass/screen.sass
+
+1: /home/fay/Desktop/mysite/www/static/sass/sass/screen.sass
+
+Backtrace:
+/home/fay/Desktop/mysite/www/static/sass/sass/susy/_base.sass:4
+/home/fay/Desktop/mysite/www/static/sass/sass/screen.sass:31
+/usr/local/rvm/gems/ruby-1.9.3-p545/gems/sass-3.3.5/lib/sass/tree/import_node.rb:66:in `rescue in import'
+/usr/local/rvm/gems/ruby-1.9.3-p545/gems/sass-3.3.5/lib/sass/tree/import_node.rb:45:in `import'
+/usr/local/rvm/gems/ruby-1.9.3-p545/gems/sass-3.3.5/lib/sass/tree/import_node.rb:28:in `imported_file'
+/usr/local/rvm/gems/ruby-1.9.3-p545/gems/sass-3.3.5/lib/sass/tree/import_node.rb:37:in `css_import?'
+/usr/local/rvm/gems/ruby-1.9.3-p545/gems/sass-3.3.5/lib/sass/tree/visitors/perform.rb:283:in `visit_import'
+/usr/local/rvm/gems/ruby-1.9.3-p545/gems/sass-3.3.5/lib/sass/tree/visitors/base.rb:36:in `visit'
+/usr/local/rvm/gems/ruby-1.9.3-p545/gems/sass-3.3.5/lib/sass/tree/visitors/perform.rb:152:in `block in visit'
+/usr/local/rvm/gems/ruby-1.9.3-p545/gems/sass-3.3.5/lib/sass/stack.rb:79:in `block in with_base'
+/usr/local/rvm/gems/ruby-1.9.3-p545/gems/sass-3.3.5/lib/sass/stack.rb:121:in `with_frame'
+/usr/local/rvm/gems/ruby-1.9.3-p545/gems/sass-3.3.5/lib/sass/stack.rb:79:in `with_base'
+/usr/local/rvm/gems/ruby-1.9.3-p545/gems/sass-3.3.5/lib/sass/tree/visitors/perform.rb:152:in `visit'
+/usr/local/rvm/gems/ruby-1.9.3-p545/gems/sass-3.3.5/lib/sass/tree/visitors/perform.rb:297:in `block (2 levels) in visit_import'
+/usr/local/rvm/gems/ruby-1.9.3-p545/gems/sass-3.3.5/lib/sass/tree/visitors/perform.rb:297:in `map'
+/usr/local/rvm/gems/ruby-1.9.3-p545/gems/sass-3.3.5/lib/sass/tree/visitors/perform.rb:297:in `block in visit_import'
+/usr/local/rvm/gems/ruby-1.9.3-p545/gems/sass-3.3.5/lib/sass/stack.rb:88:in `block in with_import'
+/usr/local/rvm/gems/ruby-1.9.3-p545/gems/sass-3.3.5/lib/sass/stack.rb:121:in `with_frame'
+/usr/local/rvm/gems/ruby-1.9.3-p545/gems/sass-3.3.5/lib/sass/stack.rb:88:in `with_import'
+/usr/local/rvm/gems/ruby-1.9.3-p545/gems/sass-3.3.5/lib/sass/tree/visitors/perform.rb:294:in `visit_import'
+/usr/local/rvm/gems/ruby-1.9.3-p545/gems/sass-3.3.5/lib/sass/tree/visitors/base.rb:36:in `visit'
+/usr/local/rvm/gems/ruby-1.9.3-p545/gems/sass-3.3.5/lib/sass/tree/visitors/perform.rb:152:in `block in visit'
+/usr/local/rvm/gems/ruby-1.9.3-p545/gems/sass-3.3.5/lib/sass/stack.rb:79:in `block in with_base'
+/usr/local/rvm/gems/ruby-1.9.3-p545/gems/sass-3.3.5/lib/sass/stack.rb:121:in `with_frame'
+/usr/local/rvm/gems/ruby-1.9.3-p545/gems/sass-3.3.5/lib/sass/stack.rb:79:in `with_base'
+/usr/local/rvm/gems/ruby-1.9.3-p545/gems/sass-3.3.5/lib/sass/tree/visitors/perform.rb:152:in `visit'
+/usr/local/rvm/gems/ruby-1.9.3-p545/gems/sass-3.3.5/lib/sass/tree/visitors/base.rb:52:in `block in visit_children'
+/usr/local/rvm/gems/ruby-1.9.3-p545/gems/sass-3.3.5/lib/sass/tree/visitors/base.rb:52:in `map'
+/usr/local/rvm/gems/ruby-1.9.3-p545/gems/sass-3.3.5/lib/sass/tree/visitors/base.rb:52:in `visit_children'
+/usr/local/rvm/gems/ruby-1.9.3-p545/gems/sass-3.3.5/lib/sass/tree/visitors/perform.rb:161:in `block in visit_children'
+/usr/local/rvm/gems/ruby-1.9.3-p545/gems/sass-3.3.5/lib/sass/tree/visitors/perform.rb:173:in `with_environment'
+/usr/local/rvm/gems/ruby-1.9.3-p545/gems/sass-3.3.5/lib/sass/tree/visitors/perform.rb:160:in `visit_children'
+/usr/local/rvm/gems/ruby-1.9.3-p545/gems/sass-3.3.5/lib/sass/tree/visitors/base.rb:36:in `block in visit'
+/usr/local/rvm/gems/ruby-1.9.3-p545/gems/sass-3.3.5/lib/sass/tree/visitors/perform.rb:180:in `visit_root'
+/usr/local/rvm/gems/ruby-1.9.3-p545/gems/sass-3.3.5/lib/sass/tree/visitors/base.rb:36:in `visit'
+/usr/local/rvm/gems/ruby-1.9.3-p545/gems/sass-3.3.5/lib/sass/tree/visitors/perform.rb:151:in `visit'
+/usr/local/rvm/gems/ruby-1.9.3-p545/gems/sass-3.3.5/lib/sass/tree/visitors/perform.rb:8:in `visit'
+/usr/local/rvm/gems/ruby-1.9.3-p545/gems/sass-3.3.5/lib/sass/tree/root_node.rb:36:in `css_tree'
+/usr/local/rvm/gems/ruby-1.9.3-p545/gems/sass-3.3.5/lib/sass/tree/root_node.rb:20:in `render'
+/usr/local/rvm/gems/ruby-1.9.3-p545/gems/sass-3.3.5/lib/sass/engine.rb:274:in `render'
+/usr/local/rvm/gems/ruby-1.9.3-p545/gems/compass-1.0.0.alpha.19/lib/compass/compiler.rb:171:in `block (2 levels) in compile'
+/usr/local/rvm/gems/ruby-1.9.3-p545/gems/compass-1.0.0.alpha.19/lib/compass/compiler.rb:153:in `timed'
+/usr/local/rvm/gems/ruby-1.9.3-p545/gems/compass-1.0.0.alpha.19/lib/compass/compiler.rb:166:in `block in compile'
+/usr/local/rvm/gems/ruby-1.9.3-p545/gems/compass-1.0.0.alpha.19/lib/compass/logger.rb:46:in `red'
+/usr/local/rvm/gems/ruby-1.9.3-p545/gems/compass-1.0.0.alpha.19/lib/compass/compiler.rb:165:in `compile'
+/usr/local/rvm/gems/ruby-1.9.3-p545/gems/compass-1.0.0.alpha.19/lib/compass/compiler.rb:144:in `compile_if_required'
+/usr/local/rvm/gems/ruby-1.9.3-p545/gems/compass-1.0.0.alpha.19/lib/compass/compiler.rb:129:in `block (2 levels) in run'
+/usr/local/rvm/gems/ruby-1.9.3-p545/gems/compass-1.0.0.alpha.19/lib/compass/compiler.rb:127:in `each'
+/usr/local/rvm/gems/ruby-1.9.3-p545/gems/compass-1.0.0.alpha.19/lib/compass/compiler.rb:127:in `block in run'
+/usr/local/rvm/gems/ruby-1.9.3-p545/gems/compass-1.0.0.alpha.19/lib/compass/compiler.rb:153:in `timed'
+/usr/local/rvm/gems/ruby-1.9.3-p545/gems/compass-1.0.0.alpha.19/lib/compass/compiler.rb:126:in `run'
+/usr/local/rvm/gems/ruby-1.9.3-p545/gems/compass-1.0.0.alpha.19/lib/compass/watcher/compiler.rb:24:in `compile'
+/usr/local/rvm/rubies/ruby-1.9.3-p545/lib/ruby/1.9.1/forwardable.rb:201:in `compile'
+/usr/local/rvm/gems/ruby-1.9.3-p545/gems/compass-1.0.0.alpha.19/lib/compass/commands/watch_project.rb:47:in `perform'
+/usr/local/rvm/gems/ruby-1.9.3-p545/gems/compass-1.0.0.alpha.19/lib/compass/commands/base.rb:18:in `execute'
+/usr/local/rvm/gems/ruby-1.9.3-p545/gems/compass-1.0.0.alpha.19/lib/compass/commands/project_base.rb:19:in `execute'
+/usr/local/rvm/gems/ruby-1.9.3-p545/gems/compass-1.0.0.alpha.19/lib/compass/exec/sub_command_ui.rb:43:in `perform!'
+/usr/local/rvm/gems/ruby-1.9.3-p545/gems/compass-1.0.0.alpha.19/lib/compass/exec/sub_command_ui.rb:15:in `run!'
+/usr/local/rvm/gems/ruby-1.9.3-p545/gems/compass-1.0.0.alpha.19/bin/compass:30:in `block in <top (required)>'
+/usr/local/rvm/gems/ruby-1.9.3-p545/gems/compass-1.0.0.alpha.19/bin/compass:44:in `call'
+/usr/local/rvm/gems/ruby-1.9.3-p545/gems/compass-1.0.0.alpha.19/bin/compass:44:in `<top (required)>'
+/usr/local/rvm/gems/ruby-1.9.3-p545/bin/compass:23:in `load'
+/usr/local/rvm/gems/ruby-1.9.3-p545/bin/compass:23:in `<main>'
+/usr/local/rvm/gems/ruby-1.9.3-p545/bin/ruby_executable_hooks:15:in `eval'
+/usr/local/rvm/gems/ruby-1.9.3-p545/bin/ruby_executable_hooks:15:in `<main>'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Syntax error: File to import not found or unreadable: susy.\A               Load paths:\A                 /home/fay/Desktop/mysite/www/static/sass\A                 /usr/local/rvm/gems/ruby-1.9.3-p545/gems/compass-core-1.0.0.alpha.19/stylesheets\A                 Compass::SpriteImporter\A         on line 4 of /home/fay/Desktop/mysite/www/static/sass/sass/susy/_base.sass\A         from line 31 of /home/fay/Desktop/mysite/www/static/sass/sass/screen.sass\A \A 1: /home/fay/Desktop/mysite/www/static/sass/sass/screen.sass"; }

@@ -2780,7 +2780,7 @@ html body .container .fullscreen-main {
     -o-transition: background-image 1s;
     -webkit-transition: background-image 1s;
     transition: background-image 1s;
-    background: url('../../img/background/main/mainbg_phone.jpg?1399438906');
+    background: url('../../img/background/main/mainbg_phone.jpg?1402611245');
     background-repeat: no-repeat;
     background-size: cover;
   }
@@ -2791,7 +2791,7 @@ html body .container .fullscreen-main {
     -o-transition: background-image 1s;
     -webkit-transition: background-image 1s;
     transition: background-image 1s;
-    background: url('../../img/background/main/mainbg_pad.jpg?1399786550');
+    background: url('../../img/background/main/mainbg_pad.jpg?1402611245');
     background-repeat: no-repeat;
     background-size: cover;
   }
@@ -2802,7 +2802,7 @@ html body .container .fullscreen-main {
     -o-transition: background-image 1s;
     -webkit-transition: background-image 1s;
     transition: background-image 1s;
-    background: url('../../img/background/main/mainbg_pc.jpg?1399438492');
+    background: url('../../img/background/main/mainbg_pc.jpg?1402611245');
     background-repeat: no-repeat;
     background-size: cover;
   }
@@ -3046,7 +3046,7 @@ html body .container .main-intro-block h2 {
   transform: skewY(5deg);
 }
 html body .container .main-intro-block .main-paw {
-  background: url('../../img/sign/paw.png?1398852601');
+  background: url('../../img/sign/paw.png?1402611245');
   background-repeat: no-repeat;
   width: 80px;
   height: 80px;
@@ -3306,7 +3306,7 @@ html body .container .main-sign-in-block h5 {
   background: #3f75a2;
 }
 html body .container .main-sign-in-block .loginBgImg_1, html body .container .main-sign-in-block .loginBgImg_2, html body .container .main-sign-in-block .loginBgImg_3 {
-  background: url('../../img/background/form/result.png?1399447332');
+  background: url('../../img/background/form/result.png?1402611245');
   background-repeat: no-repeat;
   width: 150px;
   height: 150px;
@@ -3355,7 +3355,7 @@ html body .container .main-add-in-block h5 {
   background: #b92d2d;
 }
 html body .container .main-add-in-block .addBgImg_1, html body .container .main-add-in-block .addBgImg_2, html body .container .main-add-in-block .addBgImg_3 {
-  background: url('../../img/background/form/result.png?1399447332');
+  background: url('../../img/background/form/result.png?1402611245');
   background-repeat: no-repeat;
   width: 150px;
   height: 150px;
@@ -3550,7 +3550,7 @@ html body .container .home-content-block h1 i {
   font-weight: bold;
 }
 html body .container .home-content-block h1 .home-paw {
-  background: url('../../img/sign/s_paw.png?1400087637');
+  background: url('../../img/sign/s_paw.png?1402611245');
   background-repeat: no-repeat;
   width: 70px;
   height: 70px;
@@ -3622,7 +3622,7 @@ html body .container .home-content-block .home-view-block .home-view-inner-block
 html body .container .home-content-block .home-view-block .home-view-inner-block .item {
   float: left;
   text-align: center;
-  height: 27em;
+  height: 100%;
   background-size: auto, cover;
 }
 html body .container .home-content-block .home-view-block .home-view-inner-block .item .image {
@@ -3635,7 +3635,8 @@ html body .container .home-content-block .home-view-block .home-view-inner-block
   margin-top: 10%;
   max-width: 100%;
   max-height: 100%;
-  height: 21em;
+  width: 100%;
+  height: 27em;
   -moz-border-radius: 1em;
   -webkit-border-radius: 1em;
   border-radius: 1em;
@@ -3647,7 +3648,7 @@ html body .container .home-content-block .home-view-block .home-view-inner-block
   bottom: 15px;
   left: 10px;
   width: 48%;
-  height: 20%;
+  height: 3%;
   -moz-transform: rotate(-3deg);
   -ms-transform: rotate(-3deg);
   -webkit-transform: rotate(-3deg);
@@ -3998,7 +3999,7 @@ html body .container .dashboard-out-block .dashboard-inner-block .nromal-Menu ul
     left: 3.7em;
   }
   html body .container .dashboard-out-block .dashboard-inner-block h1 .dashboard-paw {
-    background: url('../../img/sign/s_paw.png?1400087637');
+    background: url('../../img/sign/s_paw.png?1402611245');
     background-repeat: no-repeat;
     margin-top: -0.7em;
     width: 50px;
@@ -4031,7 +4032,7 @@ html body .container .dashboard-out-block .dashboard-inner-block .nromal-Menu ul
     font-size: 1.8em;
   }
   html body .container .dashboard-out-block .dashboard-inner-block h1 .dashboard-paw {
-    background: url('../../img/sign/paw.png?1398852601');
+    background: url('../../img/sign/paw.png?1402611245');
     background-repeat: no-repeat;
     margin-top: -1.2em;
     width: 70px;

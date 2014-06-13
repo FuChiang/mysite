@@ -19,5 +19,6 @@ def checkImg(pic, size):
 @register.filter
 def slice(name, num):
 	return name[0:num]
-	
+
+
 
