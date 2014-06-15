@@ -45,7 +45,7 @@
 									</div>
 								</div>
 								<div class="share-photo-type-block share-list">
-									<h5>請問寵物的種類是<i class="tint icon"></i></h5>
+									<h5>請問寵物的種類是<i class="question icon"></i></h5>
 									<div class="shareDirectSet">
 										<div class="ui purple button left" ng-show="typeStep">上一步</div>
 										<div class="ui green button right" ng-show="typeStep">下一步</div>
@@ -91,7 +91,7 @@
 									</div>
 								</div>
 								<div class="share-photo-description-block share-list">
-									<h5>對寵物有啥感覺勒?<i class="comment icon"></i></h5>	
+									<h5>對寵物有啥感覺勒<i class="question icon"></i></h5>	
 									<div class="shareDirectSet">
 										<div class="ui purple button left">上一步</div>
 										<div class="ui green button right">下一步</div>
@@ -101,12 +101,12 @@
 									</div>
 								</div>
 								<div class="share-photo-upload-block share-list">
-									<h5>給個寵物的模樣吧<i class="photo icon"></i></h5>
+									<h5>給個寵物模樣吧<i class="photo icon"></i></h5>
 									<div class="shareDirectSet" ng-show="finialStep">
 										<div class="ui purple button left">上一步</div>
 										<button type="submit" class="ui red button right">上 傳</button>
 									</div>
-									<div class="photo-file-block" ng-hide="readCompleted">
+									<div class="photo-file-block" ng-hide="readingPhoto" ng-click="clickUpload()">
 										<input 
 											type = "file"
 											class = "share-pic-img" 
@@ -118,15 +118,14 @@
 										</div>
 										<i class=" camera big icon" ></i>
 										<p class=" share-file-info" >上傳寵物照(檔案上限2M)</p>
-										<P class="share-error" ng-show="shareSizeError"><i class="info red icon"></i>抱歉,上傳圖檔超過2M</P>
-										<P class="share-error" ng-show="shareTypeError"><i class="info red icon"></i>只接受 jpg | png | gif 的圖檔</P>
+										<P class="share-error" ng-show="shareSizeError"><i class="info red icon"></i>上傳量超過或不是圖檔格式</P>
 
 									</div>
-									<div class="photo-url-block" ng-hide="readCompleted">
-										<i class=" url icon"></i>
-										<span ng-click="photoUrl()">
-											使用外部照片
-										</span>
+									<div class="photo-url-block" ng-hide="readingPhoto">
+										<div class="ui down button" ng-click="photoUrl()">
+										  <i class="url icon"></i>
+										  使用線上照片
+										</div>
 										<div class="url-nipple" ng-show="urlInputShow"></div>
 										<div class="ui icon input" ng-show="urlInputShow">
 											<input
@@ -140,7 +139,7 @@
 										<div class="error-link-block" ng-show="urlLinkError"><i class="info red icon"></i>這個外部連結並不正確</div>
 									</div>
 									<div class="ui active blue striped progress readLoad" ng-show="photoLoad">
-		  								<div class="bar"></div>
+		  								<div class="bar"></div><p>讀取中...請稍候</p>
 									</div>
 									<div class="photo-preview-block" ng-show="readCompleted">
 										<button type="reset"  ng-click="reUpload()" class="ui green button">

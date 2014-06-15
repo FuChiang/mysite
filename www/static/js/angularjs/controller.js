@@ -238,7 +238,13 @@ APP.controller("dashboard-content-block", ['$scope', '$window', '$http', '$timeo
 	$scope.urlInputShow = false;
 	$scope.urlLinkError = false;
 	$scope.photoLoad = false;
+	$scope.readingPhoto = false;
+	$scope.readCompleted = false;
 	$scope.titleInput = '';
+
+	$scope.clickUpload = function(){
+		$jq(".share-pic-img").click();
+	}
 
 	$scope.deletePhoto = function(photo_id, photo_name){
 		$http({
@@ -267,7 +273,8 @@ APP.controller("dashboard-content-block", ['$scope', '$window', '$http', '$timeo
 	}
 
 	$scope.reUpload = function(){
-		$scope.readCompleted = false; 
+		$scope.readCompleted = false;
+		$scope.readingPhoto = false;
 		$scope.finialStep = false; 
 		$scope.shareInput = true;
 		$scope.urlInputShow = false;
@@ -281,18 +288,20 @@ APP.controller("dashboard-content-block", ['$scope', '$window', '$http', '$timeo
 		}
 		else{
 			myUtils.isImg(link).then(function(){
-	           	
-	           	$scope.photoLoad = true;
-
 	           	time(function(){
-	           		$scope.photoLoad = false;
+	           		$scope.photoLoad = true;
 	           		$scope.urlLinkError = false;
 	           		$scope.shareSizeError = false;
 					$scope.shareTypeError = false;
-					$scope.readCompleted = true;
+					$scope.readingPhoto = true;
 					$scope.finialStep = true;
 	           		$scope.shareInput = false;
-	           		$scope.sharePic = link;
+	           		
+	           		time(function(){
+	           			$scope.photoLoad = false;
+	           			$scope.sharePic = link;
+	           			$scope.readCompleted = true;
+	           		}, 500);
 	           	}, 100);
 
 	           }, function(){

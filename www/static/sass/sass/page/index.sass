@@ -6,7 +6,7 @@ html
 		margin: 0 auto
 		+ft($re)
 		+wh(100%, 100%)
-		overflow-x: hidden
+		/*overflow-x: hidden*/
 		+susy-grid-background
 		background: darken($sdy, 10%)
 		a 
@@ -482,9 +482,10 @@ html
 				+ft($ab)
 				+ts(lighten($sb, 20%) 1px 1px 1px)
 				color: lighten($sb, 40%)
-				width: 99.9%
+				width: 100%
 				h1
-					width: 100%
+					+ft($re)
+					max-width: 100%
 					text-align: center
 					color: #FDFBF5
 					background: #a64818
@@ -521,7 +522,8 @@ html
 							right: 2em
 							top: -0.5em
 				.home-view-block
-					width: 101%
+					+ft($re)
+					max-width: 100%
 					margin: 7em auto 0 auto
 					.home-view-display-set
 						+ft($ab)
@@ -756,7 +758,7 @@ html
 								margin-top: -0.7em
 								+wh(50px, 50px)
 						.menu-Set
-							margin: -1.4em 0 0 75%
+							margin: 0.5em 0 0 75%
 							.mobile-Menu
 								margin-left: -8em
 								ul
@@ -778,7 +780,7 @@ html
 								margin-top: -1.2em
 								+wh(70px, 70px)
 						.menu-Set
-							margin-top: 0.2em
+							margin-top: 2em
 							.mobile-Menu
 								margin-left: -8.5em
 								ul
@@ -978,7 +980,7 @@ html
 							.photo-url-block
 								+ft($re, 998)
 								width: 80%
-								margin: 0.5em auto 0 auto
+								margin: 2em auto 0 auto
 								text-align: left
 								color: $sgy
 								i
@@ -1004,6 +1006,7 @@ html
 									color: lighten($sr, 20%)
 							.photo-file-block
 								+radius(1em)
+								@extend .po
 								width: 80%
 								margin: 0 auto
 								background: lighten($sgy, 40%)
@@ -1023,10 +1026,8 @@ html
 									color: $sgy
 									font-weight: bold
 								.share-pic-img
-									@extend .po
-									+ft($re, 998)
-									+opacity(0)
-									+wh(99.5%, 9.2em)
+									+ft($ab)
+									display: none
 								.share-error
 									color: $sr
 
@@ -1035,6 +1036,7 @@ html
 								padding: 0
 								background: none
 								border: 0
+								color: $sw
 								.bar
 									width: 50%
 							.photo-preview-block
@@ -1055,7 +1057,7 @@ html
 									font-size: 1.5em
 								.share-list
 									@include transition(all 0.5s)
-									height: 19.8em
+									height: 19em
 									.share-photo-name
 										input
 											font-size: 2em
@@ -1067,7 +1069,7 @@ html
 									margin-top: 0
 									.button 
 										.text
-											width: 100%
+											width: 10em
 										.menu .item
 											width: 25%
 								.shareDirectSet
@@ -1077,10 +1079,14 @@ html
 	
 								.photo-file-block
 									margin-top: 2em
+									height: 7em
 									i
-										margin-top: -6.5em
+										margin-top: 1em
 									.share-file-info
-										margin-top: -6.5em
+										margin-top: 1em
+										font-size: 0.8em
+									.share-error
+										margin-top: 0.5em
 										font-size: 0.8em
 								.photo-preview-block
 									margin-top: 0em
@@ -1092,6 +1098,7 @@ html
 									margin-top: 35%
 								.photo-url-block
 									font-size: 0.8em
+
 							+at-breakpoint($pad)
 								@include transition(height 0.5s)
 								height: 40em
@@ -1102,6 +1109,7 @@ html
 								.share-list
 									@include transition(all 0.5s)
 									height: 30.8em
+									display: none
 									.share-photo-name
 										input
 											font-size: 3.5em
@@ -1121,10 +1129,11 @@ html
 										.menu .item
 											width: 33%
 								.photo-file-block
+									height: 7em
 									i
-										margin-top: -4.8em
+										margin-top: 1em
 									.share-file-info
-										margin-top: -4.8em
+										margin-top: 0.5em
 								.photo-preview-block
 									img
 										+wh(18em, 18em)
@@ -1158,9 +1167,9 @@ html
 								.photo-file-block
 									height: 8em
 									i
-										margin-top: -5.2em
+										margin-top: 1.5em
 									.share-file-info
-										margin-top: -5em
+										margin-top: 0.5em
 										font-size: 1em
 								.photo-preview-block
 									margin-top: -3em

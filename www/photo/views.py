@@ -46,7 +46,7 @@ def upload(request):
 							if urlPic != None:
 								os.remove(picDir+filename)
 				except:pass
-				#Upload.objects.create(photo_account_id = request.session["user_id"], photo_filename = filename, photo_pet_name = name, photo_description = des, photo_date = strftime('%Y/%m/%d-%H:%M:%S'), photo_love = 0, photo_type = tp)
+				Upload.objects.create(photo_account_id = request.session["user_id"], photo_filename = filename, photo_pet_name = name, photo_description = des, photo_date = strftime('%Y/%m/%d-%H:%M:%S'), photo_love = 0, photo_type = tp)
 
 	return HttpResponseRedirect('/myPhoto/'+request.session["user"])
 

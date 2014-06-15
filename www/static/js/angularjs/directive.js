@@ -49,14 +49,9 @@ APP.directive('myShare', ['$timeout', function(time) {
 					max_upload = 2,
 					reader = new FileReader(); 
 
-				if((file.size/1024/1024) > max_upload){
+				if((file.size/1024/1024) > max_upload || fileName.match(/(jpg|gif|png)$/ig) === null){
 					time(function(){
 						scope.shareSizeError = true;
-					},100);
-				}
-				else if(fileName.match(/(jpg|gif|png)$/ig) === null){
-					time(function(){
-						scope.shareTypeError = true;
 					},100);
 				}
 				else{
@@ -64,14 +59,14 @@ APP.directive('myShare', ['$timeout', function(time) {
 						scope.photoLoad = true;
 						scope.shareSizeError = false;
 						scope.shareTypeError = false;
-						scope.readCompleted = true;
 						scope.finialStep = true;
+						scope.readingPhoto = true;
 					},100);
 					reader.readAsDataURL(file);
 			     		reader.onload = function(e){ 
-			     			var path = '';     			
-			     			path = this.result;
+			     			var path = this.result;
 			     			time(function(){
+			     				scope.readCompleted = true;
 			     				scope.photoLoad = false;
 			     				scope.shareInput = false;
 			     				scope.sharePic = path;

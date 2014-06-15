@@ -142,7 +142,7 @@ var sharePage = function(){
 	$jq("input:first").focus();
 
 	//initail
-	$jq_shareList.hide().eq(0).show();
+	$jq_shareList.hide().eq(3).show();
 
 	//push next step
 	$jq_SetRight.on("click", function(){

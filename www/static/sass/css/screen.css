@@ -74,7 +74,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   position: absolute;
 }
 
-.po, html body .container .search-block .remove, html body .container .main-header-nav-block .main-menu, html body .container .main-add-in-block h5 .remove, html body .container .main-sign-in-block h5 .remove, html body .container .site-Menu-Block .site-Menu, html body .container .home-content-block .home-view-block .home-view-inner-block .content .menu .love, html body .container .home-content-block .home-view-block .home-view-inner-block .content .menu .comments, html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-share-photo-block .photo-url-block span:hover, html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-share-photo-block .photo-file-block .share-pic-img {
+.po, html body .container .search-block .remove, html body .container .main-header-nav-block .main-menu, html body .container .main-add-in-block h5 .remove, html body .container .main-sign-in-block h5 .remove, html body .container .site-Menu-Block .site-Menu, html body .container .home-content-block .home-view-block .home-view-inner-block .content .menu .love, html body .container .home-content-block .home-view-block .home-view-inner-block .content .menu .comments, html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-share-photo-block .photo-url-block span:hover, html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-share-photo-block .photo-file-block {
   cursor: pointer;
 }
 
@@ -2649,7 +2649,7 @@ html body {
   position: relative;
   width: 100%;
   height: 100%;
-  overflow-x: hidden;
+  /*overflow-x: hidden */
   background-image: -moz-linear-gradient(left, rgba(0, 0, 0, 0) 0%, rgba(121, 121, 229, 0.25) 0%, rgba(79, 79, 221, 0.25) 5.61798%, rgba(0, 0, 0, 0) 5.61798%, rgba(0, 0, 0, 0) 6.74157%, rgba(121, 121, 229, 0.25) 6.74157%, rgba(79, 79, 221, 0.25) 12.35955%, rgba(0, 0, 0, 0) 12.35955%, rgba(0, 0, 0, 0) 13.48315%, rgba(121, 121, 229, 0.25) 13.48315%, rgba(79, 79, 221, 0.25) 19.10112%, rgba(0, 0, 0, 0) 19.10112%, rgba(0, 0, 0, 0) 20.22472%, rgba(121, 121, 229, 0.25) 20.22472%, rgba(79, 79, 221, 0.25) 25.8427%, rgba(0, 0, 0, 0) 25.8427%, rgba(0, 0, 0, 0) 26.96629%, rgba(121, 121, 229, 0.25) 26.96629%, rgba(79, 79, 221, 0.25) 32.58427%, rgba(0, 0, 0, 0) 32.58427%, rgba(0, 0, 0, 0) 33.70787%, rgba(121, 121, 229, 0.25) 33.70787%, rgba(79, 79, 221, 0.25) 39.32584%, rgba(0, 0, 0, 0) 39.32584%, rgba(0, 0, 0, 0) 40.44944%, rgba(121, 121, 229, 0.25) 40.44944%, rgba(79, 79, 221, 0.25) 46.06742%, rgba(0, 0, 0, 0) 46.06742%, rgba(0, 0, 0, 0) 47.19101%, rgba(121, 121, 229, 0.25) 47.19101%, rgba(79, 79, 221, 0.25) 52.80899%, rgba(0, 0, 0, 0) 52.80899%, rgba(0, 0, 0, 0) 53.93258%, rgba(121, 121, 229, 0.25) 53.93258%, rgba(79, 79, 221, 0.25) 59.55056%, rgba(0, 0, 0, 0) 59.55056%, rgba(0, 0, 0, 0) 60.67416%, rgba(121, 121, 229, 0.25) 60.67416%, rgba(79, 79, 221, 0.25) 66.29213%, rgba(0, 0, 0, 0) 66.29213%, rgba(0, 0, 0, 0) 67.41573%, rgba(121, 121, 229, 0.25) 67.41573%, rgba(79, 79, 221, 0.25) 73.03371%, rgba(0, 0, 0, 0) 73.03371%, rgba(0, 0, 0, 0) 74.1573%, rgba(121, 121, 229, 0.25) 74.1573%, rgba(79, 79, 221, 0.25) 79.77528%, rgba(0, 0, 0, 0) 79.77528%, rgba(0, 0, 0, 0) 80.89888%, rgba(121, 121, 229, 0.25) 80.89888%, rgba(79, 79, 221, 0.25) 86.51685%, rgba(0, 0, 0, 0) 86.51685%, rgba(0, 0, 0, 0) 87.64045%, rgba(121, 121, 229, 0.25) 87.64045%, rgba(79, 79, 221, 0.25) 93.25843%, rgba(0, 0, 0, 0) 93.25843%, rgba(0, 0, 0, 0) 94.38202%, rgba(121, 121, 229, 0.25) 94.38202%, rgba(79, 79, 221, 0.25) 100.0%, rgba(0, 0, 0, 0) 100.0%, rgba(0, 0, 0, 0) 100%);
   background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, 0) 0%, rgba(121, 121, 229, 0.25) 0%, rgba(79, 79, 221, 0.25) 5.61798%, rgba(0, 0, 0, 0) 5.61798%, rgba(0, 0, 0, 0) 6.74157%, rgba(121, 121, 229, 0.25) 6.74157%, rgba(79, 79, 221, 0.25) 12.35955%, rgba(0, 0, 0, 0) 12.35955%, rgba(0, 0, 0, 0) 13.48315%, rgba(121, 121, 229, 0.25) 13.48315%, rgba(79, 79, 221, 0.25) 19.10112%, rgba(0, 0, 0, 0) 19.10112%, rgba(0, 0, 0, 0) 20.22472%, rgba(121, 121, 229, 0.25) 20.22472%, rgba(79, 79, 221, 0.25) 25.8427%, rgba(0, 0, 0, 0) 25.8427%, rgba(0, 0, 0, 0) 26.96629%, rgba(121, 121, 229, 0.25) 26.96629%, rgba(79, 79, 221, 0.25) 32.58427%, rgba(0, 0, 0, 0) 32.58427%, rgba(0, 0, 0, 0) 33.70787%, rgba(121, 121, 229, 0.25) 33.70787%, rgba(79, 79, 221, 0.25) 39.32584%, rgba(0, 0, 0, 0) 39.32584%, rgba(0, 0, 0, 0) 40.44944%, rgba(121, 121, 229, 0.25) 40.44944%, rgba(79, 79, 221, 0.25) 46.06742%, rgba(0, 0, 0, 0) 46.06742%, rgba(0, 0, 0, 0) 47.19101%, rgba(121, 121, 229, 0.25) 47.19101%, rgba(79, 79, 221, 0.25) 52.80899%, rgba(0, 0, 0, 0) 52.80899%, rgba(0, 0, 0, 0) 53.93258%, rgba(121, 121, 229, 0.25) 53.93258%, rgba(79, 79, 221, 0.25) 59.55056%, rgba(0, 0, 0, 0) 59.55056%, rgba(0, 0, 0, 0) 60.67416%, rgba(121, 121, 229, 0.25) 60.67416%, rgba(79, 79, 221, 0.25) 66.29213%, rgba(0, 0, 0, 0) 66.29213%, rgba(0, 0, 0, 0) 67.41573%, rgba(121, 121, 229, 0.25) 67.41573%, rgba(79, 79, 221, 0.25) 73.03371%, rgba(0, 0, 0, 0) 73.03371%, rgba(0, 0, 0, 0) 74.1573%, rgba(121, 121, 229, 0.25) 74.1573%, rgba(79, 79, 221, 0.25) 79.77528%, rgba(0, 0, 0, 0) 79.77528%, rgba(0, 0, 0, 0) 80.89888%, rgba(121, 121, 229, 0.25) 80.89888%, rgba(79, 79, 221, 0.25) 86.51685%, rgba(0, 0, 0, 0) 86.51685%, rgba(0, 0, 0, 0) 87.64045%, rgba(121, 121, 229, 0.25) 87.64045%, rgba(79, 79, 221, 0.25) 93.25843%, rgba(0, 0, 0, 0) 93.25843%, rgba(0, 0, 0, 0) 94.38202%, rgba(121, 121, 229, 0.25) 94.38202%, rgba(79, 79, 221, 0.25) 100.0%, rgba(0, 0, 0, 0) 100.0%, rgba(0, 0, 0, 0) 100%);
   background-image: linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgba(121, 121, 229, 0.25) 0%, rgba(79, 79, 221, 0.25) 5.61798%, rgba(0, 0, 0, 0) 5.61798%, rgba(0, 0, 0, 0) 6.74157%, rgba(121, 121, 229, 0.25) 6.74157%, rgba(79, 79, 221, 0.25) 12.35955%, rgba(0, 0, 0, 0) 12.35955%, rgba(0, 0, 0, 0) 13.48315%, rgba(121, 121, 229, 0.25) 13.48315%, rgba(79, 79, 221, 0.25) 19.10112%, rgba(0, 0, 0, 0) 19.10112%, rgba(0, 0, 0, 0) 20.22472%, rgba(121, 121, 229, 0.25) 20.22472%, rgba(79, 79, 221, 0.25) 25.8427%, rgba(0, 0, 0, 0) 25.8427%, rgba(0, 0, 0, 0) 26.96629%, rgba(121, 121, 229, 0.25) 26.96629%, rgba(79, 79, 221, 0.25) 32.58427%, rgba(0, 0, 0, 0) 32.58427%, rgba(0, 0, 0, 0) 33.70787%, rgba(121, 121, 229, 0.25) 33.70787%, rgba(79, 79, 221, 0.25) 39.32584%, rgba(0, 0, 0, 0) 39.32584%, rgba(0, 0, 0, 0) 40.44944%, rgba(121, 121, 229, 0.25) 40.44944%, rgba(79, 79, 221, 0.25) 46.06742%, rgba(0, 0, 0, 0) 46.06742%, rgba(0, 0, 0, 0) 47.19101%, rgba(121, 121, 229, 0.25) 47.19101%, rgba(79, 79, 221, 0.25) 52.80899%, rgba(0, 0, 0, 0) 52.80899%, rgba(0, 0, 0, 0) 53.93258%, rgba(121, 121, 229, 0.25) 53.93258%, rgba(79, 79, 221, 0.25) 59.55056%, rgba(0, 0, 0, 0) 59.55056%, rgba(0, 0, 0, 0) 60.67416%, rgba(121, 121, 229, 0.25) 60.67416%, rgba(79, 79, 221, 0.25) 66.29213%, rgba(0, 0, 0, 0) 66.29213%, rgba(0, 0, 0, 0) 67.41573%, rgba(121, 121, 229, 0.25) 67.41573%, rgba(79, 79, 221, 0.25) 73.03371%, rgba(0, 0, 0, 0) 73.03371%, rgba(0, 0, 0, 0) 74.1573%, rgba(121, 121, 229, 0.25) 74.1573%, rgba(79, 79, 221, 0.25) 79.77528%, rgba(0, 0, 0, 0) 79.77528%, rgba(0, 0, 0, 0) 80.89888%, rgba(121, 121, 229, 0.25) 80.89888%, rgba(79, 79, 221, 0.25) 86.51685%, rgba(0, 0, 0, 0) 86.51685%, rgba(0, 0, 0, 0) 87.64045%, rgba(121, 121, 229, 0.25) 87.64045%, rgba(79, 79, 221, 0.25) 93.25843%, rgba(0, 0, 0, 0) 93.25843%, rgba(0, 0, 0, 0) 94.38202%, rgba(121, 121, 229, 0.25) 94.38202%, rgba(79, 79, 221, 0.25) 100.0%, rgba(0, 0, 0, 0) 100.0%, rgba(0, 0, 0, 0) 100%);
@@ -3534,10 +3534,11 @@ html body .container .home-content-block {
   position: absolute;
   text-shadow: #333333 1px 1px 1px;
   color: #666666;
-  width: 99.9%;
+  width: 100%;
 }
 html body .container .home-content-block h1 {
-  width: 100%;
+  position: relative;
+  max-width: 100%;
   text-align: center;
   color: #fdfbf5;
   background: #a64818;
@@ -3602,7 +3603,8 @@ html body .container .home-content-block h1 .headerPhoto img {
   }
 }
 html body .container .home-content-block .home-view-block {
-  width: 101%;
+  position: relative;
+  max-width: 100%;
   margin: 7em auto 0 auto;
 }
 html body .container .home-content-block .home-view-block .home-view-display-set {
@@ -4004,7 +4006,7 @@ html body .container .dashboard-out-block .dashboard-inner-block .nromal-Menu ul
     height: 50px;
   }
   html body .container .dashboard-out-block .dashboard-inner-block .menu-Set {
-    margin: -1.4em 0 0 75%;
+    margin: 0.5em 0 0 75%;
   }
   html body .container .dashboard-out-block .dashboard-inner-block .menu-Set .mobile-Menu {
     margin-left: -8em;
@@ -4037,7 +4039,7 @@ html body .container .dashboard-out-block .dashboard-inner-block .nromal-Menu ul
     height: 70px;
   }
   html body .container .dashboard-out-block .dashboard-inner-block .menu-Set {
-    margin-top: 0.2em;
+    margin-top: 2em;
   }
   html body .container .dashboard-out-block .dashboard-inner-block .menu-Set .mobile-Menu {
     margin-left: -8.5em;
@@ -4348,7 +4350,7 @@ html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inne
   z-index: 998;
   position: relative;
   width: 80%;
-  margin: 0.5em auto 0 auto;
+  margin: 2em auto 0 auto;
   text-align: left;
   color: gray;
 }
@@ -4411,12 +4413,8 @@ html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inne
   font-weight: bold;
 }
 html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-share-photo-block .photo-file-block .share-pic-img {
-  z-index: 998;
-  position: relative;
-  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
-  opacity: 0;
-  width: 99.5%;
-  height: 9.2em;
+  position: absolute;
+  display: none;
 }
 html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-share-photo-block .photo-file-block .share-error {
   color: red;
@@ -4426,6 +4424,7 @@ html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inne
   padding: 0;
   background: none;
   border: 0;
+  color: white;
 }
 html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-share-photo-block .readLoad .bar {
   width: 50%;
@@ -4466,7 +4465,7 @@ html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inne
     -o-transition: all 0.5s;
     -webkit-transition: all 0.5s;
     transition: all 0.5s;
-    height: 19.8em;
+    height: 19em;
   }
   html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-share-photo-block .share-list .share-photo-name input {
     font-size: 2em;
@@ -4479,7 +4478,7 @@ html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inne
     margin-top: 0;
   }
   html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-share-photo-block .pet-type .button .text {
-    width: 100%;
+    width: 10em;
   }
   html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-share-photo-block .pet-type .button .menu .item {
     width: 25%;
@@ -4492,12 +4491,17 @@ html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inne
   }
   html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-share-photo-block .photo-file-block {
     margin-top: 2em;
+    height: 7em;
   }
   html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-share-photo-block .photo-file-block i {
-    margin-top: -6.5em;
+    margin-top: 1em;
   }
   html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-share-photo-block .photo-file-block .share-file-info {
-    margin-top: -6.5em;
+    margin-top: 1em;
+    font-size: 0.8em;
+  }
+  html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-share-photo-block .photo-file-block .share-error {
+    margin-top: 0.5em;
     font-size: 0.8em;
   }
   html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-share-photo-block .photo-preview-block {
@@ -4539,6 +4543,7 @@ html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inne
     -webkit-transition: all 0.5s;
     transition: all 0.5s;
     height: 30.8em;
+    display: none;
   }
   html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-share-photo-block .share-list .share-photo-name input {
     font-size: 3.5em;
@@ -4561,11 +4566,14 @@ html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inne
   html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-share-photo-block .pet-type .button .menu .item {
     width: 33%;
   }
+  html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-share-photo-block .photo-file-block {
+    height: 7em;
+  }
   html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-share-photo-block .photo-file-block i {
-    margin-top: -4.8em;
+    margin-top: 1em;
   }
   html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-share-photo-block .photo-file-block .share-file-info {
-    margin-top: -4.8em;
+    margin-top: 0.5em;
   }
   html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-share-photo-block .photo-preview-block img {
     width: 18em;
@@ -4620,10 +4628,10 @@ html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inne
     height: 8em;
   }
   html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-share-photo-block .photo-file-block i {
-    margin-top: -5.2em;
+    margin-top: 1.5em;
   }
   html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-share-photo-block .photo-file-block .share-file-info {
-    margin-top: -5em;
+    margin-top: 0.5em;
     font-size: 1em;
   }
   html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-share-photo-block .photo-preview-block {
