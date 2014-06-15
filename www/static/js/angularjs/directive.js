@@ -167,15 +167,19 @@ APP.directive('itemDisplay', ['$window', '$timeout', function($window, time) {
 		//scope=> $scope, element=>object itsself, attr=>attribute in tag
 		link: function(scope, element, attr){
 			scope.$watch(attr.itemDisplay, function(value){
+
 				if(value == 'single'){
 					element.css({
 						width: "100%", 
-						height: "100%"
+						height: "100%",
+						position: "relative",
+						margin: false
 					}).find(".image").css({
 						width: "30em",
 						height: false,
 						marginTop: "3.8%",
-						marginBottom: 0
+						marginBottom: 0,
+						opacity: 1
 					}).end().find(".content").addClass("singleLove").end().find(".owner").addClass("singleOwner");
 				
 					scope.littleHide = false;
@@ -184,22 +188,29 @@ APP.directive('itemDisplay', ['$window', '$timeout', function($window, time) {
 					element.css({
 						width: false, 
 						height: false,
+						position: "relative",
+						margin: false
 					}).find(".image").css({
 						width: false,
 						height: false,
-						marginBottom: 0
+						marginBottom: 0,
+						opacity: 1
 					}).end().find(".content").removeClass("singleLove").end().find(".owner").removeClass("singleOwner");
 					
 					scope.littleHide = false;
+
 				}
 				else if(value == 'little'){
 					element.css({
 						width: false, 
-						height: false
+						height: false,
+						position: "relative",
+						margin: false
 					}).find(".image").css({
 						width: "50%",
 						height: "70%",
-						marginBottom: "3.8%"
+						marginBottom: "3.8%",
+						opacity: 1
 					});
 
 					scope.littleHide = true;

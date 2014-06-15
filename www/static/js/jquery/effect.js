@@ -90,6 +90,7 @@ var viewPage = function(){
 
 	//set front end background
 	reuseEvent.frontendColorEvent();
+
 }	
 
 
@@ -246,6 +247,37 @@ var reuseEvent = {
 	},
 	frontendColorEvent: function(){
 		$jq("body").css("background", "url('/static/img/background/body/sprinkles.png') repeat");
+	},
+	setWaterfall: function(){
+		var $jq_out_block = $jq(".home-view-inner-block"),
+			$jq_item = $jq_out_block.find(".item"),
+			$jq_border = 1,
+			$jq_index = 0,
+			$jq_height_max = 28,
+			$jq_height_min = 20,
+			$jq_width = 21.5,
+			$jq_random = 0,
+			$jq_top = [0, 0, 0, 0];
+
+		$jq_item.each(function(){
+			
+			$jq_random = Math.floor(Math.random()*($jq_height_max-$jq_height_min+1)+$jq_height_min);
+			
+			$jq(this).css({
+				backgroundPosition: "50%, 50%",
+				position: "absolute",
+				width: $jq_width+"em",
+				height: $jq_random+"em",
+				marginTop: $jq_top[$jq_index]+"em",
+				marginLeft: $jq_width*$jq_index+$jq_border*$jq_index+"em" 
+			});
+
+			$jq_top[$jq_index] = $jq_top[$jq_index]+$jq_random+$jq_border;
+
+			($jq_index == 3)? $jq_index = 0 : $jq_index++;
+			
+
+		}).find(".image").css("opacity", 0);
 	}
 }
 

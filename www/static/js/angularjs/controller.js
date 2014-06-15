@@ -319,6 +319,7 @@ APP.controller("view-content-block", ['$scope', '$http', '$timeout', function($s
 	$scope.shadowButton = 'black';
 	$scope.shadowIcon = 'adjust';
 	$scope.shadowTitle = '陰影模式顯示';
+	$scope.littleHide = false;
 
 	$scope.addLove = function(photo_id){
 
@@ -337,7 +338,7 @@ APP.controller("view-content-block", ['$scope', '$http', '$timeout', function($s
 	     });
 	}
 
-	$scope.shadow = function(e){
+	$scope.shadow = function(){
 		if($scope.shadowSet == 'noShadow'){
 			$scope.shadowSet = 'shadowing';
 			$scope.shadowClass = 'shadowShow';
@@ -357,6 +358,16 @@ APP.controller("view-content-block", ['$scope', '$http', '$timeout', function($s
 			reuseEvent.backCoverEvent();
 		}, 200);
 		
+	}
+
+	$scope.waterfall = function(){
+
+		if($scope.littleHide == false){
+			$scope.littleHide = true;
+			$scope.itemList = 'waterfall';
+			$scope.itemMenuShow = 'waterfall';
+			reuseEvent.setWaterfall();
+		}	
 	}
 	
 }]);
