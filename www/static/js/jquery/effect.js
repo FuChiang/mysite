@@ -248,36 +248,74 @@ var reuseEvent = {
 	frontendColorEvent: function(){
 		$jq("body").css("background", "url('/static/img/background/body/sprinkles.png') repeat");
 	},
-	setWaterfall: function(){
+	setWaterfall: function(showNum){
 		var $jq_out_block = $jq(".home-view-inner-block"),
 			$jq_item = $jq_out_block.find(".item"),
-			$jq_border = 1,
+			$jq_border = 0.5,
 			$jq_index = 0,
 			$jq_height_max = 28,
 			$jq_height_min = 20,
-			$jq_width = 21.5,
 			$jq_random = 0,
-			$jq_top = [0, 0, 0, 0];
+			$jq_itemWidth = [18, 14, 12, 14, 15],
+			$jq_top = [0, 0, 0, 0, 0],
+			$jq_outWidth = [18, 30, 38, 60, 75];
+
+
+
+		$jq_out_block.css({
+			width: $jq_outWidth[showNum]+"em"
+		});
 
 		$jq_item.each(function(){
 			
 			$jq_random = Math.floor(Math.random()*($jq_height_max-$jq_height_min+1)+$jq_height_min);
-			
+
 			$jq(this).css({
-				backgroundPosition: "50%, 50%",
+				backgroundImage: "url("+$jq(this).find(".photo-img").attr('src')+")",
 				position: "absolute",
-				width: $jq_width+"em",
+				width: $jq_itemWidth[showNum]+"em",
 				height: $jq_random+"em",
 				marginTop: $jq_top[$jq_index]+"em",
-				marginLeft: $jq_width*$jq_index+$jq_border*$jq_index+"em" 
+				marginLeft: $jq_itemWidth[showNum]*$jq_index+$jq_border*$jq_index+"em" 
 			});
 
 			$jq_top[$jq_index] = $jq_top[$jq_index]+$jq_random+$jq_border;
 
-			($jq_index == 3)? $jq_index = 0 : $jq_index++;
+			($jq_index == showNum)? $jq_index = 0 : $jq_index++;
 			
 
-		}).find(".image").css("opacity", 0);
+		}).find(".image").css("opacity", 0).promise().done(function(){
+			$jq_out_block.css("height", $jq_top[0]+"em");
+		});
+
+		$jq(window).resize(function() {
+
+		    if(this.resizeTO) clearTimeout(this.resizeTO);
+
+		    this.resizeTO = setTimeout(function() {
+		        $jq(this).trigger('resizeEnd');
+		    }, 1000);
+
+		}).on("resizeEnd", function() {
+			var width = $jq(window).width();
+
+			if(width > 1440){
+				reuseEvent.setWaterfall(4);
+			}
+			if(width <= 1440 && width >960){
+				reuseEvent.setWaterfall(3);
+			}
+			else if(width <= 960 && width >600){
+				reuseEvent.setWaterfall(2);
+			}
+			else if(width <=600  && width >533){
+				reuseEvent.setWaterfall(1);
+			}
+			else if(width <= 533){
+				reuseEvent.setWaterfall(0);
+			}
+
+		});
 	}
 }
 

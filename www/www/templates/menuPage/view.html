@@ -32,8 +32,8 @@
 							<button class="ui black button single" ng-click="itemList='single';itemMenuShow='single'" title="大圖模式顯示"><i class="resize full big icon"></i></button>
 							<button class="ui black button little" ng-click="itemList='little';itemMenuShow='little'" title="小圖模式顯示"><i class="resize small big icon"></i></button>
 							<button class="ui <%shadowButton%> button" ng-click="shadow()" title="<%shadowTitle%>"><i class="<%shadowIcon%> big icon"></i></button>
-							<button class="ui black button" ng-click="itemList='new'" title="依時間排序"><i class="time small big icon"></i></button>
-							<button class="ui black button" ng-click="itemList='popular'" title="依喜歡排序"><i class="heart small big icon"></i></button>
+							<button class="ui black button" ng-click="itemList='new'" title="依時間排序" ng-show="{{order}}"><i class="time blue small big icon"></i></button>
+							<button class="ui black button" ng-click="itemList='popular'" title="依喜歡排序" ng-hide="{{order}}"><i class="heart red small big icon"></i></button>
 						</div>
 					</div>
 					<div class="home-view-inner-block" id="<%shadowSet%>" data-window-scroll>

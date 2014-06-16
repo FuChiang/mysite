@@ -339,35 +339,51 @@ APP.controller("view-content-block", ['$scope', '$http', '$timeout', function($s
 	}
 
 	$scope.shadow = function(){
-		if($scope.shadowSet == 'noShadow'){
-			$scope.shadowSet = 'shadowing';
-			$scope.shadowClass = 'shadowShow';
-			$scope.shadowButton = '';
-			$scope.shadowIcon = 'hide';
-			$scope.shadowTitle = '關閉陰影顯示';
-		}
-		else{
-			$scope.shadowSet = 'noShadow';
-			$scope.shadowClass = false;
-			$scope.shadowButton = 'black';
-			$scope.shadowIcon = 'adjust';
-			$scope.shadowTitle = '陰影模式顯示';
-		}
+		if($scope.itemMenuShow != 'waterfall'){
+			if($scope.shadowSet == 'noShadow'){
+				$scope.shadowSet = 'shadowing';
+				$scope.shadowClass = 'shadowShow';
+				$scope.shadowButton = '';
+				$scope.shadowIcon = 'hide';
+				$scope.shadowTitle = '關閉陰影顯示';
+			}
+			else{
+				$scope.shadowSet = 'noShadow';
+				$scope.shadowClass = false;
+				$scope.shadowButton = 'black';
+				$scope.shadowIcon = 'adjust';
+				$scope.shadowTitle = '陰影模式顯示';
+			}
 
-		time(function(){
-			reuseEvent.backCoverEvent();
-		}, 200);
-		
+			time(function(){
+				reuseEvent.backCoverEvent();
+			}, 200);
+		}
 	}
 
 	$scope.waterfall = function(){
+		var width = $jq(window).width();
 
-		if($scope.littleHide == false){
-			$scope.littleHide = true;
-			$scope.itemList = 'waterfall';
-			$scope.itemMenuShow = 'waterfall';
-			reuseEvent.setWaterfall();
-		}	
+		$scope.littleHide = true;
+		$scope.itemList = 'waterfall';
+		$scope.itemMenuShow = 'waterfall';
+
+		if(width > 1440){
+			reuseEvent.setWaterfall(4);
+		}
+		if(width <= 1440 && width >960){
+			reuseEvent.setWaterfall(3);
+		}
+		else if(width <= 960 && width >600){
+			reuseEvent.setWaterfall(2);
+		}
+		else if(width <=600  && width >533){
+			reuseEvent.setWaterfall(1);
+		}
+		else if(width <= 533){
+			reuseEvent.setWaterfall(0);
+		}
+		
 	}
 	
 }]);

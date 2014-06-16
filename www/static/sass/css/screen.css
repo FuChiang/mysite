@@ -3619,13 +3619,15 @@ html body .container .home-content-block .home-view-block .home-view-display-set
   margin: -0.5em;
 }
 html body .container .home-content-block .home-view-block .home-view-inner-block {
-  overflow-y: hidden;
+  overflow: hidden;
+  margin: 0 auto;
 }
 html body .container .home-content-block .home-view-block .home-view-inner-block .item {
   float: left;
   text-align: center;
   height: 100%;
   background-size: auto, cover;
+  background-position: center;
 }
 html body .container .home-content-block .home-view-block .home-view-inner-block .item .image {
   margin: 0 auto;

@@ -167,7 +167,6 @@ APP.directive('itemDisplay', ['$window', '$timeout', function($window, time) {
 		//scope=> $scope, element=>object itsself, attr=>attribute in tag
 		link: function(scope, element, attr){
 			scope.$watch(attr.itemDisplay, function(value){
-
 				if(value == 'single'){
 					element.css({
 						width: "100%", 
@@ -182,7 +181,7 @@ APP.directive('itemDisplay', ['$window', '$timeout', function($window, time) {
 						opacity: 1
 					}).end().find(".content").addClass("singleLove").end().find(".owner").addClass("singleOwner");
 				
-					scope.littleHide = false;
+					setContent(false);
 				}
 				else if(value == 'multiple'){
 					element.css({
@@ -197,7 +196,7 @@ APP.directive('itemDisplay', ['$window', '$timeout', function($window, time) {
 						opacity: 1
 					}).end().find(".content").removeClass("singleLove").end().find(".owner").removeClass("singleOwner");
 					
-					scope.littleHide = false;
+					setContent(false);
 
 				}
 				else if(value == 'little'){
@@ -213,7 +212,7 @@ APP.directive('itemDisplay', ['$window', '$timeout', function($window, time) {
 						opacity: 1
 					});
 
-					scope.littleHide = true;
+					setContent(true);
 				}
 				else if(value == 'new'){
 					$window.location.href = '/viewPhoto/new';
@@ -221,7 +220,20 @@ APP.directive('itemDisplay', ['$window', '$timeout', function($window, time) {
 				else if(value == 'popular'){
 					$window.location.href = '/viewPhoto/popular';
 				}
+
+				setContent = function(status){
+					
+					scope.littleHide = status;
+
+					reuseEvent.backCoverEvent();
+
+					element.parent().css({
+						height: "100%",
+						width: "100%"
+					});
+				}
 			});
+			
 		}
 	};
 }]);
@@ -246,6 +258,9 @@ APP.directive('itemMenu', function() {
 				else if(value == 'little'){
 					scope.photoShow = 'little_show';
 				}
+				else if(value == 'waterfall'){
+					scope.photoShow = 'waterfall_show';
+				}
 			});
 		}
 	};
@@ -267,7 +282,8 @@ APP.directive('windowScroll', ['$window', '$http', '$compile', function($window,
 				reGetSize = function(){
 					pageHeight = element.height(),
 			 		winHeight = $window.innerHeight;
-				};
+				},
+				ajaxIng = false;
 
 			angular.element($window).bind("scroll", function(value){
 			 	var scrollTop = angular.element($window).scrollTop();
@@ -275,7 +291,10 @@ APP.directive('windowScroll', ['$window', '$http', '$compile', function($window,
 			 	//get body page content
 				reGetSize();
 
-				if(pageHeight <= winHeight+scrollTop+addNum){
+				if(pageHeight <= winHeight+scrollTop+addNum && !ajaxIng){
+
+					ajaxIng = true;
+
 					$http({
 					          method: 'POST',
 						     data: {field: priority},
@@ -285,7 +304,7 @@ APP.directive('windowScroll', ['$window', '$http', '$compile', function($window,
 				        	var i = 0, len = data.length, str = '';
 
 				        	//check have any data require to show
-		    				if(len == 0){
+		    				if(len == 0 || len == ""){
 		    					//if no data then cancel inifinite effect
 		    					angular.element($window).off();
 		    				}
@@ -307,23 +326,27 @@ APP.directive('windowScroll', ['$window', '$http', '$compile', function($window,
 			    				if(scope.photoShow == 'single_show'){
 			    					scope.itemList = 'single';
 								scope.itemMenuShow = 'single';
+								reuseEvent.backCoverEvent();
 							}
 							else if(scope.photoShow == 'multiple_show'){
 								scope.itemList = 'multiple';
 								scope.itemMenuShow = 'multiple';
+								reuseEvent.backCoverEvent();
 							}
 							else if(scope.photoShow == 'little_show'){
 								scope.itemList = 'little';
 								scope.itemMenuShow = 'little';
+								reuseEvent.backCoverEvent();
 							}
-
-							//set background photo
-							reuseEvent.backCoverEvent();
+							else if(scope.photoShow == 'waterfall_show'){
+								reuseEvent.setWaterfall();
+							}
+		
+							ajaxIng = false;
 		    				}
 
-
 				     }).error(function(data, status, headers, config){
-				        	alert('ajax 錯誤代碼='+data);
+				        	deferred.reject();
 				     });
 				}
 			});

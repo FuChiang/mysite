@@ -17,8 +17,11 @@ def view(request, priority):
 
 	photosQuery = None
 	field = None
+	statue = None
 
 	if request.method == 'GET':
+
+		statue = 'false' if priority == 'new' else 'true'
 
 		field = transformField(priority)
 
@@ -28,7 +31,7 @@ def view(request, priority):
 
 			request.session['start_view_num'] = 18
 
-	return  render(request, 'menuPage/view.html', {'load': 'viewPage', 'topTitle': '觀賞寵物照', 'photosQuery': photosQuery})
+	return  render(request, 'menuPage/view.html', {'load': 'viewPage', 'topTitle': '觀賞寵物照', 'photosQuery': photosQuery, 'order': statue})
 
 def ajaxview(request):
 	
