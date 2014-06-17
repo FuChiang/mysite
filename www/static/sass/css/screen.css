@@ -3608,8 +3608,9 @@ html body .container .home-content-block .home-view-block {
   margin: 7em auto 0 auto;
 }
 html body .container .home-content-block .home-view-block .home-view-display-set {
-  position: absolute;
-  text-align: right;
+  width: 100%;
+  text-align: center;
+  margin-bottom: 1em;
 }
 html body .container .home-content-block .home-view-block .home-view-display-set .button {
   height: 4em;
@@ -3651,21 +3652,26 @@ html body .container .home-content-block .home-view-block .home-view-inner-block
   left: 10px;
   width: 48%;
   height: 20%;
-  -moz-transform: rotate(-3deg);
-  -ms-transform: rotate(-3deg);
-  -webkit-transform: rotate(-3deg);
-  transform: rotate(-3deg);
-  -moz-box-shadow: 0 15px 10px #4d4d4d;
-  -webkit-box-shadow: 0 15px 10px #4d4d4d;
-  box-shadow: 0 15px 10px #4d4d4d;
+  -moz-transform: rotate(-4deg);
+  -ms-transform: rotate(-4deg);
+  -webkit-transform: rotate(-4deg);
+  transform: rotate(-4deg);
+  -moz-box-shadow: 0 12px 10px #4d4d4d;
+  -webkit-box-shadow: 0 12px 10px #4d4d4d;
+  box-shadow: 0 12px 10px #4d4d4d;
 }
 html body .container .home-content-block .home-view-block .home-view-inner-block .item .shadowShow:after {
-  -moz-transform: rotate(3deg);
-  -ms-transform: rotate(3deg);
-  -webkit-transform: rotate(3deg);
-  transform: rotate(3deg);
+  -moz-transform: rotate(4deg);
+  -ms-transform: rotate(4deg);
+  -webkit-transform: rotate(4deg);
+  transform: rotate(4deg);
   right: 10px;
   left: auto;
+}
+html body .container .home-content-block .home-view-block .home-view-inner-block .water-shadow {
+  -moz-box-shadow: gray 0px 0px 1px;
+  -webkit-box-shadow: gray 0px 0px 1px;
+  box-shadow: gray 0px 0px 1px;
 }
 html body .container .home-content-block .home-view-block .home-view-inner-block .owner {
   z-index: 1;
@@ -3673,6 +3679,7 @@ html body .container .home-content-block .home-view-block .home-view-inner-block
   text-align: left;
   margin: 1em auto 0 2.5em;
   overflow: hidden;
+  width: 80%;
 }
 html body .container .home-content-block .home-view-block .home-view-inner-block .owner .own-img {
   border: 5px solid white;
@@ -3766,8 +3773,6 @@ html body .container .home-content-block .home-view-block .home-view-inner-block
     -o-transition: all 0.3s;
     -webkit-transition: all 0.3s;
     transition: all 0.3s;
-    width: 100%;
-    text-align: center;
     margin-top: -5em;
   }
   html body .container .home-content-block .home-view-block .home-view-display-set .button {
@@ -3795,9 +3800,6 @@ html body .container .home-content-block .home-view-block .home-view-inner-block
   html body .container .home-content-block .home-view-block .item .singleLove .menu {
     margin-right: 3em;
   }
-  html body .container .home-content-block .home-view-block .item .owner {
-    width: 38%;
-  }
   html body .container .home-content-block .home-view-block .item .singleOwner {
     -moz-transition: width 0.3s;
     -o-transition: width 0.3s;
@@ -3811,8 +3813,6 @@ html body .container .home-content-block .home-view-block .home-view-inner-block
     -o-transition: all 0.3s;
     -webkit-transition: all 0.3s;
     transition: all 0.3s;
-    width: 98%;
-    text-align: right;
   }
   html body .container .home-content-block .home-view-block .home-view-display-set .button {
     width: 4em;
@@ -3835,9 +3835,6 @@ html body .container .home-content-block .home-view-block .home-view-inner-block
   }
   html body .container .home-content-block .home-view-block .item .singleLove .menu {
     margin-right: 2em;
-  }
-  html body .container .home-content-block .home-view-block .item .owner {
-    width: 28%;
   }
   html body .container .home-content-block .home-view-block .item .singleOwner {
     -moz-transition: width 0.3s;

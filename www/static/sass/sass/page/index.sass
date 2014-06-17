@@ -526,8 +526,9 @@ html
 					max-width: 100%
 					margin: 7em auto 0 auto
 					.home-view-display-set
-						+ft($ab)
-						text-align: right
+						width: 100%
+						text-align: center
+						margin-bottom: 1em
 						.button
 							height: 4em
 							i
@@ -557,17 +558,20 @@ html
 									bottom: 15px
 									left: 10px
 									+wh(48%, 20%)
-									@include rotate(-3deg)
-									@include box-shadow(0 15px 10px lighten($sb, 30%))
+									@include rotate(-4deg)
+									@include box-shadow(0 12px 10px lighten($sb, 30%))
 								&:after
-									@include rotate(3deg)
+									@include rotate(4deg)
 									right: 10px
 									left: auto
+						.water-shadow
+							@include box-shadow($sgy 0px 0px 1px)
 						.owner
 							+ft($ab, 1)
 							text-align: left
 							margin: 1em auto 0 2.5em
 							overflow: hidden
+							width: 80%
 							.own-img
 								border: 5px solid $sw
 								+radius(5em)
@@ -625,8 +629,6 @@ html
 								width: 85%
 						.home-view-display-set
 							@include transition(all 0.3s)
-							width: 100%
-							text-align: center
 							margin-top: -5em
 							.button
 								width: 3.3em
@@ -641,16 +643,12 @@ html
 								width: 31em
 								.menu
 									margin-right: 3em
-							.owner
-								width: 38%
 							.singleOwner
 								@include transition(width 0.3s)
 								width: 30em
 								margin-bottom: -7em
 						.home-view-display-set
 							@include transition(all 0.3s)
-							width: 98%
-							text-align: right
 							.button
 								width: 4em
 					+at-breakpoint($pc)
@@ -662,8 +660,6 @@ html
 								width: 33em
 								.menu
 									margin-right: 2em
-							.owner
-								width: 28%
 							.singleOwner
 								@include transition(width 0.3s)
 								width: 30em

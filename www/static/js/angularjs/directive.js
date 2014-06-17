@@ -167,6 +167,7 @@ APP.directive('itemDisplay', ['$window', '$timeout', function($window, time) {
 		//scope=> $scope, element=>object itsself, attr=>attribute in tag
 		link: function(scope, element, attr){
 			scope.$watch(attr.itemDisplay, function(value){
+
 				if(value == 'single'){
 					element.css({
 						width: "100%", 
@@ -225,9 +226,11 @@ APP.directive('itemDisplay', ['$window', '$timeout', function($window, time) {
 					
 					scope.littleHide = status;
 
+					angular.element($window).off('resize');
+
 					reuseEvent.backCoverEvent();
 
-					element.parent().css({
+					element.removeClass("water-shadow").parent().css({
 						height: "100%",
 						width: "100%"
 					});
@@ -240,7 +243,7 @@ APP.directive('itemDisplay', ['$window', '$timeout', function($window, time) {
 
 
 //photo menu display block
-APP.directive('itemMenu', function() {
+APP.directive('itemMenu', ['$window', function($window) {
 	return{
 		//if set true then replace original items otherwise append into items 
 		replace: true,
@@ -249,6 +252,7 @@ APP.directive('itemMenu', function() {
 		//scope=> $scope, element=>object itsself, attr=>attribute in tag
 		link: function(scope, element, attr){
 			scope.$watch(attr.itemMenu, function(value){
+
 				if(value == 'single'){
 					scope.photoShow = 'single_show';
 				}
@@ -264,7 +268,7 @@ APP.directive('itemMenu', function() {
 			});
 		}
 	};
-});
+}]);
 
 
 //photo menu display block
@@ -339,7 +343,7 @@ APP.directive('windowScroll', ['$window', '$http', '$compile', function($window,
 								reuseEvent.backCoverEvent();
 							}
 							else if(scope.photoShow == 'waterfall_show'){
-								reuseEvent.setWaterfall();
+								reuseEvent.checkWinSize();
 							}
 		
 							ajaxIng = false;

@@ -362,28 +362,13 @@ APP.controller("view-content-block", ['$scope', '$http', '$timeout', function($s
 	}
 
 	$scope.waterfall = function(){
-		var width = $jq(window).width();
 
-		$scope.littleHide = true;
-		$scope.itemList = 'waterfall';
-		$scope.itemMenuShow = 'waterfall';
-
-		if(width > 1440){
-			reuseEvent.setWaterfall(4);
-		}
-		if(width <= 1440 && width >960){
-			reuseEvent.setWaterfall(3);
-		}
-		else if(width <= 960 && width >600){
-			reuseEvent.setWaterfall(2);
-		}
-		else if(width <=600  && width >533){
-			reuseEvent.setWaterfall(1);
-		}
-		else if(width <= 533){
-			reuseEvent.setWaterfall(0);
-		}
-		
+		if($scope.itemMenuShow != 'waterfall'){
+			reuseEvent.checkWinSize();
+			$scope.littleHide = true;
+			$scope.itemList = 'waterfall';
+			$scope.itemMenuShow = 'waterfall';
+		} 
 	}
 	
 }]);

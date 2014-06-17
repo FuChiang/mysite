@@ -256,11 +256,9 @@ var reuseEvent = {
 			$jq_height_max = 28,
 			$jq_height_min = 20,
 			$jq_random = 0,
-			$jq_itemWidth = [18, 14, 12, 14, 15],
 			$jq_top = [0, 0, 0, 0, 0],
-			$jq_outWidth = [18, 30, 38, 60, 75];
-
-
+			$jq_itemWidth = [18, 14.7, 11.3, 13.4, 15],
+			$jq_outWidth = [18, 30, 35, 55, 75];
 
 		$jq_out_block.css({
 			width: $jq_outWidth[showNum]+"em"
@@ -277,7 +275,7 @@ var reuseEvent = {
 				height: $jq_random+"em",
 				marginTop: $jq_top[$jq_index]+"em",
 				marginLeft: $jq_itemWidth[showNum]*$jq_index+$jq_border*$jq_index+"em" 
-			});
+			}).addClass("water-shadow");
 
 			$jq_top[$jq_index] = $jq_top[$jq_index]+$jq_random+$jq_border;
 
@@ -297,25 +295,27 @@ var reuseEvent = {
 		    }, 1000);
 
 		}).on("resizeEnd", function() {
-			var width = $jq(window).width();
-
-			if(width > 1440){
-				reuseEvent.setWaterfall(4);
-			}
-			if(width <= 1440 && width >960){
-				reuseEvent.setWaterfall(3);
-			}
-			else if(width <= 960 && width >600){
-				reuseEvent.setWaterfall(2);
-			}
-			else if(width <=600  && width >533){
-				reuseEvent.setWaterfall(1);
-			}
-			else if(width <= 533){
-				reuseEvent.setWaterfall(0);
-			}
-
+			reuseEvent.checkWinSize();
 		});
+	},
+	checkWinSize: function(){
+		var width = $jq(window).width();
+
+		if(width > 1440){
+			reuseEvent.setWaterfall(4);
+		}
+		if(width <= 1440 && width >960){
+			reuseEvent.setWaterfall(3);
+		}
+		else if(width <= 960 && width >600){
+			reuseEvent.setWaterfall(2);
+		}
+		else if(width <=600  && width >533){
+			reuseEvent.setWaterfall(1);
+		}
+		else if(width <= 533){
+			reuseEvent.setWaterfall(0);
+		}
 	}
 }
 
