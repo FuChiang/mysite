@@ -50,11 +50,15 @@ def ajaxview(request):
 			request.session['start_view_num'] = request.session['start_view_num']+17
 
 			for value in photosQuery:
+
+				if len(value["photo_pet_name"]) > 10:
+					value["photo_pet_name"] = value["photo_pet_name"][0:10]+"..."
+				
 				json_str.append({
 					"pic": ""+value["pic"]+"",
 					"pid": ""+str(value["pid"])+"",
 					"photo_filename": ""+value["photo_filename"]+"",
-					"photo_pet_name": ""+value["photo_pet_name"][0:10]+"",
+					"photo_pet_name": ""+value["photo_pet_name"]+"",
 					"photo_description": ""+value["photo_description"]+"",
 					"photo_type": ""+value["photo_type"]+"",
 					"photo_account_id": ""+str(value["photo_account_id"])+"",

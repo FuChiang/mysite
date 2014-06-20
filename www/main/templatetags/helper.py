@@ -18,7 +18,9 @@ def checkImg(pic, size):
 
 @register.filter
 def slice(name, num):
-	return name[0:num]
+	if len(name) > 10:
+		name = name[0:num]+'...'
+	return name
 
 
 

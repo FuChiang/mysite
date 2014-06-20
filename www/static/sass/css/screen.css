@@ -74,11 +74,11 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   position: absolute;
 }
 
-.po, html body .container .search-block .remove, html body .container .main-header-nav-block .main-menu, html body .container .main-add-in-block h5 .remove, html body .container .main-sign-in-block h5 .remove, html body .container .site-Menu-Block .site-Menu, html body .container .home-content-block .home-view-block .home-view-inner-block .content .menu .love, html body .container .home-content-block .home-view-block .home-view-inner-block .content .menu .comments, html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-share-photo-block .photo-url-block span:hover, html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-share-photo-block .photo-file-block {
+.po, html body .container .search-block .remove, html body .container .main-header-nav-block .main-menu, html body .container .main-add-in-block h5 .remove, html body .container .main-sign-in-block h5 .remove, html body .container .site-Menu-Block .site-Menu, html body .container .home-content-block .home-view-block .home-view-inner-block .item .content .menu .love, html body .container .home-content-block .home-view-block .home-view-inner-block .item .content .menu .comments, html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-share-photo-block .photo-url-block span:hover, html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-share-photo-block .photo-file-block {
   cursor: pointer;
 }
 
-.line, html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-share-photo-block .photo-url-block span:hover {
+.line, html body .container .home-content-block .home-view-block .home-view-inner-block .item .image .pet-name a:hover, html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-share-photo-block .photo-url-block span:hover {
   text-decoration: underline;
 }
 
@@ -2649,19 +2649,7 @@ html body {
   position: relative;
   width: 100%;
   height: 100%;
-  /*overflow-x: hidden */
-  background-image: -moz-linear-gradient(left, rgba(0, 0, 0, 0) 0%, rgba(121, 121, 229, 0.25) 0%, rgba(79, 79, 221, 0.25) 5.61798%, rgba(0, 0, 0, 0) 5.61798%, rgba(0, 0, 0, 0) 6.74157%, rgba(121, 121, 229, 0.25) 6.74157%, rgba(79, 79, 221, 0.25) 12.35955%, rgba(0, 0, 0, 0) 12.35955%, rgba(0, 0, 0, 0) 13.48315%, rgba(121, 121, 229, 0.25) 13.48315%, rgba(79, 79, 221, 0.25) 19.10112%, rgba(0, 0, 0, 0) 19.10112%, rgba(0, 0, 0, 0) 20.22472%, rgba(121, 121, 229, 0.25) 20.22472%, rgba(79, 79, 221, 0.25) 25.8427%, rgba(0, 0, 0, 0) 25.8427%, rgba(0, 0, 0, 0) 26.96629%, rgba(121, 121, 229, 0.25) 26.96629%, rgba(79, 79, 221, 0.25) 32.58427%, rgba(0, 0, 0, 0) 32.58427%, rgba(0, 0, 0, 0) 33.70787%, rgba(121, 121, 229, 0.25) 33.70787%, rgba(79, 79, 221, 0.25) 39.32584%, rgba(0, 0, 0, 0) 39.32584%, rgba(0, 0, 0, 0) 40.44944%, rgba(121, 121, 229, 0.25) 40.44944%, rgba(79, 79, 221, 0.25) 46.06742%, rgba(0, 0, 0, 0) 46.06742%, rgba(0, 0, 0, 0) 47.19101%, rgba(121, 121, 229, 0.25) 47.19101%, rgba(79, 79, 221, 0.25) 52.80899%, rgba(0, 0, 0, 0) 52.80899%, rgba(0, 0, 0, 0) 53.93258%, rgba(121, 121, 229, 0.25) 53.93258%, rgba(79, 79, 221, 0.25) 59.55056%, rgba(0, 0, 0, 0) 59.55056%, rgba(0, 0, 0, 0) 60.67416%, rgba(121, 121, 229, 0.25) 60.67416%, rgba(79, 79, 221, 0.25) 66.29213%, rgba(0, 0, 0, 0) 66.29213%, rgba(0, 0, 0, 0) 67.41573%, rgba(121, 121, 229, 0.25) 67.41573%, rgba(79, 79, 221, 0.25) 73.03371%, rgba(0, 0, 0, 0) 73.03371%, rgba(0, 0, 0, 0) 74.1573%, rgba(121, 121, 229, 0.25) 74.1573%, rgba(79, 79, 221, 0.25) 79.77528%, rgba(0, 0, 0, 0) 79.77528%, rgba(0, 0, 0, 0) 80.89888%, rgba(121, 121, 229, 0.25) 80.89888%, rgba(79, 79, 221, 0.25) 86.51685%, rgba(0, 0, 0, 0) 86.51685%, rgba(0, 0, 0, 0) 87.64045%, rgba(121, 121, 229, 0.25) 87.64045%, rgba(79, 79, 221, 0.25) 93.25843%, rgba(0, 0, 0, 0) 93.25843%, rgba(0, 0, 0, 0) 94.38202%, rgba(121, 121, 229, 0.25) 94.38202%, rgba(79, 79, 221, 0.25) 100.0%, rgba(0, 0, 0, 0) 100.0%, rgba(0, 0, 0, 0) 100%);
-  background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, 0) 0%, rgba(121, 121, 229, 0.25) 0%, rgba(79, 79, 221, 0.25) 5.61798%, rgba(0, 0, 0, 0) 5.61798%, rgba(0, 0, 0, 0) 6.74157%, rgba(121, 121, 229, 0.25) 6.74157%, rgba(79, 79, 221, 0.25) 12.35955%, rgba(0, 0, 0, 0) 12.35955%, rgba(0, 0, 0, 0) 13.48315%, rgba(121, 121, 229, 0.25) 13.48315%, rgba(79, 79, 221, 0.25) 19.10112%, rgba(0, 0, 0, 0) 19.10112%, rgba(0, 0, 0, 0) 20.22472%, rgba(121, 121, 229, 0.25) 20.22472%, rgba(79, 79, 221, 0.25) 25.8427%, rgba(0, 0, 0, 0) 25.8427%, rgba(0, 0, 0, 0) 26.96629%, rgba(121, 121, 229, 0.25) 26.96629%, rgba(79, 79, 221, 0.25) 32.58427%, rgba(0, 0, 0, 0) 32.58427%, rgba(0, 0, 0, 0) 33.70787%, rgba(121, 121, 229, 0.25) 33.70787%, rgba(79, 79, 221, 0.25) 39.32584%, rgba(0, 0, 0, 0) 39.32584%, rgba(0, 0, 0, 0) 40.44944%, rgba(121, 121, 229, 0.25) 40.44944%, rgba(79, 79, 221, 0.25) 46.06742%, rgba(0, 0, 0, 0) 46.06742%, rgba(0, 0, 0, 0) 47.19101%, rgba(121, 121, 229, 0.25) 47.19101%, rgba(79, 79, 221, 0.25) 52.80899%, rgba(0, 0, 0, 0) 52.80899%, rgba(0, 0, 0, 0) 53.93258%, rgba(121, 121, 229, 0.25) 53.93258%, rgba(79, 79, 221, 0.25) 59.55056%, rgba(0, 0, 0, 0) 59.55056%, rgba(0, 0, 0, 0) 60.67416%, rgba(121, 121, 229, 0.25) 60.67416%, rgba(79, 79, 221, 0.25) 66.29213%, rgba(0, 0, 0, 0) 66.29213%, rgba(0, 0, 0, 0) 67.41573%, rgba(121, 121, 229, 0.25) 67.41573%, rgba(79, 79, 221, 0.25) 73.03371%, rgba(0, 0, 0, 0) 73.03371%, rgba(0, 0, 0, 0) 74.1573%, rgba(121, 121, 229, 0.25) 74.1573%, rgba(79, 79, 221, 0.25) 79.77528%, rgba(0, 0, 0, 0) 79.77528%, rgba(0, 0, 0, 0) 80.89888%, rgba(121, 121, 229, 0.25) 80.89888%, rgba(79, 79, 221, 0.25) 86.51685%, rgba(0, 0, 0, 0) 86.51685%, rgba(0, 0, 0, 0) 87.64045%, rgba(121, 121, 229, 0.25) 87.64045%, rgba(79, 79, 221, 0.25) 93.25843%, rgba(0, 0, 0, 0) 93.25843%, rgba(0, 0, 0, 0) 94.38202%, rgba(121, 121, 229, 0.25) 94.38202%, rgba(79, 79, 221, 0.25) 100.0%, rgba(0, 0, 0, 0) 100.0%, rgba(0, 0, 0, 0) 100%);
-  background-image: linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgba(121, 121, 229, 0.25) 0%, rgba(79, 79, 221, 0.25) 5.61798%, rgba(0, 0, 0, 0) 5.61798%, rgba(0, 0, 0, 0) 6.74157%, rgba(121, 121, 229, 0.25) 6.74157%, rgba(79, 79, 221, 0.25) 12.35955%, rgba(0, 0, 0, 0) 12.35955%, rgba(0, 0, 0, 0) 13.48315%, rgba(121, 121, 229, 0.25) 13.48315%, rgba(79, 79, 221, 0.25) 19.10112%, rgba(0, 0, 0, 0) 19.10112%, rgba(0, 0, 0, 0) 20.22472%, rgba(121, 121, 229, 0.25) 20.22472%, rgba(79, 79, 221, 0.25) 25.8427%, rgba(0, 0, 0, 0) 25.8427%, rgba(0, 0, 0, 0) 26.96629%, rgba(121, 121, 229, 0.25) 26.96629%, rgba(79, 79, 221, 0.25) 32.58427%, rgba(0, 0, 0, 0) 32.58427%, rgba(0, 0, 0, 0) 33.70787%, rgba(121, 121, 229, 0.25) 33.70787%, rgba(79, 79, 221, 0.25) 39.32584%, rgba(0, 0, 0, 0) 39.32584%, rgba(0, 0, 0, 0) 40.44944%, rgba(121, 121, 229, 0.25) 40.44944%, rgba(79, 79, 221, 0.25) 46.06742%, rgba(0, 0, 0, 0) 46.06742%, rgba(0, 0, 0, 0) 47.19101%, rgba(121, 121, 229, 0.25) 47.19101%, rgba(79, 79, 221, 0.25) 52.80899%, rgba(0, 0, 0, 0) 52.80899%, rgba(0, 0, 0, 0) 53.93258%, rgba(121, 121, 229, 0.25) 53.93258%, rgba(79, 79, 221, 0.25) 59.55056%, rgba(0, 0, 0, 0) 59.55056%, rgba(0, 0, 0, 0) 60.67416%, rgba(121, 121, 229, 0.25) 60.67416%, rgba(79, 79, 221, 0.25) 66.29213%, rgba(0, 0, 0, 0) 66.29213%, rgba(0, 0, 0, 0) 67.41573%, rgba(121, 121, 229, 0.25) 67.41573%, rgba(79, 79, 221, 0.25) 73.03371%, rgba(0, 0, 0, 0) 73.03371%, rgba(0, 0, 0, 0) 74.1573%, rgba(121, 121, 229, 0.25) 74.1573%, rgba(79, 79, 221, 0.25) 79.77528%, rgba(0, 0, 0, 0) 79.77528%, rgba(0, 0, 0, 0) 80.89888%, rgba(121, 121, 229, 0.25) 80.89888%, rgba(79, 79, 221, 0.25) 86.51685%, rgba(0, 0, 0, 0) 86.51685%, rgba(0, 0, 0, 0) 87.64045%, rgba(121, 121, 229, 0.25) 87.64045%, rgba(79, 79, 221, 0.25) 93.25843%, rgba(0, 0, 0, 0) 93.25843%, rgba(0, 0, 0, 0) 94.38202%, rgba(121, 121, 229, 0.25) 94.38202%, rgba(79, 79, 221, 0.25) 100.0%, rgba(0, 0, 0, 0) 100.0%, rgba(0, 0, 0, 0) 100%);
-  background-position: left top;
-  -moz-background-origin: content;
-  -o-background-origin: content-box;
-  -webkit-background-origin: content;
-  background-origin: content-box;
-  -moz-background-clip: content;
-  -o-background-clip: content-box;
-  -webkit-background-clip: content;
-  background-clip: content-box;
+  overflow-x: hidden;
   background: #f5eacb;
 }
 html body a {
@@ -2675,9 +2663,6 @@ html body a:hover {
 }
 html body .hide-title {
   display: none;
-}
-html body .container {
-  margin-right: 0;
 }
 @media (min-width: 240px) {
   html body .container {
@@ -3604,13 +3589,13 @@ html body .container .home-content-block h1 .headerPhoto img {
 }
 html body .container .home-content-block .home-view-block {
   position: relative;
-  max-width: 100%;
+  width: 100%;
   margin: 7em auto 0 auto;
 }
 html body .container .home-content-block .home-view-block .home-view-display-set {
   width: 100%;
   text-align: center;
-  margin-bottom: 1em;
+  margin-bottom: 2em;
 }
 html body .container .home-content-block .home-view-block .home-view-display-set .button {
   height: 4em;
@@ -3620,21 +3605,25 @@ html body .container .home-content-block .home-view-block .home-view-display-set
   margin: -0.5em;
 }
 html body .container .home-content-block .home-view-block .home-view-inner-block {
-  overflow: hidden;
   margin: 0 auto;
+  overflow: hidden;
+}
+html body .container .home-content-block .home-view-block .home-view-inner-block .water-shadow {
+  -moz-box-shadow: gray 0px 0px 1px;
+  -webkit-box-shadow: gray 0px 0px 1px;
+  box-shadow: gray 0px 0px 1px;
 }
 html body .container .home-content-block .home-view-block .home-view-inner-block .item {
+  position: relative;
   float: left;
-  text-align: center;
-  height: 100%;
   background-size: auto, cover;
   background-position: center;
 }
 html body .container .home-content-block .home-view-block .home-view-inner-block .item .image {
-  margin: 0 auto;
   position: relative;
-  max-width: 80%;
-  max-height: 100%;
+  margin: 0 auto;
+  width: 80%;
+  height: 100%;
 }
 html body .container .home-content-block .home-view-block .home-view-inner-block .item .image .photo-img {
   margin-top: 10%;
@@ -3643,6 +3632,15 @@ html body .container .home-content-block .home-view-block .home-view-inner-block
   -moz-border-radius: 1em;
   -webkit-border-radius: 1em;
   border-radius: 1em;
+}
+html body .container .home-content-block .home-view-block .home-view-inner-block .item .image .pet-name {
+  z-index: 1;
+  position: absolute;
+  text-shadow: white 0 0 0;
+  margin-left: 0.5em;
+}
+html body .container .home-content-block .home-view-block .home-view-inner-block .item .image .pet-name a {
+  color: gray;
 }
 html body .container .home-content-block .home-view-block .home-view-inner-block .item .shadowShow:before, html body .container .home-content-block .home-view-block .home-view-inner-block .item .shadowShow:after {
   z-index: -1;
@@ -3668,50 +3666,15 @@ html body .container .home-content-block .home-view-block .home-view-inner-block
   right: 10px;
   left: auto;
 }
-html body .container .home-content-block .home-view-block .home-view-inner-block .water-shadow {
-  -moz-box-shadow: gray 0px 0px 1px;
-  -webkit-box-shadow: gray 0px 0px 1px;
-  box-shadow: gray 0px 0px 1px;
-}
-html body .container .home-content-block .home-view-block .home-view-inner-block .owner {
+html body .container .home-content-block .home-view-block .home-view-inner-block .item .content {
+  height: 3em;
   z-index: 1;
-  position: absolute;
-  text-align: left;
-  margin: 1em auto 0 2.5em;
-  overflow: hidden;
-  width: 80%;
-}
-html body .container .home-content-block .home-view-block .home-view-inner-block .owner .own-img {
-  border: 5px solid white;
-  -moz-border-radius: 5em;
-  -webkit-border-radius: 5em;
-  border-radius: 5em;
-}
-html body .container .home-content-block .home-view-block .home-view-inner-block .owner span {
-  color: white;
-  font-style: oblique;
-}
-html body .container .home-content-block .home-view-block .home-view-inner-block .content {
-  padding: 0;
-  margin: -0.5em auto 0 auto;
-  height: 3em;
-}
-html body .container .home-content-block .home-view-block .home-view-inner-block .content .new-pet-name {
-  background-color: white;
-  width: auto;
-  height: 3em;
-  float: right;
-  margin-right: 0.5em;
-  color: gray;
-  font-weight: bold;
-  text-shadow: none;
-}
-html body .container .home-content-block .home-view-block .home-view-inner-block .content .menu {
   position: relative;
+  right: 1em;
+  bottom: 1em;
   float: right;
-  margin: -1.8em 3.5em 0 0;
 }
-html body .container .home-content-block .home-view-block .home-view-inner-block .content .menu .love, html body .container .home-content-block .home-view-block .home-view-inner-block .content .menu .comments {
+html body .container .home-content-block .home-view-block .home-view-inner-block .item .content .menu .love, html body .container .home-content-block .home-view-block .home-view-inner-block .item .content .menu .comments {
   margin-left: 0.1em;
   border: 0;
   width: 3em;
@@ -3733,11 +3696,11 @@ html body .container .home-content-block .home-view-block .home-view-inner-block
   -webkit-border-bottom-right-radius: 0.3em;
   border-bottom-right-radius: 0.3em;
 }
-html body .container .home-content-block .home-view-block .home-view-inner-block .content .menu .love p, html body .container .home-content-block .home-view-block .home-view-inner-block .content .menu .comments p {
+html body .container .home-content-block .home-view-block .home-view-inner-block .item .content .menu .love p, html body .container .home-content-block .home-view-block .home-view-inner-block .item .content .menu .comments p {
   margin-top: 0.2em;
   border-top: 1px solid gray;
 }
-html body .container .home-content-block .home-view-block .home-view-inner-block .content .menu .love:hover, html body .container .home-content-block .home-view-block .home-view-inner-block .content .menu .comments:hover {
+html body .container .home-content-block .home-view-block .home-view-inner-block .item .content .menu .love:hover, html body .container .home-content-block .home-view-block .home-view-inner-block .item .content .menu .comments:hover {
   -moz-transition: all 0.3s;
   -o-transition: all 0.3s;
   -webkit-transition: all 0.3s;
@@ -3752,21 +3715,6 @@ html body .container .home-content-block .home-view-block .home-view-inner-block
     -webkit-transition: width 0.3s;
     transition: width 0.3s;
     width: 100%;
-  }
-  html body .container .home-content-block .home-view-block .item .singleLove {
-    -moz-transition: width 0.3s;
-    -o-transition: width 0.3s;
-    -webkit-transition: width 0.3s;
-    transition: width 0.3s;
-    width: 85%;
-  }
-  html body .container .home-content-block .home-view-block .item .singleLove .menu {
-    margin-right: 1.8em;
-  }
-  html body .container .home-content-block .home-view-block .item .singleOwner {
-    position: relative;
-    margin: 1em auto -5em auto;
-    width: 85%;
   }
   html body .container .home-content-block .home-view-block .home-view-display-set {
     -moz-transition: all 0.3s;
@@ -3790,24 +3738,6 @@ html body .container .home-content-block .home-view-block .home-view-inner-block
     transition: width 0.3s;
     width: 50%;
   }
-  html body .container .home-content-block .home-view-block .item .singleLove {
-    -moz-transition: width 0.3s;
-    -o-transition: width 0.3s;
-    -webkit-transition: width 0.3s;
-    transition: width 0.3s;
-    width: 31em;
-  }
-  html body .container .home-content-block .home-view-block .item .singleLove .menu {
-    margin-right: 3em;
-  }
-  html body .container .home-content-block .home-view-block .item .singleOwner {
-    -moz-transition: width 0.3s;
-    -o-transition: width 0.3s;
-    -webkit-transition: width 0.3s;
-    transition: width 0.3s;
-    width: 30em;
-    margin-bottom: -7em;
-  }
   html body .container .home-content-block .home-view-block .home-view-display-set {
     -moz-transition: all 0.3s;
     -o-transition: all 0.3s;
@@ -3824,25 +3754,7 @@ html body .container .home-content-block .home-view-block .home-view-inner-block
     -o-transition: all 0.3s;
     -webkit-transition: all 0.3s;
     transition: all 0.3s;
-    width: 33.3%;
-  }
-  html body .container .home-content-block .home-view-block .item .singleLove {
-    -moz-transition: width 0.3s;
-    -o-transition: width 0.3s;
-    -webkit-transition: width 0.3s;
-    transition: width 0.3s;
-    width: 33em;
-  }
-  html body .container .home-content-block .home-view-block .item .singleLove .menu {
-    margin-right: 2em;
-  }
-  html body .container .home-content-block .home-view-block .item .singleOwner {
-    -moz-transition: width 0.3s;
-    -o-transition: width 0.3s;
-    -webkit-transition: width 0.3s;
-    transition: width 0.3s;
-    width: 30em;
-    margin-bottom: -8em;
+    width: 33.33%;
   }
 }
 @media (min-width: 1440px) {

@@ -39,14 +39,13 @@
 					<div class="home-view-inner-block" id="<%shadowSet%>" data-window-scroll>
 					{% for value in photosQuery %}
 						<div class="item" data-item-display="itemList">
-							<div class="owner" ng-hide="littleHide">
-					    			<a href=""><img class="own-img" src="/static/img/member/photo/{{value.pic}}" title="{{value.account}}"></a>
-					    			<span>{{value.photo_pet_name|slice:10}}</span>
-					    		</div>
 							<div class="image <%shadowClass%>">
-						     		<a href=""><img class="photo-img" src="{{value.photo_filename | checkImg:'big'}}" alt="{{value.photo_pet_name}}"></a>
+						     		<a href=""><img class="photo-img" src="{{value.photo_filename | checkImg:'big'}}" alt="{{value.photo_pet_name}}" title="{{value.photo_pet_name}}"></a>
+						     		<div class="pet-name" ng-show="petName">
+						    			<a href="">{{value.photo_pet_name | slice:10}}</a>
+						    		</div>
 						    	</div>
-						    	<div class="content" ng-hide="littleHide">
+						    	<div class="content">
 						    		<div class="menu">
 						    			<button class="love" id="{{value.pid}}" title="喜歡這張照片" ng-click="addLove({{value.pid}});love{{value.pid}}=true" ng-disabled="love{{value.pid}}">
 						    				<i class="heart red  icon"></i>

@@ -143,7 +143,7 @@ var sharePage = function(){
 	$jq("input:first").focus();
 
 	//initail
-	$jq_shareList.hide().eq(3).show();
+	$jq_shareList.hide().eq(0).show();
 
 	//push next step
 	$jq_SetRight.on("click", function(){
@@ -237,12 +237,12 @@ var reuseEvent = {
 				var $jq_item = $jq(this),
 					imgPath = $jq_item.find(".photo-img").attr('src');
 				$jq_item.css({
-					backgroundImage: "url('/static/img/background/mask/bgmask.png'), url("+imgPath+")"
+					background: "url('/static/img/background/mask/bgmask.png'), url("+imgPath+")"
 				});
 			});
 		}
 		else{
-			$jq_item.css("background-image", false);
+			$jq_item.css("background", false);
 		}
 	},
 	frontendColorEvent: function(){
@@ -251,14 +251,14 @@ var reuseEvent = {
 	setWaterfall: function(showNum){
 		var $jq_out_block = $jq(".home-view-inner-block"),
 			$jq_item = $jq_out_block.find(".item"),
-			$jq_border = 0.5,
+			$jq_border = 1,
 			$jq_index = 0,
-			$jq_height_max = 28,
-			$jq_height_min = 20,
+			$jq_height_max = 21,
+			$jq_height_min = 19,
 			$jq_random = 0,
-			$jq_top = [0, 0, 0, 0, 0],
-			$jq_itemWidth = [18, 14.7, 11.3, 13.4, 15],
-			$jq_outWidth = [18, 30, 35, 55, 75];
+			$jq_top = [0, 0, 0, 0, 0, 0],
+			$jq_itemWidth = [18, 14.7, 14.65, 14.6, 15.5, 16],
+			$jq_outWidth = [18, 30, 45, 60, 80, 90];
 
 		$jq_out_block.css({
 			width: $jq_outWidth[showNum]+"em"
@@ -269,7 +269,7 @@ var reuseEvent = {
 			$jq_random = Math.floor(Math.random()*($jq_height_max-$jq_height_min+1)+$jq_height_min);
 
 			$jq(this).css({
-				backgroundImage: "url("+$jq(this).find(".photo-img").attr('src')+")",
+				background: "#ffffff",
 				position: "absolute",
 				width: $jq_itemWidth[showNum]+"em",
 				height: $jq_random+"em",
@@ -282,7 +282,7 @@ var reuseEvent = {
 			($jq_index == showNum)? $jq_index = 0 : $jq_index++;
 			
 
-		}).find(".image").css("opacity", 0).promise().done(function(){
+		}).promise().done(function(){
 			$jq_out_block.css("height", $jq_top[0]+"em");
 		});
 
@@ -301,16 +301,20 @@ var reuseEvent = {
 	checkWinSize: function(){
 		var width = $jq(window).width();
 
-		if(width > 1440){
+
+		if(width > 1920){
+			reuseEvent.setWaterfall(5);
+		}
+		else if(width <= 1920 && width >1680){
 			reuseEvent.setWaterfall(4);
 		}
-		if(width <= 1440 && width >960){
+		else if(width <= 1680 && width > 960){
 			reuseEvent.setWaterfall(3);
 		}
-		else if(width <= 960 && width >600){
+		else if(width <= 960 && width > 768){
 			reuseEvent.setWaterfall(2);
 		}
-		else if(width <=600  && width >533){
+		else if(width <= 768  && width > 533){
 			reuseEvent.setWaterfall(1);
 		}
 		else if(width <= 533){

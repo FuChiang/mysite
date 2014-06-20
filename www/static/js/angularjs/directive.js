@@ -173,16 +173,19 @@ APP.directive('itemDisplay', ['$window', '$timeout', function($window, time) {
 						width: "100%", 
 						height: "100%",
 						position: "relative",
-						margin: false
+						margin: false,
+						backgroundSize: "auto, cover",
+						backgroundPosition: "center"
 					}).find(".image").css({
 						width: "30em",
 						height: false,
-						marginTop: "3.8%",
-						marginBottom: 0,
-						opacity: 1
-					}).end().find(".content").addClass("singleLove").end().find(".owner").addClass("singleOwner");
+						marginBottom: "4%"
+					}).end().find(".content").css({
+						right: "1em",
+						bottom: "1em"
+					});
 				
-					setContent(false);
+					setContent();
 				}
 				else if(value == 'multiple'){
 					element.css({
@@ -193,11 +196,13 @@ APP.directive('itemDisplay', ['$window', '$timeout', function($window, time) {
 					}).find(".image").css({
 						width: false,
 						height: false,
-						marginBottom: 0,
-						opacity: 1
-					}).end().find(".content").removeClass("singleLove").end().find(".owner").removeClass("singleOwner");
+						marginBottom: 0
+					}).end().find(".content").css({
+						right: "1em",
+						bottom: "1em"
+					});
 					
-					setContent(false);
+					setContent();
 
 				}
 				else if(value == 'little'){
@@ -209,11 +214,28 @@ APP.directive('itemDisplay', ['$window', '$timeout', function($window, time) {
 					}).find(".image").css({
 						width: "50%",
 						height: "70%",
-						marginBottom: "3.8%",
-						opacity: 1
+						marginBottom: "-6%"
+					}).end().find(".content").css({
+						right: "0.5em",
+						bottom: "0.5em"
 					});
 
-					setContent(true);
+					setContent();
+				}
+				else if(value == 'waterfall'){
+					element.css({
+						borderRadius: "0.5em"
+					}).find(".image").css({
+						width: "100%", 
+						height: "100%",
+						marginBottom: 0
+					}).find(".photo-img").css({
+						marginTop: 0,
+						borderRadius: 0
+					}).end().end().find(".content").css({
+						right: "0.1em",
+						bottom: "3.5em"
+					});
 				}
 				else if(value == 'new'){
 					$window.location.href = '/viewPhoto/new';
@@ -222,15 +244,17 @@ APP.directive('itemDisplay', ['$window', '$timeout', function($window, time) {
 					$window.location.href = '/viewPhoto/popular';
 				}
 
-				setContent = function(status){
-					
-					scope.littleHide = status;
+				setContent = function(){
 
 					angular.element($window).off('resize');
 
 					reuseEvent.backCoverEvent();
 
-					element.removeClass("water-shadow").parent().css({
+					element.css("borderRadius", 0)
+					.find(".photo-img").css({
+						marginTop: "10%",
+						borderRadius: "1em"
+					}).end().removeClass("water-shadow").parent().css({
 						height: "100%",
 						width: "100%"
 					});
@@ -253,6 +277,8 @@ APP.directive('itemMenu', ['$window', function($window) {
 		link: function(scope, element, attr){
 			scope.$watch(attr.itemMenu, function(value){
 
+				scope.petName = false;
+
 				if(value == 'single'){
 					scope.photoShow = 'single_show';
 				}
@@ -264,6 +290,7 @@ APP.directive('itemMenu', ['$window', function($window) {
 				}
 				else if(value == 'waterfall'){
 					scope.photoShow = 'waterfall_show';
+					scope.petName = true;
 				}
 			});
 		}
@@ -314,9 +341,8 @@ APP.directive('windowScroll', ['$window', '$http', '$compile', function($window,
 		    				}
 		    				else{
 		    					for(; i < len ; i++){
-			    					str += '<div class="item" data-item-display="itemList"><div class="owner" ng-hide="littleHide"><a href=""><img class="own-img" src="/static/img/member/photo/'+data[i].pic+'" title="'+data[i].account+'"></a><span>'+data[i].photo_pet_name+'</span></div>';
-			    					str += '<div class="image <%shadowClass%>"><a href=""><img class="photo-img" src="/static/img/photo/big/'+data[i].photo_filename+'"></a></div><div class="content" ng-hide="littleHide">';
-			    					str += '<div class="menu"><button class="love" id="'+data[i].pid+'" title="喜歡這張照片" ng-click="addLove('+data[i].pid+');love'+data[i].pid+'=true" ng-disabled="love'+data[i].pid+'">';
+			    					str += '<div class="item" data-item-display="itemList"><div class="image <%shadowClass%>"><a href=""><img class="photo-img" src="/static/img/photo/big/'+data[i].photo_filename+'"></a><div class="pet-name" ng-show="petName"><a href="">'+data[i].photo_pet_name+'</a></div></div>';
+			    					str += '<div class="content" ng-hide="littleHide"><div class="menu"><button class="love" id="'+data[i].pid+'" title="喜歡這張照片" ng-click="addLove('+data[i].pid+');love'+data[i].pid+'=true" ng-disabled="love'+data[i].pid+'">';
 			    					str += '<i class="heart red icon"></i><p class="love'+data[i].pid+'">'+data[i].photo_love+'</p></button><button class="comments" title="瀏覽相關評論" ><a href=""><i class="chat blue icon"></i></a><p>'+data[i].photo_comment+'</p></button>';
 			    					str += '</div></div></div>';
 			    				}
@@ -324,7 +350,7 @@ APP.directive('windowScroll', ['$window', '$http', '$compile', function($window,
 			    				//append to bottom
 			    				element.append(str);
 
-			    				//restart all angularjs controller event 
+			    				//reset all angularjs controller event 
 			    				$compile(element.contents())(scope);
 
 			    				if(scope.photoShow == 'single_show'){

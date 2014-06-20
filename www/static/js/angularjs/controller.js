@@ -319,7 +319,7 @@ APP.controller("view-content-block", ['$scope', '$http', '$timeout', function($s
 	$scope.shadowButton = 'black';
 	$scope.shadowIcon = 'adjust';
 	$scope.shadowTitle = '陰影模式顯示';
-	$scope.littleHide = false;
+	$scope.petName = false;
 
 	$scope.addLove = function(photo_id){
 
@@ -339,7 +339,7 @@ APP.controller("view-content-block", ['$scope', '$http', '$timeout', function($s
 	}
 
 	$scope.shadow = function(){
-		if($scope.itemMenuShow != 'waterfall'){
+
 			if($scope.shadowSet == 'noShadow'){
 				$scope.shadowSet = 'shadowing';
 				$scope.shadowClass = 'shadowShow';
@@ -355,6 +355,7 @@ APP.controller("view-content-block", ['$scope', '$http', '$timeout', function($s
 				$scope.shadowTitle = '陰影模式顯示';
 			}
 
+		if($scope.itemMenuShow != 'waterfall'){
 			time(function(){
 				reuseEvent.backCoverEvent();
 			}, 200);
@@ -365,10 +366,10 @@ APP.controller("view-content-block", ['$scope', '$http', '$timeout', function($s
 
 		if($scope.itemMenuShow != 'waterfall'){
 			reuseEvent.checkWinSize();
-			$scope.littleHide = true;
 			$scope.itemList = 'waterfall';
 			$scope.itemMenuShow = 'waterfall';
-		} 
+		}
+
 	}
 	
 }]);

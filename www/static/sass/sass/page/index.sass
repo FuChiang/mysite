@@ -6,8 +6,7 @@ html
 		margin: 0 auto
 		+ft($re)
 		+wh(100%, 100%)
-		/*overflow-x: hidden*/
-		+susy-grid-background
+		overflow-x: hidden
 		background: darken($sdy, 10%)
 		a 
 			outline: none
@@ -37,7 +36,6 @@ html
 				margin-left: auto
 				width: 100%
 				float: left
-			margin-right: 0
 
 			.fullscreen-mask
 				background-color: #141414
@@ -523,34 +521,43 @@ html
 							top: -0.5em
 				.home-view-block
 					+ft($re)
-					max-width: 100%
+					width: 100%
 					margin: 7em auto 0 auto
 					.home-view-display-set
 						width: 100%
 						text-align: center
-						margin-bottom: 1em
+						margin-bottom: 2em
 						.button
 							height: 4em
 							i
 								+ft($ab)
 								margin: -0.5em
 					.home-view-inner-block
-						overflow: hidden
 						margin: 0 auto
+						overflow: hidden
+						.water-shadow
+							@include box-shadow($sgy 0px 0px 1px)
 						.item
+							+ft($re)
 							float: left
-							text-align: center
-							height: 100%
 							background-size: auto, cover
 							background-position: center
 							.image
-								margin: 0 auto
 								+ft($re)
-								+m-wh(80%, 100%)
+								margin: 0 auto
+								+wh(80%, 100%)
 								.photo-img
 									margin-top: 10%
 									+m-wh(100%, 100%)
 									+radius(1em)
+								.pet-name
+									+ft($ab, 1)
+									+ts($sw 0 0 0)
+									margin-left: 0.5em
+									a
+										color: $sgy
+										&:hover
+											@extend .line
 							.shadowShow
 								&:before, &:after
 									+ft($ab, -1)
@@ -564,69 +571,36 @@ html
 									@include rotate(4deg)
 									right: 10px
 									left: auto
-						.water-shadow
-							@include box-shadow($sgy 0px 0px 1px)
-						.owner
-							+ft($ab, 1)
-							text-align: left
-							margin: 1em auto 0 2.5em
-							overflow: hidden
-							width: 80%
-							.own-img
-								border: 5px solid $sw
-								+radius(5em)
-							span
-								color: $sw
-								font-style: oblique
-						.content
-							padding: 0
-							margin: -0.5em auto 0 auto
-							height: 3em
-							.new-pet-name
-								background-color: $sw
-								+wh(auto, 3em)
+							.content
+								height: 3em
+								+ft($re, 1)
+								right: 1em
+								bottom: 1em
 								float: right
-								margin-right: 0.5em
-								color: $sgy
-								font-weight: bold
-								text-shadow: none
-
-							.menu
-								+ft($re)
-								float: right
-								margin: -1.8em 3.5em 0 0
-								.love, .comments
-									margin-left: 0.1em
-									border: 0
-									+wh(3em, 4em)
-									@extend .po
-									background-color: $sb
-									color: $sw
-									float: left
-									text-shadow: none
-									+radius(1em, top)
-									+radius(0.3em, bottom)
-									p
-										margin-top: 0.2em
-										border-top: 1px solid $sgy
-									&:hover
-										@include transition(all 0.3s)
-										background-color: $sw
-										color: $sr
+								.menu
+									.love, .comments
+										margin-left: 0.1em
+										border: 0
+										+wh(3em, 4em)
+										@extend .po
+										background-color: $sb
+										color: $sw
+										float: left
+										text-shadow: none
+										+radius(1em, top)
+										+radius(0.3em, bottom)
+										p
+											margin-top: 0.2em
+											border-top: 1px solid $sgy
+										&:hover
+											@include transition(all 0.3s)
+											background-color: $sw
+											color: $sr
 									
 					+at-breakpoint($phone)
 						.item
 							@include transition(width 0.3s)
 							width: 100%
-							.singleLove
-								@include transition(width 0.3s)
-								width: 85%
-								.menu
-									margin-right: 1.8em
-							.singleOwner
-								+ft($re)
-								margin: 1em auto -5em auto
-								width: 85%
 						.home-view-display-set
 							@include transition(all 0.3s)
 							margin-top: -5em
@@ -638,15 +612,6 @@ html
 						.item
 							@include transition(width 0.3s)
 							width: 50%
-							.singleLove
-								@include transition(width 0.3s)
-								width: 31em
-								.menu
-									margin-right: 3em
-							.singleOwner
-								@include transition(width 0.3s)
-								width: 30em
-								margin-bottom: -7em
 						.home-view-display-set
 							@include transition(all 0.3s)
 							.button
@@ -654,16 +619,7 @@ html
 					+at-breakpoint($pc)
 						.item
 							@include transition(all 0.3s)
-							width: 33.3%
-							.singleLove
-								@include transition(width 0.3s)
-								width: 33em
-								.menu
-									margin-right: 2em
-							.singleOwner
-								@include transition(width 0.3s)
-								width: 30em
-								margin-bottom: -8em
+							width: 33.33%
 					+at-breakpoint($bpc)
 						.item
 							@include transition(all 0.3s)
