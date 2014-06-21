@@ -3700,14 +3700,6 @@ html body .container .home-content-block .home-view-block .home-view-inner-block
   margin-top: 0.2em;
   border-top: 1px solid gray;
 }
-html body .container .home-content-block .home-view-block .home-view-inner-block .item .content .menu .love:hover, html body .container .home-content-block .home-view-block .home-view-inner-block .item .content .menu .comments:hover {
-  -moz-transition: all 0.3s;
-  -o-transition: all 0.3s;
-  -webkit-transition: all 0.3s;
-  transition: all 0.3s;
-  background-color: white;
-  color: red;
-}
 @media (min-width: 240px) {
   html body .container .home-content-block .home-view-block .item {
     -moz-transition: width 0.3s;

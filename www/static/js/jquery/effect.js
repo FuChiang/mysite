@@ -237,7 +237,7 @@ var reuseEvent = {
 				var $jq_item = $jq(this),
 					imgPath = $jq_item.find(".photo-img").attr('src');
 				$jq_item.css({
-					background: "url('/static/img/background/mask/bgmask.png'), url("+imgPath+")"
+					backgroundImage: "url('/static/img/background/mask/bgmask.png'), url("+imgPath+")"
 				});
 			});
 		}
@@ -251,10 +251,10 @@ var reuseEvent = {
 	setWaterfall: function(showNum){
 		var $jq_out_block = $jq(".home-view-inner-block"),
 			$jq_item = $jq_out_block.find(".item"),
-			$jq_border = 1,
+			$jq_border = 0.5,
 			$jq_index = 0,
-			$jq_height_max = 21,
-			$jq_height_min = 19,
+			$jq_height_max = 22,
+			$jq_height_min = 20,
 			$jq_random = 0,
 			$jq_top = [0, 0, 0, 0, 0, 0],
 			$jq_itemWidth = [18, 14.7, 14.65, 14.6, 15.5, 16],

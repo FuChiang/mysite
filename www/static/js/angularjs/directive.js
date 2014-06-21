@@ -172,8 +172,6 @@ APP.directive('itemDisplay', ['$window', '$timeout', function($window, time) {
 					element.css({
 						width: "100%", 
 						height: "100%",
-						position: "relative",
-						margin: false,
 						backgroundSize: "auto, cover",
 						backgroundPosition: "center"
 					}).find(".image").css({
@@ -191,8 +189,6 @@ APP.directive('itemDisplay', ['$window', '$timeout', function($window, time) {
 					element.css({
 						width: false, 
 						height: false,
-						position: "relative",
-						margin: false
 					}).find(".image").css({
 						width: false,
 						height: false,
@@ -209,8 +205,6 @@ APP.directive('itemDisplay', ['$window', '$timeout', function($window, time) {
 					element.css({
 						width: false, 
 						height: false,
-						position: "relative",
-						margin: false
 					}).find(".image").css({
 						width: "50%",
 						height: "70%",
@@ -250,8 +244,11 @@ APP.directive('itemDisplay', ['$window', '$timeout', function($window, time) {
 
 					reuseEvent.backCoverEvent();
 
-					element.css("borderRadius", 0)
-					.find(".photo-img").css({
+					element.css({
+						borderRadius: 0,
+						position: "relative",
+						margin: false
+					}).find(".photo-img").css({
 						marginTop: "10%",
 						borderRadius: "1em"
 					}).end().removeClass("water-shadow").parent().css({
