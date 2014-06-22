@@ -48,12 +48,11 @@
 						    	<div class="content">
 						    		<div class="menu">
 						    			<button class="love" id="{{value.pid}}" title="喜歡這張照片" ng-click="addLove({{value.pid}});love{{value.pid}}=true" ng-disabled="love{{value.pid}}">
-						    				<i class="heart red  icon"></i>
-						    				<p class="love{{value.pid}}">{{value.photo_love}}</p>
+						    				<i class="heart red  icon"><span class="love{{value.pid}}">{{value.photo_love}}</span></i>
 						    			</button>
 						    			<button class="comments" title="瀏覽相關評論" >
-						    				<a href=""><i class="chat blue icon"></i></a>
-						    				<p>{{value.photo_comment}}</p>
+						    				<a href=""><i class="chat blue icon"><span>{{value.photo_comment}}</span></i></a>
+						    				
 						    			</button>
 						    		</div>
 							</div>

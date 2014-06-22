@@ -173,14 +173,14 @@ APP.directive('itemDisplay', ['$window', '$timeout', function($window, time) {
 						width: "100%", 
 						height: "100%",
 						backgroundSize: "auto, cover",
-						backgroundPosition: "center"
+						backgroundPosition: "center",
 					}).find(".image").css({
 						width: "30em",
 						height: false,
-						marginBottom: "4%"
+						marginBottom: "1%"
 					}).end().find(".content").css({
-						right: "1em",
-						bottom: "1em"
+						top: 0,
+						right: "1em"
 					});
 				
 					setContent();
@@ -194,8 +194,8 @@ APP.directive('itemDisplay', ['$window', '$timeout', function($window, time) {
 						height: false,
 						marginBottom: 0
 					}).end().find(".content").css({
-						right: "1em",
-						bottom: "1em"
+						top: "0.5em",
+						right: "1em"
 					});
 					
 					setContent();
@@ -207,11 +207,11 @@ APP.directive('itemDisplay', ['$window', '$timeout', function($window, time) {
 						height: false,
 					}).find(".image").css({
 						width: "50%",
-						height: "70%",
-						marginBottom: "-6%"
+						height: "50%",
+						marginBottom: "-3%"
 					}).end().find(".content").css({
-						right: "0.5em",
-						bottom: "0.5em"
+						top: "0.7em",
+						right: "1em"
 					});
 
 					setContent();
@@ -227,8 +227,8 @@ APP.directive('itemDisplay', ['$window', '$timeout', function($window, time) {
 						marginTop: 0,
 						borderRadius: 0
 					}).end().end().find(".content").css({
-						right: "0.1em",
-						bottom: "3.5em"
+						top: "-2em",
+						right: "0.5em"
 					});
 				}
 				else if(value == 'new'){
@@ -340,7 +340,7 @@ APP.directive('windowScroll', ['$window', '$http', '$compile', function($window,
 		    					for(; i < len ; i++){
 			    					str += '<div class="item" data-item-display="itemList"><div class="image <%shadowClass%>"><a href=""><img class="photo-img" src="/static/img/photo/big/'+data[i].photo_filename+'"></a><div class="pet-name" ng-show="petName"><a href="">'+data[i].photo_pet_name+'</a></div></div>';
 			    					str += '<div class="content" ng-hide="littleHide"><div class="menu"><button class="love" id="'+data[i].pid+'" title="喜歡這張照片" ng-click="addLove('+data[i].pid+');love'+data[i].pid+'=true" ng-disabled="love'+data[i].pid+'">';
-			    					str += '<i class="heart red icon"></i><p class="love'+data[i].pid+'">'+data[i].photo_love+'</p></button><button class="comments" title="瀏覽相關評論" ><a href=""><i class="chat blue icon"></i></a><p>'+data[i].photo_comment+'</p></button>';
+			    					str += '<i class="heart red icon"><span class="love'+data[i].pid+'">'+data[i].photo_love+'</span></i></button><button class="comments" title="瀏覽相關評論" ><a href=""><i class="chat blue icon"><span>'+data[i].photo_comment+'</span></i></a></button>';
 			    					str += '</div></div></div>';
 			    				}
 
@@ -373,7 +373,7 @@ APP.directive('windowScroll', ['$window', '$http', '$compile', function($window,
 		    				}
 
 				     }).error(function(data, status, headers, config){
-				        	deferred.reject();
+				        	alert('ajax 錯誤代碼='+data);
 				     });
 				}
 			});

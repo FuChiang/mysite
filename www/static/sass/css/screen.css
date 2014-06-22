@@ -3622,6 +3622,7 @@ html body .container .home-content-block .home-view-block .home-view-inner-block
 html body .container .home-content-block .home-view-block .home-view-inner-block .item .image {
   position: relative;
   margin: 0 auto;
+  text-align: center;
   width: 80%;
   height: 100%;
 }
@@ -3668,37 +3669,27 @@ html body .container .home-content-block .home-view-block .home-view-inner-block
 }
 html body .container .home-content-block .home-view-block .home-view-inner-block .item .content {
   height: 3em;
-  z-index: 1;
   position: relative;
+  top: 0.5em;
   right: 1em;
-  bottom: 1em;
-  float: right;
+  width: 100%;
+  text-align: right;
 }
 html body .container .home-content-block .home-view-block .home-view-inner-block .item .content .menu .love, html body .container .home-content-block .home-view-block .home-view-inner-block .item .content .menu .comments {
   margin-left: 0.1em;
   border: 0;
   width: 3em;
-  height: 4em;
+  height: 2em;
   background-color: black;
   color: white;
-  float: left;
   text-shadow: none;
-  -moz-border-radius-topleft: 1em;
-  -webkit-border-top-left-radius: 1em;
-  border-top-left-radius: 1em;
-  -moz-border-radius-topright: 1em;
-  -webkit-border-top-right-radius: 1em;
-  border-top-right-radius: 1em;
-  -moz-border-radius-bottomleft: 0.3em;
-  -webkit-border-bottom-left-radius: 0.3em;
-  border-bottom-left-radius: 0.3em;
-  -moz-border-radius-bottomright: 0.3em;
-  -webkit-border-bottom-right-radius: 0.3em;
-  border-bottom-right-radius: 0.3em;
+  -moz-border-radius: 0.3em;
+  -webkit-border-radius: 0.3em;
+  border-radius: 0.3em;
 }
-html body .container .home-content-block .home-view-block .home-view-inner-block .item .content .menu .love p, html body .container .home-content-block .home-view-block .home-view-inner-block .item .content .menu .comments p {
-  margin-top: 0.2em;
-  border-top: 1px solid gray;
+html body .container .home-content-block .home-view-block .home-view-inner-block .item .content .menu .love span, html body .container .home-content-block .home-view-block .home-view-inner-block .item .content .menu .comments span {
+  color: white;
+  margin-left: 0.2em;
 }
 @media (min-width: 240px) {
   html body .container .home-content-block .home-view-block .item {
