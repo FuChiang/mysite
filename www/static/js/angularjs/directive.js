@@ -168,6 +168,10 @@ APP.directive('itemDisplay', ['$window', '$timeout', function($window, time) {
 		link: function(scope, element, attr){
 			scope.$watch(attr.itemDisplay, function(value){
 
+				time(function(){
+					scope.loadLayout = true;
+				}, 100); 
+
 				if(value == 'single'){
 					element.css({
 						width: "100%", 
@@ -175,12 +179,11 @@ APP.directive('itemDisplay', ['$window', '$timeout', function($window, time) {
 						backgroundSize: "auto, cover",
 						backgroundPosition: "center",
 					}).find(".image").css({
-						width: "30em",
+						maxWidth: "30em",
 						height: false,
 						marginBottom: "1%"
 					}).end().find(".content").css({
-						top: 0,
-						right: "1em"
+						top: 0
 					});
 				
 					setContent();
@@ -194,8 +197,7 @@ APP.directive('itemDisplay', ['$window', '$timeout', function($window, time) {
 						height: false,
 						marginBottom: 0
 					}).end().find(".content").css({
-						top: "0.5em",
-						right: "1em"
+						top: "0.5em"
 					});
 					
 					setContent();
@@ -208,10 +210,9 @@ APP.directive('itemDisplay', ['$window', '$timeout', function($window, time) {
 					}).find(".image").css({
 						width: "50%",
 						height: "50%",
-						marginBottom: "-3%"
+						marginBottom: "-1%"
 					}).end().find(".content").css({
-						top: "0.7em",
-						right: "1em"
+						top: "0.9em"
 					});
 
 					setContent();
@@ -228,14 +229,24 @@ APP.directive('itemDisplay', ['$window', '$timeout', function($window, time) {
 						borderRadius: 0
 					}).end().end().find(".content").css({
 						top: "-2em",
-						right: "0.5em"
+						right: "0.3em",
+						textAlign: "right"
 					});
+
+					time(function(){
+						scope.loadLayout = false;
+					}, 500);
 				}
 				else if(value == 'new'){
 					$window.location.href = '/viewPhoto/new';
 				}
 				else if(value == 'popular'){
 					$window.location.href = '/viewPhoto/popular';
+				}
+				else{
+					time(function(){
+						scope.loadLayout = false;
+					}, 500); 
 				}
 
 				setContent = function(){
@@ -248,12 +259,19 @@ APP.directive('itemDisplay', ['$window', '$timeout', function($window, time) {
 						borderRadius: 0,
 						position: "relative",
 						margin: false
-					}).find(".photo-img").css({
+					}).find(".content").css({
+						right: false,
+						textAlign: "center"
+					}).end().find(".photo-img").css({
 						marginTop: "10%",
 						borderRadius: "1em"
 					}).end().removeClass("water-shadow").parent().css({
 						height: "100%",
 						width: "100%"
+					}).promise().done(function(){
+						time(function(){
+							scope.loadLayout = false;
+						}, 500); 
 					});
 				}
 			});
@@ -289,6 +307,7 @@ APP.directive('itemMenu', ['$window', function($window) {
 					scope.photoShow = 'waterfall_show';
 					scope.petName = true;
 				}
+
 			});
 		}
 	};
@@ -296,7 +315,7 @@ APP.directive('itemMenu', ['$window', function($window) {
 
 
 //photo menu display block
-APP.directive('windowScroll', ['$window', '$http', '$compile', function($window, $http, $compile) {
+APP.directive('windowScroll', ['$window', '$http', '$compile', '$timeout',function($window, $http, $compile, time) {
 	return{
 		//if set true then replace original items otherwise append into items 
 		replace: true,
@@ -340,7 +359,7 @@ APP.directive('windowScroll', ['$window', '$http', '$compile', function($window,
 		    					for(; i < len ; i++){
 			    					str += '<div class="item" data-item-display="itemList"><div class="image <%shadowClass%>"><a href=""><img class="photo-img" src="/static/img/photo/big/'+data[i].photo_filename+'"></a><div class="pet-name" ng-show="petName"><a href="">'+data[i].photo_pet_name+'</a></div></div>';
 			    					str += '<div class="content" ng-hide="littleHide"><div class="menu"><button class="love" id="'+data[i].pid+'" title="喜歡這張照片" ng-click="addLove('+data[i].pid+');love'+data[i].pid+'=true" ng-disabled="love'+data[i].pid+'">';
-			    					str += '<i class="heart red icon"><span class="love'+data[i].pid+'">'+data[i].photo_love+'</span></i></button><button class="comments" title="瀏覽相關評論" ><a href=""><i class="chat blue icon"><span>'+data[i].photo_comment+'</span></i></a></button>';
+			    					str += '<i class="heart red icon"><span class="love'+data[i].pid+'"><% '+data[i].photo_love+' | number %></span></i></button> <button class="comments" title="瀏覽相關評論" ><a href=""><i class="chat blue icon"><span><% '+data[i].photo_comment+' | number %></span></i></a></button>';
 			    					str += '</div></div></div>';
 			    				}
 
@@ -370,6 +389,11 @@ APP.directive('windowScroll', ['$window', '$http', '$compile', function($window,
 							}
 		
 							ajaxIng = false;
+
+							time(function(){
+								//set align position
+								reuseEvent.numberAlign();
+							}, 1000);
 		    				}
 
 				     }).error(function(data, status, headers, config){

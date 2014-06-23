@@ -535,6 +535,13 @@ html
 					.home-view-inner-block
 						margin: 0 auto
 						overflow: hidden
+						.loadSign
+							+wh(100%, 100%)
+							+ft($ab, 999)
+							left: 0
+							+opacity(0.5)
+							.loader
+								top: 5em
 						.water-shadow
 							@include box-shadow($sgy 0px 0px 1px)
 						.item
@@ -576,14 +583,12 @@ html
 								height: 3em
 								+ft($re)
 								top: 0.5em
-								right: 1em
 								width: 100%
-								text-align: right
+								text-align: center
 								.menu
 									.love, .comments
-										margin-left: 0.1em
 										border: 0
-										+wh(3em, 2em)
+										+wh(5em, 2em)
 										@extend .po
 										background-color: $sb
 										color: $sw

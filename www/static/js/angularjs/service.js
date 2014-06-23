@@ -1,5 +1,4 @@
 
-//AJAX Method
 APP.factory('myUtils', ['$q', function($q){
 	return {
 		isImg: function(url){

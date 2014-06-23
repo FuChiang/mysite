@@ -312,7 +312,7 @@ APP.controller("dashboard-content-block", ['$scope', '$window', '$http', '$timeo
 
 }]);
 
-APP.controller("view-content-block", ['$scope', '$http', '$timeout', function($scope, $http, time){
+APP.controller("view-content-block", ['$scope', '$http', '$timeout', '$filter', function($scope, $http, time, $filter){
 	
 	$scope.photoShow = 'multiple_show';
 	$scope.shadowSet = 'noShadow';
@@ -320,13 +320,20 @@ APP.controller("view-content-block", ['$scope', '$http', '$timeout', function($s
 	$scope.shadowIcon = 'adjust';
 	$scope.shadowTitle = '陰影模式顯示';
 	$scope.petName = false;
+	$scope.loadLayout = false;
 
 	$scope.addLove = function(photo_id){
 
 		var loveId = 'love'+photo_id,
-			$jq_love =  $jq("."+loveId);
+			$jq_love =  $jq("."+loveId),
+			love_Num = parseInt($jq_love.html().replace(',', ''), 10)+1;
 
-		$jq_love.html(parseInt($jq_love.html(), 10)+1);
+		if(love_Num > 999){
+			$jq_love.parent().parent().css("text-align", "left");
+			love_Num = $filter('number')(love_Num);
+		}
+
+		$jq_love.html(love_Num);
 
 		$http({
 		          method: 'POST',
@@ -336,6 +343,7 @@ APP.controller("view-content-block", ['$scope', '$http', '$timeout', function($s
 	     }).error(function(data, status, headers, config){
 	        	alert('ajax 錯誤代碼='+data);
 	     });
+
 	}
 
 	$scope.shadow = function(){

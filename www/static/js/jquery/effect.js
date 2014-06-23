@@ -91,6 +91,9 @@ var viewPage = function(){
 	//set front end background
 	reuseEvent.frontendColorEvent();
 
+	//set align position
+	reuseEvent.numberAlign();
+	
 }	
 
 
@@ -320,6 +323,13 @@ var reuseEvent = {
 		else if(width <= 533){
 			reuseEvent.setWaterfall(0);
 		}
+	},
+	numberAlign: function(){
+		$jq(".love").each(function(){
+			if(!/^\d+$/.test($jq(this).find("span").html())){
+				$jq(this).css("text-align", "left");
+			}
+		});
 	}
 }
 
