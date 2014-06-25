@@ -87,3 +87,9 @@ def deleteImg(path, img):
 	os.remove(path+'/photo/big/'+img)
 	os.remove(path+'/photo/small/'+img)
 
+def sliceStr(str, length):
+	if len(str) > length:
+		str = str[0:length]+"..."
+
+	return str
+

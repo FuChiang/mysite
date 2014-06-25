@@ -16,7 +16,7 @@ def upload(request):
 		urlPic = request.POST.get('shareUrlPicImg', None)
 		name = request.POST.get('shareName', None)
 		tp = request.POST.get('shareType', None)
-		des = request.POST.get('shareDescription' , "")
+		des = request.POST.get('shareDescription' , "無")
 		picDir = settings.MEDIA_ROOT+'/photo/'
 		filename = request.session["user"]+'_'+strftime('%Y%m%d%H%M%S')
 		pic = None

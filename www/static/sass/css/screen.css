@@ -78,7 +78,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   cursor: pointer;
 }
 
-.line, html body .container .home-content-block .home-view-block .home-view-inner-block .item .image .pet-name a:hover, html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-share-photo-block .photo-url-block span:hover {
+.line, html body .container .home-content-block .home-view-block .home-view-inner-block .item .image .pet-name a:hover, html body .container .home-content-block .home-view-block .home-view-inner-block .item .image .pet-owner a:hover, html body .container .home-content-block .home-view-block .home-view-inner-block .item .image .pet-description a:hover, html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-share-photo-block .photo-url-block span:hover {
   text-decoration: underline;
 }
 
@@ -3611,11 +3611,8 @@ html body .container .home-content-block .home-view-block .home-view-inner-block
 html body .container .home-content-block .home-view-block .home-view-inner-block .loadSign {
   width: 100%;
   height: 100%;
-  z-index: 999;
   position: absolute;
   left: 0;
-  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=50);
-  opacity: 0.5;
 }
 html body .container .home-content-block .home-view-block .home-view-inner-block .loadSign .loader {
   top: 5em;
@@ -3646,14 +3643,33 @@ html body .container .home-content-block .home-view-block .home-view-inner-block
   -webkit-border-radius: 1em;
   border-radius: 1em;
 }
-html body .container .home-content-block .home-view-block .home-view-inner-block .item .image .pet-name {
+html body .container .home-content-block .home-view-block .home-view-inner-block .item .image .pet-name, html body .container .home-content-block .home-view-block .home-view-inner-block .item .image .pet-owner, html body .container .home-content-block .home-view-block .home-view-inner-block .item .image .pet-description {
   z-index: 1;
   position: absolute;
   text-shadow: white 0 0 0;
-  margin-left: 0.5em;
+}
+html body .container .home-content-block .home-view-block .home-view-inner-block .item .image .pet-name a, html body .container .home-content-block .home-view-block .home-view-inner-block .item .image .pet-owner a, html body .container .home-content-block .home-view-block .home-view-inner-block .item .image .pet-description a {
+  color: gray;
+}
+html body .container .home-content-block .home-view-block .home-view-inner-block .item .image .pet-name {
+  text-align: left;
+  margin: 0.5em;
 }
 html body .container .home-content-block .home-view-block .home-view-inner-block .item .image .pet-name a {
-  color: gray;
+  font-weight: bold;
+}
+html body .container .home-content-block .home-view-block .home-view-inner-block .item .image .pet-owner {
+  margin: 1em;
+  top: 0;
+  right: 0;
+}
+html body .container .home-content-block .home-view-block .home-view-inner-block .item .image .pet-owner img {
+  border-style: solid;
+  border-width: 3px;
+  border-color: white;
+  -moz-border-radius: 2em;
+  -webkit-border-radius: 2em;
+  border-radius: 2em;
 }
 html body .container .home-content-block .home-view-block .home-view-inner-block .item .shadowShow:before, html body .container .home-content-block .home-view-block .home-view-inner-block .item .shadowShow:after {
   z-index: -1;

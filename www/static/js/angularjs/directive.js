@@ -181,8 +181,9 @@ APP.directive('itemDisplay', ['$window', '$timeout', function($window, time) {
 					}).find(".image").css({
 						maxWidth: "30em",
 						height: false,
-						marginBottom: "1%"
-					}).end().find(".content").css({
+						marginBottom: "1%",
+						marginTop: 0
+					}).removeClass("water-shadow").end().find(".content").css({
 						top: 0
 					});
 				
@@ -195,8 +196,9 @@ APP.directive('itemDisplay', ['$window', '$timeout', function($window, time) {
 					}).find(".image").css({
 						width: false,
 						height: false,
-						marginBottom: 0
-					}).end().find(".content").css({
+						marginBottom: 0,
+						marginTop: 0
+					}).removeClass("water-shadow").end().find(".content").css({
 						top: "0.5em"
 					});
 					
@@ -210,8 +212,9 @@ APP.directive('itemDisplay', ['$window', '$timeout', function($window, time) {
 					}).find(".image").css({
 						width: "50%",
 						height: "50%",
-						marginBottom: "-1%"
-					}).end().find(".content").css({
+						marginBottom: "-1%",
+						marginTop: "4%"
+					}).removeClass("water-shadow").end().find(".content").css({
 						top: "0.9em"
 					});
 
@@ -223,9 +226,15 @@ APP.directive('itemDisplay', ['$window', '$timeout', function($window, time) {
 					}).find(".image").css({
 						width: "100%", 
 						height: "100%",
-						marginBottom: 0
-					}).find(".photo-img").css({
+						marginBottom: 0,
 						marginTop: 0,
+						borderRadius: "1em"
+					}).removeClass("water-shadow").find(".pet-name").css({
+						top: false,
+						left: 0
+					}).end().find(".photo-img").css({
+						width: "100%",
+						margin: 0,
 						borderRadius: 0
 					}).end().end().find(".content").css({
 						top: "-2em",
@@ -233,6 +242,41 @@ APP.directive('itemDisplay', ['$window', '$timeout', function($window, time) {
 						textAlign: "right"
 					});
 
+					time(function(){
+						scope.loadLayout = false;
+					}, 500);
+				}
+				else if(value == 'summary'){
+					element.css({
+						width: "50%", 
+						height: false,
+						background: false,
+						position: "relative",
+						margin: false
+					}).removeClass("water-shadow").find(".pet-name").css({
+						top: "4em",
+						left: "10em",
+					}).end().find(".content").css({
+						top: "-2.5em",
+						right: "8em",
+						textAlign: "right"
+					}).end().find(".image").css({
+						background: "#ffffff",
+						width: "30em",
+						height: false,
+						textAlign: "left",
+						marginBottom: "1%",
+						borderRadius: 0
+					}).addClass("water-shadow").find(".photo-img").css({
+						width: "30%",
+						margin: "1% 0 0 1%",
+						borderRadius: "0.5em"
+					}).end().end().parent().css({
+						height: "100%",
+						width: "100%"
+					});
+
+					
 					time(function(){
 						scope.loadLayout = false;
 					}, 500);
@@ -262,8 +306,12 @@ APP.directive('itemDisplay', ['$window', '$timeout', function($window, time) {
 					}).find(".content").css({
 						right: false,
 						textAlign: "center"
+					}).end().find(".image").css({
+						textAlign: "center",
+						background: false,
 					}).end().find(".photo-img").css({
-						marginTop: "10%",
+						width: false,
+						margin: "10% 0 0 0",
 						borderRadius: "1em"
 					}).end().removeClass("water-shadow").parent().css({
 						height: "100%",
@@ -293,6 +341,8 @@ APP.directive('itemMenu', ['$window', function($window) {
 			scope.$watch(attr.itemMenu, function(value){
 
 				scope.petName = false;
+				scope.petOwner = true;
+				scope.petSummary = false;
 
 				if(value == 'single'){
 					scope.photoShow = 'single_show';
@@ -306,8 +356,13 @@ APP.directive('itemMenu', ['$window', function($window) {
 				else if(value == 'waterfall'){
 					scope.photoShow = 'waterfall_show';
 					scope.petName = true;
+					scope.petOwner = false;
 				}
-
+				else if(value == 'summary'){
+					scope.photoShow = 'summary_show';
+					scope.petName = true;
+					scope.petSummary = true;
+				}
 			});
 		}
 	};
@@ -357,7 +412,8 @@ APP.directive('windowScroll', ['$window', '$http', '$compile', '$timeout',functi
 		    				}
 		    				else{
 		    					for(; i < len ; i++){
-			    					str += '<div class="item" data-item-display="itemList"><div class="image <%shadowClass%>"><a href=""><img class="photo-img" src="/static/img/photo/big/'+data[i].photo_filename+'"></a><div class="pet-name" ng-show="petName"><a href="">'+data[i].photo_pet_name+'</a></div></div>';
+			    					str += '<div class="item" data-item-display="itemList"><div class="image <%shadowClass%>"><a href=""><img class="photo-img" src="/static/img/photo/big/'+data[i].photo_filename+'"></a><div class="pet-name" ng-show="petName"><a href="">'+data[i].photo_pet_name+'</a></div>';
+			    					str += '<div class="pet-owner" ng-show="petOwner"><a href=""><img src="/static/img/member/photo/'+data[i].pic+'" alt="'+data[i].account+'" title="'+data[i].account+'"></a></div><div class="pet-description" ng-show="petSummary">描述：<a href="">'+data[i].photo_description+'</a></div></div>';
 			    					str += '<div class="content" ng-hide="littleHide"><div class="menu"><button class="love" id="'+data[i].pid+'" title="喜歡這張照片" ng-click="addLove('+data[i].pid+');love'+data[i].pid+'=true" ng-disabled="love'+data[i].pid+'">';
 			    					str += '<i class="heart red icon"><span class="love'+data[i].pid+'"><% '+data[i].photo_love+' | number %></span></i></button> <button class="comments" title="瀏覽相關評論" ><a href=""><i class="chat blue icon"><span><% '+data[i].photo_comment+' | number %></span></i></a></button>';
 			    					str += '</div></div></div>';
@@ -386,6 +442,10 @@ APP.directive('windowScroll', ['$window', '$http', '$compile', '$timeout',functi
 							}
 							else if(scope.photoShow == 'waterfall_show'){
 								reuseEvent.checkWinSize();
+							}
+							else if(scope.photoShow == 'summary_show'){
+								scope.itemList = 'summary';
+								scope.itemMenuShow = 'summary';
 							}
 		
 							ajaxIng = false;

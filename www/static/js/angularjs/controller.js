@@ -321,6 +321,8 @@ APP.controller("view-content-block", ['$scope', '$http', '$timeout', '$filter', 
 	$scope.shadowTitle = '陰影模式顯示';
 	$scope.petName = false;
 	$scope.loadLayout = false;
+	$scope.petSummary = false;
+	$scope.petOwner = true;
 
 	$scope.addLove = function(photo_id){
 
@@ -363,7 +365,7 @@ APP.controller("view-content-block", ['$scope', '$http', '$timeout', '$filter', 
 				$scope.shadowTitle = '陰影模式顯示';
 			}
 
-		if($scope.itemMenuShow != 'waterfall'){
+		if($scope.itemMenuShow != 'waterfall' && $scope.itemMenuShow != 'summary'){
 			time(function(){
 				reuseEvent.backCoverEvent();
 			}, 200);
@@ -371,13 +373,18 @@ APP.controller("view-content-block", ['$scope', '$http', '$timeout', '$filter', 
 	}
 
 	$scope.waterfall = function(){
-
 		if($scope.itemMenuShow != 'waterfall'){
 			reuseEvent.checkWinSize();
 			$scope.itemList = 'waterfall';
 			$scope.itemMenuShow = 'waterfall';
 		}
+	}
 
+	$scope.summary = function(){
+		if($scope.itemMenuShow != 'summary'){
+			$scope.itemList = 'summary';
+			$scope.itemMenuShow = 'summary';
+		}
 	}
 	
 }]);

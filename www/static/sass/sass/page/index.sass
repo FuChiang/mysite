@@ -537,9 +537,8 @@ html
 						overflow: hidden
 						.loadSign
 							+wh(100%, 100%)
-							+ft($ab, 999)
+							+ft($ab)
 							left: 0
-							+opacity(0.5)
 							.loader
 								top: 5em
 						.water-shadow
@@ -558,14 +557,26 @@ html
 									margin-top: 10%
 									+m-wh(100%, 100%)
 									+radius(1em)
-								.pet-name
+								.pet-name, .pet-owner, .pet-description
 									+ft($ab, 1)
 									+ts($sw 0 0 0)
-									margin-left: 0.5em
 									a
 										color: $sgy
 										&:hover
 											@extend .line
+								.pet-name
+									text-align: left
+									margin: 0.5em
+									a
+										font-weight: bold
+								.pet-owner
+									margin: 1em
+									top: 0
+									right: 0
+									img
+										+border(3px)
+										+radius(2em)
+
 							.shadowShow
 								&:before, &:after
 									+ft($ab, -1)

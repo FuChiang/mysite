@@ -280,7 +280,7 @@ var reuseEvent = {
 				marginLeft: $jq_itemWidth[showNum]*$jq_index+$jq_border*$jq_index+"em" 
 			}).addClass("water-shadow");
 
-			$jq_top[$jq_index] = $jq_top[$jq_index]+$jq_random+$jq_border;
+			$jq_top[$jq_index] = $jq_top[$jq_index]+$jq_random+$jq_border+0.5;
 
 			($jq_index == showNum)? $jq_index = 0 : $jq_index++;
 			
@@ -291,9 +291,9 @@ var reuseEvent = {
 
 		$jq(window).resize(function() {
 
-		    if(this.resizeTO) clearTimeout(this.resizeTO);
+		    if(this.resizeTo) clearTimeout(this.resizeTo);
 
-		    this.resizeTO = setTimeout(function() {
+		    this.resizeTo = setTimeout(function() {
 		        $jq(this).trigger('resizeEnd');
 		    }, 1000);
 
