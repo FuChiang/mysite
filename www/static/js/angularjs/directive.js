@@ -195,6 +195,8 @@ APP.directive('itemDisplay', ['$window', '$timeout', function($window, time) {
 					element.css({
 						width: false, 
 						height: false,
+						backgroundSize: "auto, cover",
+						backgroundPosition: "center"
 					}).find(".image").css({
 						width: false,
 						height: false,
