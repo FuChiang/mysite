@@ -318,7 +318,7 @@ APP.controller("view-content-block", ['$scope', '$http', '$timeout', '$filter', 
 	$scope.shadowSet = 'noShadow';
 	$scope.shadowButton = 'black';
 	$scope.shadowIcon = 'adjust';
-	$scope.shadowTitle = '陰影模式顯示';
+	$scope.shadowTitle = '陰影效果開啟';
 	$scope.petName = false;
 	$scope.loadLayout = false;
 	$scope.petSummary = false;
@@ -355,14 +355,14 @@ APP.controller("view-content-block", ['$scope', '$http', '$timeout', '$filter', 
 				$scope.shadowClass = 'shadowShow';
 				$scope.shadowButton = '';
 				$scope.shadowIcon = 'hide';
-				$scope.shadowTitle = '關閉陰影顯示';
+				$scope.shadowTitle = '陰影效果關閉';
 			}
 			else{
 				$scope.shadowSet = 'noShadow';
 				$scope.shadowClass = false;
 				$scope.shadowButton = 'black';
 				$scope.shadowIcon = 'adjust';
-				$scope.shadowTitle = '陰影模式顯示';
+				$scope.shadowTitle = '陰影效果開啟';
 			}
 
 		if($scope.itemMenuShow != 'waterfall' && $scope.itemMenuShow != 'summary'){
@@ -374,16 +374,21 @@ APP.controller("view-content-block", ['$scope', '$http', '$timeout', '$filter', 
 
 	$scope.waterfall = function(){
 		if($scope.itemMenuShow != 'waterfall'){
-			reuseEvent.checkWinSize();
+
 			$scope.itemList = 'waterfall';
 			$scope.itemMenuShow = 'waterfall';
+
+			reuseEvent.registerResize('waterfall');
 		}
 	}
 
 	$scope.summary = function(){
 		if($scope.itemMenuShow != 'summary'){
+			
 			$scope.itemList = 'summary';
 			$scope.itemMenuShow = 'summary';
+
+			reuseEvent.registerResize('summary');
 		}
 	}
 	

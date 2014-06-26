@@ -256,8 +256,8 @@ var reuseEvent = {
 			$jq_item = $jq_out_block.find(".item"),
 			$jq_border = 0.5,
 			$jq_index = 0,
-			$jq_height_max = 22,
-			$jq_height_min = 20,
+			$jq_height_max = 25,
+			$jq_height_min = 23,
 			$jq_random = 0,
 			$jq_top = [0, 0, 0, 0, 0, 0],
 			$jq_itemWidth = [18, 14.7, 14.65, 14.6, 15.5, 16],
@@ -288,22 +288,10 @@ var reuseEvent = {
 		}).promise().done(function(){
 			$jq_out_block.css("height", $jq_top[0]+"em");
 		});
-
-		$jq(window).resize(function() {
-
-		    if(this.resizeTo) clearTimeout(this.resizeTo);
-
-		    this.resizeTo = setTimeout(function() {
-		        $jq(this).trigger('resizeEnd');
-		    }, 1000);
-
-		}).on("resizeEnd", function() {
-			reuseEvent.checkWinSize();
-		});
 	},
-	checkWinSize: function(){
-		var width = $jq(window).width();
+	waterFallWinSize: function(){
 
+		var width = $jq(window).width();
 
 		if(width > 1920){
 			reuseEvent.setWaterfall(5);
@@ -323,6 +311,80 @@ var reuseEvent = {
 		else if(width <= 533){
 			reuseEvent.setWaterfall(0);
 		}
+	},
+	summaryWinSize: function(){
+		var width = $jq(window).width(),
+			$jq_item = $jq(".item");
+
+		if(width > 1920){
+			
+		}
+		else if(width <= 1920 && width >1680){
+			
+		}
+		else if(width <= 1680 && width > 960){
+			$jq_item.css({
+				width: "50%",
+			}).find(".pet-name").css({
+				top: "3em",
+				left: "10em",
+			}).next().css({
+				display: "block"
+			}).end().end().find(".image").css({
+				width: "29em",
+				marginBottom: "1%"
+			}).end().find(".content").css("display", "block");
+		}
+		else if(width <= 960 && width > 533){
+			$jq_item.css({
+				width: "100%",
+			}).find(".pet-name").css({
+				top: "2em",
+				left: "8em",
+			}).next().css({
+				display: "block"
+			}).end().end().find(".image").css({
+				width: "24em",
+				marginBottom: "3em"
+			}).end().find(".content").css("display", "none");
+		}
+		else if(width <= 533){
+			$jq_item.css({
+				width: "100%",
+			}).find(".pet-name").css({
+				top: 0,
+				left: "6em",
+			}).next().css({
+				display: "none"
+			}).end().end().find(".image").css({
+				width: "18em",
+				marginBottom: "3.1em"
+			}).end().find(".content").css("display", "none");
+		}
+
+
+	},
+	registerResize: function(reSizeName){
+
+		var checkCall = function(){
+			(reSizeName == 'waterfall')
+				?reuseEvent.waterFallWinSize()
+				:reuseEvent.summaryWinSize();
+		};
+
+		$jq(window).off("resizeEnd").resize(function() {
+
+		    if(this.resizeTo) clearTimeout(this.resizeTo);
+
+		    this.resizeTo = setTimeout(function() {
+		        $jq(this).trigger('resizeEnd');
+		    }, 1000);
+
+		}).on("resizeEnd", function() {
+			checkCall();
+		});
+
+		checkCall();
 	},
 	numberAlign: function(){
 		$jq(".love").each(function(){
