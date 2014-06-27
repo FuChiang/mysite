@@ -230,7 +230,8 @@ APP.directive('itemDisplay', ['$window', '$timeout', function($window, time) {
 						top: "-2em",
 						right: "0.3em",
 						left: false,
-						textAlign: "right"
+						textAlign: "right",
+						display: "block"
 					});
 
 					time(function(){
@@ -295,7 +296,8 @@ APP.directive('itemDisplay', ['$window', '$timeout', function($window, time) {
 					}).end().find(".content").css({
 						left: false,
 						right: false,
-						textAlign: "center"
+						textAlign: "center",
+						display: "block"
 					}).end().find(".image").css({
 						textAlign: "center",
 						background: false,
