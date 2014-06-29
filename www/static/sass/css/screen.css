@@ -3653,9 +3653,11 @@ html body .container .home-content-block .home-view-block .home-view-inner-block
 }
 html body .container .home-content-block .home-view-block .home-view-inner-block .item .image .pet-name {
   text-align: left;
-  margin: 0.5em;
+  top: 4%;
+  left: 2%;
 }
 html body .container .home-content-block .home-view-block .home-view-inner-block .item .image .pet-name a {
+  color: white;
   font-weight: bold;
 }
 html body .container .home-content-block .home-view-block .home-view-inner-block .item .image .pet-owner {

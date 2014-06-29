@@ -261,7 +261,10 @@ var reuseEvent = {
 			$jq_random = 0,
 			$jq_top = [0, 0, 0, 0, 0, 0],
 			$jq_itemWidth = [18, 14.7, 14.65, 14.6, 15.5, 16],
-			$jq_outWidth = [18, 30, 45, 60, 80, 90];
+			$jq_outWidth = [18, 30, 45, 60, 80, 90],
+			$jq_changeColor = function(color){
+				$jq_item.find(".pet-name a").css("color", color);
+			};
 
 		$jq_out_block.css({
 			width: $jq_outWidth[showNum]+"em"
@@ -282,12 +285,13 @@ var reuseEvent = {
 
 			$jq_top[$jq_index] = $jq_top[$jq_index]+$jq_random+$jq_border+0.5;
 
-			($jq_index == showNum)? $jq_index = 0 : $jq_index++;
-			
+			($jq_index == showNum)? $jq_index = 0 : $jq_index++;	
 
 		}).promise().done(function(){
 			$jq_out_block.css("height", $jq_top[0]+"em");
 		});
+
+		(showNum == 0)? $jq_changeColor('white'): $jq_changeColor('gray');
 	},
 	waterFallWinSize: function(){
 
@@ -314,26 +318,27 @@ var reuseEvent = {
 	},
 	summaryWinSize: function(){
 		var width = $jq(window).width(),
-			$jq_item = $jq(".item");
+			$jq_item = $jq(".item"),
+			$jq_bigChange = function(){
+				$jq_item.find(".pet-name").css({
+					top: "3em",
+					left: "10em",
+				}).next().css({
+					display: "block"
+				}).end().end().find(".image").css({
+					width: "29em",
+					marginBottom: "1%"
+				}).end().find(".content").css("display", "block");
+			};
 
 		if(width > 1920){
-			
+			$jq_item.css("width", "25%");
 		}
 		else if(width <= 1920 && width >1680){
-			
+			$jq_item.css("width", "33%");
 		}
 		else if(width <= 1680 && width > 960){
-			$jq_item.css({
-				width: "50%",
-			}).find(".pet-name").css({
-				top: "3em",
-				left: "10em",
-			}).next().css({
-				display: "block"
-			}).end().end().find(".image").css({
-				width: "29em",
-				marginBottom: "1%"
-			}).end().find(".content").css("display", "block");
+			$jq_item.css("width", "50%");
 		}
 		else if(width <= 960 && width > 533){
 			$jq_item.css({
@@ -362,7 +367,7 @@ var reuseEvent = {
 			}).end().find(".content").css("display", "none");
 		}
 
-
+		if(width > 960) $jq_bigChange();
 	},
 	registerResize: function(reSizeName){
 

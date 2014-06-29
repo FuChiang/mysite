@@ -180,12 +180,9 @@ APP.directive('itemDisplay', ['$window', '$timeout', function($window, time) {
 						backgroundPosition: "center",
 					}).find(".image").css({
 						maxWidth: "30em",
-						height: false,
 						marginBottom: "1%",
 						marginTop: 0
-					}).removeClass("water-shadow").find(".photo-img").css({
-						margin: "12% 0 0 0",
-					}).end().end().find(".content").css({
+					}).removeClass("water-shadow").end().find(".content").css({
 						top: 0
 					});
 				
@@ -194,7 +191,6 @@ APP.directive('itemDisplay', ['$window', '$timeout', function($window, time) {
 				else if(value == 'multiple'){
 					element.css({
 						width: false, 
-						height: false,
 						backgroundSize: "auto, cover",
 						backgroundPosition: "center"
 					}).find(".image").css({
@@ -202,9 +198,7 @@ APP.directive('itemDisplay', ['$window', '$timeout', function($window, time) {
 						height: false,
 						marginBottom: 0,
 						marginTop: 0
-					}).removeClass("water-shadow").find(".photo-img").css({
-						margin: "15% 0 0 0",
-					}).end().end().find(".content").css({
+					}).removeClass("water-shadow").end().find(".content").css({
 						top: "0.5em"
 					});
 					
@@ -220,9 +214,12 @@ APP.directive('itemDisplay', ['$window', '$timeout', function($window, time) {
 						marginTop: 0,
 						borderRadius: "1em"
 					}).removeClass("water-shadow").find(".pet-name").css({
-						top: false,
-						left: 0
-					}).end().find(".photo-img").css({
+						top: "17em",
+						left: "1em"
+					}).next().css({
+						display: "block",
+						marginTop: "1em"
+					}).end().end().find(".photo-img").css({
 						width: "100%",
 						margin: "20% 0 0 0",
 						borderRadius: 0
@@ -244,7 +241,9 @@ APP.directive('itemDisplay', ['$window', '$timeout', function($window, time) {
 						background: false,
 						position: "relative",
 						margin: false
-					}).removeClass("water-shadow").find(".pet-owner").css({
+					}).removeClass("water-shadow").find(".pet-name a").css({
+						color: "gray"
+					}).end().find(".pet-owner").css({
 						marginTop: 0
 					}).end().find(".content").css({
 						top: "-2.5em",
@@ -290,9 +289,16 @@ APP.directive('itemDisplay', ['$window', '$timeout', function($window, time) {
 					element.css({
 						borderRadius: 0,
 						position: "relative",
-						margin: false
-					}).find(".pet-owner").css({
-						marginTop: "1em"
+						margin: false,
+						height: false
+					}).find(".pet-name").css({
+						top: "4%",
+						left: "2%"
+					}).find("a").css({
+						color: "white"
+					}).end().end().find(".pet-owner").css({
+						marginTop: "1em",
+						display: "block"
 					}).end().find(".content").css({
 						left: false,
 						right: false,
@@ -301,9 +307,11 @@ APP.directive('itemDisplay', ['$window', '$timeout', function($window, time) {
 					}).end().find(".image").css({
 						textAlign: "center",
 						background: false,
+						height: false,
 					}).end().find(".photo-img").css({
 						width: false,
-						borderRadius: "1em"
+						borderRadius: "1em",
+						margin: "15% 0 0 0"
 					}).end().removeClass("water-shadow").parent().css({
 						height: "100%",
 						width: "100%"
@@ -331,7 +339,7 @@ APP.directive('itemMenu', ['$window', function($window) {
 		link: function(scope, element, attr){
 			scope.$watch(attr.itemMenu, function(value){
 
-				scope.petName = false;
+				scope.petName = true;
 				scope.petSummary = false;
 
 				if(value == 'single'){
