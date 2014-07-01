@@ -190,7 +190,7 @@ APP.directive('itemDisplay', ['$window', '$timeout', function($window, time) {
 				}
 				else if(value == 'multiple'){
 					element.css({
-						width: false, 
+						width: false,
 						backgroundSize: "auto, cover",
 						backgroundPosition: "center"
 					}).find(".image").css({
@@ -213,7 +213,7 @@ APP.directive('itemDisplay', ['$window', '$timeout', function($window, time) {
 						marginBottom: 0,
 						marginTop: 0,
 						borderRadius: "1em"
-					}).removeClass("water-shadow").find(".pet-name").css({
+					}).removeClass("water-shadow").find(".pet-name").removeClass("water-shadow").css({
 						top: "17em",
 						left: "1em"
 					}).next().css({
@@ -228,7 +228,8 @@ APP.directive('itemDisplay', ['$window', '$timeout', function($window, time) {
 						right: "0.3em",
 						left: false,
 						textAlign: "right",
-						display: "block"
+						display: "block",
+						width: "100%"
 					});
 
 					time(function(){
@@ -241,24 +242,28 @@ APP.directive('itemDisplay', ['$window', '$timeout', function($window, time) {
 						background: false,
 						position: "relative",
 						margin: false
-					}).removeClass("water-shadow").find(".pet-name a").css({
-						color: "gray"
-					}).end().find(".pet-owner").css({
+					}).removeClass("water-shadow").find(".pet-name").css({
+						top: "4em"
+					}).find("a").css({
+						color: "gray",
+						textShadow: "white 0 0 0"
+					}).end().end().find(".pet-owner").css({
 						marginTop: 0
 					}).end().find(".content").css({
 						top: "-2.5em",
 						left: "9.5em",
 						right: false,
-						textAlign: false
+						textAlign: "right",
+						width: "60%"
 					}).end().find(".image").css({
 						background: "#ffffff",
 						height: false,
 						textAlign: "left",
 						borderRadius: 0
-					}).addClass("water-shadow").find(".photo-img").css({
+					}).addClass("water-shadow").find(".photo-img").addClass("water-shadow").css({
 						width: "30%",
-						margin: "1% 0 0 1%",
-						borderRadius: "0.5em"
+						margin: "1.5% 0 -0.2% 1.5%",
+						borderRadius: 0
 					}).end().end().parent().css({
 						height: "100%",
 						width: "100%"
@@ -292,23 +297,25 @@ APP.directive('itemDisplay', ['$window', '$timeout', function($window, time) {
 						margin: false,
 						height: false
 					}).find(".pet-name").css({
-						top: "4%",
-						left: "2%"
+						top: "90%",
+						left: "5%"
 					}).find("a").css({
-						color: "white"
+						color: "white",
+						textShadow: "black 0 1px 1px"
 					}).end().end().find(".pet-owner").css({
-						marginTop: "1em",
-						display: "block"
+						marginTop: "1.5em",
+						display: "inline"
 					}).end().find(".content").css({
 						left: false,
 						right: false,
 						textAlign: "center",
-						display: "block"
+						display: "block",
+						width: "100%"
 					}).end().find(".image").css({
 						textAlign: "center",
 						background: false,
-						height: false,
-					}).end().find(".photo-img").css({
+						height: false
+					}).end().find(".photo-img").removeClass("water-shadow").css({
 						width: false,
 						borderRadius: "1em",
 						margin: "15% 0 0 0"

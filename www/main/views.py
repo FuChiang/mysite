@@ -55,7 +55,7 @@ def ajaxview(request):
 					"pic": ""+value["pic"]+"",
 					"pid": ""+str(value["pid"])+"",
 					"photo_filename": ""+value["photo_filename"]+"",
-					"photo_pet_name": ""+sliceStr(value["photo_pet_name"], 20)+"",
+					"photo_pet_name": ""+sliceStr(value["photo_pet_name"], 10)+"",
 					"photo_description": ""+sliceStr(value["photo_description"], 25)+"",
 					"photo_type": ""+value["photo_type"]+"",
 					"photo_account_id": ""+str(value["photo_account_id"])+"",

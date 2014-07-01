@@ -262,36 +262,42 @@ var reuseEvent = {
 			$jq_top = [0, 0, 0, 0, 0, 0],
 			$jq_itemWidth = [18, 14.7, 14.65, 14.6, 15.5, 16],
 			$jq_outWidth = [18, 30, 45, 60, 80, 90],
-			$jq_changeColor = function(color){
-				$jq_item.find(".pet-name a").css("color", color);
+			$jq_changeColor = function(cor, ts){
+				$jq_item.find(".pet-name a").css({
+					color: cor,
+					textShadow: ts+" 0 1px 1px"
+				});
 			};
 
-		$jq_out_block.css({
-			width: $jq_outWidth[showNum]+"em"
-		});
-
-		$jq_item.each(function(){
+		if($jq_out_block.css("width") != $jq_outWidth[showNum]*16+"px"){
 			
-			$jq_random = Math.floor(Math.random()*($jq_height_max-$jq_height_min+1)+$jq_height_min);
+			$jq_out_block.css({
+				width: $jq_outWidth[showNum]+"em"
+			});
 
-			$jq(this).css({
-				background: "#ffffff",
-				position: "absolute",
-				width: $jq_itemWidth[showNum]+"em",
-				height: $jq_random+"em",
-				marginTop: $jq_top[$jq_index]+"em",
-				marginLeft: $jq_itemWidth[showNum]*$jq_index+$jq_border*$jq_index+"em" 
-			}).addClass("water-shadow");
+			$jq_item.each(function(){
+				
+				$jq_random = Math.floor(Math.random()*($jq_height_max-$jq_height_min+1)+$jq_height_min);
 
-			$jq_top[$jq_index] = $jq_top[$jq_index]+$jq_random+$jq_border+0.5;
+				$jq(this).css({
+					background: "#ffffff",
+					position: "absolute",
+					width: $jq_itemWidth[showNum]+"em",
+					height: $jq_random+"em",
+					marginTop: $jq_top[$jq_index]+"em",
+					marginLeft: $jq_itemWidth[showNum]*$jq_index+$jq_border*$jq_index+"em" 
+				}).addClass("water-shadow");
 
-			($jq_index == showNum)? $jq_index = 0 : $jq_index++;	
+				$jq_top[$jq_index] = $jq_top[$jq_index]+$jq_random+$jq_border+0.5;
 
-		}).promise().done(function(){
-			$jq_out_block.css("height", $jq_top[0]+"em");
-		});
+				($jq_index == showNum)? $jq_index = 0 : $jq_index++;	
 
-		(showNum == 0)? $jq_changeColor('white'): $jq_changeColor('gray');
+			}).promise().done(function(){
+				$jq_out_block.css("height", $jq_top[0]+"em");
+			});
+
+			(showNum == 0)? $jq_changeColor('white', "black"): $jq_changeColor('gray', "white");
+		}
 	},
 	waterFallWinSize: function(){
 
@@ -344,7 +350,7 @@ var reuseEvent = {
 			$jq_item.css({
 				width: "100%",
 			}).find(".pet-name").css({
-				top: "2em",
+				top: "4em",
 				left: "8em",
 			}).next().css({
 				display: "block"
@@ -357,7 +363,7 @@ var reuseEvent = {
 			$jq_item.css({
 				width: "100%",
 			}).find(".pet-name").css({
-				top: 0,
+				top: "2em",
 				left: "6em",
 			}).next().css({
 				display: "none"

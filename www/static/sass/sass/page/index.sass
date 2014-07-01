@@ -6,7 +6,7 @@ html
 		margin: 0 auto
 		+ft($re)
 		+wh(100%, 100%)
-		overflow-x: hidden
+		/*overflow-x: hidden*/
 		background: darken($sdy, 10%)
 		a 
 			outline: none
@@ -496,11 +496,13 @@ html
 						+wh(70px, 70px)
 						@include rotate(15deg)
 					.headerPhoto
-						+ft($re)
+						+ft($ab)
 						float: right
+						margin-top: 0.7em
 						img
 							+border(3px)
 							+radius(2em)
+							@include box-shadow(1px 0 1px lighten($sgy, 10%))
 					+at-breakpoint($phone)
 						+font(0.9em, bold)
 						padding: 1.5em 0.5em 1.5em 0em
@@ -522,25 +524,17 @@ html
 				.home-view-block
 					+ft($re)
 					width: 100%
-					margin: 7em auto 0 auto
 					.home-view-display-set
 						width: 100%
 						text-align: center
-						margin-bottom: 2em
 						.button
+							margin: 1em 0 1em 0
 							height: 4em
 							i
 								+ft($ab)
 								margin: -0.5em
 					.home-view-inner-block
 						margin: 0 auto
-						overflow: hidden
-						.loadSign
-							+wh(100%, 100%)
-							+ft($ab)
-							left: 0
-							.loader
-								top: 5em
 						.water-shadow
 							@include box-shadow($sgy 0px 0px 1px)
 						.item
@@ -566,18 +560,20 @@ html
 											@extend .line
 								.pet-name
 									text-align: left
-									top: 4%
-									left: 2%
+									top: 90%
+									left: 5%
 									a
 										color: $sw
 										font-weight: bold
+										+ts($sb 0 1px 1px)
 								.pet-owner
-									margin: 1em
+									margin: 1.5em 1em 1em 1em
 									top: 0
 									right: 0
 									img
 										+border(3px)
 										+radius(2em)
+										@include box-shadow($sgy 0 1px 1px)
 
 							.shadowShow
 								&:before, &:after
@@ -616,10 +612,9 @@ html
 							@include transition(width 0.3s)
 							width: 100%
 						.home-view-display-set
-							@include transition(all 0.3s)
-							margin-top: -5em
 							.button
-								width: 3.3em
+								@include transition(all 0.3s)
+								width: 3.5em
 								i
 									margin-left: -0.6em
 					+at-breakpoint($pad)
@@ -627,13 +622,17 @@ html
 							@include transition(width 0.3s)
 							width: 50%
 						.home-view-display-set
-							@include transition(all 0.3s)
 							.button
+								@include transition(width 0.3s)
 								width: 4em
 					+at-breakpoint($pc)
 						.item
 							@include transition(all 0.3s)
 							width: 33.33%
+						.home-view-display-set
+							.button
+								@include transition(width 0.3s)
+								width: 5em
 					+at-breakpoint($bpc)
 						.item
 							@include transition(all 0.3s)

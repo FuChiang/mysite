@@ -2649,7 +2649,7 @@ html body {
   position: relative;
   width: 100%;
   height: 100%;
-  overflow-x: hidden;
+  /*overflow-x: hidden */
   background: #f5eacb;
 }
 html body a {
@@ -3546,8 +3546,9 @@ html body .container .home-content-block h1 .home-paw {
   transform: rotate(15deg);
 }
 html body .container .home-content-block h1 .headerPhoto {
-  position: relative;
+  position: absolute;
   float: right;
+  margin-top: 0.7em;
 }
 html body .container .home-content-block h1 .headerPhoto img {
   border-style: solid;
@@ -3556,6 +3557,9 @@ html body .container .home-content-block h1 .headerPhoto img {
   -moz-border-radius: 2em;
   -webkit-border-radius: 2em;
   border-radius: 2em;
+  -moz-box-shadow: 1px 0 1px #9a9a9a;
+  -webkit-box-shadow: 1px 0 1px #9a9a9a;
+  box-shadow: 1px 0 1px #9a9a9a;
 }
 @media (min-width: 240px) {
   html body .container .home-content-block h1 {
@@ -3590,14 +3594,13 @@ html body .container .home-content-block h1 .headerPhoto img {
 html body .container .home-content-block .home-view-block {
   position: relative;
   width: 100%;
-  margin: 7em auto 0 auto;
 }
 html body .container .home-content-block .home-view-block .home-view-display-set {
   width: 100%;
   text-align: center;
-  margin-bottom: 2em;
 }
 html body .container .home-content-block .home-view-block .home-view-display-set .button {
+  margin: 1em 0 1em 0;
   height: 4em;
 }
 html body .container .home-content-block .home-view-block .home-view-display-set .button i {
@@ -3606,16 +3609,6 @@ html body .container .home-content-block .home-view-block .home-view-display-set
 }
 html body .container .home-content-block .home-view-block .home-view-inner-block {
   margin: 0 auto;
-  overflow: hidden;
-}
-html body .container .home-content-block .home-view-block .home-view-inner-block .loadSign {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  left: 0;
-}
-html body .container .home-content-block .home-view-block .home-view-inner-block .loadSign .loader {
-  top: 5em;
 }
 html body .container .home-content-block .home-view-block .home-view-inner-block .water-shadow {
   -moz-box-shadow: gray 0px 0px 1px;
@@ -3653,15 +3646,16 @@ html body .container .home-content-block .home-view-block .home-view-inner-block
 }
 html body .container .home-content-block .home-view-block .home-view-inner-block .item .image .pet-name {
   text-align: left;
-  top: 4%;
-  left: 2%;
+  top: 90%;
+  left: 5%;
 }
 html body .container .home-content-block .home-view-block .home-view-inner-block .item .image .pet-name a {
   color: white;
   font-weight: bold;
+  text-shadow: black 0 1px 1px;
 }
 html body .container .home-content-block .home-view-block .home-view-inner-block .item .image .pet-owner {
-  margin: 1em;
+  margin: 1.5em 1em 1em 1em;
   top: 0;
   right: 0;
 }
@@ -3672,6 +3666,9 @@ html body .container .home-content-block .home-view-block .home-view-inner-block
   -moz-border-radius: 2em;
   -webkit-border-radius: 2em;
   border-radius: 2em;
+  -moz-box-shadow: gray 0 1px 1px;
+  -webkit-box-shadow: gray 0 1px 1px;
+  box-shadow: gray 0 1px 1px;
 }
 html body .container .home-content-block .home-view-block .home-view-inner-block .item .shadowShow:before, html body .container .home-content-block .home-view-block .home-view-inner-block .item .shadowShow:after {
   z-index: -1;
@@ -3727,15 +3724,12 @@ html body .container .home-content-block .home-view-block .home-view-inner-block
     transition: width 0.3s;
     width: 100%;
   }
-  html body .container .home-content-block .home-view-block .home-view-display-set {
+  html body .container .home-content-block .home-view-block .home-view-display-set .button {
     -moz-transition: all 0.3s;
     -o-transition: all 0.3s;
     -webkit-transition: all 0.3s;
     transition: all 0.3s;
-    margin-top: -5em;
-  }
-  html body .container .home-content-block .home-view-block .home-view-display-set .button {
-    width: 3.3em;
+    width: 3.5em;
   }
   html body .container .home-content-block .home-view-block .home-view-display-set .button i {
     margin-left: -0.6em;
@@ -3749,13 +3743,11 @@ html body .container .home-content-block .home-view-block .home-view-inner-block
     transition: width 0.3s;
     width: 50%;
   }
-  html body .container .home-content-block .home-view-block .home-view-display-set {
-    -moz-transition: all 0.3s;
-    -o-transition: all 0.3s;
-    -webkit-transition: all 0.3s;
-    transition: all 0.3s;
-  }
   html body .container .home-content-block .home-view-block .home-view-display-set .button {
+    -moz-transition: width 0.3s;
+    -o-transition: width 0.3s;
+    -webkit-transition: width 0.3s;
+    transition: width 0.3s;
     width: 4em;
   }
 }
@@ -3766,6 +3758,13 @@ html body .container .home-content-block .home-view-block .home-view-inner-block
     -webkit-transition: all 0.3s;
     transition: all 0.3s;
     width: 33.33%;
+  }
+  html body .container .home-content-block .home-view-block .home-view-display-set .button {
+    -moz-transition: width 0.3s;
+    -o-transition: width 0.3s;
+    -webkit-transition: width 0.3s;
+    transition: width 0.3s;
+    width: 5em;
   }
 }
 @media (min-width: 1440px) {

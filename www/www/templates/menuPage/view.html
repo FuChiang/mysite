@@ -32,22 +32,17 @@
 							<button class="ui black button waterfall" ng-click="waterfall()" title="瀑布瀏覽"><i class="bookmark big icon"></i></button>
 							<button class="ui black button summary" ng-click="summary()" title="名片瀏覽"><i class="payment big icon"></i></button>
 							<button class="ui <%shadowButton%> button" ng-click="shadow()" title="<%shadowTitle%>"><i class="<%shadowIcon%> big icon"></i></button>
-							<button class="ui black button" ng-click="itemList='new'" title="依時間排序" ng-show="{{order}}"><i class="time blue small big icon"></i></button>
-							<button class="ui black button" ng-click="itemList='popular'" title="依喜歡排序" ng-hide="{{order}}"><i class="heart red small big icon"></i></button>
+							<button class="ui black button" ng-click="itemList='new'" title="依時間排序" ng-show="{{order}}"><i class="time blue big icon"></i></button>
+							<button class="ui black button" ng-click="itemList='popular'" title="依喜歡排序" ng-hide="{{order}}"><i class="heart red big icon"></i></button>
 						</div>
 					</div>
 					<div class="home-view-inner-block" id="<%shadowSet%>" data-window-scroll>
-					<div class="ui segment loadSign" ng-show="loadLayout">
-						<div class="ui active inverted dimmer">
-							<div class="ui large text loader">請稍候...</div>
-						</div>
-					</div>
 					{% for value in photosQuery %}
 						<div class="item" data-item-display="itemList">
 							<div class="image <%shadowClass%>">
 						     		<a href=""><img class="photo-img" src="{{value.photo_filename | checkImg:'big'}}" alt="{{value.photo_pet_name}}" title="{{value.photo_pet_name}}"></a>
 						     		<div class="pet-name" ng-show="petName">
-						    			<a href="">{{value.photo_pet_name | slice:20}}</a>
+						    			<a href="">{{value.photo_pet_name | slice:10}}</a>
 						    		</div>
 						    		<div class="pet-owner">
 						    			<a href=""><img src="/static/img/member/photo/{{value.pic}}" alt="{{value.account}}" title="{{value.account}}"></a>
