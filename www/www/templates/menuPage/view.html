@@ -25,12 +25,13 @@
 			</header>
 			{% if photosQuery %}
 				<div class="home-view-block">
+					<h2 class="hide-title">瀏覽選單</h2>
 					<div class="home-view-display-set">
 						<div id="<%photoShow%>" class="small ui buttons" data-item-menu="itemMenuShow">
-							<button class="ui black button multiple" ng-click="itemList='multiple';itemMenuShow='multiple'" title="一般瀏覽"><i class="grid layout big icon"></i></button>
-							<button class="ui black button single" ng-click="itemList='single';itemMenuShow='single'" title="全圖瀏覽"><i class="resize full big icon"></i></button>
-							<button class="ui black button waterfall" ng-click="waterfall()" title="瀑布瀏覽"><i class="bookmark big icon"></i></button>
-							<button class="ui black button summary" ng-click="summary()" title="名片瀏覽"><i class="payment big icon"></i></button>
+							<button class="ui <%multipleButton%> button multiple" ng-click="itemList='multiple';itemMenuShow='multiple'" title="一般瀏覽"><i class="grid layout big icon"></i></button>
+							<button class="ui <%singleButton%> button single" ng-click="itemList='single';itemMenuShow='single'" title="全圖瀏覽"><i class="resize full big icon"></i></button>
+							<button class="ui <%waterButton%> button waterfall" ng-click="waterfall()" title="瀑布瀏覽"><i class="bookmark big icon"></i></button>
+							<button class="ui <%summaryButton%> button summary" ng-click="summary()" title="名片瀏覽"><i class="payment big icon"></i></button>
 							<button class="ui <%shadowButton%> button" ng-click="shadow()" title="<%shadowTitle%>"><i class="<%shadowIcon%> big icon"></i></button>
 							<button class="ui black button" ng-click="itemList='new'" title="依時間排序" ng-show="{{order}}"><i class="time blue big icon"></i></button>
 							<button class="ui black button" ng-click="itemList='popular'" title="依喜歡排序" ng-hide="{{order}}"><i class="heart red big icon"></i></button>
@@ -70,8 +71,9 @@
 			{% else %}
 				目前尚未有任何圖片
 			{% endif %}
+			
 		</section>		
 	</div>
-
+	
 {% endblock %}
 

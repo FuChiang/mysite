@@ -394,9 +394,12 @@ APP.controller("view-content-block", ['$scope', '$http', '$timeout', '$filter', 
 	
 }]);
 
-APP.controller("aside-bar-block", ['$scope', '$http', '$timeout', function($scope, $http, $timeout){
 
-	
+APP.controller("category-content-block", ['$scope', '$http', '$timeout', function($scope, $http, time){
+
+
 
 }]);
+
+
  

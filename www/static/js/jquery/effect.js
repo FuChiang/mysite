@@ -201,13 +201,33 @@ var myPhotoPage = function(){
 var reuseEvent = {
 	//aside silde bar
 	slideEffect: function(){
-		var $jq_slidebar = $jq('.ui.sidebar');
+		var $jq_slidebar = $jq('.ui.sidebar'),
+			$jq_mask = $jq(".screen-mask"),
+			$jq_load = $jq(".view-screen-load"),
+			$jq_speed = 100;
 
 		//aside manu set
-		//$jq_slidebar.sidebar('toggle');
-
 		$jq(".site-Menu").on("click", function(){
 			$jq_slidebar.sidebar('toggle');
+
+			if($jq_mask.is(":visible")){
+				$jq_mask.hide($jq_speed);
+				$jq(this).removeClass("remove").addClass("reorder").parent().css("background-color", false);
+			}
+			else{
+				$jq_mask.show($jq_speed);
+				$jq(this).removeClass("reorder").addClass("remove").parent().css("background-color", "#CD3333");
+			}
+		});
+
+		$jq(".buttons").on("click", function(){
+			$jq_mask.show($jq_speed, function(){
+				$jq(this).delay(500).fadeOut($jq_speed);
+			});
+
+			$jq_load.show($jq_speed, function(){
+				$jq(this).delay(500).fadeOut($jq_speed);
+			});
 		});
 	},
 
@@ -268,8 +288,6 @@ var reuseEvent = {
 					textShadow: ts+" 0 1px 1px"
 				});
 			};
-
-		if($jq_out_block.css("width") != $jq_outWidth[showNum]*16+"px"){
 			
 			$jq_out_block.css({
 				width: $jq_outWidth[showNum]+"em"
@@ -297,9 +315,8 @@ var reuseEvent = {
 			});
 
 			(showNum == 0)? $jq_changeColor('white', "black"): $jq_changeColor('gray', "white");
-		}
 	},
-	waterFallWinSize: function(){
+	waterFallWinSize: function(ajaxCheck){
 
 		var width = $jq(window).width();
 

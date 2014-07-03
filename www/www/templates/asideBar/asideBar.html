@@ -4,7 +4,7 @@
 			<p><i class=" left arrow icon" title="導覽"></i>選單</p>
 		</div>
 		<section>
-			<div class="ui sidebar site-Menu-Content" ng-controller="aside-bar-block" ng-init="{{nowPage}}='menuShow'">
+			<div class="ui sidebar site-Menu-Content" ng-init="{{nowPage}}='menuShow'">
 				<header><h5><i class=" map large icon"></i>爪 爪 窩 導 覽</h5></header>
 				<ul>
 					{% if request.session.user %}
@@ -21,3 +21,12 @@
 			</div>
 		</section>
 	</nav>
+
+	<div class="screen-mask">screen mask</div>
+
+	<div class="view-screen-load">
+		<div class="ui active dimmer">
+  			<div class="ui large text loader">請稍候...</div>
+		</div>
+	</div>
+	

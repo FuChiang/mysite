@@ -68,7 +68,7 @@ def ajaxview(request):
 			return HttpResponse(json.dumps(json_str), mimetype='application/json')
 
 def categories(request):
-	return  render(request, 'menuPage/categories.html', {'load': 'categoriesPage', 'topTitle': '寵物照種類'})
+	return  render(request, 'menuPage/categories.html', {'load': 'categoriesPage', 'topTitle': '寵物照分類'})
 
 def sitemap(request):
 	return  render(request, 'sitemap/sitemap.xml')

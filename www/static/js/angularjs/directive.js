@@ -170,6 +170,7 @@ APP.directive('itemDisplay', ['$window', '$timeout', function($window, time) {
 
 				time(function(){
 					scope.loadLayout = true;
+					scope.viewContent = true;
 				}, 100); 
 
 				if(value == 'single'){
@@ -229,7 +230,7 @@ APP.directive('itemDisplay', ['$window', '$timeout', function($window, time) {
 						left: false,
 						textAlign: "right",
 						display: "block",
-						width: "100%"
+						width: false
 					});
 
 					time(function(){
@@ -329,7 +330,6 @@ APP.directive('itemDisplay', ['$window', '$timeout', function($window, time) {
 					});
 				}
 			});
-			
 		}
 	};
 }]);
@@ -348,19 +348,27 @@ APP.directive('itemMenu', ['$window', function($window) {
 
 				scope.petName = true;
 				scope.petSummary = false;
+				scope.singleButton = 'black';
+				scope.multipleButton = 'black';
+				scope.summaryButton = 'black';
+				scope.waterButton = 'black';
 
 				if(value == 'single'){
 					scope.photoShow = 'single_show';
+					scope.singleButton = '';
 				}
-				else if(value == 'multiple'){
+				else if(value == 'multiple' || typeof value == 'undefined'){
 					scope.photoShow = 'multiple_show';
+					scope.multipleButton = '';
 				}
 				else if(value == 'waterfall'){
 					scope.photoShow = 'waterfall_show';
+					scope.waterButton = '';
 					scope.petName = true;
 				}
 				else if(value == 'summary'){
 					scope.photoShow = 'summary_show';
+					scope.summaryButton = '';
 					scope.petName = true;
 					scope.petSummary = true;
 				}

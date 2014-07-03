@@ -10,7 +10,7 @@
 	<!-- include aside bar content -->
 	{% include "asideBar/asideBar.html" with nowPage='categoriesPage' %}
 
-	<div class="home-content-block" ng-controller="new-content-block">
+	<div class="home-content-block" ng-controller="category-content-block">
 		<section>
 			<header>
 				<h1>{{topTitle}}<span class="home-paw">cutepaw</span>
@@ -21,6 +21,16 @@
 				{% endif %}
 				</h1>
 			</header>
+
+			<div class="home-category-block">
+				<section>
+					<hgroup>
+						<h2>選擇想要觀賞的寵物</h2>
+						<h3>探索每個俏皮的瞬間</h3>
+					</hgroup>
+				</section>
+				
+			</div>
 
 		</section>		
 	</div>

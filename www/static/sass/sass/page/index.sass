@@ -6,7 +6,7 @@ html
 		margin: 0 auto
 		+ft($re)
 		+wh(100%, 100%)
-		/*overflow-x: hidden*/
+		overflow-x: hidden
 		background: darken($sdy, 10%)
 		a 
 			outline: none
@@ -401,7 +401,7 @@ html
 
 			.site-Menu-Block
 				+ft($ab, 999)
-				height: 3.55em
+				height: 3.6em
 				color: $sw
 				overflow-x: hidden
 				+at-breakpoint($pad)
@@ -457,7 +457,7 @@ html
 						&:hover
 							@include transition(all 0.5s)
 							background: lighten($sb, 15%)
-							border-left: 5px solid $sw
+							border-right: 5px solid $sw
 							a
 								color: $sw
 					.menuShow
@@ -475,7 +475,20 @@ html
 				+at-breakpoint($pad)
 					ul li
 						font-size: 1.5em
-
+			.screen-mask
+				+wh(100%, 100%)
+				+ft($ab, 998)
+				background: $sb
+				+opacity(0.5)
+				@extend .str-to-img
+				display: none
+			.view-screen-load
+				+ft($ab, 999)
+				top: 12em
+				width: 100%
+				display: none
+				.dimmer
+					margin: 0 auto
 			.home-content-block
 				+ft($ab)
 				+ts(lighten($sb, 20%) 1px 1px 1px)
@@ -511,7 +524,7 @@ html
 							margin-top: -1em
 						.headerPhoto
 							right: 1em
-							top: -1em
+							top: -0.3em
 					+at-breakpoint($pad)
 						+font(1.5em, bold)
 						padding: 0.8em 1em 0.96em 1em
@@ -535,6 +548,7 @@ html
 								margin: -0.5em
 					.home-view-inner-block
 						margin: 0 auto
+						overflow: hidden
 						.water-shadow
 							@include box-shadow($sgy 0px 0px 1px)
 						.item
@@ -637,6 +651,35 @@ html
 						.item
 							@include transition(all 0.3s)
 							width: 25%
+
+				.home-category-block
+					+wh(100%, 100%)
+					background-color: $sw
+					h2,h3
+						text-align: center
+						color: $sb
+					h2
+						height: 3em
+					h3
+						color: $sw
+						padding-bottom: 1em
+						
+					+at-breakpoint($phone)
+						h2
+							font-size: 1.2em
+							padding-top: 1em
+						h3
+							font-size: 0.8em
+							margin-top: -2.2em
+
+					+at-breakpoint($pad)
+						h2
+							font-size: 1.6em
+							padding-top: 1.3em
+						h3
+							font-size: 1em
+							margin-top: -3.1em
+
 
 			.dashboard-out-block
 				+wh(100%, 100%)
@@ -935,7 +978,7 @@ html
 									.menu
 										background-color: #4C4C4C
 										overflow-y: hidden
-										+radius(1em, bottom)
+										
 										.item
 											color: $sw
 											float: left
@@ -1094,7 +1137,7 @@ html
 										.text
 											width: 15em
 										.menu .item
-											width: 33%
+											width: 33.333%
 								.photo-file-block
 									height: 7em
 									i

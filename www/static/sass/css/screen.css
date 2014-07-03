@@ -67,7 +67,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   clear: both;
 }
 
-.str-to-img, html body .container .fullscreen-mask, html body .container .fullscreen-main, html body .container .main-intro-block .main-paw, html body .container .site-Menu-Content ul li .member, html body .container .home-content-block h1 .home-paw, html body .container .dashboard-out-block .dashboard-inner-block h1 .dashboard-paw {
+.str-to-img, html body .container .fullscreen-mask, html body .container .fullscreen-main, html body .container .main-intro-block .main-paw, html body .container .site-Menu-Content ul li .member, html body .container .screen-mask, html body .container .home-content-block h1 .home-paw, html body .container .dashboard-out-block .dashboard-inner-block h1 .dashboard-paw {
   text-indent: 100%;
   white-space: nowrap;
   overflow: hidden;
@@ -2649,7 +2649,7 @@ html body {
   position: relative;
   width: 100%;
   height: 100%;
-  /*overflow-x: hidden */
+  overflow-x: hidden;
   background: #f5eacb;
 }
 html body a {
@@ -3400,7 +3400,7 @@ html body .container .main-add-in-block .submit:hover {
 html body .container .site-Menu-Block {
   z-index: 999;
   position: absolute;
-  height: 3.55em;
+  height: 3.6em;
   color: white;
   overflow-x: hidden;
 }
@@ -3491,7 +3491,7 @@ html body .container .site-Menu-Content ul li:hover {
   -webkit-transition: all 0.5s;
   transition: all 0.5s;
   background: #262626;
-  border-left: 5px solid white;
+  border-right: 5px solid white;
 }
 html body .container .site-Menu-Content ul li:hover a {
   color: white;
@@ -3514,6 +3514,26 @@ html body .container .site-Menu-Content ul .menuShow:hover a {
   html body .container .site-Menu-Content ul li {
     font-size: 1.5em;
   }
+}
+html body .container .screen-mask {
+  width: 100%;
+  height: 100%;
+  z-index: 998;
+  position: absolute;
+  background: black;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=50);
+  opacity: 0.5;
+  display: none;
+}
+html body .container .view-screen-load {
+  z-index: 999;
+  position: absolute;
+  top: 12em;
+  width: 100%;
+  display: none;
+}
+html body .container .view-screen-load .dimmer {
+  margin: 0 auto;
 }
 html body .container .home-content-block {
   position: absolute;
@@ -3573,7 +3593,7 @@ html body .container .home-content-block h1 .headerPhoto img {
   }
   html body .container .home-content-block h1 .headerPhoto {
     right: 1em;
-    top: -1em;
+    top: -0.3em;
   }
 }
 @media (min-width: 533px) {
@@ -3609,6 +3629,7 @@ html body .container .home-content-block .home-view-block .home-view-display-set
 }
 html body .container .home-content-block .home-view-block .home-view-inner-block {
   margin: 0 auto;
+  overflow: hidden;
 }
 html body .container .home-content-block .home-view-block .home-view-inner-block .water-shadow {
   -moz-box-shadow: gray 0px 0px 1px;
@@ -3774,6 +3795,42 @@ html body .container .home-content-block .home-view-block .home-view-inner-block
     -webkit-transition: all 0.3s;
     transition: all 0.3s;
     width: 25%;
+  }
+}
+html body .container .home-content-block .home-category-block {
+  width: 100%;
+  height: 100%;
+  background-color: white;
+}
+html body .container .home-content-block .home-category-block h2, html body .container .home-content-block .home-category-block h3 {
+  text-align: center;
+  color: black;
+}
+html body .container .home-content-block .home-category-block h2 {
+  height: 3em;
+}
+html body .container .home-content-block .home-category-block h3 {
+  color: white;
+  padding-bottom: 1em;
+}
+@media (min-width: 240px) {
+  html body .container .home-content-block .home-category-block h2 {
+    font-size: 1.2em;
+    padding-top: 1em;
+  }
+  html body .container .home-content-block .home-category-block h3 {
+    font-size: 0.8em;
+    margin-top: -2.2em;
+  }
+}
+@media (min-width: 533px) {
+  html body .container .home-content-block .home-category-block h2 {
+    font-size: 1.6em;
+    padding-top: 1.3em;
+  }
+  html body .container .home-content-block .home-category-block h3 {
+    font-size: 1em;
+    margin-top: -3.1em;
   }
 }
 html body .container .dashboard-out-block {
@@ -4250,12 +4307,6 @@ html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inne
 html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-share-photo-block .pet-type .button .menu {
   background-color: #4c4c4c;
   overflow-y: hidden;
-  -moz-border-radius-bottomleft: 1em;
-  -webkit-border-bottom-left-radius: 1em;
-  border-bottom-left-radius: 1em;
-  -moz-border-radius-bottomright: 1em;
-  -webkit-border-bottom-right-radius: 1em;
-  border-bottom-right-radius: 1em;
 }
 html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-share-photo-block .pet-type .button .menu .item {
   color: white;
@@ -4485,7 +4536,7 @@ html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inne
     width: 15em;
   }
   html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-share-photo-block .pet-type .button .menu .item {
-    width: 33%;
+    width: 33.333%;
   }
   html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-share-photo-block .photo-file-block {
     height: 7em;
