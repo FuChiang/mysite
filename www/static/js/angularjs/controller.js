@@ -246,10 +246,10 @@ APP.controller("dashboard-content-block", ['$scope', '$window', '$http', '$timeo
 		$jq(".share-pic-img").click();
 	}
 
-	$scope.deletePhoto = function(photo_id, photo_name){
+	$scope.deletePhoto = function(photo_id, photo_name, photo_type){
 		$http({
 		          method: 'POST',
-			     data: {id: photo_id, name: photo_name},
+			     data: {id: photo_id, name: photo_name, type: photo_type},
 			     url: '/deletePhoto'
 
 	     }).success(function(data, status, headers, config){

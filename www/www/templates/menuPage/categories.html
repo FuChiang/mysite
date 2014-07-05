@@ -25,11 +25,25 @@
 			<div class="home-category-block">
 				<section>
 					<hgroup>
-						<h2>選擇想要觀賞的寵物</h2>
-						<h3>探索每個俏皮的瞬間</h3>
+						<h2>瀏覽不同種類的寵物</h2>
+						<h3>藉由俏皮模樣讓心情愉悅</h3>
 					</hgroup>
 				</section>
-				
+				<div class=" home-category-inner-block">
+					<div class="ui items">
+					{% for value in photosQuery %}
+						<div class="item">
+								<div class="image">
+								<a href="viewPhoto/type/{{value.photo_type}}"><img src="/static/img/category/{{value.photo_type}}.jpg"></a>
+							</div>
+							<div class="content">
+								<div class="name">{{value.photo_type}}</div>
+								<div class="extra">累積：<%{{value.photo_type_total}} | number%>張</div>
+							</div>
+						</div>
+					{% endfor %}
+					</div>
+				</div>
 			</div>
 
 		</section>		

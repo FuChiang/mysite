@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 from django.conf.urls import *
 
 handler404 = 'main.views.index'
@@ -18,6 +20,7 @@ urlpatterns = patterns('',
 	url(r'^home$', 'main.views.home'),
 	url(r'^viewPhoto/new', 'main.views.view', {'priority':'new'}),
 	url(r'^viewPhoto/popular', 'main.views.view', {'priority':'popular'}),
+	url(r'^viewPhoto/type/(?P<type>[^0-9a-zA-Z])+/$', 'main.views.view', {'priority':'popular'}),
 	url(r'^scrollNext$', 'main.views.ajaxview'),
 	url(r'^categories$', 'main.views.categories'),
 	url(r'^updatePhotoLove', 'photo.views.updateLove'),

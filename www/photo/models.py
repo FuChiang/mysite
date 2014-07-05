@@ -1,6 +1,7 @@
+# -*- coding: utf-8 -*-
+
 from django.db import connection, models
 from datetime import datetime
-import urllib2
 import urllib
 import copy
 import os
@@ -15,17 +16,26 @@ class Upload(models.Model):
 	photo_love = models.IntegerField(max_length = 10, default = 0, blank=True)
 	photo_comment = models.IntegerField(max_length = 10, default = 0, blank=True)
 
-def getAllPhotoData(field, startNum):
+class Category(models.Model):
+	photo_type = models.CharField(max_length = 4)
+	photo_type_total = models.IntegerField(max_length = 10)
+
+def getAllPhotoData(field, startNum, type):
+	type = 'where photo_upload.photo_type=\''+type+'\'' if type != None else ""
 	cursor = connection.cursor()
-	cursor.execute("select member_profile.pic, member_profile.account, photo_upload.id as pid,photo_upload.* from photo_upload join member_profile on photo_upload.photo_account_id = member_profile.id order by photo_upload."+field+" DESC limit "+startNum+",18")
+	cursor.execute("select member_profile.pic, member_profile.account, photo_upload.id as pid,photo_upload.* from photo_upload join member_profile on photo_upload.photo_account_id = member_profile.id "+type+" order by photo_upload."+field+" DESC limit "+startNum+",18")
 	return dictAllData(cursor)
 
 def dictAllData(data):
 	field = data.description
 	return[
-		dict(zip([name[0] for name in field], raw))
-		for raw in data.fetchall()
+		dict(zip([name[0] for name in field], raw)) for raw in data.fetchall()
 	]
+
+def getAllCategory():
+	cursor = connection.cursor()
+	cursor.execute("select photo_type, photo_type_total from photo_category order by photo_type_total desc")
+	return dictAllData(cursor)
 
 def transformField(priority):
 	if priority == 'new':
@@ -51,18 +61,18 @@ def sizeVailed(file):
 def urlPicVailed(url):
 
 	try:
-		reponse = urllib2.urlopen(urllib2.Request(url))
+		reponse = urllib.urlopen(url)
 		state = True
 	except:
 		state = False
 
 	return state
 
-def deleteVailed(id, name):
+def deleteVailed(id, name, type):
 
 	state = True
 
-	if id == None or name == None:
+	if id == None or name == None or type == None:
 		state = False
 	else:
 		name = name.split("_")

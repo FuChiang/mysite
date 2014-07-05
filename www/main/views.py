@@ -13,7 +13,7 @@ def index(request, statue = 'no'):
 def home(request):
 	return  render(request, 'menuPage/home.html', {'load': 'homePage', 'topTitle': '分享&紀錄寵物的每一天'})
 
-def view(request, priority):
+def view(request, priority, type=None):
 
 	photosQuery = None
 	field = None
@@ -27,11 +27,12 @@ def view(request, priority):
 
 		if loadVaild(field):
 
-			photosQuery = getAllPhotoData(field, str(0))
+			photosQuery = getAllPhotoData(field, str(0), type)
 
 			request.session['start_view_num'] = 18
+			request.session['viewType'] = type if type != None else None
 
-	return  render(request, 'menuPage/view.html', {'load': 'viewPage', 'topTitle': '觀賞寵物照', 'photosQuery': photosQuery, 'order': statue})
+	return  render(request, 'menuPage/view.html', {'load': 'viewPage', 'topTitle': '觀賞寵物照', 'photosQuery': photosQuery, 'order': statue, 'type': type})
 
 def ajaxview(request):
 	
@@ -45,7 +46,7 @@ def ajaxview(request):
 
 			json_str = []
 
-			photosQuery = getAllPhotoData(field, str(request.session['start_view_num']))
+			photosQuery = getAllPhotoData(field, str(request.session['start_view_num']), request.session['viewType'])
 
 			request.session['start_view_num'] = request.session['start_view_num']+17
 
@@ -68,7 +69,12 @@ def ajaxview(request):
 			return HttpResponse(json.dumps(json_str), mimetype='application/json')
 
 def categories(request):
-	return  render(request, 'menuPage/categories.html', {'load': 'categoriesPage', 'topTitle': '寵物照分類'})
+
+	if request.method == 'GET':
+
+		photosQuery = getAllCategory()
+
+	return  render(request, 'menuPage/categories.html', {'load': 'categoriesPage', 'topTitle': '寵物照分類', 'photosQuery': photosQuery})
 
 def sitemap(request):
 	return  render(request, 'sitemap/sitemap.xml')

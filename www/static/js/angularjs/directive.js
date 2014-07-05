@@ -394,8 +394,9 @@ APP.directive('windowScroll', ['$window', '$http', '$compile', '$timeout',functi
 					pageHeight = element.height(),
 			 		winHeight = $window.innerHeight;
 				},
-				ajaxIng = false;
 
+				ajaxIng = false;			
+			
 			angular.element($window).bind("scroll", function(value){
 			 	var scrollTop = angular.element($window).scrollTop();
 
@@ -405,6 +406,8 @@ APP.directive('windowScroll', ['$window', '$http', '$compile', '$timeout',functi
 				if(pageHeight <= winHeight+scrollTop+addNum && !ajaxIng){
 
 					ajaxIng = true;
+
+					if(priority == 'type') priority = 'popular';
 
 					$http({
 					          method: 'POST',

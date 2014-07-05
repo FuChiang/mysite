@@ -22,7 +22,7 @@
 									<a href="">
 										<img src="{{value.photo_filename | checkImg:'small'}}" alt="{{value.photo_pet_name}}">
 									</a>
-									<button class="ui primary button" ng-click="deletePhoto({{value.id}}, '{{value.photo_filename}}')">
+									<button class="ui primary button" ng-click="deletePhoto({{value.id}}, '{{value.photo_filename}}', '{{value.photo_type}}')">
 										<i class="trash icon"></i>刪除
 									</button>
 								</div>

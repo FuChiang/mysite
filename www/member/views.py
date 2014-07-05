@@ -101,6 +101,8 @@ def loginOut(request):
 	del request.session["user"]
 	del request.session["user_id"]
 	del request.session["user_pic"]
+	del request.session['start_view_num']
+	del request.session['viewType']
 
 	return HttpResponseRedirect('/')
 

@@ -6,7 +6,7 @@ html
 		margin: 0 auto
 		+ft($re)
 		+wh(100%, 100%)
-		overflow-x: hidden
+		/*overflow-x: hidden*/
 		background: darken($sdy, 10%)
 		a 
 			outline: none
@@ -120,7 +120,6 @@ html
 						background: darken($slp, 10%)
 
 				.searchResult
-					/*border: 1px solid red*/
 					+wh(65em, 100%)
 					+ft($re, 999)
 					margin-left: 20em
@@ -654,15 +653,30 @@ html
 
 				.home-category-block
 					+wh(100%, 100%)
-					background-color: $sw
 					h2,h3
 						text-align: center
 						color: $sb
+						background-color: $sw
 					h2
 						height: 3em
 					h3
-						color: $sw
+						color: $sgy
+						+font(1.4em, bold, italic)
+						@include text-shadow($sw 0 0 0)
 						padding-bottom: 1em
+
+					.home-category-inner-block
+						margin-top: 2em
+						.ui.items
+							width: 95%
+							margin: 0 auto
+							@include text-shadow($sw 0 0 0)
+							.item
+								margin: 0  0 2em 0
+								min-height: 5em
+								.image
+									a img
+										+wh(100%, 100%)
 						
 					+at-breakpoint($phone)
 						h2
@@ -671,6 +685,8 @@ html
 						h3
 							font-size: 0.8em
 							margin-top: -2.2em
+						.item
+							width: 100%
 
 					+at-breakpoint($pad)
 						h2
@@ -678,7 +694,16 @@ html
 							padding-top: 1.3em
 						h3
 							font-size: 1em
-							margin-top: -3.1em
+							margin-top: -2.5em
+						.item
+							width: 33.33%
+					
+					+at-breakpoint($pc)
+						.item
+							width: 25%
+					+at-breakpoint($bpc)
+						.item
+							width: 20%
 
 
 			.dashboard-out-block

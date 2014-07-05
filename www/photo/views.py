@@ -2,6 +2,7 @@
 
 from django.http import HttpResponse, HttpResponseRedirect
 from django.conf import settings
+from django.db import transaction
 from django.db.models import F
 from photo.models import *
 from wand.image import Image
@@ -10,6 +11,7 @@ import json
 import urllib
 import os
 
+@transaction.commit_on_success
 def upload(request):
 
 	if request.method == 'POST' and request.session["user_id"]:
@@ -28,7 +30,7 @@ def upload(request):
 
 				urllib.urlretrieve(urlPic, picDir+filename)
 
-				pic = urllib2.urlopen('http://www.cutepaw.idv.tw/static/img/photo/'+filename)
+				pic = urllib.urlopen('http://www.cutepaw.idv.tw/static/img/photo/'+filename)
 			else:
 				try:
 					pic = request.FILES['sharePicImg']
@@ -46,10 +48,13 @@ def upload(request):
 							if urlPic != None:
 								os.remove(picDir+filename)
 				except:pass
-				Upload.objects.create(photo_account_id = request.session["user_id"], photo_filename = filename, photo_pet_name = name, photo_description = des, photo_date = strftime('%Y/%m/%d-%H:%M:%S'), photo_love = 0, photo_type = tp)
 
+				Upload.objects.create(photo_account_id = request.session["user_id"], photo_filename = filename, photo_pet_name = name, photo_description = des, photo_date = strftime('%Y/%m/%d-%H:%M:%S'), photo_love = 0, photo_type = tp)
+				Category.objects.filter(photo_type = tp).update(photo_type_total=F('photo_type_total')+1)
+	
 	return HttpResponseRedirect('/myPhoto/'+request.session["user"])
 
+@transaction.commit_on_success
 def delete(request):
 
 	if request.method == 'POST' and request.is_ajax() and request.session["user_id"]:
@@ -58,10 +63,12 @@ def delete(request):
 
 		photo_id = data['id'] if data['id'] and data['id'] !="" else None
 		photo_name = data['name'] if data['name'] and data['name'] !="" else None
+		photo_type = data['type'] if data['type'] and data['type'] !="" else None
 
-		if deleteVailed(photo_id, photo_name):
-			deleteImg(settings.MEDIA_ROOT, photo_name)
+		if deleteVailed(photo_id, photo_name, photo_type):
 			Upload.objects.get(id=photo_id, photo_account_id=request.session["user_id"]).delete()
+			Category.objects.filter(photo_type = photo_type).update(photo_type_total=F('photo_type_total')-1)
+			deleteImg(settings.MEDIA_ROOT, photo_name)
 
 	return HttpResponse('delete right')
 
