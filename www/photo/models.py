@@ -2,6 +2,7 @@
 
 from django.db import connection, models
 from datetime import datetime
+from django.conf import settings
 import urllib
 import copy
 import os
@@ -92,10 +93,9 @@ def loadVaild(field):
 	
 	return state
 
-def deleteImg(path, img):
-
-	os.remove(path+'/photo/big/'+img)
-	os.remove(path+'/photo/small/'+img)
+def deleteImg(img, folder = None):
+	picDir = img if folder == None else folder+img
+	os.remove(settings.MEDIA_ROOT+picDir)
 
 def sliceStr(str, length):
 	if len(str) > length:

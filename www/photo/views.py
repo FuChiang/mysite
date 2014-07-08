@@ -17,9 +17,9 @@ def upload(request):
 	if request.method == 'POST' and request.session["user_id"]:
 		urlPic = request.POST.get('shareUrlPicImg', None)
 		name = request.POST.get('shareName', None)
+		picDir = settings.MEDIA_ROOT+'/photo/'
 		tp = request.POST.get('shareType', None)
 		des = request.POST.get('shareDescription' , "無")
-		picDir = settings.MEDIA_ROOT+'/photo/'
 		filename = request.session["user"]+'_'+strftime('%Y%m%d%H%M%S')
 		pic = None
 		size = {"big": [500, 450], "small": [200, 150]}
@@ -46,7 +46,7 @@ def upload(request):
 							img.save(filename=picDir+'small/'+filename)
 
 							if urlPic != None:
-								os.remove(picDir+filename)
+								deleteImg(filename)
 				except:pass
 
 				Upload.objects.create(photo_account_id = request.session["user_id"], photo_filename = filename, photo_pet_name = name, photo_description = des, photo_date = strftime('%Y/%m/%d-%H:%M:%S'), photo_love = 0, photo_type = tp)
@@ -68,7 +68,8 @@ def delete(request):
 		if deleteVailed(photo_id, photo_name, photo_type):
 			Upload.objects.get(id=photo_id, photo_account_id=request.session["user_id"]).delete()
 			Category.objects.filter(photo_type = photo_type).update(photo_type_total=F('photo_type_total')-1)
-			deleteImg(settings.MEDIA_ROOT, photo_name)
+			deleteImg(photo_name, '/photo/big/')
+			deleteImg(photo_name, '/photo/small/')
 
 	return HttpResponse('delete right')
 

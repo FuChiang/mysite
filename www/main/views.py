@@ -74,7 +74,7 @@ def categories(request):
 
 		photosQuery = getAllCategory()
 
-	return  render(request, 'menuPage/categories.html', {'load': 'categoriesPage', 'topTitle': '寵物照分類', 'photosQuery': photosQuery})
+	return  render(request, 'menuPage/categories.html', {'load': 'categoriesPage', 'topTitle': '寵物照種類', 'photosQuery': photosQuery})
 
 def sitemap(request):
 	return  render(request, 'sitemap/sitemap.xml')
