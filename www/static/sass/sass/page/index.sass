@@ -6,7 +6,7 @@ html
 		margin: 0 auto
 		+ft($re)
 		+wh(100%, 100%)
-		/*overflow-x: hidden*/
+		overflow-x: hidden
 		background: darken($sdy, 10%)
 		a 
 			outline: none
@@ -1208,8 +1208,10 @@ html
 										font-size: 1em
 								.photo-preview-block
 									margin-top: -3em
+									+wh(20em, 20em)
+									overflow: hidden
 									img
-										+wh(20em, 20em)
+										+m-wh(20em, 20em)
 								.uploadLoad
 									margin-top: 20%
 

@@ -49,7 +49,7 @@ APP.directive('myShare', ['$timeout', function(time) {
 					max_upload = 2,
 					reader = new FileReader(); 
 
-				if((file.size/1024/1024) > max_upload || fileName.match(/(jpg|gif|png)$/ig) === null){
+				if((file.size/1024/1024) > max_upload || fileName.match(/(jpg|jpeg|gif|png)$/ig) === null){
 					time(function(){
 						scope.shareSizeError = true;
 					},100);

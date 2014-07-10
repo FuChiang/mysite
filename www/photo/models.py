@@ -94,7 +94,7 @@ def loadVaild(field):
 	return state
 
 def deleteImg(img, folder = None):
-	picDir = img if folder == None else folder+img
+	picDir = '/photo/'+img if folder == None else folder+img
 	os.remove(settings.MEDIA_ROOT+picDir)
 
 def sliceStr(str, length):

@@ -211,10 +211,12 @@ var reuseEvent = {
 			$jq_slidebar.sidebar('toggle');
 
 			if($jq_mask.is(":visible")){
+				$jq("body").css("overflow", false);
 				$jq_mask.hide($jq_speed);
 				$jq(this).removeClass("remove").addClass("reorder").parent().css("background-color", false);
 			}
 			else{
+				$jq("body").css("overflow", "hidden");
 				$jq_mask.show($jq_speed);
 				$jq(this).removeClass("reorder").addClass("remove").parent().css("background-color", "#CD3333");
 			}

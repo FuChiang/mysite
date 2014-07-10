@@ -2649,7 +2649,7 @@ html body {
   position: relative;
   width: 100%;
   height: 100%;
-  /*overflow-x: hidden */
+  overflow-x: hidden;
   background: #f5eacb;
 }
 html body a {
@@ -4643,10 +4643,13 @@ html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inne
   }
   html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-share-photo-block .photo-preview-block {
     margin-top: -3em;
-  }
-  html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-share-photo-block .photo-preview-block img {
     width: 20em;
     height: 20em;
+    overflow: hidden;
+  }
+  html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-share-photo-block .photo-preview-block img {
+    max-width: 20em;
+    max-height: 20em;
   }
   html body .container .dashboard-out-block .dashboard-inner-block .dashboard-inner-content .dashboard-share-photo-block .uploadLoad {
     margin-top: 20%;
